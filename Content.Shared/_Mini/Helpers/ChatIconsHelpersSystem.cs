@@ -20,15 +20,36 @@ public sealed class ChatIconsHelpersSystem : EntitySystem
     {
         if (!_prototype.TryIndex(job, out var jobPrototype))
         {
-            return Loc.GetString("texture-rsi-tag",
-                ("path", NoIdIconRsiPath),
-                ("state", NoIdIconState),
-                ("scale", scale));
+            return BuildIconMarkup(GetFallbackJobIconSpecifier(), scale);
         }
 
-        var icon = _prototype.Index(jobPrototype.Icon);
+        return BuildIconMarkup(GetJobIconSpecifier(jobPrototype), scale);
+    }
+
+    /// <summary>
+    /// Возвращает спецификатор иконки работы, используя переданный прототип работы
+    /// </summary>
+    [PublicAPI]
+    public SpriteSpecifier GetJobIconSpecifier(JobPrototype job)
+    {
+        var icon = _prototype.Index(job.Icon);
 
         return icon.Icon switch
+        {
+            SpriteSpecifier.Texture tex => tex,
+            SpriteSpecifier.Rsi rsi => rsi,
+            _ => GetFallbackJobIconSpecifier(),
+        };
+    }
+
+    private static SpriteSpecifier.Rsi GetFallbackJobIconSpecifier()
+    {
+        return new SpriteSpecifier.Rsi(new ResPath(NoIdIconRsiPath), NoIdIconState);
+    }
+
+    private string BuildIconMarkup(SpriteSpecifier icon, int scale)
+    {
+        return icon switch
         {
             SpriteSpecifier.Texture tex => Loc.GetString("texture-tag",
                 ("path", tex.TexturePath.CanonPath),
@@ -42,23 +63,5 @@ public sealed class ChatIconsHelpersSystem : EntitySystem
                 ("state", NoIdIconState),
                 ("scale", scale)),
         };
-    }
-
-    /// <summary>
-    /// Возвращает путь к иконке работы, используя переданный прототип работы
-    /// </summary>
-    [PublicAPI]
-    public string GetJobIconPath(JobPrototype job)
-    {
-        var icon = _prototype.Index(job.Icon);
-
-        var sprite = icon.Icon switch
-        {
-            SpriteSpecifier.Texture tex => tex.TexturePath.CanonPath,
-            SpriteSpecifier.Rsi rsi => rsi.RsiPath.CanonPath,
-            _ => NoIdIconRsiPath,
-        };
-
-        return sprite;
     }
 }
