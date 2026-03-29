@@ -5,6 +5,6 @@
   description: Прочный комбинезон, предназначенный для работы в шахтах Лаваленда.
   components:
   - type: Sprite
-    sprite: _Lavaland/Clothing/Uniforms/Jumpsuit/shaft_miner.rsi
+    sprite: _Goobstation/Clothing/Uniforms/Other/Overalls/Cargo/shaft_miner.rsi
   - type: Clothing
-    sprite: _Lavaland/Clothing/Uniforms/Jumpsuit/shaft_miner.rsi
+    sprite: _Goobstation/Clothing/Uniforms/Other/Overalls/Cargo/shaft_miner.rsi
