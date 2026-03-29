@@ -9,7 +9,8 @@ public sealed class ChatIconsHelpersSystem : EntitySystem
 {
     [Dependency] private readonly IPrototypeManager _prototype = default!;
 
-    public const string NoIdIconPath = "/Textures/Interface/Misc/job_icons.rsi/NoId.png";
+    public const string NoIdIconRsiPath = "/Textures/Interface/Misc/job_icons.rsi";
+    public const string NoIdIconState = "NoId";
 
     /// <summary>
     /// Собирает и возвращает иконку для переданной работы
@@ -17,16 +18,30 @@ public sealed class ChatIconsHelpersSystem : EntitySystem
     [PublicAPI]
     public string GetJobIcon(ProtoId<JobPrototype>? job, int scale = 1)
     {
-        var iconPath = _prototype.TryIndex(job, out var jobPrototype)
-            ? GetJobIconPath(jobPrototype)
-            : NoIdIconPath;
+        if (!_prototype.TryIndex(job, out var jobPrototype))
+        {
+            return Loc.GetString("texture-rsi-tag",
+                ("path", NoIdIconRsiPath),
+                ("state", NoIdIconState),
+                ("scale", scale));
+        }
 
-        var jobIcon = Loc.GetString("texture-tag",
-            ("path", iconPath),
-            ("scale", scale)
-        );
+        var icon = _prototype.Index(jobPrototype.Icon);
 
-        return jobIcon;
+        return icon.Icon switch
+        {
+            SpriteSpecifier.Texture tex => Loc.GetString("texture-tag",
+                ("path", tex.TexturePath.CanonPath),
+                ("scale", scale)),
+            SpriteSpecifier.Rsi rsi => Loc.GetString("texture-rsi-tag",
+                ("path", rsi.RsiPath.CanonPath),
+                ("state", rsi.RsiState),
+                ("scale", scale)),
+            _ => Loc.GetString("texture-rsi-tag",
+                ("path", NoIdIconRsiPath),
+                ("state", NoIdIconState),
+                ("scale", scale)),
+        };
     }
 
     /// <summary>
@@ -40,8 +55,8 @@ public sealed class ChatIconsHelpersSystem : EntitySystem
         var sprite = icon.Icon switch
         {
             SpriteSpecifier.Texture tex => tex.TexturePath.CanonPath,
-            SpriteSpecifier.Rsi rsi => rsi.RsiPath.CanonPath + '/' + rsi.RsiState + ".png",
-            _ => NoIdIconPath,
+            SpriteSpecifier.Rsi rsi => rsi.RsiPath.CanonPath,
+            _ => NoIdIconRsiPath,
         };
 
         return sprite;
