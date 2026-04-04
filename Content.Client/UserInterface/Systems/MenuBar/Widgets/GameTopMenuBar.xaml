@@ -118,7 +118,7 @@ SPDX-License-Identifier: AGPL-3.0-or-later
         HorizontalExpand="True"
         AppendStyleClass="{x:Static style:StyleBase.ButtonSquare}"
         />
-    <ui:MenuButton
+    <!-- <ui:MenuButton
         Name="DonateButton"
         Access="Internal"
         Icon="{xe:Tex '/Textures/_Mini/Interface/VerbIcons/ruble.png'}"
@@ -126,7 +126,7 @@ SPDX-License-Identifier: AGPL-3.0-or-later
         MinSize="42 64"
         HorizontalExpand="True"
         AppendStyleClass="{x:Static style:StyleBase.ButtonSquare}"
-    />
+    /> -->
     <ui:MenuButton
         Name="AHelpButton"
         Access="Internal"

@@ -53,7 +53,7 @@ namespace Content.Client.Lobby.UI
                 var requestUrl = $"{_cfg.GetCVar(CCCVars.DiscordAuthApiUrl)}/login/{userId.ToString()}";
                 _uriOpener.OpenUri(new Uri(requestUrl));
             };
-
+            Boosty.OnPressed += _ => _uriOpener.OpenUri(new Uri("https://boosty.to/mini-station"));
             Discord.OnPressed += _ => _uriOpener.OpenUri(new Uri("https://discord.gg/mini-station"));
             Telegram.OnPressed += _ => _uriOpener.OpenUri(new Uri("https://t.me/mini_station"));
             CharacterSetup.OnPressed += _ => SwitchState(LobbyGuiState.CharacterSetup);

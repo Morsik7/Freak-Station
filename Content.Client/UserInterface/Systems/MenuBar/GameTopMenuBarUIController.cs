@@ -41,7 +41,7 @@ public sealed class GameTopMenuBarUIController : UIController
     [Dependency] private readonly GuidebookUIController _guidebook = default!;
     [Dependency] private readonly EmotesUIController _emotes = default!;
     [Dependency] private readonly LanguageMenuUIController _language = default!;
-    [Dependency] private readonly DonateShopUIController _donate = default!;
+    // [Dependency] private readonly DonateShopUIController _donate = default!;
 
     private GameTopMenuBar? GameTopMenuBar => UIManager.GetActiveUIWidgetOrNull<GameTopMenuBar>();
 
@@ -66,7 +66,7 @@ public sealed class GameTopMenuBarUIController : UIController
         _sandbox.UnloadButton();
         _emotes.UnloadButton();
         _language.UnloadButton();
-        _donate.UnloadButton();
+        // _donate.UnloadButton();
     }
 
     public void LoadButtons()
@@ -81,6 +81,6 @@ public sealed class GameTopMenuBarUIController : UIController
         _sandbox.LoadButton();
         _emotes.LoadButton();
         _language.LoadButton();
-        _donate.LoadButton();
+        // _donate.LoadButton();
     }
 }
