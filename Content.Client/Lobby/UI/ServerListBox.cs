@@ -36,13 +36,13 @@ public sealed class ServerListBox : BoxContainer
         scrollContainer.AddChild(serverContainer);
         AddChild(scrollContainer);
 
-        AddServers(serverContainer);
+        // AddServers(serverContainer);
     }
 
-    private void AddServers(BoxContainer container)
-    {
-        AddServerInfo(container, "МИНИ-СТАНЦИЯ:ОАЗИС", "ss14://ministation.qeqk.ru:1215", "Вайтлист с высоким уровнем отыгрыша", null);
-    }
+    // private void AddServers(BoxContainer container)
+    // {
+    //     AddServerInfo(container, "МИНИ-СТАНЦИЯ:ОАЗИС", "ss14://ministation.qeqk.ru:1215", "Вайтлист с высоким уровнем отыгрыша", null);
+    // }
 
     private void AddServerInfo(BoxContainer container, string serverName, string serverUrl, string description, string? discord)
     {
