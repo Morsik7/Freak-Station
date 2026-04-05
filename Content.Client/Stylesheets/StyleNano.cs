@@ -864,7 +864,7 @@ namespace Content.Client.Stylesheets
             {
                 BackgroundColor = Accent("#323240D9", 0.24f),      // было 0.32
                 BorderThickness = new Thickness(0),
-                Padding = new Thickness(2),
+                Padding = new Thickness(1),
                 ContentMarginLeftOverride = 6,
                 ContentMarginTopOverride = 3,
                 ContentMarginRightOverride = 6,
@@ -881,16 +881,16 @@ namespace Content.Client.Stylesheets
                 BackgroundColor = Accent("#101018C0", 0.08f),      // было 0.12
                 BorderColor = Accent("#55556C88", 0.40f),          // было 0.46
                 BorderThickness = new Thickness(0),
-                Padding = new Thickness(2),
+                Padding = new Thickness(1),
             };
 
             // Поверхности
             var glassSurfaceDark = new StyleBoxFlat
             {
-                BackgroundColor = Accent("#0E0E16CC", 0.06f),      // было 0.10
+                BackgroundColor = Accent("#24242fe7", 0.06f),      // было 0.10
                 BorderColor = Accent("#4A4A6088", 0.38f),          // было 0.44
                 BorderThickness = new Thickness(0),
-                Padding = new Thickness(2),
+                Padding = new Thickness(1),
                 ContentMarginLeftOverride = 4,
                 ContentMarginTopOverride = 4,
                 ContentMarginRightOverride = 4,
@@ -908,7 +908,7 @@ namespace Content.Client.Stylesheets
                 BackgroundColor = Accent("#2A2A38D9", 0.26f),      // было 0.34
                 BorderColor = Accent("#7A7A9099", 0.46f),          // было 0.52
                 BorderThickness = new Thickness(0),
-                Padding = new Thickness(2),
+                Padding = new Thickness(1),
                 ContentMarginLeftOverride = 6,
                 ContentMarginTopOverride = 2,
                 ContentMarginRightOverride = 6,
@@ -917,7 +917,7 @@ namespace Content.Client.Stylesheets
 
             var glassListBackground = new StyleBoxFlat
             {
-                BackgroundColor = Accent("#0A0A10C4", 0.04f),      // было 0.08
+                BackgroundColor = Accent("#11111ad5", 0.04f),      // было 0.08
                 BorderColor = Accent("#4A4A6088", 0.38f),          // было 0.44
                 BorderThickness = new Thickness(0),
                 Padding = new Thickness(2),

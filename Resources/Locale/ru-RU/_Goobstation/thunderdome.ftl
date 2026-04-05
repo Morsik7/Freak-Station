@@ -1,9 +1,9 @@
 # Ghost HUD button
-thunderdome-ghost-button = Грозовой Ринг ({$count})
-thunderdome-ghost-button-default = Грозовой Ринг (0)
+thunderdome-ghost-button = Грозовая Арена ({$count})
+thunderdome-ghost-button-default = Грозовая Арена (0)
 
 # Loadout window
-thunderdome-loadout-title = Снаряжение Грозового Ринга
+thunderdome-loadout-title = Снаряжение Грозовой Арены
 thunderdome-loadout-players = игроков на арене: {$count}
 thunderdome-loadout-subtitle = Выбери свой комплект оружия
 thunderdome-loadout-confirm = Зайти на арену
@@ -28,6 +28,9 @@ thunderdome-loadout-inspector = Инспектор
 thunderdome-loadout-hristov = Христов
 thunderdome-loadout-esword = Энергетический меч
 thunderdome-loadout-capo = Капоэйра
+thunderdome-loadout-smg2 = C-20r
+thunderdome-loadout-smg3 = WSPR
+thunderdome-loadout-estoc = Эсток
 
 # Weapon descriptions (tooltips)
 thunderdome-desc-shotgun = Дробовик + 1 коробка картечи, 1 коробка ружейных патронов
@@ -41,6 +44,9 @@ thunderdome-desc-inspector = Револьвер + 2 спидлоадера
 thunderdome-desc-hristov = Анти-материальная снайперская винтовка + 2 пары магазинов
 thunderdome-desc-esword = Энергетический меч + 2 инъектора стимуляторов
 thunderdome-desc-capo = Пособие по Капоэйре + 2 автоинъектора
+thunderdome-desc-smg2 = Компактный пистолет-пулемёт C-20r + 2 запасных магазина
+thunderdome-desc-smg3 = Штурмовая винтовка WSPR + 2 запасных магазина
+thunderdome-desc-estoc = Дальнобойный эсток + 2 запасных магазина
 
 # Kill streak announcements
 thunderdome-streak-3 = {$player} совершил серию убийств!
