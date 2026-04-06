@@ -1,10 +1,11 @@
+// SPDX-FileCopyrightText: 2026 Casha
 // SPDX-FileCopyrightText: 2020 20kdc <asdd2808@gmail.com>
 // SPDX-FileCopyrightText: 2021 Leo <lzimann@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2021 Metal Gear Sloth <metalgearsloth@gmail.com>
 // SPDX-FileCopyrightText: 2021 Remie Richards <remierichards@gmail.com>
 // SPDX-FileCopyrightText: 2021 Swept <sweptwastaken@protonmail.com>
 // SPDX-FileCopyrightText: 2022 Flipp Syder <76629141+vulppine@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Javier Guardia Fernández <DrSmugleaf@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2022 Javier Guardia FernГЎndez <DrSmugleaf@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2022 Julian Giebel <j.giebel@netrocks.info>
 // SPDX-FileCopyrightText: 2022 Moony <moonheart08@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2022 Vera Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
@@ -88,7 +89,7 @@
 // SPDX-FileCopyrightText: 2024 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 stellar-novas <stellar_novas@riseup.net>
 // SPDX-FileCopyrightText: 2024 themias <89101928+themias@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Арт <123451459+JustArt1m@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 РђСЂС‚ <123451459+JustArt1m@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
 // SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
@@ -714,6 +715,135 @@ namespace Content.Server.Database
                 db.DbContext.PlayTime.Add(playTime);
             }
 
+            await db.DbContext.SaveChangesAsync();
+        }
+
+        public async Task<DailyRewardProgress?> GetDailyRewardProgress(Guid playerId, CancellationToken cancel)
+        {
+            await using var db = await GetDb(cancel);
+
+            return await db.DbContext.DailyRewardProgresses
+                .SingleOrDefaultAsync(p => p.PlayerId == playerId, cancel);
+        }
+
+        public async Task UpsertDailyRewardProgress(DailyRewardProgress progress)
+        {
+            await using var db = await GetDb();
+
+            var existing = await db.DbContext.DailyRewardProgresses
+                .SingleOrDefaultAsync(p => p.PlayerId == progress.PlayerId);
+
+            if (existing == null)
+            {
+                db.DbContext.DailyRewardProgresses.Add(new DailyRewardProgress
+                {
+                    PlayerId = progress.PlayerId,
+                    CurrentStreak = progress.CurrentStreak,
+                    LastClaimTime = progress.LastClaimTime,
+                    PendingActiveDate = progress.PendingActiveDate,
+                    PendingActiveTime = progress.PendingActiveTime
+                });
+            }
+            else
+            {
+                existing.CurrentStreak = progress.CurrentStreak;
+                existing.LastClaimTime = progress.LastClaimTime;
+                existing.PendingActiveDate = progress.PendingActiveDate;
+                existing.PendingActiveTime = progress.PendingActiveTime;
+            }
+
+            await db.DbContext.SaveChangesAsync();
+        }
+
+        public async Task<List<PlayerAntagToken>> GetPlayerAntagTokens(Guid playerId, CancellationToken cancel)
+        {
+            await using var db = await GetDb(cancel);
+
+            return await db.DbContext.PlayerAntagTokens
+                .Where(p => p.PlayerId == playerId && p.Amount > 0)
+                .OrderBy(p => p.TokenId)
+                .ToListAsync(cancel);
+        }
+
+        public async Task<PlayerAntagTokenSelection?> GetPlayerAntagTokenSelection(Guid playerId, CancellationToken cancel)
+        {
+            await using var db = await GetDb(cancel);
+
+            return await db.DbContext.PlayerAntagTokenSelections
+                .SingleOrDefaultAsync(p => p.PlayerId == playerId, cancel);
+        }
+
+        public async Task SetPlayerAntagTokenAmount(Guid playerId, string tokenId, int amount)
+        {
+            await using var db = await GetDb();
+
+            var existing = await db.DbContext.PlayerAntagTokens
+                .SingleOrDefaultAsync(p => p.PlayerId == playerId && p.TokenId == tokenId);
+
+            if (amount <= 0)
+            {
+                if (existing != null)
+                    db.DbContext.PlayerAntagTokens.Remove(existing);
+
+                await db.DbContext.SaveChangesAsync();
+                return;
+            }
+
+            if (existing == null)
+            {
+                db.DbContext.PlayerAntagTokens.Add(new PlayerAntagToken
+                {
+                    PlayerId = playerId,
+                    TokenId = tokenId,
+                    Amount = amount
+                });
+            }
+            else
+            {
+                existing.Amount = amount;
+            }
+
+            await db.DbContext.SaveChangesAsync();
+        }
+
+        public async Task SetPlayerAntagTokenSelection(Guid playerId, string tokenId, string antagId)
+        {
+            await using var db = await GetDb();
+
+            var existing = await db.DbContext.PlayerAntagTokenSelections
+                .SingleOrDefaultAsync(p => p.PlayerId == playerId);
+
+            if (existing == null)
+            {
+                db.DbContext.PlayerAntagTokenSelections.Add(new PlayerAntagTokenSelection
+                {
+                    PlayerId = playerId,
+                    TokenId = tokenId,
+                    AntagId = antagId,
+                    SelectedAt = DateTime.UtcNow
+                });
+            }
+            else
+            {
+                existing.TokenId = tokenId;
+                existing.AntagId = antagId;
+                existing.SelectedAt = DateTime.UtcNow;
+            }
+
+            await db.DbContext.SaveChangesAsync();
+        }
+
+        public async Task ClearPlayerAntagTokenSelection(Guid playerId)
+        {
+            await using var db = await GetDb();
+
+            var existing = await db.DbContext.PlayerAntagTokenSelections
+                .SingleOrDefaultAsync(p => p.PlayerId == playerId);
+
+            if (existing == null)
+                return;
+
+            db.DbContext.PlayerAntagTokenSelections.Remove(existing);
             await db.DbContext.SaveChangesAsync();
         }
 
@@ -2058,3 +2188,4 @@ INSERT INTO player_round (players_id, rounds_id) VALUES ({players[player]}, {id}
         }
     }
 }
+

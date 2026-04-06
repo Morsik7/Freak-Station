@@ -1,5 +1,6 @@
+// SPDX-FileCopyrightText: 2026 Casha
 // SPDX-FileCopyrightText: 2021 Acruid <shatter66@gmail.com>
-// SPDX-FileCopyrightText: 2021 Javier Guardia Fernández <DrSmugleaf@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2021 Javier Guardia FernГЎndez <DrSmugleaf@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2021 Leo <lzimann@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2022 Julian Giebel <j.giebel@netrocks.info>
 // SPDX-FileCopyrightText: 2022 Kevin Zheng <kevinz5000@gmail.com>
@@ -225,6 +226,13 @@ namespace Content.Server.Database
         /// </summary>
         /// <param name="updates">The list of all updates to apply to the database.</param>
         Task UpdatePlayTimes(IReadOnlyCollection<PlayTimeUpdate> updates);
+        Task<DailyRewardProgress?> GetDailyRewardProgress(Guid playerId, CancellationToken cancel = default);
+        Task UpsertDailyRewardProgress(DailyRewardProgress progress);
+        Task<List<PlayerAntagToken>> GetPlayerAntagTokens(Guid playerId, CancellationToken cancel = default);
+        Task<PlayerAntagTokenSelection?> GetPlayerAntagTokenSelection(Guid playerId, CancellationToken cancel = default);
+        Task SetPlayerAntagTokenAmount(Guid playerId, string tokenId, int amount);
+        Task SetPlayerAntagTokenSelection(Guid playerId, string tokenId, string antagId);
+        Task ClearPlayerAntagTokenSelection(Guid playerId);
 
         #endregion
 
@@ -645,6 +653,48 @@ namespace Content.Server.Database
         {
             DbWriteOpsMetric.Inc();
             return RunDbCommand(() => _db.UpdatePlayTimes(updates));
+        }
+
+        public Task<DailyRewardProgress?> GetDailyRewardProgress(Guid playerId, CancellationToken cancel = default)
+        {
+            DbReadOpsMetric.Inc();
+            return RunDbCommand(() => _db.GetDailyRewardProgress(playerId, cancel));
+        }
+
+        public Task UpsertDailyRewardProgress(DailyRewardProgress progress)
+        {
+            DbWriteOpsMetric.Inc();
+            return RunDbCommand(() => _db.UpsertDailyRewardProgress(progress));
+        }
+
+        public Task<List<PlayerAntagToken>> GetPlayerAntagTokens(Guid playerId, CancellationToken cancel = default)
+        {
+            DbReadOpsMetric.Inc();
+            return RunDbCommand(() => _db.GetPlayerAntagTokens(playerId, cancel));
+        }
+
+        public Task<PlayerAntagTokenSelection?> GetPlayerAntagTokenSelection(Guid playerId, CancellationToken cancel = default)
+        {
+            DbReadOpsMetric.Inc();
+            return RunDbCommand(() => _db.GetPlayerAntagTokenSelection(playerId, cancel));
+        }
+
+        public Task SetPlayerAntagTokenAmount(Guid playerId, string tokenId, int amount)
+        {
+            DbWriteOpsMetric.Inc();
+            return RunDbCommand(() => _db.SetPlayerAntagTokenAmount(playerId, tokenId, amount));
+        }
+
+        public Task SetPlayerAntagTokenSelection(Guid playerId, string tokenId, string antagId)
+        {
+            DbWriteOpsMetric.Inc();
+            return RunDbCommand(() => _db.SetPlayerAntagTokenSelection(playerId, tokenId, antagId));
+        }
+
+        public Task ClearPlayerAntagTokenSelection(Guid playerId)
+        {
+            DbWriteOpsMetric.Inc();
+            return RunDbCommand(() => _db.ClearPlayerAntagTokenSelection(playerId));
         }
 
         #endregion
@@ -1393,3 +1443,4 @@ namespace Content.Server.Database
         }
     }
 }
+

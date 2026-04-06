@@ -3,6 +3,7 @@ using System;
 using Content.Server.Database;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Content.Server.Database.Migrations.Sqlite
 {
     [DbContext(typeof(SqliteServerDbContext))]
-    partial class SqliteServerDbContextModelSnapshot : ModelSnapshot
+    [Migration("20260404115717_DailyRewardActiveDay")]
+    partial class DailyRewardActiveDay
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "9.0.1");
@@ -972,69 +975,6 @@ namespace Content.Server.Database.Migrations.Sqlite
                         .IsUnique();
 
                     b.ToTable("player", (string)null);
-                });
-
-            modelBuilder.Entity("Content.Server.Database.PlayerAntagToken", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER")
-                        .HasColumnName("player_antag_token_id");
-
-                    b.Property<int>("Amount")
-                        .HasColumnType("INTEGER")
-                        .HasColumnName("amount");
-
-                    b.Property<Guid>("PlayerId")
-                        .HasColumnType("TEXT")
-                        .HasColumnName("player_id");
-
-                    b.Property<string>("TokenId")
-                        .IsRequired()
-                        .HasColumnType("TEXT")
-                        .HasColumnName("token_id");
-
-                    b.HasKey("Id")
-                        .HasName("PK_player_antag_token");
-
-                    b.HasIndex("PlayerId", "TokenId")
-                        .IsUnique();
-
-                    b.ToTable("player_antag_token", (string)null);
-                });
-
-            modelBuilder.Entity("Content.Server.Database.PlayerAntagTokenSelection", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER")
-                        .HasColumnName("player_antag_token_selection_id");
-
-                    b.Property<string>("AntagId")
-                        .IsRequired()
-                        .HasColumnType("TEXT")
-                        .HasColumnName("antag_id");
-
-                    b.Property<Guid>("PlayerId")
-                        .HasColumnType("TEXT")
-                        .HasColumnName("player_id");
-
-                    b.Property<DateTime>("SelectedAt")
-                        .HasColumnType("TEXT")
-                        .HasColumnName("selected_at");
-
-                    b.Property<string>("TokenId")
-                        .IsRequired()
-                        .HasColumnType("TEXT")
-                        .HasColumnName("token_id");
-
-                    b.HasKey("Id")
-                        .HasName("PK_player_antag_token_selection");
-
-                    b.HasIndex("PlayerId")
-                        .IsUnique();
-
-                    b.ToTable("player_antag_token_selection", (string)null);
                 });
 
             modelBuilder.Entity("Content.Server.Database.Preference", b =>

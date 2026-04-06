@@ -1,3 +1,4 @@
+// SPDX-FileCopyrightText: 2026 Casha
 using Content.Client.Info;
 using Content.Client.UserInterface.Systems.EscapeMenu;
 using Content.Client.UserInterface.Systems.Guidebook;
@@ -58,6 +59,8 @@ namespace Content.Client.Lobby.UI
             Discord.OnPressed += _ => _uriOpener.OpenUri(new Uri("https://discord.gg/mini-station"));
             Telegram.OnPressed += _ => _uriOpener.OpenUri(new Uri("https://t.me/mini_station"));
             CharacterSetup.OnPressed += _ => SwitchState(LobbyGuiState.CharacterSetup);
+            DailyRewardsButton.OnPressed += _ => OpenDailyRewards();
+            AntagTokensButton.OnPressed += _ => OpenAntagTokens();
             Rules.OnPressed += _ => new RulesAndInfoWindow().Open();
             Guidebook.OnPressed += _ => UserInterfaceManager.GetUIController<GuidebookUIController>().ToggleGuidebook();
             // Changelog.OnPressed += _ => UserInterfaceManager.GetUIController<ChangelogUIController>().ToggleWindow();
@@ -92,6 +95,16 @@ namespace Content.Client.Lobby.UI
             ///  The character setup state.
             /// </summary>
             CharacterSetup
+        }
+
+        private void OpenDailyRewards()
+        {
+            _consoleHost.ExecuteCommand("dailyrewardmenu");
+        }
+
+        private void OpenAntagTokens()
+        {
+            _consoleHost.ExecuteCommand("antagtokenmenu");
         }
 
 

@@ -1,3 +1,4 @@
+// SPDX-FileCopyrightText: 2026 Casha
 using System;
 using System.Collections.Generic;
 using System.Collections.Immutable;
@@ -42,6 +43,9 @@ namespace Content.Server.Database
         public DbSet<ServerBanHit> ServerBanHit { get; set; } = default!;
 
         public DbSet<PlayTime> PlayTime { get; set; } = default!;
+        public DbSet<DailyRewardProgress> DailyRewardProgresses { get; set; } = default!;
+        public DbSet<PlayerAntagToken> PlayerAntagTokens { get; set; } = default!;
+        public DbSet<PlayerAntagTokenSelection> PlayerAntagTokenSelections { get; set; } = default!;
         public DbSet<UploadedResourceLog> UploadedResourceLog { get; set; } = default!;
         public DbSet<AdminNote> AdminNotes { get; set; } = null!;
         public DbSet<AdminWatchlist> AdminWatchlists { get; set; } = null!;
@@ -133,6 +137,18 @@ namespace Content.Server.Database
 
             modelBuilder.Entity<PlayTime>()
                 .HasIndex(v => new { v.PlayerId, Role = v.Tracker })
+                .IsUnique();
+
+            modelBuilder.Entity<DailyRewardProgress>()
+                .HasIndex(v => v.PlayerId)
+                .IsUnique();
+
+            modelBuilder.Entity<PlayerAntagToken>()
+                .HasIndex(v => new { v.PlayerId, v.TokenId })
+                .IsUnique();
+
+            modelBuilder.Entity<PlayerAntagTokenSelection>()
+                .HasIndex(v => v.PlayerId)
                 .IsUnique();
 
             modelBuilder.Entity<AdminLogPlayer>()
@@ -788,6 +804,57 @@ namespace Content.Server.Database
         public TimeSpan TimeSpent { get; set; }
     }
 
+    [Table("daily_reward_progress")]
+    public sealed class DailyRewardProgress
+    {
+        [Required, Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public int Id { get; set; }
+
+        [Required, ForeignKey("player")]
+        public Guid PlayerId { get; set; }
+
+        public int CurrentStreak { get; set; }
+
+        public DateTime? LastClaimTime { get; set; }
+
+        public DateTime? PendingActiveDate { get; set; }
+
+        public TimeSpan PendingActiveTime { get; set; }
+    }
+
+    [Table("player_antag_token")]
+    public sealed class PlayerAntagToken
+    {
+        [Required, Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public int Id { get; set; }
+
+        [Required, ForeignKey("player")]
+        public Guid PlayerId { get; set; }
+
+        [Required]
+        public string TokenId { get; set; } = string.Empty;
+
+        public int Amount { get; set; }
+    }
+
+    [Table("player_antag_token_selection")]
+    public sealed class PlayerAntagTokenSelection
+    {
+        [Required, Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public int Id { get; set; }
+
+        [Required, ForeignKey("player")]
+        public Guid PlayerId { get; set; }
+
+        [Required]
+        public string TokenId { get; set; } = string.Empty;
+
+        [Required]
+        public string AntagId { get; set; } = string.Empty;
+
+        public DateTime SelectedAt { get; set; }
+    }
+
     [Table("uploaded_resource_log")]
     public sealed class UploadedResourceLog
     {
@@ -1058,3 +1125,4 @@ namespace Content.Server.Database
         public float Score { get; set; }
     }
 }
+

@@ -21,7 +21,7 @@ namespace Content.Server.Database.Migrations.Postgres
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "10.0.0")
+                .HasAnnotation("ProductVersion", "9.0.1")
                 .HasAnnotation("Relational:MaxIdentifierLength", 63);
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
@@ -849,6 +849,44 @@ namespace Content.Server.Database.Migrations.Postgres
                         });
                 });
 
+            modelBuilder.Entity("Content.Server.Database.DailyRewardProgress", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer")
+                        .HasColumnName("daily_reward_progress_id");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("CurrentStreak")
+                        .HasColumnType("integer")
+                        .HasColumnName("current_streak");
+
+                    b.Property<DateTime?>("LastClaimTime")
+                        .HasColumnType("timestamp with time zone")
+                        .HasColumnName("last_claim_time");
+
+                    b.Property<DateTime?>("PendingActiveDate")
+                        .HasColumnType("timestamp with time zone")
+                        .HasColumnName("pending_active_date");
+
+                    b.Property<TimeSpan>("PendingActiveTime")
+                        .HasColumnType("interval")
+                        .HasColumnName("pending_active_time");
+
+                    b.Property<Guid>("PlayerId")
+                        .HasColumnType("uuid")
+                        .HasColumnName("player_id");
+
+                    b.HasKey("Id")
+                        .HasName("PK_daily_reward_progress");
+
+                    b.HasIndex("PlayerId")
+                        .IsUnique();
+
+                    b.ToTable("daily_reward_progress", (string)null);
+                });
+
             modelBuilder.Entity("Content.Server.Database.IPIntelCache", b =>
                 {
                     b.Property<int>("Id")
@@ -997,6 +1035,73 @@ namespace Content.Server.Database.Migrations.Postgres
                         });
                 });
 
+            modelBuilder.Entity("Content.Server.Database.PlayerAntagToken", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer")
+                        .HasColumnName("player_antag_token_id");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("Amount")
+                        .HasColumnType("integer")
+                        .HasColumnName("amount");
+
+                    b.Property<Guid>("PlayerId")
+                        .HasColumnType("uuid")
+                        .HasColumnName("player_id");
+
+                    b.Property<string>("TokenId")
+                        .IsRequired()
+                        .HasColumnType("text")
+                        .HasColumnName("token_id");
+
+                    b.HasKey("Id")
+                        .HasName("PK_player_antag_token");
+
+                    b.HasIndex("PlayerId", "TokenId")
+                        .IsUnique();
+
+                    b.ToTable("player_antag_token", (string)null);
+                });
+
+            modelBuilder.Entity("Content.Server.Database.PlayerAntagTokenSelection", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer")
+                        .HasColumnName("player_antag_token_selection_id");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("AntagId")
+                        .IsRequired()
+                        .HasColumnType("text")
+                        .HasColumnName("antag_id");
+
+                    b.Property<Guid>("PlayerId")
+                        .HasColumnType("uuid")
+                        .HasColumnName("player_id");
+
+                    b.Property<DateTime>("SelectedAt")
+                        .HasColumnType("timestamp with time zone")
+                        .HasColumnName("selected_at");
+
+                    b.Property<string>("TokenId")
+                        .IsRequired()
+                        .HasColumnType("text")
+                        .HasColumnName("token_id");
+
+                    b.HasKey("Id")
+                        .HasName("PK_player_antag_token_selection");
+
+                    b.HasIndex("PlayerId")
+                        .IsUnique();
+
+                    b.ToTable("player_antag_token_selection", (string)null);
+                });
+
             modelBuilder.Entity("Content.Server.Database.Preference", b =>
                 {
                     b.Property<int>("Id")
@@ -1121,12 +1226,10 @@ namespace Content.Server.Database.Migrations.Postgres
                         .HasColumnType("text")
                         .HasColumnName("species");
 
-                    // Corvax-TTS-Start
                     b.Property<string>("Voice")
                         .IsRequired()
                         .HasColumnType("text")
                         .HasColumnName("voice");
-                    // Corvax-TTS-End
 
                     b.HasKey("Id")
                         .HasName("PK_profile");
