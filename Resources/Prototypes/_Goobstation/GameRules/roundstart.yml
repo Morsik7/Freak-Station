@@ -1,3 +1,4 @@
+# SPDX-FileCopyrightText: 2026 Casha
 # SPDX-FileCopyrightText: 2024 Aiden <aiden@djkraz.com>
 # SPDX-FileCopyrightText: 2024 Errant <35878406+Errant-4@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 Fenn <162015305+TooSillyFennec@users.noreply.github.com>
@@ -48,7 +49,7 @@
   components:
   - type: ChangelingRule
   - type: GameRule
-    minPlayers: 15
+    minPlayers: 0
   - type: AntagRandomObjectives
     sets:
     - groups: ChangelingObjectiveGroups
@@ -382,7 +383,7 @@
     - prefRoles: [ Nukeops ]
       fallbackRoles: [ NukeopsCommander, NukeopsMedic ]
       spawnerPrototype: SpawnPointNukeopsOperative
-      max: 10 # Goobstation / 古布空间站 - 没有限制的核特工
+      max: 10 # Goobstation / еЏ¤еёѓз©єй—ґз«™ - жІЎжњ‰й™ђе€¶зљ„ж ёз‰№е·Ґ
       playerRatio: 16 # Goobstation
       startingGear: SyndicateOperativeGearFullHonkops
       roleLoadout:
@@ -406,7 +407,7 @@
   components:
   - type: DevilRule
   - type: GameRule
-    minPlayers: 15
+    minPlayers: 0
   - type: AntagObjectives
     objectives:
     - DevilContractObjective
@@ -434,7 +435,7 @@
   id: OopsAllThieves
   components:
   - type: GameRule
-    minPlayers: 30
+    minPlayers: 0
     chaosScore: 1200
   - type: AntagSelection
     agentName: thief-round-end-agent-name

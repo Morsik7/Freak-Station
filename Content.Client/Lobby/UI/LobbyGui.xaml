@@ -1,3 +1,4 @@
+<!-- SPDX-FileCopyrightText: 2026 Casha -->
 <lobbyUi:LobbyGui
     xmlns="https://spacestation14.io"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
@@ -12,7 +13,7 @@
     xmlns:changelog="clr-namespace:Content.Client.Changelog"
     xmlns:animatedBackground="clr-namespace:Content.Client._OS.UI.AnimatedBackground">
 
-    <!-- Анимированный фон -->
+    <!-- РђРЅРёРјРёСЂРѕРІР°РЅРЅС‹Р№ С„РѕРЅ -->
     <animatedBackground:AnimatedBackgroundControl
         Access="Public"
         VerticalExpand="True"
@@ -34,13 +35,13 @@
                             <Button Name="Guidebook" Text="{Loc 'server-info-guidebook-button'}" MinSize="125 10" VerticalAlignment="Stretch" HorizontalAlignment="Stretch"/>
                             <changelog:ChangelogButton Name="Changelog" MinSize="125 10" VerticalAlignment="Stretch" HorizontalAlignment="Stretch"/>
                             <vote:VoteCallMenuButton Name="CallVoteButton" MinSize="125 10" VerticalAlignment="Stretch" HorizontalAlignment="Stretch"/>
-                            <!-- <Button Name="Wiki" Text="Вики" MinSize="125 10" VerticalAlignment="Stretch" HorizontalAlignment="Stretch"/> -->
+                            <!-- <Button Name="Wiki" Text="Р’РёРєРё" MinSize="125 10" VerticalAlignment="Stretch" HorizontalAlignment="Stretch"/> -->
                             <controls:VSpacer Spacing="25"/>
                             <TextureRect TextureScale="0.2 0.2" Stretch="KeepCentered" TexturePath="/Textures/Interface/main_logo.png" VerticalAlignment="Stretch" HorizontalAlignment="Stretch"/>
                             <controls:VSpacer Spacing="25"/>
-                            <Button Name="Boosty" Text="Бусти" MinSize="125 10" VerticalAlignment="Stretch" HorizontalAlignment="Stretch"/>
-                            <Button Name="Discord" Text="Дискорд" MinSize="125 10" VerticalAlignment="Stretch" HorizontalAlignment="Stretch"/>
-                            <Button Name="Telegram" Text="Телеграм" MinSize="125 10" VerticalAlignment="Stretch" HorizontalAlignment="Stretch"/>
+                            <Button Name="DonateButton" Access="Public" Text="Р”РѕРЅР°С‚" MinSize="125 10" VerticalAlignment="Stretch" HorizontalAlignment="Stretch"/>
+                            <Button Name="Discord" Text="Р”РёСЃРєРѕСЂРґ" MinSize="125 10" VerticalAlignment="Stretch" HorizontalAlignment="Stretch"/>
+                            <Button Name="Telegram" Text="РўРµР»РµРіСЂР°Рј" MinSize="125 10" VerticalAlignment="Stretch" HorizontalAlignment="Stretch"/>
                             <Button Name="AHelpButton" Access="Public" Text="{Loc 'ui-lobby-ahelp-button'}" MinSize="125 10" VerticalAlignment="Stretch" HorizontalAlignment="Stretch"/>
                             </BoxContainer>
                         </BoxContainer>
@@ -71,8 +72,10 @@
                             <Button Name="ReadyButton" Access="Public" ToggleMode="True" Text="{Loc 'ui-lobby-ready-up-button'}" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" MinSize="250 50"/>
                             <cc:UICommandButton Command="observe" Name="ObserveButton" Access="Public" Text="{Loc 'ui-lobby-observe-button'}" WindowType="{x:Type lobbyUi:ObserveWarningWindow}" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" MinSize="250 50"/>
                             <Button Name="CharacterSetup" Access="Public" Text="{Loc 'lobby-character-preview-panel-character-setup-button'}" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" MinSize="250 50"/>
+                            <Button Name="DailyRewardsButton" Access="Public" Text="Р•Р¶РµРґРЅРµРІРЅС‹Рµ РЅР°РіСЂР°РґС‹" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" MinSize="250 50"/>
+                            <Button Name="AntagTokensButton" Access="Public" Text="РўРѕРєРµРЅС‹ Р°РЅС‚Р°РіРѕРЅРёСЃС‚РѕРІ" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" MinSize="250 50"/>
                             <Button Name="OptionsButton" Access="Public" Text="{Loc 'ui-lobby-options-button'}" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" MinSize="250 50"/>
-                            <Button Name="AuthorizationDiscordButton" StyleClasses="ButtonColorYellow" Access="Public" Text="Авторизация" MinSize="250 50"/>
+                            <Button Name="AuthorizationDiscordButton" StyleClasses="ButtonColorYellow" Access="Public" Text="РђРІС‚РѕСЂРёР·Р°С†РёСЏ" MinSize="250 50"/>
                             <Button Name="LeaveButton" StyleClasses="ButtonColorRed" Access="Public" Text="{Loc 'ui-lobby-leave-button'}" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" MinSize="250 50" />
                         </BoxContainer>
                     </PanelContainer>
