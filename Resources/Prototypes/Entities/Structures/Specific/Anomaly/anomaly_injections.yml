@@ -374,7 +374,7 @@
         maxAmount: 3
         maxRange: 5
       spawns:
-      -
+      - PresentRandom
       - PresentRandomCoal
       - PresentRandomCash
       - ClothingHeadHatSantahat
