@@ -92,6 +92,7 @@ using Content.Server.Spawners.Components;
 using Content.Server.Speech.Components;
 using Content.Server.Station.Components;
 using Content.Shared.CCVar;
+using Content.Shared.Chat;
 using Content.Shared.Database;
 using Content.Shared.GameTicking;
 using Content.Shared.Humanoid;
@@ -202,24 +203,27 @@ namespace Content.Server.GameTicking
             _stationJobs.CalcExtendedAccess(stationJobCounts);
 
             // Spawn everybody in!
+            var spawnedPlayers = new List<ICommonSession>();
             foreach (var (player, (job, station)) in assignedJobs)
             {
                 if (job == null)
                     continue;
 
-                SpawnPlayer(_playerManager.GetSessionById(player), profiles[player], station, job, false);
+                var session = _playerManager.GetSessionById(player);
+                if (SpawnPlayer(session, profiles[player], station, job, false))
+                    spawnedPlayers.Add(session);
             }
 
             RefreshLateJoinAllowed();
 
             // Allow rules to add roles to players who have been spawned in. (For example, on-station traitors)
             RaiseLocalEvent(new RulePlayerJobsAssignedEvent(
-                assignedJobs.Keys.Select(x => _playerManager.GetSessionById(x)).ToArray(),
+                spawnedPlayers.ToArray(),
                 profiles,
                 force));
         }
 
-        private void SpawnPlayer(ICommonSession player,
+        private bool SpawnPlayer(ICommonSession player,
             EntityUid station,
             string? jobId = null,
             bool lateJoin = true,
@@ -228,8 +232,8 @@ namespace Content.Server.GameTicking
             var character = GetPlayerProfile(player);
 
             var jobBans = _banManager.GetJobBans(player.UserId);
-            if (jobBans == null || jobId != null && jobBans.Contains(jobId)) //TODO: use IsRoleBanned directly?
-                return;
+            if (jobBans == null || jobId != null && jobBans.Contains(jobId))
+                return false;
 
             if (jobId != null)
             {
@@ -237,13 +241,13 @@ namespace Content.Server.GameTicking
                 var ev = new IsRoleAllowedEvent(player, jobs, null);
                 RaiseLocalEvent(ref ev);
                 if (ev.Cancelled)
-                    return;
+                    return false;
             }
 
-            SpawnPlayer(player, character, station, jobId, lateJoin, silent);
+            return SpawnPlayer(player, character, station, jobId, lateJoin, silent);
         }
 
-        private void SpawnPlayer(ICommonSession player,
+        private bool SpawnPlayer(ICommonSession player,
             HumanoidCharacterProfile character,
             EntityUid station,
             string? jobId = null,
@@ -252,7 +256,7 @@ namespace Content.Server.GameTicking
         {
             // Can't spawn players with a dummy ticker!
             if (DummyTicker)
-                return;
+                return false;
 
             if (station == EntityUid.Invalid)
             {
@@ -267,8 +271,24 @@ namespace Content.Server.GameTicking
             if (lateJoin && DisallowLateJoin)
             {
                 JoinAsObserver(player);
-                return;
+                return false;
             }
+
+            //FREAKY EDIT START
+            //Ghost system return to round, check for whether the character isn't the same.
+            if (lateJoin && !_adminManager.IsAdmin(player) && !CheckGhostReturnToRound(player, character, out var checkAvoid))
+            {
+                var message = checkAvoid
+                    ? Loc.GetString("ghost-respawn-same-character-slightly-changed-name")
+                    : Loc.GetString("ghost-respawn-same-character");
+                var wrappedMessage = Loc.GetString("chat-manager-server-wrap-message", ("message", message));
+
+                _chatManager.ChatMessageToOne(ChatChannel.Server, message, wrappedMessage,
+                    default, false, player.Channel, Color.Red);
+
+                return false;
+            }
+            //FREAKY EDIT END
 
             string speciesId;
             if (_randomizeCharacters)
@@ -308,7 +328,7 @@ namespace Content.Server.GameTicking
             if (bev.Handled)
             {
                 PlayerJoinGame(player, silent);
-                return;
+                return true;
             }
 
             // Figure out job restrictions
@@ -338,10 +358,19 @@ namespace Content.Server.GameTicking
 
                 _chatManager.DispatchServerMessage(player,
                     Loc.GetString("game-ticker-player-no-jobs-available-when-joining"));
-                return;
+                return false;
             }
 
-            PlayerJoinGame(player, silent);
+            var jobPrototype = _prototypeManager.Index<JobPrototype>(jobId);
+
+            var mobMaybe = _stationSpawning.SpawnPlayerCharacterOnStation(station, jobId, character, out var spawnFailureMessage);
+            if (mobMaybe is not { } mob)
+            {
+                if (spawnFailureMessage == null)
+                    Log.Error($"Failed to spawn player {player.Name} as job {jobId} on station {Name(station)}.");
+
+                return HandleFailedSpawn(player, spawnFailureMessage);
+            }
 
             var data = player.ContentData();
 
@@ -350,18 +379,12 @@ namespace Content.Server.GameTicking
             var newMind = _mind.CreateMind(data!.UserId, character.Name);
             _mind.SetUserId(newMind, data.UserId);
 
-            var jobPrototype = _prototypeManager.Index<JobPrototype>(jobId);
-
-            _playTimeTrackings.PlayerRolesChanged(player);
-
-            var mobMaybe = _stationSpawning.SpawnPlayerCharacterOnStation(station, jobId, character);
-            DebugTools.AssertNotNull(mobMaybe);
-            var mob = mobMaybe!.Value;
-
             _mind.TransferTo(newMind, mob);
+            PlayerJoinGame(player, silent);
             _admin.UpdatePlayerList(player);
 
             _roles.MindAddJobRole(newMind, silent: silent, jobPrototype:jobId);
+            _playTimeTrackings.PlayerRolesChanged(player);
             var jobName = _jobs.MindTryGetJobName(newMind);
             _admin.UpdatePlayerList(player);
 
@@ -437,6 +460,22 @@ namespace Content.Server.GameTicking
                 station,
                 character);
             RaiseLocalEvent(mob, aev, true);
+            return true;
+        }
+
+        private bool HandleFailedSpawn(ICommonSession player, string? failureMessage = null)
+        {
+            if (!LobbyEnabled)
+            {
+                JoinAsObserver(player);
+            }
+
+            var evNoJobs = new NoJobsAvailableSpawningEvent(player);
+            RaiseLocalEvent(evNoJobs);
+
+            _chatManager.DispatchServerMessage(player,
+                failureMessage ?? Loc.GetString("game-ticker-player-no-jobs-available-when-joining"));
+            return false;
         }
 
         public void Respawn(ICommonSession player)
@@ -509,6 +548,66 @@ namespace Content.Server.GameTicking
                 LogImpact.Low,
                 $"{player.Name} late joined the round as an Observer with {ToPrettyString(ghost):entity}.");
         }
+
+        //FREAKY EDIT START
+        private bool CheckGhostReturnToRound(ICommonSession player, HumanoidCharacterProfile character, out bool checkAvoid)
+        {
+            checkAvoid = false;
+
+            var allPlayerMinds = EntityQuery<MindComponent>()
+                .Where(mind => mind.OriginalOwnerUserId == player.UserId);
+
+            foreach (var mind in allPlayerMinds)
+            {
+                if (mind.CharacterName == character.Name)
+                    return false;
+
+                if (mind.CharacterName == null)
+                    continue;
+
+                var similarity = CalculateStringSimilarity(mind.CharacterName, character.Name);
+                switch (similarity)
+                {
+                    case >= 85f:
+                    {
+                        _chatManager.SendAdminAlert(Loc.GetString("ghost-respawn-log-character-almost-same",
+                            ("player", player.Name), ("try", false), ("oldName", mind.CharacterName),
+                            ("newName", character.Name)));
+                        checkAvoid = true;
+
+                        return false;
+                    }
+                    case >= 50f:
+                    {
+                        _chatManager.SendAdminAlert(Loc.GetString("ghost-respawn-log-character-almost-same",
+                            ("player", player.Name), ("try", true), ("oldName", mind.CharacterName),
+                            ("newName", character.Name)));
+
+                        break;
+                    }
+                }
+            }
+
+            return true;
+        }
+
+        private float CalculateStringSimilarity(string str1, string str2)
+        {
+            var minLength = Math.Min(str1.Length, str2.Length);
+            var matchingCharacters = 0;
+
+            for (var i = 0; i < minLength; i++)
+            {
+                if (str1[i] == str2[i])
+                    matchingCharacters++;
+            }
+
+            float maxLength = Math.Max(str1.Length, str2.Length);
+            var similarityPercentage = (matchingCharacters / maxLength) * 100;
+
+            return similarityPercentage;
+        }
+        //FREAKY EDIT END
 
         #region Spawn Points
 

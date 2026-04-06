@@ -1,4 +1,4 @@
-﻿using Robust.Client.UserInterface.Controls;
+using Robust.Client.UserInterface.Controls;
 
 namespace Content.Client._Mini.UserInterface.Controls;
 

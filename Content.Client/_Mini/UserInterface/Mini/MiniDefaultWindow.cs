@@ -18,8 +18,8 @@ public class MiniDefaultWindow : MiniBaseWindow
     public DirectionFlag AllowOffScreen = ~DirectionFlag.North;
 
     private const int DragMarginSize = 7;
-    private const float HeaderHeight = 60f;
-    private const float CloseButtonSize = 40f;
+    private const float HeaderHeight = 40f;
+    private const float CloseButtonSize = 30f;
     private const float ContentPadding = 20f;
 
     private Font _titleFont = default!;

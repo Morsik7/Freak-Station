@@ -43,7 +43,7 @@ public sealed class GhostBarSystem : EntitySystem
 
     public override void Initialize()
     {
-        SubscribeLocalEvent<RoundStartingEvent>(OnRoundStart);
+        // SubscribeLocalEvent<RoundStartingEvent>(OnRoundStart);
         SubscribeNetworkEvent<GhostBarSpawnEvent>(SpawnPlayer);
 
         SubscribeLocalEvent<GhostBarPlayerComponent, OpenGhostRolesListActionEvent>(OnActionOpenGhostRoles);

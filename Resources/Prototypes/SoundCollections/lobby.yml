@@ -133,7 +133,7 @@
 #    - /Audio/Lobby/atomicamnesiammx.ogg
 #    # Goobstation - Custom lobby music
 #    - /Audio/Lobby/skubstep.ogg
-#    - /Audio/Lobby/sneedsfeedandseed.ogg
+    - /Audio/Lobby/sneedsfeedandseed.ogg
 #    - /Audio/Lobby/clownalwayswins.ogg
 #    - /Audio/Lobby/clownwmv.ogg
 #    - /Audio/Lobby/dawsonschristian.ogg
@@ -156,5 +156,5 @@
     - /Audio/_Nuclear/Lobby/shitsuboo-shita.ogg
     - /Audio/_Nuclear/Lobby/stellar.ogg
     - /Audio/_Nuclear/Lobby/vibe_ace.ogg
-    - /Audio/_Nuclear/Lobby/we_will_fly.ogg
+    - /Audio/_Mini/Lobby/komarovo.ogg
     - /Audio/_Nuclear/Lobby/we-are-finally-landing.ogg

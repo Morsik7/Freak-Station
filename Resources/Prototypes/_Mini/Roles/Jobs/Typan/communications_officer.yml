@@ -8,11 +8,11 @@
   supervisors: job-supervisors-typan-syndicate
   canBeAntag: false
   skills: # CorvaxGoob-Skills
-    - All
+  - All
   requirements:
     - !type:DepartmentTimeRequirement
       department: Typan
-      time: 180000 # 50 hours
+      time: 72000 # 20 hours
       requiredAge: 26
   access:
   - TypanArmory

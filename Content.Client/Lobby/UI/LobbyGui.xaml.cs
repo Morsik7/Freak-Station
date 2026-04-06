@@ -16,7 +16,6 @@ using Content.Client.UserInterface.Systems.Ghost;
 using Content.Shared.Ghost;
 using Content.Client.Ghost;
 using Content.Client.UserInterface.Systems.Ghost;
-using Content.Client.ADT.Roadmap;
 // using Content.Goobstation.Client.Patron;
 
 namespace Content.Client.Lobby.UI
@@ -55,7 +54,7 @@ namespace Content.Client.Lobby.UI
                 var requestUrl = $"{_cfg.GetCVar(CCCVars.DiscordAuthApiUrl)}/login/{userId.ToString()}";
                 _uriOpener.OpenUri(new Uri(requestUrl));
             };
-
+            Boosty.OnPressed += _ => _uriOpener.OpenUri(new Uri("https://boosty.to/mini-station"));
             Discord.OnPressed += _ => _uriOpener.OpenUri(new Uri("https://discord.gg/mini-station"));
             Telegram.OnPressed += _ => _uriOpener.OpenUri(new Uri("https://t.me/mini_station"));
             CharacterSetup.OnPressed += _ => SwitchState(LobbyGuiState.CharacterSetup);
@@ -63,9 +62,8 @@ namespace Content.Client.Lobby.UI
             AntagTokensButton.OnPressed += _ => OpenAntagTokens();
             Rules.OnPressed += _ => new RulesAndInfoWindow().Open();
             Guidebook.OnPressed += _ => UserInterfaceManager.GetUIController<GuidebookUIController>().ToggleGuidebook();
-            // Changelog.OnPressed += _ => UserInterfaceManager.GetUIController<ChangelogUIController>().ToggleWindow();
-
-            RoadmapButton.OnPressed += _ => UserInterfaceManager.GetUIController<RoadmapUIController>().ToggleRoadmap();
+            Changelog.OnPressed += _ => UserInterfaceManager.GetUIController<ChangelogUIController>().ToggleWindow();
+            //RoadmapButton.OnPressed += _ => UserInterfaceManager.GetUIController<RoadmapUIController>().ToggleRoadmap();
         }
 
         public void SwitchState(LobbyGuiState state)
