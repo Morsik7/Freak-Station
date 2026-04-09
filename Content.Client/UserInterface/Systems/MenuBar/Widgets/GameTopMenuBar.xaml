@@ -119,10 +119,10 @@ SPDX-License-Identifier: AGPL-3.0-or-later
         AppendStyleClass="{x:Static style:StyleBase.ButtonSquare}"
         />
     <!-- <ui:MenuButton
-        Name="DonateButton"
+        Name="AntagTokensButton"
         Access="Internal"
-        Icon="{xe:Tex '/Textures/_Mini/Interface/VerbIcons/ruble.png'}"
-        ToolTip="{Loc 'ui-options-function-open-a-donate'}"
+        Icon="{xe:Tex '/Textures/_Mini/Interface/Coin.png'}"
+        ToolTip="{Loc 'Антагонисты'}"
         MinSize="42 64"
         HorizontalExpand="True"
         AppendStyleClass="{x:Static style:StyleBase.ButtonSquare}"
