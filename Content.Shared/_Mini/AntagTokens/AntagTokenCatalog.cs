@@ -136,7 +136,6 @@ public static class AntagTokenCatalog
             TagLocKey: "antag-token-window-tag-queue",
             MinimumPlayers: 30,
             RequiresPreRoundLobby: true),
-            "/Textures/_Mini/Interface/Antags/thief.png", AntagPurchaseMode.LobbyDeposit, "Thief", "OopsAllThieves"),
         [AgentRole] = new(AgentRole, "antag-store-role-agent-name", "antag-store-role-agent-description", 2,
             "/Textures/_Mini/Interface/Antags/traitor.png", AntagPurchaseMode.LobbyDeposit, "Traitor", "Traitor"),
         [NinjaRole] = new(NinjaRole, "antag-store-role-ninja-name", "antag-store-role-ninja-description", 3,

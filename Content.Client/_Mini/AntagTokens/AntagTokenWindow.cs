@@ -12,10 +12,6 @@ using Robust.Shared.IoC;
 using Robust.Shared.Localization;
 using Robust.Shared.Maths;
 using Robust.Shared.Utility;
-using static Robust.Client.UserInterface.Controls.BoxContainer;
-using Robust.Client.ResourceManagement;
-using Robust.Shared.IoC;
-using Robust.Shared.Utility;
 
 namespace Content.Client._Mini.AntagTokens;
 
@@ -44,8 +40,6 @@ public sealed class AntagTokenWindow : DefaultWindow
     private Button _clearButton = null!;
     private GridContainer _roleGrid = null!;
 
-    private const int GridColumns = 3;
-    private const string CoinIconPath = "/Textures/_Mini/Interface/Coin.png";
     public AntagTokenWindow()
     {
         IoCManager.InjectDependencies(this);
@@ -83,7 +77,6 @@ public sealed class AntagTokenWindow : DefaultWindow
         var gridPanel = new PanelContainer
         {
             VerticalExpand = true,
-            // HorizontalExpand = true,
             PanelOverride = new StyleBoxFlat
             {
                 BackgroundColor = Color.FromHex("#12161c"),
@@ -183,7 +176,7 @@ public sealed class AntagTokenWindow : DefaultWindow
             Modulate = Color.FromHex("#8b949e")
         });
 
-        // Информация в строку, а не в сетку
+        // Информация в строку
         var infoRow = new BoxContainer
         {
             Orientation = LayoutOrientation.Horizontal,
@@ -199,18 +192,13 @@ public sealed class AntagTokenWindow : DefaultWindow
         };
         balanceBox.AddChild(new Label
         {
-            Text = "Баланс:",
+            Text = Loc.GetString("antag-token-window-balance-label"),
             Modulate = Color.FromHex("#8b949e")
         });
         _balanceLabel = new Label
         {
             Modulate = AccentColor
         };
-        balanceBox.AddChild(_balanceLabel);
-        infoRow.AddChild(balanceBox);
-
-        balanceBox.AddChild(new Label { Text = "Баланс:", Modulate = Color.FromHex("#8b949e") });
-        _balanceLabel = new Label { Modulate = AccentColor };
         balanceBox.AddChild(_balanceLabel);
         infoRow.AddChild(balanceBox);
 
@@ -222,18 +210,13 @@ public sealed class AntagTokenWindow : DefaultWindow
         };
         capBox.AddChild(new Label
         {
-            Text = "Лимит:",
+            Text = Loc.GetString("antag-token-window-cap-label"),
             Modulate = Color.FromHex("#8b949e")
         });
         _capLabel = new Label
         {
             Modulate = Color.FromHex("#c9d1d9")
         };
-        capBox.AddChild(_capLabel);
-        infoRow.AddChild(capBox);
-
-        capBox.AddChild(new Label { Text = "Лимит:", Modulate = Color.FromHex("#8b949e") });
-        _capLabel = new Label { Modulate = Color.FromHex("#c9d1d9") };
         capBox.AddChild(_capLabel);
         infoRow.AddChild(capBox);
 
@@ -245,15 +228,13 @@ public sealed class AntagTokenWindow : DefaultWindow
         };
         depositBox.AddChild(new Label
         {
-            Text = "В очереди:",
+            Text = Loc.GetString("antag-token-window-deposit-label"),
             Modulate = Color.FromHex("#8b949e")
         });
         _depositLabel = new Label
         {
             Modulate = Color.FromHex("#c9d1d9")
         };
-        depositBox.AddChild(new Label { Text = "В очереди:", Modulate = Color.FromHex("#8b949e") });
-        _depositLabel = new Label { Modulate = Color.FromHex("#c9d1d9") };
         depositBox.AddChild(_depositLabel);
         infoRow.AddChild(depositBox);
 
@@ -287,13 +268,10 @@ public sealed class AntagTokenWindow : DefaultWindow
         var panel = new PanelContainer
         {
             MinSize = new Vector2(300, 380),
-            MinSize = new Vector2(300, 0),
             MaxSize = new Vector2(300, 1000),
             VerticalExpand = true,
             PanelOverride = new StyleBoxFlat
             {
-                BackgroundColor = entry.Purchased ? PurchasedCardColor : CardBackgroundColor,
-                BorderColor = entry.Purchased ? PurchasedBorderColor : CardBorderColor,
                 BackgroundColor = bgColor,
                 BorderColor = borderColor,
                 BorderThickness = new Thickness(1),
@@ -307,7 +285,6 @@ public sealed class AntagTokenWindow : DefaultWindow
         var root = new BoxContainer
         {
             Orientation = LayoutOrientation.Vertical,
-            SeparationOverride = 10,
             SeparationOverride = 12,
             VerticalExpand = true
         };
@@ -343,6 +320,7 @@ public sealed class AntagTokenWindow : DefaultWindow
             });
         }
 
+        // Название роли
         root.AddChild(new Label
         {
             Text = roleDef == null ? entry.RoleId : Loc.GetString(roleDef.NameLocKey),
@@ -353,6 +331,7 @@ public sealed class AntagTokenWindow : DefaultWindow
             ClipText = true
         });
 
+        // Тег (очередь/призрак)
         if (entry.TagLocKey != null)
         {
             root.AddChild(new Label
@@ -365,6 +344,7 @@ public sealed class AntagTokenWindow : DefaultWindow
             });
         }
 
+        // Описание
         if (roleDef != null)
         {
             root.AddChild(new Label
@@ -375,44 +355,19 @@ public sealed class AntagTokenWindow : DefaultWindow
                 MaxWidth = 248,
                 ClipText = true
             });
-
-        var cache = IoCManager.Resolve<IResourceCache>();
-
-        if (roleDef != null && !string.IsNullOrEmpty(roleDef.IconPath))
-        {
-            var resPath = new ResPath(roleDef.IconPath);
-            if (cache.TryGetResource<TextureResource>(resPath, out var textureResource))
-            {
-                imageBox.AddChild(new TextureRect
-                {
-                    Texture = textureResource.Texture,
-                    MinSize = new Vector2(110, 110),
-                    TextureScale = new Vector2(2.4f, 2.4f),
-                    Stretch = TextureRect.StretchMode.KeepCentered
-                });
-            }
-            else
-            {
-                imageBox.AddChild(new Label { Text = "🎭", Modulate = Color.White });
-            }
-        }
-        else
-        {
-            imageBox.AddChild(new Label { Text = "🎭", Modulate = Color.White });
         }
 
-        var titleLabel = new Label
+        // Статус
+        root.AddChild(new Label
         {
-            root.AddChild(new Label
-            {
-                Text = Loc.GetString(entry.StatusLocKey),
-                Modulate = entry.Purchased ? PurchasedBorderColor : Color.FromHex("#f85149"),
-                HorizontalAlignment = HAlignment.Center,
-                MaxWidth = 248,
-                ClipText = true
-            });
-        }
+            Text = Loc.GetString(entry.StatusLocKey),
+            Modulate = entry.Purchased ? PurchasedBorderColor : Color.FromHex("#f85149"),
+            HorizontalAlignment = HAlignment.Center,
+            MaxWidth = 248,
+            ClipText = true
+        });
 
+        // Бесплатные анлоки
         if (entry.FreeUnlocks > 0)
         {
             root.AddChild(new Label
@@ -430,24 +385,13 @@ public sealed class AntagTokenWindow : DefaultWindow
             VerticalExpand = true
         });
 
-            Text = roleDef == null ? entry.RoleId : Loc.GetString(roleDef.NameLocKey),
-            StyleClasses = { "LabelHeading" },
-            Modulate = Color.White,
-            HorizontalAlignment = HAlignment.Center,
-            MaxWidth = 248  // Ширина карточки минус отступы (280 - 16*2 = 248)
-        };
-        root.AddChild(titleLabel);
-
-        root.AddChild(new Control { VerticalExpand = true });
-
-        // Кнопка
+        // Кнопка покупки
         var buyButton = new Button
         {
             MinSize = new Vector2(0, 36),
             HorizontalExpand = true,
             Disabled = IsButtonDisabled(entry),
             ToolTip = GetButtonTooltip(entry)
-            Disabled = IsButtonDisabled(entry)
         };
 
         var roleId = entry.RoleId;
@@ -461,44 +405,11 @@ public sealed class AntagTokenWindow : DefaultWindow
             VerticalAlignment = VAlignment.Center
         };
 
-        buttonContent.AddChild(new Label
-        {
-            Text = entry.Purchased ? "✓" : entry.Cost.ToString(),
-            Modulate = Color.White,
-            StyleClasses = { "LabelHeading" },
-            VerticalAlignment = VAlignment.Center
-        });
-
-        var coinTexture = cache.GetResource<TextureResource>("/Textures/_Mini/Interface/Coin.png").Texture;
-        buttonContent.AddChild(new TextureRect
-        {
-            Texture = coinTexture,
-            MinSize = new Vector2(18, 18),
-            TextureScale = new Vector2(0.4f, 0.4f),
-            Stretch = TextureRect.StretchMode.KeepCentered,
-            VerticalAlignment = VAlignment.Center
-        });
-
-        buyButton.AddChild(buttonContent);
-        root.AddChild(buyButton);
-
-        var buttonContent = new BoxContainer
-        {
-            Orientation = LayoutOrientation.Horizontal,
-            SeparationOverride = 6,
-            HorizontalAlignment = HAlignment.Center,
-            VerticalAlignment = VAlignment.Center
-        };
-
-
-
-    private static string GetButtonText(AntagTokenRoleEntry entry)
-    {
         if (entry.Purchased)
         {
             buttonContent.AddChild(new Label
             {
-                Text = "OK",
+                Text = "✓",
                 Modulate = Color.White,
                 StyleClasses = { "LabelHeading" },
                 VerticalAlignment = VAlignment.Center

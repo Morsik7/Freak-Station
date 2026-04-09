@@ -515,6 +515,7 @@ private static readonly Color FutureBorderColor = Color.FromHex("#6c7a9e").WithA
 
         return panel;
     }
+    }
     private Control CreateConnector(DailyRewardEntry left, DailyRewardEntry right)
     {
         var claimedAhead = left.IsClaimed && right.IsClaimed;
