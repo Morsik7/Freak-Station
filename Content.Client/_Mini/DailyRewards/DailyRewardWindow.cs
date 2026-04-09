@@ -432,6 +432,7 @@ public sealed class DailyRewardWindow : DefaultWindow
             {
                 Texture = texture,
                 MinSize = new Vector2(56, 56),
+                TextureScale = new Vector2(0.6f, 0.6f),
                 Stretch = TextureRect.StretchMode.KeepAspectCentered,
                 HorizontalAlignment = HAlignment.Center
             });
