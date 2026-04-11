@@ -476,15 +476,24 @@ public sealed class AntagTokenSystem : EntitySystem
         _onlineRewards[player.UserId] = new OnlineRewardState(DateTime.UtcNow);
     }
 
-    private void OnPlayerDisconnect(ICommonSession player)
+    private async void OnPlayerDisconnect(ICommonSession player)
     {
         if (_states.TryGetValue(player.UserId, out var state))
-            PersistState(player.UserId, state);
+        {
+             await PersistStateAsync(player.UserId, state);
+        }
 
         _states.Remove(player.UserId);
         _onlineRewards.Remove(player.UserId);
     }
-
+    private void PersistState(NetUserId userId, PlayerTokenState state)
+    {
+        _ = PersistStateAsync(userId, state).ContinueWith(t =>
+        {
+            if (t.IsFaulted)
+            Logger.ErrorS("AntagTokens", $"Failed to save state for {userId}: {t.Exception}");
+        });
+}
     private void OnJoinedLobby(PlayerJoinedLobbyEvent ev)
     {
         _onlineRewards.TryAdd(ev.PlayerSession.UserId, new OnlineRewardState(DateTime.UtcNow));
@@ -899,25 +908,29 @@ public sealed class AntagTokenSystem : EntitySystem
         RaiseNetworkEvent(new AntagTokenStateEvent(payload), session);
     }
 
-    private void PersistState(NetUserId userId, PlayerTokenState state)
+private async Task PersistStateAsync(NetUserId userId, PlayerTokenState state)
+{
+    var tasks = new List<Task>
     {
-        _ = _db.SetPlayerAntagTokenAmount(userId.UserId, AntagTokenCatalog.BalanceEntryId, state.Balance);
-        _ = _db.SetPlayerAntagTokenAmount(userId.UserId, AntagTokenCatalog.MonthlyEarnedEntryId, state.MonthlyEarned);
-        _ = _db.SetPlayerAntagTokenAmount(userId.UserId, AntagTokenCatalog.MonthlyYearEntryId, state.MonthlyYear);
-        _ = _db.SetPlayerAntagTokenAmount(userId.UserId, AntagTokenCatalog.MonthlyMonthEntryId, state.MonthlyMonth);
-        _ = _db.SetPlayerAntagTokenAmount(userId.UserId, AntagTokenCatalog.DepositUsedRoleCreditEntryId, state.PendingDepositUsedRoleCredit ? 1 : 0);
+        _db.SetPlayerAntagTokenAmount(userId.UserId, AntagTokenCatalog.BalanceEntryId, state.Balance),
+        _db.SetPlayerAntagTokenAmount(userId.UserId, AntagTokenCatalog.MonthlyEarnedEntryId, state.MonthlyEarned),
+        _db.SetPlayerAntagTokenAmount(userId.UserId, AntagTokenCatalog.MonthlyYearEntryId, state.MonthlyYear),
+        _db.SetPlayerAntagTokenAmount(userId.UserId, AntagTokenCatalog.MonthlyMonthEntryId, state.MonthlyMonth),
+        _db.SetPlayerAntagTokenAmount(userId.UserId, AntagTokenCatalog.DepositUsedRoleCreditEntryId, state.PendingDepositUsedRoleCredit ? 1 : 0)
+    };
 
-        foreach (var role in AntagTokenCatalog.Roles.Keys)
-        {
-            _ = _db.SetPlayerAntagTokenAmount(userId.UserId, AntagTokenCatalog.GetRoleCreditEntryId(role), state.RoleCredits.GetValueOrDefault(role));
-        }
-
-        if (state.PendingDepositRoleId == null)
-            _ = _db.ClearPlayerAntagTokenSelection(userId.UserId);
-        else
-            _ = _db.SetPlayerAntagTokenSelection(userId.UserId, AntagTokenCatalog.DepositSelectionTokenId, state.PendingDepositRoleId);
+    foreach (var (role, amount) in state.RoleCredits)
+    {
+        tasks.Add(_db.SetPlayerAntagTokenAmount(userId.UserId, AntagTokenCatalog.GetRoleCreditEntryId(role), amount));
     }
 
+    if (state.PendingDepositRoleId == null)
+        tasks.Add(_db.ClearPlayerAntagTokenSelection(userId.UserId));
+    else
+        tasks.Add(_db.SetPlayerAntagTokenSelection(userId.UserId, AntagTokenCatalog.DepositSelectionTokenId, state.PendingDepositRoleId));
+
+    await Task.WhenAll(tasks);
+}
     private void SaveAll()
     {
         foreach (var (userId, state) in _states)
