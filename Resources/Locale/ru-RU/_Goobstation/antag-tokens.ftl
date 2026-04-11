@@ -39,44 +39,21 @@ antag-store-role-thief-description = Недорогая роль на старт
 antag-store-role-agent-name = Агент
 antag-store-role-agent-description = Классический предатель, выбирается заранее из лобби.
 antag-store-role-ninja-name = Ниндзя
-antag-store-role-ninja-description = Запускает отдельное событие ниндзя с эксклюзивной гост-ролью для покупателя.
-antag-store-role-dragon-name = Космический дракон
-antag-store-role-dragon-description = Запускает событие дракона и резервирует гост-роль за покупателем.
-antag-store-role-abductor-name = Абдуктор
-antag-store-role-abductor-description = Покупает одиночное событие абдуктора посреди раунда.
-antag-store-role-initial-infected-name = Нулевой заражённый
-antag-store-role-initial-infected-description = Очередь на слот нулевого заражённого в начале раунда.
-antag-store-role-revenant-name = Ревенант
-antag-store-role-revenant-description = Запускает событие ревенанта с эксклюзивной гост-ролью.
-antag-store-role-yao-name = Оперативник
-antag-store-role-yao-description = Личное событие в формате одиночного оперативника.
-antag-store-role-headrev-name = Глава революции
-antag-store-role-headrev-description = Очередь на главу революции.
-antag-store-role-cosmic-cult-name = Космический культист
-antag-store-role-cosmic-cult-description = Очередь на космического культиста.
 antag-store-role-ninja-description = Вызов события ниндзя. Роль-призрак достанется только вам.
-
 antag-store-role-dragon-name = Дракон
 antag-store-role-dragon-description = Вызов события дракона. Роль-призрак достанется только вам.
-
 antag-store-role-abductor-name = Абдуктор
 antag-store-role-abductor-description = Вызов события абдуктора. Одиночная роль для похищений.
-
 antag-store-role-initial-infected-name = Зомби
 antag-store-role-initial-infected-description = Очередь на нулевого заражённого. Выбирается заранее в лобби.
-
 antag-store-role-revenant-name = Ревенант
 antag-store-role-revenant-description = Вызов события ревенанта. Роль-призрак достанется только вам.
-
 antag-store-role-yao-name = Оперативник
 antag-store-role-yao-description = Вызов события яо. Формат одинокого оперативника. Роль только ваша.
-
 antag-store-role-headrev-name = Глава революции
 antag-store-role-headrev-description = Очередь на главу восстания. Выбирается заранее в лобби.
-
 antag-store-role-cosmic-cult-name = Культист
 antag-store-role-cosmic-cult-description = Очередь на космического культиста. Выбирается заранее в лобби.
-
 antag-store-role-devil-name = Дьявол
 antag-store-role-devil-description = Очередь на дьявола.
 antag-store-role-blob-name = Блоб
@@ -92,9 +69,6 @@ antag-store-role-changeling-description = Очередь на генокрада
 antag-store-role-heretic-name = Еретик
 antag-store-role-heretic-description = Очередь на еретика.
 antag-store-role-shadowling-name = Шедоулинг
-antag-store-role-shadowling-description = Очередь на шедоулинга.
+antag-store-role-shadowling-description = Очередь на шедоулинга. Выбирается заранее в лобби.
 antag-store-role-xenomorph-name = Ксеноморф
 antag-store-role-xenomorph-description = Очередь на раундстартовое заражение ксеноморфами.
-antag-store-role-shadowling-description = Очередь на шедоулинга. Выбирается заранее в лобби.
-
-antag-token-window-roles-title = Антагонисты
