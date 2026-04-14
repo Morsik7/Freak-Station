@@ -519,6 +519,7 @@ public sealed class AntagTokenSystem : EntitySystem
                 }
             }
         }
+    }
 
     private void OnRoundRestartCleanup(RoundRestartCleanupEvent _)
     {
