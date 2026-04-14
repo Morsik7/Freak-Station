@@ -126,29 +126,29 @@
   footstepCollection:
     collection: FootstepHoverBorg
 
-- type: borgType
-  id: typan-service
-  showInGlobalSelection: false
-  dummyPrototype: BorgChassisTypanService
-  extraModuleCount: 3
-  moduleWhitelist:
-    tags:
-    - BorgModuleGeneric
-    - BorgModuleService
-    - BorgModuleSyndicate
-  defaultModules:
-  - BorgModuleMusique
-  - BorgModuleService
-  - BorgModuleClowning
-  radioChannels:
-  - Typan
-  inventoryTemplateId: borgTall
-  spriteBodyState: service
-  spriteHasMindState: service_e
-  spriteNoMindState: service_e_r
-  spriteToggleLightState: service_l
-  petSuccessString: petting-success-syndicate-cyborg
-  petFailureString: petting-failure-syndicate-cyborg
+# - type: borgType
+#   id: typan-service
+#   showInGlobalSelection: false
+#   dummyPrototype: BorgChassisTypanService
+#   extraModuleCount: 3
+#   moduleWhitelist:
+#     tags:
+#     - BorgModuleGeneric
+#     - BorgModuleService
+#     - BorgModuleSyndicate
+#   defaultModules:
+#   - BorgModuleMusique
+#   - BorgModuleService
+#   - BorgModuleClowning
+#   radioChannels:
+#   - Typan
+#   inventoryTemplateId: borgTall
+#   spriteBodyState: service
+#   spriteHasMindState: service_e
+#   spriteNoMindState: service_e_r
+#   spriteToggleLightState: service_l
+#   petSuccessString: petting-success-syndicate-cyborg
+#   petFailureString: petting-failure-syndicate-cyborg
 
 - type: borgType
   id: typan-security
@@ -173,4 +173,4 @@
   petSuccessString: petting-success-syndicate-cyborg
   petFailureString: petting-failure-syndicate-cyborg
   footstepCollection:
-    collection: FootstepBorgSec
+    collection: FootstepBorg

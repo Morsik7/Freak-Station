@@ -22,10 +22,6 @@ borg-type-typan-medical-name = борг-доктор
 borg-type-typan-medical-desc = Медицинская платформа борга.
 borg-type-typan-medical-transponder = медицинский борг
 
-borg-type-typan-service-name = борг-официант
-borg-type-typan-service-desc = Сервисная платформа борга.
-borg-type-typan-service-transponder = сервисный борг
-
 borg-type-typan-security-name = борг-охранник
 borg-type-typan-security-desc = Охранная платформа борга.
 borg-type-typan-security-transponder = охранный борг
@@ -44,11 +40,11 @@ ent-BorgChassisTypanJanitor = борг-уборщик
     .desc = { ent-BaseBorgChassisTypan.desc }
 ent-BorgChassisTypanMedical = борг-доктор
     .desc = { ent-BaseBorgChassisTypan.desc }
-ent-BorgChassisTypanService = борг-официант
-    .desc = { ent-BaseBorgChassisTypan.desc }
 ent-BorgChassisTypanSecurity = борг-охранник
     .desc = { ent-BaseBorgChassisTypan.desc }
 
+ent-PlayerBorgTypanBattery = { ent-BorgChassisTypanSelectable }
+    .desc = { ent-BorgChassisTypanSelectable.desc }
 ent-PlayerBorgTypanGeneric = { ent-BorgChassisTypanGeneric }
     .desc = { ent-BorgChassisTypanGeneric.desc }
 ent-PlayerBorgTypanEngineer = { ent-BorgChassisTypanEngineer }
@@ -59,7 +55,5 @@ ent-PlayerBorgTypanJanitor = { ent-BorgChassisTypanJanitor }
     .desc = { ent-BorgChassisTypanJanitor.desc }
 ent-PlayerBorgTypanMedical = { ent-BorgChassisTypanMedical }
     .desc = { ent-BorgChassisTypanMedical.desc }
-ent-PlayerBorgTypanService = { ent-BorgChassisTypanService }
-    .desc = { ent-BorgChassisTypanService.desc }
 ent-PlayerBorgTypanSecurity = { ent-BorgChassisTypanSecurity }
     .desc = { ent-BorgChassisTypanSecurity.desc }

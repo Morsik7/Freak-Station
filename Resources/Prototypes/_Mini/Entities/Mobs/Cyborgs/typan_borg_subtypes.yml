@@ -28,11 +28,11 @@
   spritePath: _Mini/Mobs/Silicon/chassis.rsi
   dummyPrototype: BorgChassisTypanMedical
 
-- type: borgSubtype
-  parentBorgType: typan-service
-  id: typan_service_default
-  spritePath: _Mini/Mobs/Silicon/chassis.rsi
-  dummyPrototype: BorgChassisTypanService
+# - type: borgSubtype
+#   parentBorgType: typan-service
+#   id: typan_service_default
+#   spritePath: _Mini/Mobs/Silicon/chassis.rsi
+#   dummyPrototype: BorgChassisTypanService
 
 - type: borgSubtype
   parentBorgType: typan-security

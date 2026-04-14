@@ -95,7 +95,6 @@
         - typan-mining
         - typan-janitor
         - typan-medical
-        - typan-service
         - typan-security
     - type: BorgSwitchableSubtype
       borgSubtype: typan_generic_default
@@ -112,7 +111,6 @@
         typan-mining: mining
         typan-janitor: janitor
         typan-medical: medical
-        typan-service: service
         typan-security: engineering
     - type: Appearance
 
@@ -286,34 +284,34 @@
       #   isTypan: true
       name: medical cyborg
 
-# Typan Service
-- type: entity
-  id: BorgChassisTypanService
-  parent: BorgChassisTypanSelectable
-  name: typan service cyborg
-  components:
-    - type: Sprite
-      layers:
-        - state: service
-          map: ["enum.BorgVisualLayers.Body", "movement"]
-        - state: service_e_r
-          map: ["enum.BorgVisualLayers.Light"]
-          shader: unshaded
-          visible: false
-        - state: service_l
-          shader: unshaded
-          map: ["light", "enum.BorgVisualLayers.LightStatus"]
-          visible: false
-    - type: BorgSwitchableType
-      selectedBorgType: typan-service
-    - type: TTS # Corvax-TTS
-      voice: Glados
-    - type: BorgTransponder
-      sprite:
-        sprite: _Mini/Mobs/Silicon/chassis.rsi
-        state: service
-      #   isTypan: true
-      name: service cyborg
+# # Typan Service
+# - type: entity
+#   id: BorgChassisTypanService
+#   parent: BorgChassisTypanSelectable
+#   name: typan service cyborg
+#   components:
+#     - type: Sprite
+#       layers:
+#         - state: service
+#           map: ["enum.BorgVisualLayers.Body", "movement"]
+#         - state: service_e_r
+#           map: ["enum.BorgVisualLayers.Light"]
+#           shader: unshaded
+#           visible: false
+#         - state: service_l
+#           shader: unshaded
+#           map: ["light", "enum.BorgVisualLayers.LightStatus"]
+#           visible: false
+#     - type: BorgSwitchableType
+#       selectedBorgType: typan-service
+#     - type: TTS # Corvax-TTS
+#       voice: Glados
+#     - type: BorgTransponder
+#       sprite:
+#         sprite: _Mini/Mobs/Silicon/chassis.rsi
+#         state: service
+#       #   isTypan: true
+#       name: service cyborg
 
 # Typan Security
 - type: entity
