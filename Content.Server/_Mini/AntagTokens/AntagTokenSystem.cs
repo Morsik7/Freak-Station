@@ -140,6 +140,32 @@ public sealed class AntagTokenSystem : EntitySystem
             }
         }
     }
+
+    private void TryGrantSponsorRenewal(ICommonSession session, PlayerTokenState state, DateTime nowUtc)
+    {
+        var sponsorLevel = GetEffectiveSponsorLevel(session.UserId);
+        if (sponsorLevel <= 0)
+            return;
+
+        var bonusAmount = GetDonorBonusByLevel(sponsorLevel);
+        if (bonusAmount <= 0)
+            return;
+
+        if (state.LastDonorBonusClaimUtc is { } lastClaim &&
+            nowUtc - lastClaim < TimeSpan.FromDays(30))
+        {
+            return;
+        }
+
+        AddBalance(session.UserId, bonusAmount, out var granted, out _);
+        if (granted <= 0)
+            return;
+
+        state.LastDonorBonusClaimUtc = nowUtc;
+        PersistState(session.UserId, state);
+        ShowPopup(session, $"Донатерский бонус: +{granted} монет (уровень {sponsorLevel})!");
+    }
+
     public bool AddBalance(NetUserId userId, int amount, out int grantedAmount, out string? note)
     {
         grantedAmount = 0;
