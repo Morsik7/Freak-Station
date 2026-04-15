@@ -5,7 +5,7 @@
   playTimeTracker: JobBorgTypan
   requirements:
     - !type:OverallPlaytimeRequirement
-      time: 144000 # 40 hrs
+      time: 36000 # 10 hrs
   canBeAntag: false
   icon: JobIconTypanBorg
   supervisors: job-supervisors-typan-syndicate
