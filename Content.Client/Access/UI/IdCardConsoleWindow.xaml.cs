@@ -52,8 +52,6 @@ namespace Content.Client.Access.UI
 
         private AccessLevelControl _accessButtons = new();
         private readonly List<string> _jobPrototypeIds = new();
-        private readonly HashSet<ProtoId<AccessLevelPrototype>> _allowedModifyAccess = new();
-        private readonly HashSet<ProtoId<AccessLevelPrototype>> _extendedAccessExclusions = new();
 
         private string? _lastFullName;
         private string? _lastJobTitle;
@@ -62,12 +60,8 @@ namespace Content.Client.Access.UI
         // The job that will be picked if the ID doesn't have a job on the station.
         private static ProtoId<JobPrototype> _defaultJob = "Passenger";
 
-        public IdCardConsoleWindow(IdCardConsoleBoundUserInterface owner,
-            IPrototypeManager prototypeManager,
-            List<ProtoId<AccessLevelPrototype>> accessLevels,
-            bool showFullAccessButton,
-            bool showExtendedAccessButton,
-            List<ProtoId<AccessLevelPrototype>> extendedAccessExclusions)
+        public IdCardConsoleWindow(IdCardConsoleBoundUserInterface owner, IPrototypeManager prototypeManager,
+            List<ProtoId<AccessLevelPrototype>> accessLevels)
         {
             RobustXamlLoader.Load(this);
             IoCManager.InjectDependencies(this);
@@ -128,19 +122,8 @@ namespace Content.Client.Access.UI
             }
 
             JobPresetOptionButton.OnItemSelected += SelectJobPreset;
-            ApplyJobAccessButton.OnPressed += _ => ApplyCurrentJobPresetAccesses();
             _accessButtons.Populate(accessLevels, prototypeManager);
             AccessLevelControlContainer.AddChild(_accessButtons);
-            AccessPresetButtonsContainer.Visible = showFullAccessButton || showExtendedAccessButton;
-            FullAccessButton.Visible = showFullAccessButton;
-            ExtendedAccessButton.Visible = showExtendedAccessButton;
-            FullAccessButton.OnPressed += _ => ApplyAccessPreset(fullAccess: true);
-            ExtendedAccessButton.OnPressed += _ => ApplyAccessPreset(fullAccess: false);
-
-            foreach (var access in extendedAccessExclusions)
-            {
-                _extendedAccessExclusions.Add(access);
-            }
 
             foreach (var (id, button) in _accessButtons.ButtonsList)
             {
@@ -161,63 +144,39 @@ namespace Content.Client.Access.UI
 
         private void SelectJobPreset(OptionButton.ItemSelectedEventArgs args)
         {
-            args.Button.SelectId(args.Id);
-            ApplyCurrentJobPresetAccesses();
-        }
-
-        private void ApplyCurrentJobPresetAccesses()
-        {
-            if (JobPresetOptionButton.SelectedId < 0 ||
-                JobPresetOptionButton.SelectedId >= _jobPrototypeIds.Count)
-            {
-                return;
-            }
-
-            var selectedJob = _jobPrototypeIds[JobPresetOptionButton.SelectedId];
-            if (!_prototypeManager.TryIndex(selectedJob, out JobPrototype? job))
+            if (!_prototypeManager.TryIndex(_jobPrototypeIds[args.Id], out JobPrototype? job))
             {
                 return;
             }
 
             JobTitleLineEdit.Text = Loc.GetString(job.Name);
-            var jobAccesses = new HashSet<ProtoId<AccessLevelPrototype>>();
+            args.Button.SelectId(args.Id);
+
+            ClearAllAccess();
+
+            // this is a sussy way to do this
             foreach (var access in job.Access)
             {
-                jobAccesses.Add(access);
+                if (_accessButtons.ButtonsList.TryGetValue(access, out var button) && !button.Disabled)
+                {
+                    button.Pressed = true;
+                }
             }
 
             foreach (var group in job.AccessGroups)
             {
                 if (!_prototypeManager.TryIndex(group, out AccessGroupPrototype? groupPrototype))
+                {
                     continue;
+                }
 
                 foreach (var access in groupPrototype.Tags)
                 {
-                    jobAccesses.Add(access);
+                    if (_accessButtons.ButtonsList.TryGetValue(access, out var button) && !button.Disabled)
+                    {
+                        button.Pressed = true;
+                    }
                 }
-            }
-
-            foreach (var (accessId, button) in _accessButtons.ButtonsList)
-            {
-                button.Pressed = !button.Disabled && jobAccesses.Contains(accessId);
-            }
-
-            SubmitData();
-        }
-
-        private void ApplyAccessPreset(bool fullAccess)
-        {
-            ClearAllAccess();
-
-            foreach (var (id, button) in _accessButtons.ButtonsList)
-            {
-                if (button.Disabled || !_allowedModifyAccess.Contains(id))
-                    continue;
-
-                if (!fullAccess && _extendedAccessExclusions.Contains(id))
-                    continue;
-
-                button.Pressed = true;
             }
 
             SubmitData();
@@ -262,25 +221,11 @@ namespace Content.Client.Access.UI
             JobTitleSaveButton.Disabled = !interfaceEnabled || !jobTitleDirty;
 
             JobPresetOptionButton.Disabled = !interfaceEnabled;
-            ApplyJobAccessButton.Disabled = !interfaceEnabled;
 
             _accessButtons.UpdateState(state.TargetIdAccessList?.ToList() ??
                                        new List<ProtoId<AccessLevelPrototype>>(),
                                        state.AllowedModifyAccessList?.ToList() ??
                                        new List<ProtoId<AccessLevelPrototype>>());
-
-            _allowedModifyAccess.Clear();
-            if (state.AllowedModifyAccessList != null)
-            {
-                foreach (var access in state.AllowedModifyAccessList)
-                {
-                    _allowedModifyAccess.Add(access);
-                }
-            }
-
-            var canUsePresetButtons = interfaceEnabled && _allowedModifyAccess.Count > 0;
-            FullAccessButton.Disabled = !canUsePresetButtons;
-            ExtendedAccessButton.Disabled = !canUsePresetButtons;
 
             var jobIndex = _jobPrototypeIds.IndexOf(state.TargetIdJobPrototype);
             // If the job index is < 0 that means they don't have a job registered in the station records

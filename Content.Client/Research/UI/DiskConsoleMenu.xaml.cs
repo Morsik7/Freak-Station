@@ -15,8 +15,6 @@ public sealed partial class DiskConsoleMenu : FancyWindow
 {
     public event Action? OnServerButtonPressed;
     public event Action? OnPrintButtonPressed;
-    public event Action<bool>? OnAutoPrintPressed;
-    public event Action<bool>? OnAutoFeedAdjacentConverterPressed;
 
     public DiskConsoleMenu()
     {
@@ -24,14 +22,10 @@ public sealed partial class DiskConsoleMenu : FancyWindow
 
         ServerButton.OnPressed += _ => OnServerButtonPressed?.Invoke();
         PrintButton.OnPressed += _ => OnPrintButtonPressed?.Invoke();
-        AutoPrintCheck.OnPressed += _ => OnAutoPrintPressed?.Invoke(AutoPrintCheck.Pressed);
-        AutoFeedAdjacentConverterCheck.OnPressed += _ => OnAutoFeedAdjacentConverterPressed?.Invoke(AutoFeedAdjacentConverterCheck.Pressed);
     }
 
     public void Update(DiskConsoleBoundUserInterfaceState state)
     {
-        AutoPrintCheck.Pressed = state.AutoPrint;
-        AutoFeedAdjacentConverterCheck.Pressed = state.AutoFeedAdjacentConverter;
         PrintButton.Disabled = !state.CanPrint;
         TotalLabel.Text = Loc.GetString("tech-disk-ui-total-label", ("amount", state.ServerPoints));
         CostLabel.Text = Loc.GetString("tech-disk-ui-cost-label", ("amount", state.PointCost));

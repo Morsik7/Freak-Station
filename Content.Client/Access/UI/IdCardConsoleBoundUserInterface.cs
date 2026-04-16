@@ -53,16 +53,10 @@ namespace Content.Client.Access.UI
         {
             base.Open();
             List<ProtoId<AccessLevelPrototype>> accessLevels;
-            var showFullAccessButton = false;
-            var showExtendedAccessButton = false;
-            var extendedAccessExclusions = new List<ProtoId<AccessLevelPrototype>>();
 
             if (EntMan.TryGetComponent<IdCardConsoleComponent>(Owner, out var idCard))
             {
                 accessLevels = idCard.AccessLevels;
-                showFullAccessButton = idCard.ShowFullAccessButton;
-                showExtendedAccessButton = idCard.ShowExtendedAccessButton;
-                extendedAccessExclusions = new List<ProtoId<AccessLevelPrototype>>(idCard.ExtendedAccessExclusions);
             }
             else
             {
@@ -70,12 +64,7 @@ namespace Content.Client.Access.UI
                 _idCardConsoleSystem.Log.Error($"No IdCardConsole component found for {EntMan.ToPrettyString(Owner)}!");
             }
 
-            _window = new IdCardConsoleWindow(this,
-                _prototypeManager,
-                accessLevels,
-                showFullAccessButton,
-                showExtendedAccessButton,
-                extendedAccessExclusions)
+            _window = new IdCardConsoleWindow(this, _prototypeManager, accessLevels)
             {
                 Title = EntMan.GetComponent<MetaDataComponent>(Owner).EntityName
             };

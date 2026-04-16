@@ -17,21 +17,12 @@ public enum DiskConsoleUiKey : byte
 public sealed class DiskConsoleBoundUserInterfaceState : BoundUserInterfaceState
 {
     public bool CanPrint;
-    public bool AutoPrint;
-    public bool AutoFeedAdjacentConverter;
     public int PointCost;
     public int ServerPoints;
 
-    public DiskConsoleBoundUserInterfaceState(
-        int serverPoints,
-        int pointCost,
-        bool canPrint,
-        bool autoPrint,
-        bool autoFeedAdjacentConverter)
+    public DiskConsoleBoundUserInterfaceState(int serverPoints, int pointCost, bool canPrint)
     {
         CanPrint = canPrint;
-        AutoPrint = autoPrint;
-        AutoFeedAdjacentConverter = autoFeedAdjacentConverter;
         PointCost = pointCost;
         ServerPoints = serverPoints;
     }
@@ -41,26 +32,4 @@ public sealed class DiskConsoleBoundUserInterfaceState : BoundUserInterfaceState
 public sealed class DiskConsolePrintDiskMessage : BoundUserInterfaceMessage
 {
 
-}
-
-[Serializable, NetSerializable]
-public sealed class DiskConsoleSetAutoPrintMessage : BoundUserInterfaceMessage
-{
-    public bool AutoPrint;
-
-    public DiskConsoleSetAutoPrintMessage(bool autoPrint)
-    {
-        AutoPrint = autoPrint;
-    }
-}
-
-[Serializable, NetSerializable]
-public sealed class DiskConsoleSetAutoFeedAdjacentConverterMessage : BoundUserInterfaceMessage
-{
-    public bool AutoFeedAdjacentConverter;
-
-    public DiskConsoleSetAutoFeedAdjacentConverterMessage(bool autoFeedAdjacentConverter)
-    {
-        AutoFeedAdjacentConverter = autoFeedAdjacentConverter;
-    }
 }

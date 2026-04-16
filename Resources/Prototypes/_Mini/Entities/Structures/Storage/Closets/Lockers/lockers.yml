@@ -249,7 +249,7 @@
     stateDoorOpen: door_open
     stateDoorClosed: ts_door
   - type: AccessReader
-    access: [["TypanCommand"]]
+    access: [["TypanTechnicalOperationsSupervisor"]]
 
 # Cargotech
 - type: entity
@@ -380,7 +380,7 @@
     stateDoorOpen: med_open
     stateDoorClosed: chemical_door
   - type: AccessReader
-    access: [["TypanMedical"], ["TypanScience"]]
+    access: [["TypanMedical"], ["TypanResearch"]]
 
 # Research Director
 - type: entity
@@ -406,7 +406,7 @@
     stateDoorOpen: door_open
     stateDoorClosed: science_door
   - type: AccessReader
-    access: [["TypanScience"]]
+    access: [["TypanResearch"]]
 
 # Communications Officer
 - type: entity

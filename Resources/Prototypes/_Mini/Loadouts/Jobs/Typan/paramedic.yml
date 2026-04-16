@@ -10,6 +10,31 @@
   equipment:
     jumpsuit: ClothingUniformJumpskirtTypanParamedic
 
+# Underwear
+- type: loadout
+  id: UnderwearBottomBoxersTypanParamedic
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: MaleUnderwear
+  equipment:
+    underwearb: ClothingUnderwearBottomBoxersTypanParamedic
+
+- type: loadout
+  id: UnderwearBottomPantiesTypanParamedic
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: FemaleUnderwear
+  equipment:
+    underwearb: ClothingUnderwearBottomPantiesTypanParamedic
+
+- type: loadout
+  id: UnderwearTopBraTypanParamedic
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: FemaleUnderwear
+  equipment:
+    underweart: ClothingUnderwearTopBraTypanParamedic
+
 # Loadout Groups
 - type: loadoutGroup
   id: TypanParamedicUniform
@@ -19,6 +44,16 @@
   loadouts:
   - TypanParamedicJumpsuit
   - TypanParamedicJumpskirt
+
+- type: loadoutGroup
+  id: TypanParamedicUnderwear
+  name: loadout-group-typan-paramedic-underwear
+  hidden: true
+  minLimit: 2
+  loadouts:
+  - UnderwearBottomBoxersTypanParamedic
+  - UnderwearBottomPantiesTypanParamedic
+  - UnderwearTopBraTypanParamedic
 
 # Role Loadout
 - type: roleLoadout

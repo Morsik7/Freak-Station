@@ -35,12 +35,6 @@ public sealed class SponsorSystem : EntitySystem
             Password = _cfg.GetCVar<string>("database.pg_password")
         };
 
-        if (IsPostgresUnconfigured(builder))
-        {
-            Log.Warning("[Sponsors] PostgreSQL is not configured, skipping sponsor preload.");
-            return;
-        }
-
         try
         {
             await using var dataSource = NpgsqlDataSource.Create(builder.ConnectionString);
@@ -71,13 +65,5 @@ public sealed class SponsorSystem : EntitySystem
         {
             Log.Warning($"Ошибка БД спонсоров: {ex}");
         }
-    }
-
-    private static bool IsPostgresUnconfigured(NpgsqlConnectionStringBuilder builder)
-    {
-        if (!string.IsNullOrWhiteSpace(builder.Password))
-            return false;
-
-        return builder.Host is "localhost" or "127.0.0.1";
     }
 }

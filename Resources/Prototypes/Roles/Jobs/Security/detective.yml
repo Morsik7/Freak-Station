@@ -115,7 +115,7 @@
     - Flash
     - ForensicPad
     - ForensicScanner
-#   - ClothingMaskGasSecurity # Goobstation # CorvaxGoob-changes: commented
+    - ClothingMaskGasSecurity # Goobstation
 
 - type: chameleonOutfit
   id: DetectiveChameleonOutfit
