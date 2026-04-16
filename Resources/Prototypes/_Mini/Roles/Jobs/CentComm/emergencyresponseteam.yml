@@ -1,25 +1,35 @@
 # Leader
 ## Amber
-# - type: job
-#   id: ERTLeaderAmber
-#   name: job-name-ertleader-amber
-#   skills: # CorvaxGoob-Skills
-#   - All
-#   description: job-description-ertleader
-#   playTimeTracker: JobERTLeaderAmber
-#   setPreference: false
-#   startingGear: ERTLeaderGearAmber
-#   icon: "JobIconERTLeader"
-#   supervisors: job-supervisors-centcom
-#   canBeAntag: false
-#   accessGroups:
-#   - AllAccess
-#   access:
-#   - CentralCommand
-#   - ErtTeamLeader
-#   special:
-#   - !type:AddImplantSpecial
-#     implants: [ MindShieldImplant, TrackingImplant ]
+- type: job
+  id: ERTLeaderAmber
+  name: job-name-ertleader-amber
+  skills: # CorvaxGoob-Skills
+  - All
+  description: job-description-ertleader
+  playTimeTracker: JobERTLeaderAmber
+  setPreference: false
+  startingGear: ERTLeaderGearAmber
+  icon: "JobIconERTLeader"
+  supervisors: job-supervisors-centcom
+  canBeAntag: false
+  requirements:
+  - !type:DepartmentTimeRequirement
+    department: Medical
+    time: 36000
+  - !type:DepartmentTimeRequirement
+    department: Security
+    time: 72000
+  - !type:DepartmentTimeRequirement
+    department: Command
+    time: 36000
+  accessGroups:
+  - AllAccess
+  access:
+  - CentralCommand
+  - ErtTeamLeader
+  special:
+  - !type:AddImplantSpecial
+    implants: [ MindShieldImplant, TrackingImplant ]
 
 # - type: startingGear
 #   id: ERTLeaderGearAmber
@@ -45,26 +55,36 @@
 #     - EmergencyMedipen
 
 ## Red
-# - type: job
-#   id: ERTLeaderRed
-#   name: job-name-ertleader-red
-#   description: job-description-ertleader
-#   skills: # CorvaxGoob-Skills
-#   - All
-#   playTimeTracker: JobERTLeaderRed
-#   setPreference: false
-#   startingGear: ERTLeaderGearRed
-#   icon: "JobIconERTLeader"
-#   supervisors: job-supervisors-centcom
-#   canBeAntag: false
-#   accessGroups:
-#   - AllAccess
-#   access:
-#   - CentralCommand
-#   - ErtTeamLeader
-#   special:
-#   - !type:AddImplantSpecial
-#     implants: [ MindShieldImplant, TrackingImplant ]
+- type: job
+  id: ERTLeaderRed
+  name: job-name-ertleader-red
+  description: job-description-ertleader
+  skills: # CorvaxGoob-Skills
+  - All
+  playTimeTracker: JobERTLeaderRed
+  setPreference: false
+  startingGear: ERTLeaderGearRed
+  icon: "JobIconERTLeader"
+  supervisors: job-supervisors-centcom
+  canBeAntag: false
+  requirements:
+  - !type:DepartmentTimeRequirement
+    department: Medical
+    time: 36000
+  - !type:DepartmentTimeRequirement
+    department: Security
+    time: 72000
+  - !type:DepartmentTimeRequirement
+    department: Command
+    time: 36000
+  accessGroups:
+  - AllAccess
+  access:
+  - CentralCommand
+  - ErtTeamLeader
+  special:
+  - !type:AddImplantSpecial
+    implants: [ MindShieldImplant, TrackingImplant ]
 
 # - type: startingGear
 #   id: ERTLeaderGearRed
@@ -92,26 +112,36 @@
 
 
 ## Gamma
-# - type: job
-#   id: ERTLeaderGamma
-#   name: job-name-ertleader-gamma
-#   description: job-description-ertleader
-#   playTimeTracker: JobERTLeaderGamma
-#   setPreference: false
-#   startingGear: ERTLeaderGearGamma
-#   icon: "JobIconERTLeader"
-#   supervisors: job-supervisors-centcom
-#   canBeAntag: false
-#   skills: # CorvaxGoob-Skills
-#   - All
-#   accessGroups:
-#   - AllAccess
-#   access:
-#   - CentralCommand
-#   - ErtTeamLeader
-#   special:
-#   - !type:AddImplantSpecial
-#     implants: [ MindShieldImplant, TrackingImplant ]
+- type: job
+  id: ERTLeaderGamma
+  name: job-name-ertleader-gamma
+  description: job-description-ertleader
+  playTimeTracker: JobERTLeaderGamma
+  setPreference: false
+  startingGear: ERTLeaderGearGamma
+  icon: "JobIconERTLeader"
+  supervisors: job-supervisors-centcom
+  canBeAntag: false
+  requirements:
+  - !type:DepartmentTimeRequirement
+    department: Medical
+    time: 36000
+  - !type:DepartmentTimeRequirement
+    department: Security
+    time: 72000
+  - !type:DepartmentTimeRequirement
+    department: Command
+    time: 36000
+  skills: # CorvaxGoob-Skills
+  - All
+  accessGroups:
+  - AllAccess
+  access:
+  - CentralCommand
+  - ErtTeamLeader
+  special:
+  - !type:AddImplantSpecial
+    implants: [ MindShieldImplant, TrackingImplant ]
 
 # - type: startingGear
 #   id: ERTLeaderGearGamma
@@ -141,25 +171,32 @@
 
 # Security
 ## Amber
-# - type: job
-#   id: ERTSecurityAmber
-#   name: job-name-ertsecurity-amber
-#   description: job-description-ertsecurity
-#   skills: # CorvaxGoob-Skills
-#   - All
-#   playTimeTracker: JobERTSecurity
-#   setPreference: false
-#   startingGear: ERTSecurityGearAmber
-#   icon: "JobIconERT"
-#   supervisors: job-supervisors-centcom
-#   canBeAntag: false
-#   accessGroups:
-#   - AllAccess
-#   access:
-#   - CentralCommand
-#   special:
-#   - !type:AddImplantSpecial
-#     implants: [ MindShieldImplant, TrackingImplant ]
+- type: job
+  id: ERTSecurityAmber
+  name: job-name-ertsecurity-amber
+  description: job-description-ertsecurity
+  skills: # CorvaxGoob-Skills
+  - All
+  playTimeTracker: JobERTSecurityAmber
+  setPreference: false
+  startingGear: ERTSecurityGearAmber
+  icon: "JobIconERT"
+  supervisors: job-supervisors-centcom
+  canBeAntag: false
+  requirements:
+  - !type:DepartmentTimeRequirement
+    department: Medical
+    time: 14400
+  - !type:DepartmentTimeRequirement
+    department: Security
+    time: 72000
+  accessGroups:
+  - AllAccess
+  access:
+  - CentralCommand
+  special:
+  - !type:AddImplantSpecial
+    implants: [ MindShieldImplant, TrackingImplant ]
 
 # - type: startingGear
 #   id: ERTSecurityGearAmber
@@ -189,25 +226,32 @@
 
 
 ## Red
-# - type: job
-#   id: ERTSecurityRed
-#   name: job-name-ertsecurity-red
-#   description: job-description-ertsecurity
-#   skills: # CorvaxGoob-Skills
-#   - All
-#   playTimeTracker: JobERTSecurity
-#   setPreference: false
-#   startingGear: ERTSecurityGearRed
-#   icon: "JobIconERT"
-#   supervisors: job-supervisors-centcom
-#   canBeAntag: false
-#   accessGroups:
-#   - AllAccess
-#   access:
-#   - CentralCommand
-#   special:
-#   - !type:AddImplantSpecial
-#     implants: [ MindShieldImplant, TrackingImplant ]
+- type: job
+  id: ERTSecurityRed
+  name: job-name-ertsecurity-red
+  description: job-description-ertsecurity
+  skills: # CorvaxGoob-Skills
+  - All
+  playTimeTracker: JobERTSecurityRed
+  setPreference: false
+  startingGear: ERTSecurityGearRed
+  icon: "JobIconERT"
+  supervisors: job-supervisors-centcom
+  canBeAntag: false
+  requirements:
+  - !type:DepartmentTimeRequirement
+    department: Medical
+    time: 14400
+  - !type:DepartmentTimeRequirement
+    department: Security
+    time: 72000
+  accessGroups:
+  - AllAccess
+  access:
+  - CentralCommand
+  special:
+  - !type:AddImplantSpecial
+    implants: [ MindShieldImplant, TrackingImplant ]
 
 # - type: startingGear
 #   id: ERTSecurityGearRed
@@ -232,26 +276,33 @@
 #     - CrowbarRed
 #     - PinpointerNuclear
 
-# ## Gamma
-# - type: job
-#   id: ERTSecurityGamma
-#   name: job-name-ertsecurity-gamma
-#   description: job-description-ertsecurity
-#   skills: # CorvaxGoob-Skills
-#   - All
-#   playTimeTracker: JobERTSecurity
-#   setPreference: false
-#   startingGear: ERTSecurityGearGamma
-#   icon: "JobIconERT"
-#   supervisors: job-supervisors-centcom
-#   canBeAntag: false
-#   accessGroups:
-#   - AllAccess
-#   access:
-#   - CentralCommand
-#   special:
-#   - !type:AddImplantSpecial
-#     implants: [ MindShieldImplant, TrackingImplant ]
+## Gamma
+- type: job
+  id: ERTSecurityGamma
+  name: job-name-ertsecurity-gamma
+  description: job-description-ertsecurity
+  skills: # CorvaxGoob-Skills
+  - All
+  playTimeTracker: JobERTSecurityGamma
+  setPreference: false
+  startingGear: ERTSecurityGearGamma
+  icon: "JobIconERT"
+  supervisors: job-supervisors-centcom
+  canBeAntag: false
+  requirements:
+  - !type:DepartmentTimeRequirement
+    department: Medical
+    time: 14400
+  - !type:DepartmentTimeRequirement
+    department: Security
+    time: 72000
+  accessGroups:
+  - AllAccess
+  access:
+  - CentralCommand
+  special:
+  - !type:AddImplantSpecial
+    implants: [ MindShieldImplant, TrackingImplant ]
 
 # - type: startingGear
 #   id: ERTSecurityGearGamma
@@ -278,27 +329,34 @@
 #     - PinpointerNuclear
 #     - ClothingEyesNightVisionGoggles
 
-# # Medical
-# ## Amber
-# - type: job
-#   id: ERTMedicalAmber
-#   name: job-name-ertmedic-amber
-#   skills: # CorvaxGoob-Skills
-#   - All
-#   description: job-description-ertmedic
-#   playTimeTracker: JobERTMedicalAmber
-#   setPreference: false
-#   startingGear: ERTMedicalGearAmber
-#   icon: "JobIconERT"
-#   supervisors: job-supervisors-centcom
-#   canBeAntag: false
-#   accessGroups:
-#   - AllAccess
-#   access:
-#   - CentralCommand
-#   special:
-#   - !type:AddImplantSpecial
-#     implants: [ MindShieldImplant, TrackingImplant ]
+# Medical
+## Amber
+- type: job
+  id: ERTMedicalAmber
+  name: job-name-ertmedic-amber
+  skills: # CorvaxGoob-Skills
+  - All
+  description: job-description-ertmedic
+  playTimeTracker: JobERTMedicalAmber
+  setPreference: false
+  startingGear: ERTMedicalGearAmber
+  icon: "JobIconERT"
+  supervisors: job-supervisors-centcom
+  canBeAntag: false
+  requirements:
+  - !type:DepartmentTimeRequirement
+    department: Medical
+    time: 36000
+  - !type:DepartmentTimeRequirement
+    department: Security
+    time: 36000
+  accessGroups:
+  - AllAccess
+  access:
+  - CentralCommand
+  special:
+  - !type:AddImplantSpecial
+    implants: [ MindShieldImplant, TrackingImplant ]
 
 # - type: startingGear
 #   id: ERTMedicalGearAmber
@@ -328,26 +386,33 @@
 #     - Hypospray
 #     - EmergencyMedipen
 
-# ## Red
-# - type: job
-#   id: ERTMedicalRed
-#   name: job-name-ertmedic-red
-#   description: job-description-ertmedic
-#   playTimeTracker: JobERTMedicalRed
-#   setPreference: false
-#   startingGear: ERTMedicalGearRed
-#   icon: "JobIconERT"
-#   supervisors: job-supervisors-centcom
-#   canBeAntag: false
-#   skills: # CorvaxGoob-Skills
-#   - All
-#   accessGroups:
-#   - AllAccess
-#   access:
-#   - CentralCommand
-#   special:
-#   - !type:AddImplantSpecial
-#     implants: [ MindShieldImplant, TrackingImplant ]
+## Red
+- type: job
+  id: ERTMedicalRed
+  name: job-name-ertmedic-red
+  description: job-description-ertmedic
+  playTimeTracker: JobERTMedicalRed
+  setPreference: false
+  startingGear: ERTMedicalGearRed
+  icon: "JobIconERT"
+  supervisors: job-supervisors-centcom
+  canBeAntag: false
+  requirements:
+  - !type:DepartmentTimeRequirement
+    department: Medical
+    time: 36000
+  - !type:DepartmentTimeRequirement
+    department: Security
+    time: 36000
+  skills: # CorvaxGoob-Skills
+  - All
+  accessGroups:
+  - AllAccess
+  access:
+  - CentralCommand
+  special:
+  - !type:AddImplantSpecial
+    implants: [ MindShieldImplant, TrackingImplant ]
 
 # - type: startingGear
 #   id: ERTMedicalGearRed
@@ -378,26 +443,33 @@
 #     - WeaponDisabler
 #     - HandheldHealthAnalyzer
 
-# ## Gamma
-# - type: job
-#   id: ERTMedicalGamma
-#   name: job-name-ertmedic-gamma
-#   description: job-description-ertmedic
-#   skills: # CorvaxGoob-Skills
-#   - All
-#   playTimeTracker: JobERTMedicalGamma
-#   setPreference: false
-#   startingGear: ERTMedicalGearGamma
-#   icon: "JobIconERT"
-#   supervisors: job-supervisors-centcom
-#   canBeAntag: false
-#   accessGroups:
-#   - AllAccess
-#   access:
-#   - CentralCommand
-#   special:
-#   - !type:AddImplantSpecial
-#     implants: [ MindShieldImplant, TrackingImplant ]
+## Gamma
+- type: job
+  id: ERTMedicalGamma
+  name: job-name-ertmedic-gamma
+  description: job-description-ertmedic
+  skills: # CorvaxGoob-Skills
+  - All
+  playTimeTracker: JobERTMedicalGamma
+  setPreference: false
+  startingGear: ERTMedicalGearGamma
+  icon: "JobIconERT"
+  supervisors: job-supervisors-centcom
+  canBeAntag: false
+  requirements:
+  - !type:DepartmentTimeRequirement
+    department: Medical
+    time: 36000
+  - !type:DepartmentTimeRequirement
+    department: Security
+    time: 36000
+  accessGroups:
+  - AllAccess
+  access:
+  - CentralCommand
+  special:
+  - !type:AddImplantSpecial
+    implants: [ MindShieldImplant, TrackingImplant ]
 
 # - type: startingGear
 #   id: ERTMedicalGearGamma
@@ -433,27 +505,34 @@
 #     - PinpointerNuclear
 #     - ClothingEyesNightVisionGoggles
 
-# # Engineer
-# ## Amber
-# - type: job
-#   id: ERTEngineerAmber
-#   name: job-name-ertengineer-amber
-#   description: job-description-ertengineer
-#   skills: # CorvaxGoob-Skills
-#   - All
-#   playTimeTracker: JobERTEngineerAmber
-#   setPreference: false
-#   startingGear: ERTEngineerGearAmber
-#   icon: "JobIconERT"
-#   supervisors: job-supervisors-centcom
-#   canBeAntag: false
-#   accessGroups:
-#   - AllAccess
-#   access:
-#   - CentralCommand
-#   special:
-#   - !type:AddImplantSpecial
-#     implants: [ MindShieldImplant, TrackingImplant ]
+# Engineer
+## Amber
+- type: job
+  id: ERTEngineerAmber
+  name: job-name-ertengineer-amber
+  description: job-description-ertengineer
+  skills: # CorvaxGoob-Skills
+  - All
+  playTimeTracker: JobERTEngineerAmber
+  setPreference: false
+  startingGear: ERTEngineerGearAmber
+  icon: "JobIconERT"
+  supervisors: job-supervisors-centcom
+  canBeAntag: false
+  requirements:
+  - !type:DepartmentTimeRequirement
+    department: Engineering
+    time: 36000
+  - !type:DepartmentTimeRequirement
+    department: Security
+    time: 36000
+  accessGroups:
+  - AllAccess
+  access:
+  - CentralCommand
+  special:
+  - !type:AddImplantSpecial
+    implants: [ MindShieldImplant, TrackingImplant ]
 
 # - type: startingGear
 #   id: ERTEngineerGearAmber
@@ -479,26 +558,33 @@
 #     - RCD
 #     - RCDAmmo
 
-# ## Red
-# - type: job
-#   id: ERTEngineerRed
-#   name: job-name-ertengineer-red
-#   description: job-description-ertengineer
-#   playTimeTracker: JobERTEngineerRed
-#   setPreference: false
-#   startingGear: ERTEngineerGearRed
-#   icon: "JobIconERT"
-#   supervisors: job-supervisors-centcom
-#   canBeAntag: false
-#   skills: # CorvaxGoob-Skills
-#   - All
-#   accessGroups:
-#   - AllAccess
-#   access:
-#   - CentralCommand
-#   special:
-#   - !type:AddImplantSpecial
-#     implants: [ MindShieldImplant, TrackingImplant ]
+## Red
+- type: job
+  id: ERTEngineerRed
+  name: job-name-ertengineer-red
+  description: job-description-ertengineer
+  playTimeTracker: JobERTEngineerRed
+  setPreference: false
+  startingGear: ERTEngineerGearRed
+  icon: "JobIconERT"
+  supervisors: job-supervisors-centcom
+  canBeAntag: false
+  requirements:
+  - !type:DepartmentTimeRequirement
+    department: Engineering
+    time: 36000
+  - !type:DepartmentTimeRequirement
+    department: Security
+    time: 36000
+  skills: # CorvaxGoob-Skills
+  - All
+  accessGroups:
+  - AllAccess
+  access:
+  - CentralCommand
+  special:
+  - !type:AddImplantSpecial
+    implants: [ MindShieldImplant, TrackingImplant ]
 
 # - type: startingGear
 #   id: ERTEngineerGearRed
@@ -524,26 +610,33 @@
 #     - RemoteSignaller
 #     - WeaponDisabler
 
-# ## Gamma
-# - type: job
-#   id: ERTEngineerGamma
-#   name: job-name-ertengineer-gamma
-#   skills: # CorvaxGoob-Skills
-#   - All
-#   description: job-description-ertengineer
-#   playTimeTracker: JobERTEngineerGamma
-#   setPreference: false
-#   startingGear: ERTEngineerGearGamma
-#   icon: "JobIconERT"
-#   supervisors: job-supervisors-centcom
-#   canBeAntag: false
-#   accessGroups:
-#   - AllAccess
-#   access:
-#   - CentralCommand
-#   special:
-#   - !type:AddImplantSpecial
-#     implants: [ MindShieldImplant, TrackingImplant ]
+## Gamma
+- type: job
+  id: ERTEngineerGamma
+  name: job-name-ertengineer-gamma
+  skills: # CorvaxGoob-Skills
+  - All
+  description: job-description-ertengineer
+  playTimeTracker: JobERTEngineerGamma
+  setPreference: false
+  startingGear: ERTEngineerGearGamma
+  icon: "JobIconERT"
+  supervisors: job-supervisors-centcom
+  canBeAntag: false
+  requirements:
+  - !type:DepartmentTimeRequirement
+    department: Engineering
+    time: 36000
+  - !type:DepartmentTimeRequirement
+    department: Security
+    time: 36000
+  accessGroups:
+  - AllAccess
+  access:
+  - CentralCommand
+  special:
+  - !type:AddImplantSpecial
+    implants: [ MindShieldImplant, TrackingImplant ]
 
 # - type: startingGear
 #   id: ERTEngineerGearGamma
@@ -576,27 +669,31 @@
 #     - PinpointerNuclear
 #     - ClothingEyesNightVisionGoggles
 
-# # Janitor
-# ## Amber
-# - type: job
-#   id: ERTJanitorAmber
-#   skills: # CorvaxGoob-Skills
-#   - All
-#   name: job-name-ertjanitor-amber
-#   description: job-description-ertjanitor
-#   playTimeTracker: JobERTJanitorAmber
-#   setPreference: false
-#   startingGear: ERTJanitorGearAmber
-#   icon: "JobIconERT"
-#   supervisors: job-supervisors-centcom
-#   canBeAntag: false
-#   accessGroups:
-#   - AllAccess
-#   access:
-#   - CentralCommand
-#   special:
-#   - !type:AddImplantSpecial
-#     implants: [ MindShieldImplant, TrackingImplant ]
+# Janitor
+## Amber
+- type: job
+  id: ERTJanitorAmber
+  skills: # CorvaxGoob-Skills
+  - All
+  name: job-name-ertjanitor-amber
+  description: job-description-ertjanitor
+  playTimeTracker: JobERTJanitorAmber
+  setPreference: false
+  startingGear: ERTJanitorGearAmber
+  icon: "JobIconERT"
+  supervisors: job-supervisors-centcom
+  canBeAntag: false
+  requirements:
+  - !type:DepartmentTimeRequirement
+    department: Security
+    time: 36000
+  accessGroups:
+  - AllAccess
+  access:
+  - CentralCommand
+  special:
+  - !type:AddImplantSpecial
+    implants: [ MindShieldImplant, TrackingImplant ]
 
 # - type: startingGear
 #   id: ERTJanitorGearAmber
@@ -624,26 +721,30 @@
 #     - ADTBaseUplinkBOBERT
 #     - WeaponDisabler
 
-# ## Red
-# - type: job
-#   id: ERTJanitorRed
-#   skills: # CorvaxGoob-Skills
-#   - All
-#   name: job-name-ertjanitor-red
-#   description: job-description-ertjanitor
-#   playTimeTracker: JobERTJanitorRed
-#   setPreference: false
-#   startingGear: ERTJanitorGearRed
-#   icon: "JobIconERT"
-#   supervisors: job-supervisors-centcom
-#   canBeAntag: false
-#   accessGroups:
-#   - AllAccess
-#   access:
-#   - CentralCommand
-#   special:
-#   - !type:AddImplantSpecial
-#     implants: [ MindShieldImplant, TrackingImplant ]
+## Red
+- type: job
+  id: ERTJanitorRed
+  skills: # CorvaxGoob-Skills
+  - All
+  name: job-name-ertjanitor-red
+  description: job-description-ertjanitor
+  playTimeTracker: JobERTJanitorRed
+  setPreference: false
+  startingGear: ERTJanitorGearRed
+  icon: "JobIconERT"
+  supervisors: job-supervisors-centcom
+  canBeAntag: false
+  requirements:
+  - !type:DepartmentTimeRequirement
+    department: Security
+    time: 36000
+  accessGroups:
+  - AllAccess
+  access:
+  - CentralCommand
+  special:
+  - !type:AddImplantSpecial
+    implants: [ MindShieldImplant, TrackingImplant ]
 
 # - type: startingGear
 #   id: ERTJanitorGearRed
@@ -672,26 +773,30 @@
 
 #     - WeaponDisabler
 
-# ## Gamma
-# - type: job
-#   id: ERTJanitorGamma
-#   skills: # CorvaxGoob-Skills
-#   - All
-#   name: job-name-ertjanitor-gamma
-#   description: job-description-ertjanitor
-#   playTimeTracker: JobERTJanitorGamma
-#   setPreference: false
-#   startingGear: ERTJanitorGearGamma
-#   icon: "JobIconERT"
-#   supervisors: job-supervisors-centcom
-#   canBeAntag: false
-#   accessGroups:
-#   - AllAccess
-#   access:
-#   - CentralCommand
-#   special:
-#   - !type:AddImplantSpecial
-#     implants: [ MindShieldImplant, TrackingImplant ]
+## Gamma
+- type: job
+  id: ERTJanitorGamma
+  skills: # CorvaxGoob-Skills
+  - All
+  name: job-name-ertjanitor-gamma
+  description: job-description-ertjanitor
+  playTimeTracker: JobERTJanitorGamma
+  setPreference: false
+  startingGear: ERTJanitorGearGamma
+  icon: "JobIconERT"
+  supervisors: job-supervisors-centcom
+  canBeAntag: false
+  requirements:
+  - !type:DepartmentTimeRequirement
+    department: Security
+    time: 36000
+  accessGroups:
+  - AllAccess
+  access:
+  - CentralCommand
+  special:
+  - !type:AddImplantSpecial
+    implants: [ MindShieldImplant, TrackingImplant ]
 
 # - type: startingGear
 #   id: ERTJanitorGearGamma

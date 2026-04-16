@@ -16,37 +16,26 @@
 #     - type: RandomHumanoidSpawner
 #       settings: ERTLeaderAmber
 
-# - type: randomHumanoidSettings
-#   id: ERTLeaderAmber
-#   parent: EventHumanoidERT
-#   components:
-#     - type: GhostRole
-#       name: ghost-role-information-ert-leader-name
-#       description: ghost-role-information-ert-leader-description
-#       rules: ghost-role-information-nonantagonist-rules
-#       category: ghost-role-information-centcomm-category
-#       skills: # CorvaxGoob-Skills
-#       - All
-#       requirements:
-#         - !type:DepartmentTimeRequirement
-#           department: Medical
-#           time: 36000 # 10 hours
-#         - !type:DepartmentTimeRequirement
-#           department: Security
-#           time: 72000 # 20 hours
-#         - !type:DepartmentTimeRequirement
-#           department: Command
-#           time: 36000 # 10 hours
-#       raffle:
-#         settings: short
-#       job: ERTLeaderAmber
-#     - type: Loadout
-#       prototypes: [ ERTLeaderGearAmber ]
-#     - type: RandomMetadata
-#       nameSegments:
-#       - NamesFirstERTLeader
-#       - NamesLastERT
-#       nameFormat: name-format-ert
+- type: randomHumanoidSettings
+  id: ERTLeaderAmber
+  parent: EventHumanoidERT
+  components:
+    - type: GhostRole
+      name: ghost-role-information-ert-leader-name
+      description: ghost-role-information-ert-leader-description
+      rules: ghost-role-information-nonantagonist-rules
+      skills: # CorvaxGoob-Skills
+      - All
+      raffle:
+        settings: short
+      job: ERTLeaderAmber
+    - type: Loadout
+      prototypes: [ ERTLeaderGearAmber ]
+    - type: RandomMetadata
+      nameSegments:
+      - NamesFirstERTLeader
+      - NamesLastERT
+      nameFormat: name-format-ert
 
 # ### Red
 # - type: entity
@@ -60,37 +49,26 @@
 #     - type: RandomHumanoidSpawner
 #       settings: ERTLeaderRed
 
-# - type: randomHumanoidSettings
-#   id: ERTLeaderRed
-#   parent: EventHumanoidERT
-#   components:
-#     - type: GhostRole
-#       name: ghost-role-information-ert-leader-name
-#       description: ghost-role-information-ert-leader-description
-#       rules: ghost-role-information-nonantagonist-rules
-#       category: ghost-role-information-centcomm-category
-#       skills: # CorvaxGoob-Skills
-#       - All
-#       requirements:
-#         - !type:DepartmentTimeRequirement
-#           department: Medical
-#           time: 36000 # 10 hours
-#         - !type:DepartmentTimeRequirement
-#           department: Security
-#           time: 72000 # 20 hours
-#         - !type:DepartmentTimeRequirement
-#           department: Command
-#           time: 36000 # 10 hours
-#       raffle:
-#         settings: short
-#       job: ERTLeaderRed
-#     - type: Loadout
-#       prototypes: [ ERTLeaderGearRed ]
-#     - type: RandomMetadata
-#       nameSegments:
-#       - NamesFirstERTLeader
-#       - NamesLastERT
-#       nameFormat: name-format-ert
+- type: randomHumanoidSettings
+  id: ERTLeaderRed
+  parent: EventHumanoidERT
+  components:
+    - type: GhostRole
+      name: ghost-role-information-ert-leader-name
+      description: ghost-role-information-ert-leader-description
+      rules: ghost-role-information-nonantagonist-rules
+      skills: # CorvaxGoob-Skills
+      - All
+      raffle:
+        settings: short
+      job: ERTLeaderRed
+    - type: Loadout
+      prototypes: [ ERTLeaderGearRed ]
+    - type: RandomMetadata
+      nameSegments:
+      - NamesFirstERTLeader
+      - NamesLastERT
+      nameFormat: name-format-ert
 
 # ### Gamma
 # - type: entity
@@ -104,37 +82,26 @@
 #     - type: RandomHumanoidSpawner
 #       settings: ERTLeaderGamma
 
-# - type: randomHumanoidSettings
-#   id: ERTLeaderGamma
-#   parent: EventHumanoidERT
-#   components:
-#     - type: GhostRole
-#       name: ghost-role-information-ert-leader-name
-#       description: ghost-role-information-ert-leader-description
-#       rules: ghost-role-information-nonantagonist-rules
-#       category: ghost-role-information-centcomm-category
-#       skills: # CorvaxGoob-Skills
-#       - All
-#       requirements:
-#         - !type:DepartmentTimeRequirement
-#           department: Medical
-#           time: 36000 # 10 hours
-#         - !type:DepartmentTimeRequirement
-#           department: Security
-#           time: 72000 # 20 hours
-#         - !type:DepartmentTimeRequirement
-#           department: Command
-#           time: 36000 # 10 hours
-#       raffle:
-#         settings: short
-#       job: ERTLeaderGamma
-#     - type: Loadout
-#       prototypes: [ ERTLeaderGearGamma ]
-#     - type: RandomMetadata
-#       nameSegments:
-#       - NamesFirstERTLeader
-#       - NamesLastERT
-#       nameFormat: name-format-ert
+- type: randomHumanoidSettings
+  id: ERTLeaderGamma
+  parent: EventHumanoidERT
+  components:
+    - type: GhostRole
+      name: ghost-role-information-ert-leader-name
+      description: ghost-role-information-ert-leader-description
+      rules: ghost-role-information-nonantagonist-rules
+      skills: # CorvaxGoob-Skills
+      - All
+      raffle:
+        settings: short
+      job: ERTLeaderGamma
+    - type: Loadout
+      prototypes: [ ERTLeaderGearGamma ]
+    - type: RandomMetadata
+      nameSegments:
+      - NamesFirstERTLeader
+      - NamesLastERT
+      nameFormat: name-format-ert
 
 # ### CBURN
 # - type: entity
@@ -148,38 +115,27 @@
 #     - type: RandomHumanoidSpawner
 #       settings: CBURNLeader
 
-# - type: randomHumanoidSettings
-#   id: CBURNLeader
-#   parent: EventHumanoidERT
-#   components:
-#     - type: GhostRole
-#       name: ghost-role-information-cburn-leader-name
-#       description: ghost-role-information-cburn-leader-description
-#       rules: ghost-role-information-nonantagonist-rules
-#       category: ghost-role-information-centcomm-category
-#       skills: # CorvaxGoob-Skills
-#       - All
-#       requirements:
-#         - !type:DepartmentTimeRequirement
-#           department: Medical
-#           time: 36000 # 10 hours
-#         - !type:DepartmentTimeRequirement
-#           department: Security
-#           time: 72000 # 20 hours
-#         - !type:DepartmentTimeRequirement
-#           department: Command
-#           time: 36000 # 10 hours
-#       raffle:
-#         settings: short
-#       job: CBURNLeader
-#     - type: RandomMetadata
-#       nameSegments:
-#       - NamesFirstERTLeader
-#       - NamesLastERT
-#       nameFormat: name-format-ert
-#     - type: Loadout
-#       prototypes: [ CBURNLeaderGear ]
-#       roleLoadout: [ RoleSurvivalExtended ]
+- type: randomHumanoidSettings
+  id: CBURNLeader
+  parent: EventHumanoidERT
+  components:
+    - type: GhostRole
+      name: ghost-role-information-cburn-leader-name
+      description: ghost-role-information-cburn-leader-description
+      rules: ghost-role-information-nonantagonist-rules
+      skills: # CorvaxGoob-Skills
+      - All
+      raffle:
+        settings: short
+      job: CBURNLeader
+    - type: RandomMetadata
+      nameSegments:
+      - NamesFirstERTLeader
+      - NamesLastERT
+      nameFormat: name-format-ert
+    - type: Loadout
+      prototypes: [ CBURNLeaderGear ]
+      roleLoadout: [ RoleSurvivalExtended ]
 
 # ## Security
 # ### Amber
@@ -199,34 +155,26 @@
 #     - type: RandomHumanoidSpawner
 #       settings: ERTSecurityAmber
 
-# - type: randomHumanoidSettings
-#   id: ERTSecurityAmber
-#   parent: EventHumanoidERT
-#   components:
-#     - type: GhostRole
-#       name: ghost-role-information-ert-security-name
-#       description: ghost-role-information-ert-security-description
-#       rules: ghost-role-information-nonantagonist-rules
-#       category: ghost-role-information-centcomm-category
-#       skills: # CorvaxGoob-Skills
-#       - All
-#       requirements:
-#         - !type:DepartmentTimeRequirement
-#           department: Medical
-#           time: 14400 # 4 hours
-#         - !type:DepartmentTimeRequirement
-#           department: Security
-#           time: 72000 # 20 hours
-#       raffle:
-#         settings: short
-#       job: ERTSecurityAmber
-#     - type: RandomMetadata
-#       nameSegments:
-#       - NamesFirstERT
-#       - NamesLastERT
-#       nameFormat: name-format-ert
-#     - type: Loadout
-#       prototypes: [ ERTSecurityGearAmber ]
+- type: randomHumanoidSettings
+  id: ERTSecurityAmber
+  parent: EventHumanoidERT
+  components:
+    - type: GhostRole
+      name: ghost-role-information-ert-security-name
+      description: ghost-role-information-ert-security-description
+      rules: ghost-role-information-nonantagonist-rules
+      skills: # CorvaxGoob-Skills
+      - All
+      raffle:
+        settings: short
+      job: ERTSecurityAmber
+    - type: RandomMetadata
+      nameSegments:
+      - NamesFirstERT
+      - NamesLastERT
+      nameFormat: name-format-ert
+    - type: Loadout
+      prototypes: [ ERTSecurityGearAmber ]
 
 # ### Red
 # - type: entity
@@ -237,29 +185,21 @@
 #     - type: RandomHumanoidSpawner
 #       settings: ERTSecurityRed
 
-# - type: randomHumanoidSettings
-#   id: ERTSecurityRed
-#   parent: EventHumanoidERT
-#   components:
-#     - type: GhostRole
-#       name: ghost-role-information-ert-security-name
-#       description: ghost-role-information-ert-security-description
-#       rules: ghost-role-information-nonantagonist-rules
-#       category: ghost-role-information-centcomm-category
-#       skills: # CorvaxGoob-Skills
-#       - All
-#       requirements:
-#         - !type:DepartmentTimeRequirement
-#           department: Medical
-#           time: 14400 # 4 hours
-#         - !type:DepartmentTimeRequirement
-#           department: Security
-#           time: 72000 # 20 hours
-#       raffle:
-#         settings: short
-#       job: ERTSecurityRed
-#     - type: Loadout
-#       prototypes: [ ERTSecurityGearRed ]
+- type: randomHumanoidSettings
+  id: ERTSecurityRed
+  parent: EventHumanoidERT
+  components:
+    - type: GhostRole
+      name: ghost-role-information-ert-security-name
+      description: ghost-role-information-ert-security-description
+      rules: ghost-role-information-nonantagonist-rules
+      skills: # CorvaxGoob-Skills
+      - All
+      raffle:
+        settings: short
+      job: ERTSecurityRed
+    - type: Loadout
+      prototypes: [ ERTSecurityGearRed ]
 
 # ### Gamma
 # - type: entity
@@ -270,29 +210,21 @@
 #     - type: RandomHumanoidSpawner
 #       settings: ERTSecurityGamma
 
-# - type: randomHumanoidSettings
-#   id: ERTSecurityGamma
-#   parent: EventHumanoidERT
-#   components:
-#     - type: GhostRole
-#       name: ghost-role-information-ert-security-name
-#       description: ghost-role-information-ert-security-description
-#       rules: ghost-role-information-nonantagonist-rules
-#       category: ghost-role-information-centcomm-category
-#       skills: # CorvaxGoob-Skills
-#       - All
-#       requirements:
-#         - !type:DepartmentTimeRequirement
-#           department: Medical
-#           time: 14400 # 4 hours
-#         - !type:DepartmentTimeRequirement
-#           department: Security
-#           time: 72000 # 20 hours
-#       raffle:
-#         settings: short
-#       job: ERTSecurityGamma
-#     - type: Loadout
-#       prototypes: [ ERTSecurityGearGamma ]
+- type: randomHumanoidSettings
+  id: ERTSecurityGamma
+  parent: EventHumanoidERT
+  components:
+    - type: GhostRole
+      name: ghost-role-information-ert-security-name
+      description: ghost-role-information-ert-security-description
+      rules: ghost-role-information-nonantagonist-rules
+      skills: # CorvaxGoob-Skills
+      - All
+      raffle:
+        settings: short
+      job: ERTSecurityGamma
+    - type: Loadout
+      prototypes: [ ERTSecurityGearGamma ]
 
 # ## Medical
 # ### Amber
@@ -312,34 +244,26 @@
 #     - type: RandomHumanoidSpawner
 #       settings: ERTMedicalAmber
 
-# - type: randomHumanoidSettings
-#   id: ERTMedicalAmber
-#   parent: EventHumanoidERT
-#   components:
-#     - type: GhostRole
-#       name: ghost-role-information-ert-medical-name
-#       description: ghost-role-information-ert-medical-description
-#       rules: ghost-role-information-nonantagonist-rules
-#       category: ghost-role-information-centcomm-category
-#       skills: # CorvaxGoob-Skills
-#       - All
-#       requirements:
-#         - !type:DepartmentTimeRequirement
-#           department: Medical
-#           time: 36000 # 10 hours
-#         - !type:DepartmentTimeRequirement
-#           department: Security
-#           time: 36000 # 10 hours
-#       raffle:
-#         settings: short
-#       job: ERTMedicalAmber
-#     - type: RandomMetadata
-#       nameSegments:
-#       - NamesFirstERT
-#       - NamesLastERT
-#       nameFormat: name-format-ert
-#     - type: Loadout
-#       prototypes: [ ERTMedicalGearAmber ]
+- type: randomHumanoidSettings
+  id: ERTMedicalAmber
+  parent: EventHumanoidERT
+  components:
+    - type: GhostRole
+      name: ghost-role-information-ert-medical-name
+      description: ghost-role-information-ert-medical-description
+      rules: ghost-role-information-nonantagonist-rules
+      skills: # CorvaxGoob-Skills
+      - All
+      raffle:
+        settings: short
+      job: ERTMedicalAmber
+    - type: RandomMetadata
+      nameSegments:
+      - NamesFirstERT
+      - NamesLastERT
+      nameFormat: name-format-ert
+    - type: Loadout
+      prototypes: [ ERTMedicalGearAmber ]
 
 # ### Red
 # - type: entity
@@ -350,29 +274,21 @@
 #     - type: RandomHumanoidSpawner
 #       settings: ERTMedicalRed
 
-# - type: randomHumanoidSettings
-#   id: ERTMedicalRed
-#   parent: EventHumanoidERT
-#   components:
-#     - type: GhostRole
-#       name: ghost-role-information-ert-medical-name
-#       description: ghost-role-information-ert-medical-description
-#       rules: ghost-role-information-nonantagonist-rules
-#       category: ghost-role-information-centcomm-category
-#       skills: # CorvaxGoob-Skills
-#       - All
-#       requirements:
-#         - !type:DepartmentTimeRequirement
-#           department: Medical
-#           time: 36000 # 10 hours
-#         - !type:DepartmentTimeRequirement
-#           department: Security
-#           time: 36000 # 10 hours
-#       raffle:
-#         settings: short
-#       job: ERTMedicalRed
-#     - type: Loadout
-#       prototypes: [ ERTMedicalGearRed ]
+- type: randomHumanoidSettings
+  id: ERTMedicalRed
+  parent: EventHumanoidERT
+  components:
+    - type: GhostRole
+      name: ghost-role-information-ert-medical-name
+      description: ghost-role-information-ert-medical-description
+      rules: ghost-role-information-nonantagonist-rules
+      skills: # CorvaxGoob-Skills
+      - All
+      raffle:
+        settings: short
+      job: ERTMedicalRed
+    - type: Loadout
+      prototypes: [ ERTMedicalGearRed ]
 
 # ### Gamma
 # - type: entity
@@ -383,29 +299,21 @@
 #     - type: RandomHumanoidSpawner
 #       settings: ERTMedicalGamma
 
-# - type: randomHumanoidSettings
-#   id: ERTMedicalGamma
-#   parent: EventHumanoidERT
-#   components:
-#     - type: GhostRole
-#       name: ghost-role-information-ert-medical-name
-#       description: ghost-role-information-ert-medical-description
-#       rules: ghost-role-information-nonantagonist-rules
-#       category: ghost-role-information-centcomm-category
-#       skills: # CorvaxGoob-Skills
-#       - All
-#       requirements:
-#         - !type:DepartmentTimeRequirement
-#           department: Medical
-#           time: 36000 # 10 hours
-#         - !type:DepartmentTimeRequirement
-#           department: Security
-#           time: 36000 # 10 hours
-#       raffle:
-#         settings: short
-#       job: ERTMedicalGamma
-#     - type: Loadout
-#       prototypes: [ ERTMedicalGearGamma ]
+- type: randomHumanoidSettings
+  id: ERTMedicalGamma
+  parent: EventHumanoidERT
+  components:
+    - type: GhostRole
+      name: ghost-role-information-ert-medical-name
+      description: ghost-role-information-ert-medical-description
+      rules: ghost-role-information-nonantagonist-rules
+      skills: # CorvaxGoob-Skills
+      - All
+      raffle:
+        settings: short
+      job: ERTMedicalGamma
+    - type: Loadout
+      prototypes: [ ERTMedicalGearGamma ]
 
 # ## Janitor
 # ### Amber
@@ -425,31 +333,26 @@
 #     - type: RandomHumanoidSpawner
 #       settings: ERTJanitorAmber
 
-# - type: randomHumanoidSettings
-#   id: ERTJanitorAmber
-#   parent: EventHumanoidERT
-#   components:
-#     - type: GhostRole
-#       name: ghost-role-information-ert-janitor-name
-#       description: ghost-role-information-ert-janitor-description
-#       rules: ghost-role-information-nonantagonist-rules
-#       category: ghost-role-information-centcomm-category
-#       skills: # CorvaxGoob-Skills
-#       - All
-#       requirements:
-#         - !type:DepartmentTimeRequirement
-#           department: Security
-#           time: 36000 # 10 hours
-#       raffle:
-#         settings: short
-#       job: ERTJanitorAmber
-#     - type: RandomMetadata
-#       nameSegments:
-#       - NamesFirstERT
-#       - NamesLastERT
-#       nameFormat: name-format-ert
-#     - type: Loadout
-#       prototypes: [ ERTJanitorGearAmber ]
+- type: randomHumanoidSettings
+  id: ERTJanitorAmber
+  parent: EventHumanoidERT
+  components:
+    - type: GhostRole
+      name: ghost-role-information-ert-janitor-name
+      description: ghost-role-information-ert-janitor-description
+      rules: ghost-role-information-nonantagonist-rules
+      skills: # CorvaxGoob-Skills
+      - All
+      raffle:
+        settings: short
+      job: ERTJanitorAmber
+    - type: RandomMetadata
+      nameSegments:
+      - NamesFirstERT
+      - NamesLastERT
+      nameFormat: name-format-ert
+    - type: Loadout
+      prototypes: [ ERTJanitorGearAmber ]
 
 # ### Red
 # - type: entity
@@ -460,26 +363,21 @@
 #     - type: RandomHumanoidSpawner
 #       settings: ERTJanitorRed
 
-# - type: randomHumanoidSettings
-#   id: ERTJanitorRed
-#   parent: EventHumanoidERT
-#   components:
-#     - type: GhostRole
-#       name: ghost-role-information-ert-janitor-name
-#       description: ghost-role-information-ert-janitor-description
-#       rules: ghost-role-information-nonantagonist-rules
-#       category: ghost-role-information-centcomm-category
-#       skills: # CorvaxGoob-Skills
-#       - All
-#       requirements:
-#         - !type:DepartmentTimeRequirement
-#           department: Security
-#           time: 36000 # 10 hours
-#       raffle:
-#         settings: short
-#       job: ERTJanitorRed
-#     - type: Loadout
-#       prototypes: [ ERTJanitorGearRed ]
+- type: randomHumanoidSettings
+  id: ERTJanitorRed
+  parent: EventHumanoidERT
+  components:
+    - type: GhostRole
+      name: ghost-role-information-ert-janitor-name
+      description: ghost-role-information-ert-janitor-description
+      rules: ghost-role-information-nonantagonist-rules
+      skills: # CorvaxGoob-Skills
+      - All
+      raffle:
+        settings: short
+      job: ERTJanitorRed
+    - type: Loadout
+      prototypes: [ ERTJanitorGearRed ]
 
 # ### Gamma
 # - type: entity
@@ -490,26 +388,21 @@
 #     - type: RandomHumanoidSpawner
 #       settings: ERTJanitorGamma
 
-# - type: randomHumanoidSettings
-#   id: ERTJanitorGamma
-#   parent: EventHumanoidERT
-#   components:
-#     - type: GhostRole
-#       name: ghost-role-information-ert-janitor-name
-#       description: ghost-role-information-ert-janitor-description
-#       rules: ghost-role-information-nonantagonist-rules
-#       category: ghost-role-information-centcomm-category
-#       skills: # CorvaxGoob-Skills
-#       - All
-#       requirements:
-#         - !type:DepartmentTimeRequirement
-#           department: Security
-#           time: 36000 # 10 hours
-#       raffle:
-#         settings: short
-#       job: ERTJanitorGamma
-#     - type: Loadout
-#       prototypes: [ ERTJanitorGearGamma ]
+- type: randomHumanoidSettings
+  id: ERTJanitorGamma
+  parent: EventHumanoidERT
+  components:
+    - type: GhostRole
+      name: ghost-role-information-ert-janitor-name
+      description: ghost-role-information-ert-janitor-description
+      rules: ghost-role-information-nonantagonist-rules
+      skills: # CorvaxGoob-Skills
+      - All
+      raffle:
+        settings: short
+      job: ERTJanitorGamma
+    - type: Loadout
+      prototypes: [ ERTJanitorGearGamma ]
 
 # ## Engineer
 # ### Amber
@@ -529,34 +422,26 @@
 #     - type: RandomHumanoidSpawner
 #       settings: ERTEngineerAmber
 
-# - type: randomHumanoidSettings
-#   id: ERTEngineerAmber
-#   parent: EventHumanoidERT
-#   components:
-#     - type: GhostRole
-#       name: ghost-role-information-ert-engineer-name
-#       description: ghost-role-information-ert-engineer-description
-#       rules: ghost-role-information-nonantagonist-rules
-#       category: ghost-role-information-centcomm-category
-#       skills: # CorvaxGoob-Skills
-#       - All
-#       requirements:
-#         - !type:DepartmentTimeRequirement
-#           department: Engineering
-#           time: 36000 # 10 hours
-#         - !type:DepartmentTimeRequirement
-#           department: Security
-#           time: 36000 # 10 hours
-#       raffle:
-#         settings: short
-#       job: ERTEngineerAmber
-#     - type: RandomMetadata
-#       nameSegments:
-#       - NamesFirstERT
-#       - NamesLastERT
-#       nameFormat: name-format-ert
-#     - type: Loadout
-#       prototypes: [ ERTEngineerGearAmber ]
+- type: randomHumanoidSettings
+  id: ERTEngineerAmber
+  parent: EventHumanoidERT
+  components:
+    - type: GhostRole
+      name: ghost-role-information-ert-engineer-name
+      description: ghost-role-information-ert-engineer-description
+      rules: ghost-role-information-nonantagonist-rules
+      skills: # CorvaxGoob-Skills
+      - All
+      raffle:
+        settings: short
+      job: ERTEngineerAmber
+    - type: RandomMetadata
+      nameSegments:
+      - NamesFirstERT
+      - NamesLastERT
+      nameFormat: name-format-ert
+    - type: Loadout
+      prototypes: [ ERTEngineerGearAmber ]
 
 # ### Red
 # - type: entity
@@ -567,29 +452,21 @@
 #     - type: RandomHumanoidSpawner
 #       settings: ERTEngineerRed
 
-# - type: randomHumanoidSettings
-#   id: ERTEngineerRed
-#   parent: EventHumanoidERT
-#   components:
-#     - type: GhostRole
-#       name: ghost-role-information-ert-engineer-name
-#       description: ghost-role-information-ert-engineer-description
-#       rules: ghost-role-information-nonantagonist-rules
-#       category: ghost-role-information-centcomm-category
-#       skills: # CorvaxGoob-Skills
-#       - All
-#       requirements:
-#         - !type:DepartmentTimeRequirement
-#           department: Engineering
-#           time: 36000 # 10 hours
-#         - !type:DepartmentTimeRequirement
-#           department: Security
-#           time: 36000 # 10 hours
-#       raffle:
-#         settings: short
-#       job: ERTEngineerRed
-#     - type: Loadout
-#       prototypes: [ ERTEngineerGearRed ]
+- type: randomHumanoidSettings
+  id: ERTEngineerRed
+  parent: EventHumanoidERT
+  components:
+    - type: GhostRole
+      name: ghost-role-information-ert-engineer-name
+      description: ghost-role-information-ert-engineer-description
+      rules: ghost-role-information-nonantagonist-rules
+      skills: # CorvaxGoob-Skills
+      - All
+      raffle:
+        settings: short
+      job: ERTEngineerRed
+    - type: Loadout
+      prototypes: [ ERTEngineerGearRed ]
 
 # ### Gamma
 # - type: entity
@@ -600,29 +477,21 @@
 #     - type: RandomHumanoidSpawner
 #       settings: ERTEngineerGamma
 
-# - type: randomHumanoidSettings
-#   id: ERTEngineerGamma
-#   parent: EventHumanoidERT
-#   components:
-#     - type: GhostRole
-#       name: ghost-role-information-ert-engineer-name
-#       description: ghost-role-information-ert-engineer-description
-#       rules: ghost-role-information-nonantagonist-rules
-#       category: ghost-role-information-centcomm-category
-#       skills: # CorvaxGoob-Skills
-#       - All
-#       requirements:
-#         - !type:DepartmentTimeRequirement
-#           department: Engineering
-#           time: 36000 # 10 hours
-#         - !type:DepartmentTimeRequirement
-#           department: Security
-#           time: 36000 # 10 hours
-#       raffle:
-#         settings: short
-#       job: ERTEngineerGamma
-#     - type: Loadout
-#       prototypes: [ ERTEngineerGearGamma ]
+- type: randomHumanoidSettings
+  id: ERTEngineerGamma
+  parent: EventHumanoidERT
+  components:
+    - type: GhostRole
+      name: ghost-role-information-ert-engineer-name
+      description: ghost-role-information-ert-engineer-description
+      rules: ghost-role-information-nonantagonist-rules
+      skills: # CorvaxGoob-Skills
+      - All
+      raffle:
+        settings: short
+      job: ERTEngineerGamma
+    - type: Loadout
+      prototypes: [ ERTEngineerGearGamma ]
 
 # ## CBURN Agent
 # - type: entity
@@ -641,31 +510,23 @@
 #     - type: RandomHumanoidSpawner
 #       settings: CBURNAgent
 
-# - type: randomHumanoidSettings
-#   id: CBURNAgent
-#   parent: EventHumanoidERT
-#   components:
-#     - type: GhostRole
-#       name: ghost-role-information-cburn-agent-name
-#       description: ghost-role-information-cburn-agent-description
-#       rules: ghost-role-information-nonantagonist-rules
-#       category: ghost-role-information-centcomm-category
-#       skills: # CorvaxGoob-Skills
-#       - All
-#       requirements:
-#         - !type:DepartmentTimeRequirement
-#           department: Medical
-#           time: 14400 # 4 hours
-#         - !type:DepartmentTimeRequirement
-#           department: Security
-#           time: 50400 # 14 hours
-#       raffle:
-#         settings: short
-#       job: CBURNAgent
-#     - type: RandomMetadata
-#       nameSegments:
-#       - NamesFirstERT
-#       - NamesLastERT
-#       nameFormat: name-format-ert
-#     - type: Loadout
-#       prototypes: [ CBURNAgentGear ]
+- type: randomHumanoidSettings
+  id: CBURNAgent
+  parent: EventHumanoidERT
+  components:
+    - type: GhostRole
+      name: ghost-role-information-cburn-agent-name
+      description: ghost-role-information-cburn-agent-description
+      rules: ghost-role-information-nonantagonist-rules
+      skills: # CorvaxGoob-Skills
+      - All
+      raffle:
+        settings: short
+      job: CBURNAgent
+    - type: RandomMetadata
+      nameSegments:
+      - NamesFirstERT
+      - NamesLastERT
+      nameFormat: name-format-ert
+    - type: Loadout
+      prototypes: [ CBURNAgentGear ]
