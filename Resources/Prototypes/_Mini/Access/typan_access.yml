@@ -75,10 +75,6 @@
   name: id-card-access-taypan-service
 
 - type: accessLevel
-  id: TypanTechnicalOperationsSupervisor
-  name: id-card-access-taypan-tech-supervisor
-
-- type: accessLevel
   id: TypanVault
   name: id-card-access-taypan-vault
 
