@@ -626,8 +626,6 @@
 # // Ministation-Start: Typan Borg Selection and Mimicry
   id: Mimicry
   parent: BaseAction
-  name: action-name-mimicry
-  description: action-description-mimicry
   categories: [ HideSpawnMenu ]
   components:
     - type: Action

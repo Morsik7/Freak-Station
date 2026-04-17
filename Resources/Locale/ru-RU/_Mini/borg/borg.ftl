@@ -1,6 +1,6 @@
 borg-mimicry = Борга окружает подозрительное свечение!
-action-name-mimicry = Мимикрировать
-action-description-mimicry = Сменить свой внешний вид для маскировки.
+ent-Mimicry = Мимикрировать
+    .desc = Сменить свой внешний вид для маскировки.
 
 borg-type-typan-generic-name = борг-универсал
 borg-type-typan-generic-desc = Универсальная платформа борга.

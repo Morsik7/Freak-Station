@@ -191,6 +191,8 @@
   id: PhotocopierBase
   name: photocopier
   components:
+  - type: Machine
+    board: PhotocopierMachineCircuitboard
   - type: Sprite
     sprite: Mobs/Ghosts/revenant.rsi
     layers:
@@ -528,22 +530,22 @@
     - state: active
 
 - type: entity
-  parent: BaseItem
+  parent: BaseComputer
   id: ADTComputerShuttleSalvage
   name: computer
   components:
-  - type: Sprite
-    sprite: Mobs/Ghosts/revenant.rsi
-    layers:
-    - state: active
+  - type: Computer
+    board: ADTSalvageShuttleConsoleCircuitboard
+  - type: Machine
+    board: ADTSalvageShuttleConsoleCircuitboard
 
 - type: entity
-  parent: BaseItem
+  parent: BaseComputer
   id: ADTComputerSecShuttle
   name: computer
   components:
-  - type: Sprite
-    sprite: Mobs/Ghosts/revenant.rsi
-    layers:
-    - state: active
+  - type: Computer
+    board: ADTSecShuttleConsoleCircuitboard
+  - type: Machine
+    board: ADTSecShuttleConsoleCircuitboard
 

@@ -59,7 +59,7 @@
     - map: [ "enum.WiresVisualLayers.MaintenancePanel" ]
       state: generic_panel_open
   - type: Computer
-    board: IDComputerCircuitboard
+    board: IDComputerCircuitboardTypan
   - type: PointLight
     radius: 1.5
     energy: 1.6
@@ -152,7 +152,7 @@
   - type: ApcPowerReceiver
     powerLoad: 1000
   - type: Computer
-    board: ResearchComputerCircuitboard
+    board: ResearchComputerCircuitboardTypan
   - type: AccessReader
     access: [["TypanScience"]]
   - type: PointLight
@@ -199,7 +199,7 @@
   - type: ApcPowerReceiver
     powerLoad: 1000
   - type: Computer
-    board: AnalysisComputerCircuitboard
+    board: AnalysisComputerCircuitboardTypan
   - type: PointLight
     radius: 1.5
     energy: 1.6
@@ -234,7 +234,47 @@
     energy: 1.6
     color: "#43ccb5"
   - type: Computer
-    board: CargoShuttleConsoleCircuitboard
+    board: ShuttleConsoleCircuitboardTypan
+
+- type: entity
+  parent: ComputerSurveillanceCameraMonitor
+  id: MiniComputerSurveillanceCameraMonitor
+  name: монитор камер слежения
+  description: Консольная система просмотра камер наблюдения.
+  suffix: Тайпан
+  components:
+  - type: Computer
+    board: SurveillanceCameraMonitorCircuitboardTypan
+
+- type: entity
+  parent: ComputerIFF
+  id: MiniComputerIFF
+  name: консоль системы опознавания
+  description: Позволяет управлять параметрами системы опознавания судна.
+  suffix: Тайпан
+  components:
+  - type: Computer
+    board: IFFConsoleCircuitboardTypan
+
+- type: entity
+  parent: ComputerCrewMonitoring
+  id: MiniComputerCrewMonitoring
+  name: консоль мониторинга экипажа
+  description: Используется для мониторинга датчиков костюмов экипажа.
+  suffix: Тайпан
+  components:
+  - type: Computer
+    board: CrewMonitoringComputerCircuitboardTypan
+
+- type: entity
+  parent: StationAiUploadComputer
+  id: MiniStationAiUploadComputer
+  name: консоль загрузки ИИ
+  description: Используется для изменения законов ИИ станции.
+  suffix: Тайпан
+  components:
+  - type: Computer
+    board: StationAiUploadCircuitboardTypan
 
 - type: entity
   parent: BaseComputerAiAccess
