@@ -21,8 +21,14 @@ concurrency:
 
 on:
   workflow_dispatch:
-  schedule:
-  - cron: '0 1 * * *'
+    inputs:
+      version:
+        description: 'Тег релиза (например v1.0.0). Должен быть уникален.'
+        required: true
+        type: string
+
+permissions:
+  contents: write
 
 jobs:
   build:
@@ -31,9 +37,6 @@ jobs:
     - name: Fail if we are attempting to run on the master branch
       if: ${{GITHUB.REF_NAME == 'master' && github.repository == 'space-wizards/space-station-14'}}
       run: exit 1
-
-#    - name: Install dependencies
-#      run: sudo apt-get install -y python3-paramiko python3-lxml
 
     - uses: actions/checkout@v4.2.2
       with:
@@ -94,12 +97,26 @@ jobs:
     - name: Package client
       run: dotnet run --project Content.Packaging client --no-wipe-release
 
-    - name: Publish version
-      run: Tools/publish_multi_request.py
+    - name: Prepare release notes
       env:
-        PUBLISH_TOKEN: ${{ secrets.PUBLISH_TOKEN }}
-        GITHUB_REPOSITORY: ${{ vars.GITHUB_REPOSITORY }}
-        FORK_ID: ${{ vars.FORK_ID }}
+        VERSION: ${{ inputs.version }}
+        SHA: ${{ github.sha }}
+        RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+      run: |
+        sed -e "s/@VERSION@/${VERSION}/g" -e "s/@SHA@/${SHA}/g" -e "s#@RUN_URL@#${RUN_URL}#g" .github/publish-release-notes.md > release-notes.md
+
+    - name: Create GitHub Release
+      env:
+        GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        VERSION: ${{ inputs.version }}
+      run: |
+        set -euo pipefail
+        mapfile -d '' -t assets < <(find release -type f -print0)
+        if [ "${#assets[@]}" -lt 1 ]; then
+          echo "release/ пуст или нет файлов"
+          exit 1
+        fi
+        gh release create "$VERSION" --title "$VERSION" --notes-file release-notes.md "${assets[@]}"
 
     #    - name: Publish changelog (Discord)
     #      continue-on-error: true
