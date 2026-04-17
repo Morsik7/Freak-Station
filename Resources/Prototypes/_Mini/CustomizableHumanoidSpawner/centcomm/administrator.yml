@@ -13,8 +13,6 @@
     jobPrototype: CentralCommandAdministrator
     allowedSpecies:
     - Human
-    - Shark
-    - Demon
     - Vulpkanin
     - Tajaran
 
@@ -25,7 +23,6 @@
   - CentralCommandAdministratorLoadout
   - Survival
   - GroupSpeciesBreathTool
-  - CentcommOfficerUnderwear
 
 - type: loadoutGroup
   id: CentralCommandAdministratorLoadout

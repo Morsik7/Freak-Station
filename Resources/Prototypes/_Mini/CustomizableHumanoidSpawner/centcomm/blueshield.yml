@@ -1,25 +1,24 @@
 - type: dataset
   id: CustomizableSpawnerCentralCommandBlueShieldOfficerFirstName
   values:
-  - Офицер
+    - Офицер
 
 - type: roleLoadout
   id: JobCentralCommandBlueShieldOfficer
   groups:
-  # - GroupTankHarness # outerClothing slot occupied by startingGear
-  - CentralCommandBlueShieldOfficerLoadout
-  - Survival
-  - GroupSpeciesBreathTool
-  - BlueShieldOfficerUnderwear
+    # - GroupTankHarness # outerClothing slot occupied by startingGear
+    - CentralCommandBlueShieldOfficerLoadout
+    - Survival
+    - GroupSpeciesBreathTool
 
 - type: loadoutGroup
   id: CentralCommandBlueShieldOfficerLoadout
   name: spawner-loadout-blueshield
   hidden: true
   loadouts:
-  - CentralCommandBlueShieldOfficerLoadout
+    - CentralCommandBlueShieldOfficerLoadout
 
 - type: loadout
   id: CentralCommandBlueShieldOfficerLoadout
   equipment:
-    back: ClothingBackpackBlueShield
+    back: ClothingBackpackSatchelBlueshield

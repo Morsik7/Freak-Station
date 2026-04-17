@@ -11,6 +11,7 @@
   - TypanMedical
   - TypanProtection
   - TypanResearchDirector
+  - TypanResearch
   - TypanScience
   - TypanService
   - TypanTechnicalOperationsSupervisor
@@ -62,12 +63,16 @@
   name: id-card-access-taypan-science
 
 - type: accessLevel
-  id: TypanService
-  name: id-card-access-taypan-service
+  id: TypanResearch
+  name: id-card-access-taypan-research
 
 - type: accessLevel
   id: TypanTechnicalOperationsSupervisor
-  name: id-card-access-taypan-tech-supervisor
+  name: id-card-access-taypan-tos
+
+- type: accessLevel
+  id: TypanService
+  name: id-card-access-taypan-service
 
 - type: accessLevel
   id: TypanVault

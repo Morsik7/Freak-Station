@@ -13,7 +13,7 @@
   - WeaponProtoKineticAccelerator
   - ShuttleGunKineticCircuitboard
    # Goobstation R&D Console rework start
-  position: 0,6
+  position: 70,0
   # technologyPrerequisites:
   # - TypanMagnetsTech
   # Goobstation R&D Console rework end
@@ -40,7 +40,7 @@
   - MagazineBoxLightRifleIncendiary
   - MagazineBoxRifleIncendiary
    # Goobstation R&D Console rework start
-  position: 0,5
+  position: 71,0
   # technologyPrerequisites:
   # - TypanMagnetsTech
   # Goobstation R&D Console rework end
@@ -60,7 +60,7 @@
   - BoxBeanbag
   - WeaponDisabler
    # Goobstation R&D Console rework start
-  position: 0,4
+  position: 72,0
   # technologyPrerequisites:
   # - TypanMagnetsTech
   # Goobstation R&D Console rework end
@@ -86,7 +86,7 @@
   - MagazineBoxRifleUranium
   - BoxShotgunUranium
      # Goobstation R&D Console rework start
-  position: 0,3
+  position: 73,0
   # technologyPrerequisites:
   # - TypanMagnetsTech
   # Goobstation R&D Console rework end
@@ -106,7 +106,7 @@
   - HoloprojectorSecurity
   - WeaponDisablerSMG
      # Goobstation R&D Console rework start
-  position: 0,3
+  position: 74,0
   # technologyPrerequisites:
   # - TypanMagnetsTech
   # Goobstation R&D Console rework end
@@ -129,7 +129,7 @@
   - ExplosivePayload
   - ChemicalPayload
      # Goobstation R&D Console rework start
-  position: 0,2
+  position: 75,0
   # technologyPrerequisites:
   # - TypanMagnetsTech
   # Goobstation R&D Console rework end
@@ -146,7 +146,7 @@
   recipeUnlocks:
   - ClothingBackpackElectropack
      # Goobstation R&D Console rework start
-  position: 0,2
+  position: 76,0
   # technologyPrerequisites:
   # - TypanMagnetsTech
   # Goobstation R&D Console rework end
@@ -164,7 +164,7 @@
   - WeaponPistolViper
   - WeaponRevolverPython
      # Goobstation R&D Console rework start
-  position: 0,2
+  position: 77,0
   # technologyPrerequisites:
   # - TypanMagnetsTech
   # Goobstation R&D Console rework end
@@ -182,7 +182,7 @@
   - ClothingHandsKnuckleDustersSyndicate
   - ThrowingKnife
      # Goobstation R&D Console rework start
-  position: 0,2
+  position: 78,0
   # technologyPrerequisites:
   # - TypanMagnetsTech
   # Goobstation R&D Console rework end
@@ -200,7 +200,7 @@
   - ClothingHandsGlovesNorthStar
   - ClothingHandsGlovesBoxingRigged
      # Goobstation R&D Console rework start
-  position: 0,2
+  position: 79,0
   # technologyPrerequisites:
   # - TypanMagnetsTech
   # Goobstation R&D Console rework end
@@ -217,7 +217,7 @@
   recipeUnlocks:
   - WeaponSniperMosin
      # Goobstation R&D Console rework start
-  position: 0,2
+  position: 80,0
   technologyPrerequisites:
   - TypanMagnetsTech
   # Goobstation R&D Console rework end
@@ -233,7 +233,7 @@
   recipeUnlocks:
   - BorgModuleSyndicateWeapon
   - BorgModuleOperative
-  position: 1,2
+  position: 81,0
 
 # Tier 2
 
@@ -260,7 +260,7 @@
   - ShuttleGunFriendshipCircuitboard
   - ShuttleGunDusterCircuitboard
   # Goobstation R&D Console rework start
-  position: 0,1
+  position: 70,1
   technologyPrerequisites:
   - TypanSalvageWeapons
   - TypanExplosiveTechnology
@@ -268,7 +268,7 @@
 
 - type: technology
   id: TypanNightVisionTechnology
-  name: Технологии ночного видения
+  name: research-technology-typan-night-vision
   icon:
     sprite: _White/Clothing/Eyes/Goggles/snightvision.rsi
     state: icon
@@ -278,7 +278,7 @@
   recipeUnlocks:
   - ClothingEyesNightVisionGogglesSyndie
      # Goobstation R&D Console rework start
-  position: 0,1
+  position: 71,1
   technologyPrerequisites:
   - TypanMagnetsTech
   # Goobstation R&D Console rework end
@@ -295,7 +295,7 @@
   recipeUnlocks:
   - WeaponPistolCobra
      # Goobstation R&D Console rework start
-  position: 0, 1
+  position: 72,1
   technologyPrerequisites:
   - TypanBasicPistols
   # Goobstation R&D Console rework end
@@ -318,7 +318,7 @@
   - ClusterGrenade
   - EmpGrenade
      # Goobstation R&D Console rework start
-  position: 0,-2
+  position: 73,1
   technologyPrerequisites:
   - TypanExplosiveTechnology
   # Goobstation R&D Console rework end
@@ -335,7 +335,7 @@
   recipeUnlocks:
   - WeaponSniperHristov
      # Goobstation R&D Console rework start
-  position: 0,-3
+  position: 74,1
   technologyPrerequisites:
   - TypanBasicRifles
   # Goobstation R&D Console rework end
@@ -352,7 +352,7 @@
   recipeUnlocks:
   - WeaponSubMachineGunC20r
      # Goobstation R&D Console rework start
-  position: 0,-4
+  position: 75,1
   technologyPrerequisites:
   - TypanBasicRifles
   # Goobstation R&D Console rework end
@@ -369,7 +369,7 @@
   recipeUnlocks:
   - WeaponRifleAk
      # Goobstation R&D Console rework start
-  position: 0,-5
+  position: 76,1
   technologyPrerequisites:
   - TypanBasicRifles
   # Goobstation R&D Console rework end
@@ -386,7 +386,7 @@
   recipeUnlocks:
   - WeaponShotgunBulldog
      # Goobstation R&D Console rework start
-  position: 0,-6
+  position: 77,1
   technologyPrerequisites:
   - TypanBasicRifles
   # Goobstation R&D Console rework end
@@ -402,7 +402,7 @@
   recipeUnlocks:
   - BorgModuleSyndicateWeaponAdvanced
   - BorgModuleMartyr
-  position: 1,1
+  position: 78,1
   technologyPrerequisites:
   - TypanBorgModulesT1
 
@@ -421,7 +421,7 @@
   - HolyHandGrenade
   - WhiteholeGrenade
   # Goobstation R&D Console rework start
-  position: 0,-8
+  position: 70,2
   technologyPrerequisites:
   - TypanGrenades
   - TypanBasicShuttleArmament
@@ -439,7 +439,7 @@
   recipeUnlocks:
   - WeaponLightMachineGunL6
   # Goobstation R&D Console rework start
-  position: 0,-8
+  position: 71,2
   technologyPrerequisites:
   - TypanAssaultRifles
   # Goobstation R&D Console rework end
@@ -456,7 +456,7 @@
   recipeUnlocks:
   - WeaponLauncherChinaLake
   # Goobstation R&D Console rework start
-  position: 0,-8
+  position: 72,2
   # technologyPrerequisites:
   # - TypanGrenades
   # Goobstation R&D Console rework end
@@ -473,7 +473,7 @@
   recipeUnlocks:
   - WeaponEnergyCrossbow
   # Goobstation R&D Console rework start
-  position: 0,-9
+  position: 73,2
   # technologyPrerequisites:
   # - TypanGrenades
   # Goobstation R&D Console rework end
@@ -489,6 +489,6 @@
   recipeUnlocks:
   - BorgModuleEsword
   - BorgModuleL6C
-  position: 1,0
+  position: 74,2
   technologyPrerequisites:
   - TypanBorgModulesT2

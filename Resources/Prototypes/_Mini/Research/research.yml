@@ -28,7 +28,7 @@
   - AnomalyLocatorWide
   - APECircuitboard
   - AnomalyVesselCircuitboardTypan
-  position: 1,0
+  position: 40,0
 
 - type: technology
   id: TypanBasicXenoArcheology
@@ -43,7 +43,7 @@
   - NodeScanner
   - AnalysisComputerCircuitboardTypan
   - ArtifactAnalyzerMachineCircuitboard
-  position: 2,0
+  position: 41,0
 
 - type: technology
   id: TypanMagnetsTech
@@ -57,7 +57,7 @@
   recipeUnlocks:
   - ClothingShoesBootsMagSyndie
   - ClothingShoesBootsMoon
-  position: 3,0
+  position: 42,0
 
 - type: technology
   id: TypanEnergyDaggers
@@ -70,7 +70,7 @@
   cost: 7500
   recipeUnlocks:
   - EnergyDagger
-  position: 4,0
+  position: 43,0
 
 # Tier 2
 
@@ -89,7 +89,7 @@
   - AnomalySynchronizerCircuitboard
   - AnomalyVesselExperimentalCircuitboardTypan
   - WeaponGauntletGorilla
-  position: 0,1
+  position: 40,1
   technologyPrerequisites:
   - TypanBasicAnomalousResearch
 
@@ -104,7 +104,7 @@
   cost: 15000
   recipeUnlocks:
   - ArtifactCrusherMachineCircuitboard
-  position: 1,1
+  position: 41,1
   technologyPrerequisites:
   - TypanBasicXenoArcheology
 
@@ -120,7 +120,7 @@
   recipeUnlocks:
   - WeaponParticleDecelerator
   - HoloprojectorField
-  position: 2,1
+  position: 42,1
 
 - type: technology
   id: TypanEnergyWeapons
@@ -134,7 +134,7 @@
   recipeUnlocks:
   - EnergySword
   - EnergyShield
-  position: 3,1
+  position: 43,1
   technologyPrerequisites:
   - TypanEnergyDaggers
 
@@ -149,7 +149,7 @@
   cost: 15000
   recipeUnlocks:
   - ChameleonProjector
-  position: 4,1
+  position: 44,1
 
 # Tier 3
 
@@ -164,7 +164,7 @@
   cost: 30000
   recipeUnlocks:
   - EmagTypanLimited
-  position: 0,2
+  position: 40,2
 
 - type: technology
   id: TypanAdvancedMagnetsTech
@@ -177,7 +177,7 @@
   cost: 30000
   recipeUnlocks:
   - ClothingShoesBootsMagAdvSynd
-  position: 1,2
+  position: 41,2
   technologyPrerequisites:
   - TypanMagnetsTech
 
@@ -192,6 +192,6 @@
   cost: 30000
   recipeUnlocks:
   - EnergySwordDouble
-  position: 2,2
+  position: 42,2
   technologyPrerequisites:
   - TypanEnergyWeapons

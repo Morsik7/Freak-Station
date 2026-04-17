@@ -42,6 +42,10 @@ on:
     paths:
       - '**.rsi/**.png'
 
+permissions:
+  contents: read
+  issues: write
+
 jobs:
   diff:
     name: Diff
