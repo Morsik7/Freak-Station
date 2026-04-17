@@ -16,6 +16,8 @@ on:
 jobs:
   update_headers:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     steps:
       - name: Checkout Code
         uses: actions/checkout@v4
@@ -102,7 +104,13 @@ jobs:
             --pr-head-sha ${{ github.event.pull_request.head.sha }}
         working-directory: ${{ github.workspace }}
 
+      - name: Fork PR needs BOT_TOKEN to push
+        if: github.event.pull_request.head.repo.full_name != github.repository && secrets.BOT_TOKEN == ''
+        run: |
+          echo "::notice::Пуш в форк недоступен через GITHUB_TOKEN. Добавьте в secrets репозитория-получателя PAT с правом push в ${{ github.event.pull_request.head.repo.full_name }} (имя BOT_TOKEN) либо обновите заголовки REUSE локально."
+
       - name: Commit changes
+        if: github.event.pull_request.head.repo.full_name == github.repository || secrets.BOT_TOKEN != ''
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
           commit_message: "chore: Automatically update REUSE headers"
