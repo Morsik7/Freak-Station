@@ -160,6 +160,27 @@
           Quantity: 1500
 
 - type: entity
+  parent: WaterTank
+  id: SpaceCleanerTank
+  name: space cleaner tank
+  description: A tank for storing space cleaner.
+  suffix: Empty
+
+- type: entity
+  parent: WaterTank
+  id: SpaceCleanerTankFull
+  name: space cleaner tank
+  description: A tank for storing space cleaner.
+  suffix: Full
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      tank:
+        reagents:
+        - ReagentId: SpaceCleaner
+          Quantity: 1500
+
+- type: entity
   parent: StorageTank
   id: WaterCooler
   name: water cooler
