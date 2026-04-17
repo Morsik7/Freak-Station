@@ -627,40 +627,36 @@ namespace Content.Shared.Preferences
                 _ => Gender.Epicene // Invalid enum values.
             };
 
-            string name;
+            // Mini Station IntegrationTests fix Start
             var maxNameLength = configManager.GetCVar(CCVars.MaxNameLength);
-            if (string.IsNullOrEmpty(Name))
-            {
-                name = GetName(Species, gender);
-            }
-            else if (Name.Length > maxNameLength)
-            {
-                name = Name[..maxNameLength];
-            }
-            else
-            {
-                name = Name;
-            }
+            var restrictedNames = configManager.GetCVar(CCVars.RestrictedNames);
+            var icNameCase = configManager.GetCVar(CCVars.ICNameCase);
 
-            name = name.Trim();
-
-
-            if (configManager.GetCVar(CCVars.RestrictedNames))
-            {
-                name = RestrictedNameRegex.Replace(name, string.Empty);
-            }
-
-            if (configManager.GetCVar(CCVars.ICNameCase))
-            {
-                // This regex replaces the first character of the first and last words of the name with their uppercase version
-                name = ICNameCaseRegex.Replace(name, m => m.Groups["word"].Value.ToUpper());
-            }
-
+            var name = SanitizeName(Name);
             if (string.IsNullOrEmpty(name))
             {
-                name = GetName(Species, gender);
+                name = SanitizeName(GetName(Species, gender));
+                if (string.IsNullOrEmpty(name))
+                    name = "0";
             }
 
+            string SanitizeName(string input)
+            {
+                var sanitized = input;
+                if (sanitized.Length > maxNameLength)
+                    sanitized = sanitized[..maxNameLength];
+
+                sanitized = sanitized.Trim();
+
+                if (restrictedNames)
+                    sanitized = RestrictedNameRegex.Replace(sanitized, string.Empty);
+
+                if (icNameCase)
+                    sanitized = ICNameCaseRegex.Replace(sanitized, m => m.Groups["word"].Value.ToUpper());
+
+                return sanitized;
+            }
+            // Mini Station IntegrationTests fix End
 
             string flavortext;
             var maxFlavorTextLength = configManager.GetCVar(CCVars.MaxFlavorTextLength);

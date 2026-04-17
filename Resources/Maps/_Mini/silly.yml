@@ -9950,8 +9950,7 @@ entities:
       pos: 24.5,9.5
       parent: 2
     - type: DeviceNetwork
-      configurators:
-      - invalid
+      configurators: []
   - uid: 115
     components:
     - type: Transform
@@ -10013,8 +10012,7 @@ entities:
       pos: 5.5,12.5
       parent: 2
     - type: DeviceNetwork
-      configurators:
-      - invalid
+      configurators: []
   - uid: 9277
     components:
     - type: Transform
@@ -38015,8 +38013,7 @@ entities:
       pos: 19.5,12.5
       parent: 2
     - type: DeviceNetwork
-      configurators:
-      - invalid
+      configurators: []
       deviceLists:
       - 25
     - type: AtmosPipeColor
@@ -38070,8 +38067,7 @@ entities:
     - type: AtmosPipeColor
       color: '#0000FFFF'
     - type: DeviceNetwork
-      configurators:
-      - invalid
+      configurators: []
   - uid: 3607
     components:
     - type: Transform
@@ -38088,8 +38084,7 @@ entities:
     - type: AtmosPipeColor
       color: '#0000FFFF'
     - type: DeviceNetwork
-      configurators:
-      - invalid
+      configurators: []
   - uid: 3609
     components:
     - type: Transform
@@ -38105,8 +38100,7 @@ entities:
       pos: 4.5,12.5
       parent: 2
     - type: DeviceNetwork
-      configurators:
-      - invalid
+      configurators: []
     - type: AtmosPipeColor
       color: '#0000FFFF'
   - uid: 3611
@@ -38118,8 +38112,7 @@ entities:
     - type: AtmosPipeColor
       color: '#0000FFFF'
     - type: DeviceNetwork
-      configurators:
-      - invalid
+      configurators: []
   - uid: 3612
     components:
     - type: Transform
@@ -38128,8 +38121,7 @@ entities:
     - type: AtmosPipeColor
       color: '#0000FFFF'
     - type: DeviceNetwork
-      configurators:
-      - invalid
+      configurators: []
   - uid: 3613
     components:
     - type: Transform
@@ -38139,8 +38131,7 @@ entities:
     - type: AtmosPipeColor
       color: '#0000FFFF'
     - type: DeviceNetwork
-      configurators:
-      - invalid
+      configurators: []
   - uid: 3614
     components:
     - type: Transform
@@ -38178,8 +38169,7 @@ entities:
       pos: 25.5,11.5
       parent: 2
     - type: DeviceNetwork
-      configurators:
-      - invalid
+      configurators: []
     - type: AtmosPipeColor
       color: '#0000FFFF'
   - uid: 3620
@@ -38509,8 +38499,7 @@ entities:
     - type: AtmosPipeColor
       color: '#FF0000FF'
     - type: DeviceNetwork
-      configurators:
-      - invalid
+      configurators: []
   - uid: 3652
     components:
     - type: Transform
@@ -38526,8 +38515,7 @@ entities:
     - type: AtmosPipeColor
       color: '#FF0000FF'
     - type: DeviceNetwork
-      configurators:
-      - invalid
+      configurators: []
   - uid: 3654
     components:
     - type: Transform
@@ -38537,8 +38525,7 @@ entities:
     - type: AtmosPipeColor
       color: '#FF0000FF'
     - type: DeviceNetwork
-      configurators:
-      - invalid
+      configurators: []
   - uid: 3655
     components:
     - type: Transform
@@ -38547,8 +38534,7 @@ entities:
     - type: AtmosPipeColor
       color: '#FF0000FF'
     - type: DeviceNetwork
-      configurators:
-      - invalid
+      configurators: []
   - uid: 3656
     components:
     - type: Transform
@@ -38678,8 +38664,7 @@ entities:
       pos: 25.5,10.5
       parent: 2
     - type: DeviceNetwork
-      configurators:
-      - invalid
+      configurators: []
     - type: AtmosPipeColor
       color: '#FF0000FF'
   - uid: 3673
@@ -38810,8 +38795,7 @@ entities:
       pos: 16.5,13.5
       parent: 2
     - type: DeviceNetwork
-      configurators:
-      - invalid
+      configurators: []
       deviceLists:
       - 25
     - type: AtmosPipeColor
@@ -43032,8 +43016,7 @@ entities:
       content: 'Орёл или решка? '
     - type: UserInterface
       actors:
-        enum.PaperUiKey.Key:
-        - invalid
+        enum.PaperUiKey.Key: []
     - type: ActiveUserInterface
   - uid: 4062
     components:
@@ -49974,16 +49957,14 @@ entities:
       pos: -16.5,14.5
       parent: 2
     - type: Strap
-      buckledEntities:
-      - invalid
+      buckledEntities: []
   - uid: 9519
     components:
     - type: Transform
       pos: -18.5,14.5
       parent: 2
     - type: Strap
-      buckledEntities:
-      - invalid
+      buckledEntities: []
 - proto: SlimeGrinder
   entities:
   - uid: 1705
@@ -65186,8 +65167,7 @@ entities:
       pos: 8.5,1.5
       parent: 2
     - type: DeviceNetwork
-      configurators:
-      - invalid
+      configurators: []
       deviceLists:
       - 9165
 - proto: WeaponEnergyTurretCommandControlPanel
@@ -65209,8 +65189,7 @@ entities:
       pos: -19.5,23.5
       parent: 2
     - type: DeviceNetwork
-      configurators:
-      - invalid
+      configurators: []
       deviceLists:
       - 318
 - proto: WeaponEnergyTurretSecurityControlPanel
