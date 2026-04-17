@@ -13,7 +13,7 @@
   - RadarConsoleCircuitboard
   - HandHeldMassScanner
   # Goobstation R&D Console rework start
-  position: 0,1
+  position: 50,0
   technologyPrerequisites: []
   # Goobstation R&D Console rework end
 
@@ -32,7 +32,7 @@
   - OreProcessorIndustrialMachineCircuitboardTypan
   - ClothingMaskWeldingGas
   # Goobstation R&D Console rework start
-  position: -1,1
+  position: 49,1
   technologyPrerequisites:
   - TypanSpaceScanning
   # Goobstation R&D Console rework end
@@ -51,7 +51,7 @@
   - TurboItemRechargerCircuitboard
   - SMESAdvancedMachineCircuitboard
   # Goobstation R&D Console rework start
-  position: 1,1
+  position: 51,1
   technologyPrerequisites:
   - TypanSpaceScanning
   # Goobstation R&D Console rework end
@@ -68,7 +68,7 @@
   recipeUnlocks:
   - FlatpackerMachineCircuitboard
   # Goobstation R&D Console rework start
-  position: -2,2
+  position: 48,2
   technologyPrerequisites:
   - TypanSalvageEquipment
   # Goobstation R&D Console rework end
@@ -88,7 +88,7 @@
   - CircuitImprinterHyperConvectionMachineCircuitboardTypan
   - SheetifierMachineCircuitboard
   # Goobstation R&D Console rework start
-  position: 0,2
+  position: 50,2
   technologyPrerequisites:
   - TypanSpaceScanning
   # Goobstation R&D Console rework end
@@ -110,7 +110,7 @@
   - SolarTrackerElectronics
   - EmitterCircuitboard
   # Goobstation R&D Console rework start
-  position: 2,2
+  position: 52,2
   technologyPrerequisites:
   - TypanAdvancedPowercells
   # Goobstation R&D Console rework end
@@ -128,7 +128,7 @@
   - ThermomachineFreezerMachineCircuitBoard
   - GasRecyclerMachineCircuitboard
   # Goobstation R&D Console rework start
-  position: -3,3
+  position: 47,3
   technologyPrerequisites:
   - TypanMechanicalCompression
   # Goobstation R&D Console rework end
@@ -170,7 +170,7 @@
   - ClothingOuterEVASuitSyndicate
   - ClothingHeadHelmetSyndicate
   # Goobstation R&D Console rework start
-  position: 1,3
+  position: 51,3
   technologyPrerequisites:
   - TypanIndustrialEngineering
   # Goobstation R&D Console rework end
@@ -193,7 +193,7 @@
   - GyroscopeMachineCircuitboard
   - MiniGravityGeneratorCircuitboard
   # Goobstation R&D Console rework start
-  position: 3,4
+  position: 53,4
   technologyPrerequisites:
   - TypanPowerGeneration
   # Goobstation R&D Console rework end
@@ -212,7 +212,7 @@
   - PortableScrubberMachineCircuitBoard
   - HolofanProjector
   # Goobstation R&D Console rework start
-  position: -3,5
+  position: 47,5
   technologyPrerequisites:
   - TypanAtmosphericTech
   # Goobstation R&D Console rework end
@@ -234,7 +234,7 @@
   - Fulton
   - FultonBeacon
   # Goobstation R&D Console rework start
-  position: -1,5
+  position: 49,5
   technologyPrerequisites:
   - TypanIndustrialEngineering
   # Goobstation R&D Console rework end
@@ -254,7 +254,7 @@
   - BorgModuleAdvancedMining
   - SalvageExpeditionsComputerCircuitboard
   # Goobstation R&D Console rework start
-  position: -2,6
+  position: 48,6
   technologyPrerequisites:
   - TypanAdvancedToolsTechnology
   # Goobstation R&D Console rework end
@@ -275,7 +275,7 @@
   - ClothingEyesHudTypanResearch
   - ClothingEyesHudTypanAdvanced
   # Goobstation R&D Console rework start
-  position: 0,5
+  position: 50,5
   technologyPrerequisites:
   - TypanHardsuitsBasic
   # Goobstation R&D Console rework end
@@ -293,7 +293,7 @@
   - ClothingOuterHardsuitSyndie
   - ClothingOuterHardsuitSyndieMedic
   # Goobstation R&D Console rework start
-  position: 1,5
+  position: 51,5
   technologyPrerequisites:
   - TypanHardsuitsBasic
   # Goobstation R&D Console rework end
@@ -311,7 +311,7 @@
   - ClothingOuterHardsuitSyndieElite
   - ClothingOuterHardsuitSyndieCommander
   # Goobstation R&D Console rework start
-  position: 2,6
+  position: 52,6
   technologyPrerequisites:
   - TypanHardsuits
   # Goobstation R&D Console rework end
@@ -331,7 +331,7 @@
   - PowerCellMicroreactor
   - PowerCellHyper
   # Goobstation R&D Console rework start
-  position: 0,7
+  position: 50,7
   technologyPrerequisites:
   - TypanHUD
   - TypanEliteHardsuits
@@ -349,7 +349,7 @@
   recipeUnlocks:
   - ClothingOuterHardsuitJuggernaut
   # Goobstation R&D Console rework start
-  position: 1,7
+  position: 51,7
   technologyPrerequisites:
   - TypanEliteHardsuits
   # Goobstation R&D Console rework end

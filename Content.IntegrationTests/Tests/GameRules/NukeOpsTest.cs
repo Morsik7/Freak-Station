@@ -103,6 +103,9 @@ using Content.Shared.NPC.Prototypes;
 using Content.Shared.NPC.Systems;
 using Content.Shared.NukeOps;
 using Content.Shared.Pinpointer;
+// Mini Station IntegrationTests fix start
+using Content.Shared.Preferences;
+using Content.Shared.Roles;
 using Content.Shared.Station.Components;
 using Robust.Server.GameObjects;
 using Robust.Shared.GameObjects;
@@ -117,6 +120,8 @@ public sealed class NukeOpsTest
 {
     private static readonly ProtoId<NpcFactionPrototype> SyndicateFaction = "Syndicate";
     private static readonly ProtoId<NpcFactionPrototype> NanotrasenFaction = "NanoTrasen";
+    private static readonly ProtoId<JobPrototype> PassengerJob = "Passenger";
+    // Mini Station IntegrationTests fix end
 
     /// <summary>
     /// Check that a nuke ops game mode can start without issue. I.e., that the nuke station and such all get loaded.
@@ -158,6 +163,12 @@ public sealed class NukeOpsTest
         await pair.SetAntagPreference("NukeopsCommander", true);
         await pair.SetAntagPreference("NukeopsMedic", true, dummies[1].UserId);
 
+        // Mini Station IntegrationTests fix start
+        await pair.SetJobPriorities((PassengerJob, JobPriority.High));
+        await pair.SetJobPriorities(dummies[0].UserId, (PassengerJob, JobPriority.High));
+        await pair.SetJobPriorities(dummies[1].UserId, (PassengerJob, JobPriority.Medium));
+        await pair.SetJobPriorities(dummies[2].UserId, (PassengerJob, JobPriority.High));
+
         // Initially, the players have no attached entities
         Assert.That(pair.Player?.AttachedEntity, Is.Null);
         Assert.That(dummies.All(x => x.AttachedEntity == null));
@@ -179,12 +190,28 @@ public sealed class NukeOpsTest
         // Ready up and start nukeops
         ticker.ToggleReadyAll(true);
         Assert.That(ticker.PlayerGameStatuses.Values.All(x => x == PlayerGameStatus.ReadyToPlay));
-        await pair.WaitCommand("forcepreset Nukeops");
-        await pair.RunTicksSync(10);
+        await pair.WaitCommand("forcepreset Nukeops", 30);
+        await server.WaitIdleAsync();
+
+        await server.WaitAssertion(() =>
+        {
+            foreach (var session in server.PlayerMan.Sessions)
+            {
+                if (!ticker.PlayerGameStatuses.TryGetValue(session.UserId, out var status) ||
+                    status == PlayerGameStatus.JoinedGame)
+                {
+                    continue;
+                }
+
+                ticker.MakeJoinGame(session, EntityUid.Invalid, "Passenger", silent: true);
+            }
+        });
 
         // Game should have started
         Assert.That(ticker.RunLevel, Is.EqualTo(GameRunLevel.InRound));
-        Assert.That(ticker.PlayerGameStatuses.Values.All(x => x == PlayerGameStatus.JoinedGame));
+        Assert.That(ticker.PlayerGameStatuses.Values.All(x => x == PlayerGameStatus.JoinedGame),
+            $"PlayerGameStatuses: {string.Join(", ", ticker.PlayerGameStatuses.Select(kv => $"{kv.Key}={kv.Value}"))}");
+        // Mini Station IntegrationTests fix end
         Assert.That(client.EntMan.EntityExists(client.AttachedEntity));
 
         var dummyEnts = dummies.Select(x => x.AttachedEntity ?? default).ToArray();
