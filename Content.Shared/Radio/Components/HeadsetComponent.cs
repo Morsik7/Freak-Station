@@ -24,4 +24,9 @@ public sealed partial class HeadsetComponent : Component
 
     [DataField]
     public Color Color { get; private set; } = Color.Lime;
+
+    public void CopyColorFrom(HeadsetComponent other)
+    {
+        Color = other.Color;
+    }
 }
