@@ -272,6 +272,8 @@
     guides:
     - RTG
     - Power
+  - type: Machine
+    board: GeneratorRTGMachineCircuitboard
   - type: Destructible
     thresholds:
       - trigger:

@@ -35,7 +35,7 @@
   description: Консольная плата для монитора камер слежения.
   components:
   - type: ComputerBoard
-    prototype: ComputerSurveillanceCameraMonitor
+    prototype: MiniComputerSurveillanceCameraMonitor
 
 - type: entity
   parent: BaseComputerCircuitboardTypan
@@ -53,7 +53,7 @@
   description: Консольная плата для консоли мониторинга экипажа.
   components:
   - type: ComputerBoard
-    prototype: ComputerCrewMonitoring
+    prototype: MiniComputerCrewMonitoring
 
 - type: entity
   parent: BaseComputerCircuitboardTypan
@@ -71,7 +71,7 @@
   description: Позволяет управлять параметрами системы опознавания судна.
   components:
   - type: ComputerBoard
-    prototype: ComputerIFF
+    prototype: MiniComputerIFF
 
 - type: entity
   parent: BaseComputerCircuitboardTypan
@@ -107,4 +107,4 @@
   description: Консольная плата для консоли загрузки ИИ.
   components:
   - type: ComputerBoard
-    prototype: StationAiUploadComputer
+    prototype: MiniStationAiUploadComputer
