@@ -53834,6 +53834,8 @@ entities:
     - type: Transform
       pos: 7.451738,45.678047
       parent: 2
+    - type: StorageFill
+      contents: []
     - type: Storage
       storedItems:
         5273:
