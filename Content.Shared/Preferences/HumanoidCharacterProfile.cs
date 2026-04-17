@@ -627,40 +627,36 @@ namespace Content.Shared.Preferences
                 _ => Gender.Epicene // Invalid enum values.
             };
 
-            string name;
+            // Mini Station IntegrationTests fix Start
             var maxNameLength = configManager.GetCVar(CCVars.MaxNameLength);
-            if (string.IsNullOrEmpty(Name))
+            var restrictedNames = configManager.GetCVar(CCVars.RestrictedNames);
+            var icNameCase = configManager.GetCVar(CCVars.ICNameCase);
+
+            var name = SanitizeName(Name);
+            if (string.IsNullOrWhiteSpace(name))
             {
                 name = GetName(Species, gender);
+                if (string.IsNullOrWhiteSpace(name))
+                    name = "0";
             }
-            else if (Name.Length > maxNameLength)
+
+            string SanitizeName(string input)
             {
-                name = Name[..maxNameLength];
+                var sanitized = input;
+                if (sanitized.Length > maxNameLength)
+                    sanitized = sanitized[..maxNameLength];
+
+                sanitized = sanitized.Trim();
+
+                if (restrictedNames)
+                    sanitized = RestrictedNameRegex.Replace(sanitized, string.Empty).Trim();
+
+                if (icNameCase)
+                    sanitized = ICNameCaseRegex.Replace(sanitized, m => m.Groups["word"].Value.ToUpper()).Trim();
+
+                return sanitized;
             }
-            else
-            {
-                name = Name;
-            }
-
-            name = name.Trim();
-
-
-            if (configManager.GetCVar(CCVars.RestrictedNames))
-            {
-                name = RestrictedNameRegex.Replace(name, string.Empty);
-            }
-
-            if (configManager.GetCVar(CCVars.ICNameCase))
-            {
-                // This regex replaces the first character of the first and last words of the name with their uppercase version
-                name = ICNameCaseRegex.Replace(name, m => m.Groups["word"].Value.ToUpper());
-            }
-
-            if (string.IsNullOrEmpty(name))
-            {
-                name = GetName(Species, gender);
-            }
-
+            // Mini Station IntegrationTests fix End
 
             string flavortext;
             var maxFlavorTextLength = configManager.GetCVar(CCVars.MaxFlavorTextLength);

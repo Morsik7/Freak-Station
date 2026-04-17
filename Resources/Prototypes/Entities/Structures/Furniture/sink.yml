@@ -94,6 +94,9 @@
   parent: SinkEmpty
   suffix: Water
   components:
+  - type: Construction
+    graph: SinkGraph
+    node: sinkWater
   - type: SolutionContainerManager
     solutions:
       drainBuffer:
@@ -144,6 +147,9 @@
   parent: SinkStemless
   suffix: Water
   components:
+  - type: Construction
+    graph: SinkStemlessGraph
+    node: sinkStemlessWater
   - type: SolutionContainerManager
     solutions:
       drainBuffer:

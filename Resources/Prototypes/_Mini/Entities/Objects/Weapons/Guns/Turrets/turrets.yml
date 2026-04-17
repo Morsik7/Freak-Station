@@ -39,8 +39,16 @@
       - state: typan
         map: [ "enum.DeployableTurretVisuals.Weapon" ]
         visible: false
+      - state: typan
+        map: [ "enum.PowerDeviceVisualLayers.Powered" ]
+        visible: false
       - state: stand
         map: [ "enum.DeployableTurretVisuals.Turret" ]
+  - type: DeployableTurret
+    deployedState: full
+    retractedState: stand
+    deployingState: full
+    retractingState: stand
   - type: AccessReader
     access: [["StationAi"], ["TypanResearchDirector"]]
   - type: StationAiTurret
@@ -68,8 +76,16 @@
       - state: typan
         map: [ "enum.DeployableTurretVisuals.Weapon" ]
         visible: false
+      - state: typan
+        map: [ "enum.PowerDeviceVisualLayers.Powered" ]
+        visible: false
       - state: stand
         map: [ "enum.DeployableTurretVisuals.Turret" ]
+  - type: DeployableTurret
+    deployedState: full
+    retractedState: stand
+    deployingState: full
+    retractingState: stand
   - type: AccessReader
     access: [["StationAi"], ["TypanProtection"]]
   - type: TurretTargetSettings
@@ -97,8 +113,16 @@
       - state: typan
         map: [ "enum.DeployableTurretVisuals.Weapon" ]
         visible: false
+      - state: typan
+        map: [ "enum.PowerDeviceVisualLayers.Powered" ]
+        visible: false
       - state: stand
         map: [ "enum.DeployableTurretVisuals.Turret" ]
+  - type: DeployableTurret
+    deployedState: full
+    retractedState: stand
+    deployingState: full
+    retractingState: stand
   - type: AccessReader
     access: [["StationAi"], ["TypanCommand"]]
   - type: TurretTargetSettings

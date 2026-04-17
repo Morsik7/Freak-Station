@@ -255,6 +255,10 @@ public sealed partial class RadioSystem : EntitySystem
 
         var wrappedMessage = Loc.GetString(speech.Bold ? "chat-radio-message-wrap-bold" : "chat-radio-message-wrap",
             ("channel-color", channel.Color),
+            // Mini Station test fixes start
+            ("color", channel.Color),
+            ("languageColor", channel.Color),
+            // Mini Station test fixes end
             ("fontType", speech.FontId),
             ("fontSize", speech.FontSize),
             ("verb", Loc.GetString(_random.Pick(speech.SpeechVerbStrings))),
