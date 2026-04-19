@@ -38,6 +38,7 @@ public static class AntagTokenCatalog
     public const string ShadowlingRole = "shadowling";
     public const string XenomorphRole = "xenomorph";
     public const string BingleRole = "bingle";
+    public const string ParadoxCloneRole = "paradox_clone";
 
     public static readonly (TimeSpan Threshold, int RewardAmount)[] OnlineRewardMilestones =
     [
