@@ -826,8 +826,11 @@ namespace Content.Server.Database
             else
             {
                 existing.TokenId = tokenId;
-                existing.AntagId = antagId;
-                existing.SelectedAt = DateTime.UtcNow;
+                if (existing.AntagId != antagId)
+                {
+                    existing.AntagId = antagId;
+                    existing.SelectedAt = DateTime.UtcNow;
+                }
             }
 
             await db.DbContext.SaveChangesAsync();

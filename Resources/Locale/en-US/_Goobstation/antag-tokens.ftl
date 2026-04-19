@@ -29,7 +29,7 @@ antag-token-window-tooltip-free = Use a stored free unlock instead of spending t
 
 antag-store-status-deposited = This role is already deposited and waiting for a matching round.
 antag-store-status-not-enough = You do not have enough tickets.
-antag-store-status-saturated = The deposit cap for this role is already filled.
+antag-store-status-saturated = Queue cap
 antag-store-status-has-other-deposit = You already have another active deposit.
 antag-store-status-unavailable = This role is temporarily unavailable.
 antag-store-status-min-players = There are not enough players online for this role.
@@ -130,6 +130,7 @@ antag-tokens-popup-purchase-ghost = Event started. Have a good game!
 antag-tokens-popup-purchase-deposit = Role queued for the next suitable round.
 antag-tokens-error-clear-deposit-failed = Could not clear the queue.
 antag-tokens-popup-deposit-cleared = Cleared deposit. Tickets refunded.
+antag-tokens-popup-deposit-refunded-queue-cap = The antagonist queue is full for the current player count. Tickets refunded — others queued earlier.
 antag-tokens-popup-ghost-reserved = This ghost role is reserved for another player.
 antag-tokens-error-session-invalid = You are not in a valid state for role assignment.
 antag-tokens-error-no-entity = Your character is not ready for role assignment yet.
