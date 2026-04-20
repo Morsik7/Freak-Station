@@ -64,7 +64,7 @@
       gameRuleId: TokenLoneAbductorSpawn
       tagLocKey: antag-token-window-tag-ghost
       requiresInRound: true
-      minimumTimeFromRoundStart: 300
+      minimumTimeFromRoundStart: 600
 
     - id: initial_infected
       nameLocKey: antag-store-role-initial-infected-name
@@ -246,7 +246,7 @@
     - id: bingle
       nameLocKey: antag-store-role-bingle-name
       descriptionLocKey: antag-store-role-bingle-description
-      cost: 4
+      cost: 5
       iconPath: /Textures/_Mini/Interface/Antags/bingle.png
       mode: GhostRule
       ghostAutoJoinEntityProto: SpawnPointGhostBinglePrimeToken
