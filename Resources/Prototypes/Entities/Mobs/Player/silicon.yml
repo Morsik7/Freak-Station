@@ -120,92 +120,94 @@
   description: Components added / removed from an entity that gets inserted into an AI core.
   categories: [HideSpawnMenu]
   components:
-    - type: IntrinsicRadioReceiver
-    - type: IntrinsicRadioTransmitter
-      channels:
-        # - Binary # Goobstation - replaced with collective mind
-        - Common
-        - Command
-        - Engineering
-        - Medical
-        - Science
-        - Security
-        - Service
-        - Supply
-    - type: ActiveRadio
-      channels:
-        # - Binary # Goobstation - replaced with collective mind
-        - Common
-        - Command
-        - Engineering
-        - Medical
-        - Science
-        - Security
-        - Service
-        - Supply
-    # Goobstation
-    - type: CollectiveMind
-      defaultChannel: Binary
-      channels:
-        - Binary
-    - type: IgnoreUIRange
-    - type: StationAiHeld
-    - type: StationAiOverlay
-    - type: ShowElectrocutionHUD
-    - type: ActionGrant
-      actions:
-        - ActionJumpToCore
-        - ActionSurvCameraLights
-        - ActionAIViewLaws
-        - ActionOpenRemoteDevicesMenu # Corvax-Next-AiRemoteControl
-        - ActionOpenCameraWarpMenu # Goobstation-Ai-Camera-Jumping
-    - type: UserInterface
-      interfaces:
-        enum.RadarConsoleUiKey.Key:
-          type: RadarConsoleBoundUserInterface
-        enum.CrewMonitoringUIKey.Key:
-          type: CrewMonitoringBoundUserInterface
-        enum.GeneralStationRecordConsoleKey.Key:
-          type: GeneralStationRecordConsoleBoundUserInterface
-        enum.SiliconLawsUiKey.Key:
-          type: SiliconLawBoundUserInterface
-        enum.CommunicationsConsoleUiKey.Key:
-          type: CommunicationsConsoleBoundUserInterface
-        enum.RemoteDeviceUiKey.Key: # Corvax-Next-AiRemoteControl
-          type: RemoteDevicesBoundUserInterface
-        enum.CamWarpUiKey.Key: # Goobstation-Ai-Camera-Jumping
-          type: AiCameraWarpBoundUserInterface
-    - type: IntrinsicUI
-      uis:
-        enum.RadarConsoleUiKey.Key:
-          toggleAction: ActionAGhostShowRadar
-        enum.CrewMonitoringUIKey.Key:
-          toggleAction: ActionAGhostShowCrewMonitoring
-        enum.GeneralStationRecordConsoleKey.Key:
-          toggleAction: ActionAGhostShowStationRecords
-        enum.CommunicationsConsoleUiKey.Key:
-          toggleAction: ActionAGhostShowCommunications
-    - type: CrewMonitoringConsole
-    - type: GeneralStationRecordConsole
-    - type: DeviceNetwork
-      deviceNetId: Wireless
-      receiveFrequencyId: CrewMonitor
-      transmitFrequencyId: ShuttleTimer
-    - type: RadarConsole
-      followEntity: false
-    - type: CommunicationsConsole
-      canCallShuttle: false
-      title: comms-console-announcement-title-station-ai
-      color: "#5ed7aa"
-      sound: /Audio/_CorvaxGoob/Announcements/aiannounce.ogg # CorvaxGoob-Announcements
-    - type: ShowJobIcons
-    - type: ShowHealthIcons #Goobstation
-    - type: ShowHealthBars #Goobstation
-      damageContainers:
-        - Silicon
-        - SiliconRadiation
-    - type: ContentEye #Goobstation
-      maxZoom: 1.44,1.44
+  - type: IntrinsicRadioReceiver
+  - type: IntrinsicRadioTransmitter
+    channels:
+    # - Binary # Goobstation - replaced with collective mind
+    - Common
+    - Command
+    - Engineering
+    - Medical
+    - Science
+    - Security
+    - Service
+    - Supply
+  - type: ActiveRadio
+    channels:
+    # - Binary # Goobstation - replaced with collective mind
+    - Common
+    - Command
+    - Engineering
+    - Medical
+    - Science
+    - Security
+    - Service
+    - Supply
+  # Goobstation
+  - type: CollectiveMind
+    defaultChannel: Binary
+    channels:
+    - Binary
+  - type: IgnoreUIRange
+  - type: StationAiHeld
+  - type: StationAiOverlay
+  - type: ShowElectrocutionHUD
+  - type: ActionGrant
+    actions:
+    - ActionJumpToCore
+    - ActionSurvCameraLights
+    - ActionAIViewLaws
+    - ActionOpenRemoteDevicesMenu # Corvax-Next-AiRemoteControl
+    - ActionOpenCameraWarpMenu # Goobstation-Ai-Camera-Jumping
+    - ActionOpenPDA # CorvaxGoob-AiPDA
+  - type: UserInterface
+    interfaces:
+      enum.RadarConsoleUiKey.Key:
+        type: RadarConsoleBoundUserInterface
+      enum.CrewMonitoringUIKey.Key:
+        type: CrewMonitoringBoundUserInterface
+      enum.GeneralStationRecordConsoleKey.Key:
+        type: GeneralStationRecordConsoleBoundUserInterface
+      enum.SiliconLawsUiKey.Key:
+        type: SiliconLawBoundUserInterface
+      enum.CommunicationsConsoleUiKey.Key:
+        type: CommunicationsConsoleBoundUserInterface
+      enum.RemoteDeviceUiKey.Key: # Corvax-Next-AiRemoteControl
+        type: RemoteDevicesBoundUserInterface
+      enum.CamWarpUiKey.Key: # Goobstation-Ai-Camera-Jumping
+        type: AiCameraWarpBoundUserInterface
+  - type: IntrinsicUI
+    uis:
+      enum.RadarConsoleUiKey.Key:
+        toggleAction: ActionAGhostShowRadar
+      enum.CrewMonitoringUIKey.Key:
+        toggleAction: ActionAGhostShowCrewMonitoring
+      enum.GeneralStationRecordConsoleKey.Key:
+        toggleAction: ActionAGhostShowStationRecords
+      enum.CommunicationsConsoleUiKey.Key:
+        toggleAction: ActionAGhostShowCommunications
+  - type: CrewMonitoringConsole
+  - type: GeneralStationRecordConsole
+  - type: DeviceNetwork
+    deviceNetId: Wireless
+    receiveFrequencyId: CrewMonitor
+    transmitFrequencyId: ShuttleTimer
+  - type: RadarConsole
+    followEntity: false
+  - type: CommunicationsConsole
+    canCallShuttle: false
+    canRecallShuttle: false
+    title: comms-console-announcement-title-station-ai
+    color: "#5ed7aa"
+    sound: /Audio/_CorvaxGoob/Announcements/aiannounce.ogg # CorvaxGoob-Announcements
+  - type: ShowJobIcons
+  - type: ShowHealthIcons #Goobstation
+  - type: ShowHealthBars #Goobstation
+    damageContainers:
+    - Silicon
+    - SiliconRadiation
+  - type: ContentEye  #Goobstation
+    maxZoom: 1.44,1.44
 
 - type: entity
   id: AiHeldIntellicard
@@ -308,65 +310,71 @@
     - AiHolder
   suffix: Empty
   components:
-    - type: Anchorable
-      flags:
-        - Anchorable
-    - type: Rotatable
-    - type: WarpPoint
-    - type: ContainerComp
-      proto: AiHeld
-      container: station_ai_mind_slot
-    - type: Destructible
-      thresholds:
-        - trigger: !type:DamageTrigger
-            damage: 100
-          behaviors:
-            - !type:PlaySoundBehavior
-              sound:
-                collection: MetalBreak
-            - !type:DoActsBehavior
-              acts: ["Destruction"]
-    - type: ApcPowerReceiver
-      powerLoad: 1000
-      needsPower: false
-    - type: StationAiCore
-    - type: StationAiVision
-    - type: InteractionOutline
-    - type: Sprite
-      sprite: Mobs/Silicon/station_ai.rsi
-      layers:
-        - state: base
-        - state: ai_empty
-          shader: unshaded
-        - state: ai
-          map: ["enum.StationAiVisualState.Key"]
-          shader: unshaded
-          visible: false
-    - type: Appearance
-    - type: InteractionPopup
-      interactSuccessString: petting-success-station-ai
-      interactFailureString: petting-failure-station-ai
-      messagePerceivedByOthers: petting-success-station-ai-others # Otherwise AI cannot tell its being pet as It's just a brain inside of the core, not the core itself.
-      interactSuccessSound:
-        path: /Audio/Ambience/Objects/periodic_beep.ogg
-    - type: Telephone
-      compatibleRanges:
-        - Grid
-        - Map
-        - Unlimited
-      listeningRange: 0
-      speakerVolume: Speak
-      unlistedNumber: true
-    - type: Holopad
-    - type: StationAiWhitelist
-    - type: UserInterface
-      interfaces:
-        enum.HolopadUiKey.AiRequestWindow:
-          type: HolopadBoundUserInterface
-        enum.HolopadUiKey.AiActionWindow:
-          type: HolopadBoundUserInterface
-        enum.StationAiCustomizationUiKey.Key:
-          type: StationAiCustomizationBoundUserInterface
+  - type: Anchorable
+    flags:
+    - Anchorable
+  - type: Rotatable
+  - type: WarpPoint
+  - type: ContainerComp
+    proto: AiHeld
+    container: station_ai_mind_slot
+  - type: ContainerContainer # CorvaxGoob-StationAiPda
+    containers:
+      station_ai_pda: !type:ContainerSlot
+      station_ai_mind_slot: !type:ContainerSlot
+        showEnts: True
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 100
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: ApcPowerReceiver
+    powerLoad: 1000
+    needsPower: false
+  - type: StationAiCore
+  - type: StationAiVision
+  - type: InteractionOutline
+  - type: Sprite
+    sprite: Mobs/Silicon/station_ai.rsi
+    layers:
+    - state: base
+    - state: ai_empty
+      shader: unshaded
+    - state: ai
+      map: ["enum.StationAiVisualState.Key"]
+      shader: unshaded
+      visible: false
+  - type: Appearance
+  - type: InteractionPopup
+    interactSuccessString: petting-success-station-ai
+    interactFailureString: petting-failure-station-ai
+    messagePerceivedByOthers: petting-success-station-ai-others # Otherwise AI cannot tell its being pet as It's just a brain inside of the core, not the core itself.
+    interactSuccessSound:
+      path: /Audio/Ambience/Objects/periodic_beep.ogg
+  - type: Telephone
+    compatibleRanges:
+    - Grid
+    - Map
+    - Unlimited
+    listeningRange: 0
+    speakerVolume: Speak
+    unlistedNumber: true
+  - type: Holopad
+  - type: StationAiWhitelist
+  - type: UserInterface
+    interfaces:
+      enum.HolopadUiKey.AiRequestWindow:
+        type: HolopadBoundUserInterface
+      enum.HolopadUiKey.AiActionWindow:
+        type: HolopadBoundUserInterface
+      enum.StationAiCustomizationUiKey.Key:
+        type: StationAiCustomizationBoundUserInterface
 
 # The job-ready version of an AI spawn.
 - type: entity

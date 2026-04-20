@@ -15,7 +15,7 @@
           nameGenerator: !type:NanotrasenNameGenerator
             prefixCreator: "ABK"
         - type: StationEmergencyShuttle
-          emergencyShuttlePath: /Maps/_CorvaxGoob/Stations/Box/Shuttles/corvax_emergency_box.yml
+          emergencyShuttlePath: /Maps/_CorvaxGoob/Stations/Silly/Shuttles/corvax_emergency_silly.yml
         - type: StationJobs
           availableJobs:
             Captain: [1, 1]

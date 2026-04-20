@@ -462,6 +462,9 @@
         - Defibrillator # Goobstation
         - SyringeGun # Goobstation
         - GunApplySolution # Goobstation - Syndicate dart gun
+    blacklist: # CorvaxGoob
+      components:
+        - BatteryDrinkerSource
   - type: ItemMapper
     mapLayers:
       bottle:
@@ -756,9 +759,9 @@
     slots:
     - belt
     - neck # CorvaxGoob start
-#  - type: Storage
-#    grid:
-#    - 0,0,3,1
+  - type: Storage
+    grid:
+    - 0,0,5,1 #corvaxgoob 
   # Goobstation
 #    whitelist:
 #      components:
@@ -807,10 +810,10 @@
   - type: ItemSlots
     slots:
       item:
-        # name: Gun # CorvaxGoob-Loc-in-UI
+        name: Gun # CorvaxGoob-Loc-in-UI
         whitelist:
-          tags:
-          - Sidearm # CorvaxGoob 
+          components:
+          - Gun
 
 # Belts without visualizers
 
