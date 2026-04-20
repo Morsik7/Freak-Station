@@ -1453,6 +1453,7 @@
   - DetectiveArmorVest
   - DetectiveCoat
   - DetectiveCoatGrey
+  - DetectiveCoatBlack # CorvaxGoob
 
 - type: loadoutGroup
   id: SecurityCadetJumpsuit
