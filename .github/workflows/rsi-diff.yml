@@ -45,6 +45,7 @@ on:
 permissions:
   contents: read
   issues: write
+  pull-requests: write
 
 jobs:
   diff:
@@ -76,6 +77,7 @@ jobs:
           headsha: ${{ github.event.pull_request.head.sha }}
 
       - name: Potentially find comment
+        if: github.event.pull_request.head.repo.fork == false && github.actor != 'dependabot[bot]'
         uses: peter-evans/find-comment@v1
         id: fc
         with:
@@ -84,7 +86,7 @@ jobs:
           body-includes: RSI Diff Bot
 
       - name: Create comment if it doesn't exist
-        if: steps.fc.outputs.comment-id == ''
+        if: github.event.pull_request.head.repo.fork == false && github.actor != 'dependabot[bot]' && steps.fc.outputs.comment-id == ''
         uses: peter-evans/create-or-update-comment@v1
         with:
           issue-number: ${{ github.event.number }}
@@ -92,7 +94,7 @@ jobs:
             ${{ steps.diff.outputs.summary-details }}
 
       - name: Update comment if it exists
-        if: steps.fc.outputs.comment-id != ''
+        if: github.event.pull_request.head.repo.fork == false && github.actor != 'dependabot[bot]' && steps.fc.outputs.comment-id != ''
         uses: peter-evans/create-or-update-comment@v1
         with:
           comment-id: ${{ steps.fc.outputs.comment-id }}
@@ -101,7 +103,7 @@ jobs:
             ${{ steps.diff.outputs.summary-details }}
 
       - name: Update comment to read that it has been edited
-        if: steps.fc.outputs.comment-id != ''
+        if: github.event.pull_request.head.repo.fork == false && github.actor != 'dependabot[bot]' && steps.fc.outputs.comment-id != ''
         uses: peter-evans/create-or-update-comment@v1
         with:
           comment-id: ${{ steps.fc.outputs.comment-id }}
