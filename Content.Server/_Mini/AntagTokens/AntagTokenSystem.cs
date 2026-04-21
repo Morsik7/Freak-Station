@@ -145,7 +145,6 @@ public sealed class AntagTokenSystem : EntitySystem
 
                     if (session.AttachedEntity is { Valid: true } uid)
                     {
-                        _chat.TrySendInGameICMessage(uid, message, InGameICChatType.Speak, false);
                         _popup.PopupEntity(message, uid, uid);
                     }
                 }
