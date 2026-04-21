@@ -161,6 +161,8 @@
   recipes:
   - BorgModuleAdvancedChemical
   - BorgModuleAdvancedSurgery
+  - BorgModuleSecurityStandard
+  - BorgModuleSecurityAdvanced
   - BorgModuleSyndicateWeapon
   - BorgModuleSyndicateWeaponAdvanced
   - BorgModuleOperative

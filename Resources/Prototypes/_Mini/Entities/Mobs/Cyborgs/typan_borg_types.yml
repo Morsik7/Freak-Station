@@ -163,10 +163,12 @@
   moduleWhitelist:
     tags:
     - BorgModuleGeneric
+    - BorgModuleSecurity
     - BorgModuleSyndicate
     - BorgModuleSyndicateAssault
   defaultModules:
   - BorgModuleTool
+  - BorgModuleSecurityStandard
   - BorgModuleSyndicateWeapon
   radioChannels:
   - Typan

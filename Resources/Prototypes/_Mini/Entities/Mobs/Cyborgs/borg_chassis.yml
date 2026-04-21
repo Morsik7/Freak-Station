@@ -110,7 +110,7 @@
         typan-mining: mining
         typan-janitor: janitor
         typan-medical: medical
-        typan-security: generic
+        typan-security: security
     - type: Appearance
 
 # Typan Generic
@@ -345,3 +345,4 @@
         state: sec
       #   isTypan: true
       name: security cyborg
+

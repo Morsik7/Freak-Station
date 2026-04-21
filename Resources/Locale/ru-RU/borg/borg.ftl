@@ -44,3 +44,6 @@ borg-type-medical-transponder = борг-доктор
 borg-type-service-name = Сервисный
 borg-type-service-desc = Помогайте членам экипажа в самых разных ситуациях - от подачи закусок и напитков до занятий ботаникой и развлечений.
 borg-type-service-transponder = борг-официант
+borg-type-security-name = Охранник
+borg-type-security-desc = Поддерживайте порядок на станции, задерживайте нарушителей и защищайте экипаж.
+borg-type-security-transponder = борг-охранник
