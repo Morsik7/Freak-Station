@@ -344,6 +344,33 @@
         color: "#313131"
 
 - type: entity
+  id: BaseBorgModuleSecurity
+  parent: BaseBorgModule
+  abstract: true
+  components:
+  - type: Tag
+    tags:
+    - BorgModuleSecurity
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: base-icon-inhand-left
+        color: "#E8E8E8"
+      - state: base-module-inhand-left
+        color: "#B02828"
+      - state: base-part-inhand-left
+      - state: base-stripes-inhand-left
+        color: "#1E1E1E"
+      right:
+      - state: base-icon-inhand-right
+        color: "#E8E8E8"
+      - state: base-module-inhand-right
+        color: "#B02828"
+      - state: base-part-inhand-right
+      - state: base-stripes-inhand-right
+        color: "#1E1E1E"
+
+- type: entity
   id: BaseBorgModuleSyndicate
   parent: BaseBorgModule
   abstract: true
@@ -1128,6 +1155,50 @@
     - BikeHornInstrument
   - type: BorgModuleIcon
     icon: { sprite: Interface/Actions/actions_borg.rsi, state: adv-clowning-module }
+
+# security modules
+- type: entity
+  id: BorgModuleSecurityStandard
+  parent: [ BaseBorgModuleSecurity, BaseProviderBorgModule ]
+  name: security cyborg module
+  description: A standard security module for patrol and detention tasks.
+  components:
+  - type: Sprite
+    layers:
+    - state: generic
+    - state: icon-syndicate
+  - type: ItemBorgModule
+    moduleId: Security
+    items:
+    - Stunbaton
+    - WeaponLaserStunnerBorg
+    - JawsOfLife
+  - type: DroppableBorgModule
+    moduleId: Security
+    items:
+    - id: Handcuffs
+      whitelist:
+        tags:
+        - Handcuffs
+  - type: BorgModuleIcon
+    icon: { sprite: Interface/Actions/actions_borg.rsi, state: syndicate-weapon-module }
+
+- type: entity
+  id: BorgModuleSecurityAdvanced
+  parent: [ BaseBorgModuleSecurity, BaseProviderBorgModule ]
+  name: advanced security cyborg module
+  description: An advanced security module equipped with a self-charging sidearm.
+  components:
+  - type: Sprite
+    layers:
+    - state: generic
+    - state: icon-syndicate
+  - type: ItemBorgModule
+    moduleId: SecurityAdvanced
+    items:
+    - WeaponPistolMk58Borg
+  - type: BorgModuleIcon
+    icon: { sprite: Interface/Actions/actions_borg.rsi, state: syndicate-weapon-module }
 
 #syndicate modules
 - type: entity

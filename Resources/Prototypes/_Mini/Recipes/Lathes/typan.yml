@@ -643,6 +643,15 @@
 
 - type: latheRecipe
   parent: BaseBorgModuleRecipe
+  id: BorgModuleSecurityStandard
+  result: BorgModuleSecurityStandard
+  materials:
+    Steel: 450
+    Glass: 350
+    Plastic: 250
+
+- type: latheRecipe
+  parent: BaseBorgModuleRecipe
   id: BorgModuleOperative
   result: BorgModuleOperative
   materials:
@@ -661,6 +670,17 @@
     Plastic: 450
     Gold: 150
     Plasma: 150
+
+- type: latheRecipe
+  parent: BaseGoldBorgModuleRecipe
+  id: BorgModuleSecurityAdvanced
+  result: BorgModuleSecurityAdvanced
+  materials:
+    Steel: 650
+    Glass: 650
+    Plastic: 450
+    Gold: 150
+    Plasma: 100
 
 - type: latheRecipe
   parent: BaseGoldBorgModuleRecipe

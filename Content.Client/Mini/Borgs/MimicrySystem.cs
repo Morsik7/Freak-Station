@@ -3,8 +3,11 @@ using Content.Shared.Silicons.Borgs;
 using Content.Shared.Silicons.Borgs.Components;
 using Content.Shared.Movement.Components;
 using Robust.Client.GameObjects;
+using Robust.Client.ResourceManagement;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Serialization.TypeSerializers.Implementations;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
+using Robust.Shared.Utility;
 
 namespace Content.Client.Borgs
 {
@@ -12,6 +15,7 @@ namespace Content.Client.Borgs
     {
         [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
         [Dependency] private readonly IPrototypeManager _prototype = default!;
+        [Dependency] private readonly IResourceCache _resourceCache = default!;
 
         public override void Initialize()
         {
@@ -63,7 +67,7 @@ namespace Content.Client.Borgs
             args.Sprite!.LayerSetState(BorgVisualLayers.Body, prototype.SpriteBodyState, spritePath);
             args.Sprite.LayerSetState(BorgVisualLayers.Light, mindState, spritePath);
             args.Sprite.LayerSetState("light", prototype.SpriteToggleLightState, spritePath);
-            ApplyMovementVisuals(uid, prototype.SpriteBodyState, prototype.SpriteBodyMovementState);
+            ApplyMovementVisuals(uid, subtype.SpritePath, prototype.SpriteBodyState, prototype.SpriteBodyMovementState);
             return true;
         }
 
@@ -83,11 +87,11 @@ namespace Content.Client.Borgs
             args.Sprite!.LayerSetState(BorgVisualLayers.Body, disguiseType.SpriteBodyState, component.EngSpritePath);
             args.Sprite.LayerSetState(BorgVisualLayers.Light, mindState, component.EngSpritePath);
             args.Sprite.LayerSetState("light", disguiseType.SpriteToggleLightState, component.EngSpritePath);
-            ApplyMovementVisuals(uid, disguiseType.SpriteBodyState, disguiseType.SpriteBodyMovementState);
+            ApplyMovementVisuals(uid, new ResPath(component.EngSpritePath), disguiseType.SpriteBodyState, disguiseType.SpriteBodyMovementState);
             return true;
         }
 
-        private void ApplyMovementVisuals(EntityUid uid, string bodyState, string? movementState)
+        private void ApplyMovementVisuals(EntityUid uid, ResPath spritePath, string bodyState, string? movementState)
         {
             if (!TryComp(uid, out SpriteMovementComponent? spriteMovement))
                 return;
@@ -99,7 +103,10 @@ namespace Content.Client.Borgs
             };
 
             spriteMovement.MovementLayers.Clear();
-            if (movementState != null)
+            var fullSpritePath = SpriteSpecifierSerializer.TextureRoot / spritePath;
+            if (movementState != null &&
+                _resourceCache.TryGetResource<RSIResource>(fullSpritePath, out var rsiResource) &&
+                rsiResource.RSI.TryGetState(movementState, out _))
             {
                 spriteMovement.MovementLayers["movement"] = new PrototypeLayerData
                 {

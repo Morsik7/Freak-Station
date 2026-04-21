@@ -384,6 +384,9 @@
   id: BorgModuleService
 
 - type: Tag
+  id: BorgModuleSecurity
+
+- type: Tag
   id: BorgModuleSyndicate
 
 - type: Tag

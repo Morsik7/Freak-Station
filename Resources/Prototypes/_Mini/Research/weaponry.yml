@@ -235,6 +235,18 @@
   - BorgModuleOperative
   position: 81,0
 
+- type: technology
+  id: TypanSecurityBorgModuleT1
+  name: research-technology-typan-security-borg-module-t1
+  icon:
+    entity: BorgModuleSecurityStandard
+  discipline: TypanWeaponry
+  tier: 1
+  cost: 7500
+  recipeUnlocks:
+  - BorgModuleSecurityStandard
+  position: 82,0
+
 # Tier 2
 
 - type: technology
@@ -405,6 +417,20 @@
   position: 78,1
   technologyPrerequisites:
   - TypanBorgModulesT1
+
+- type: technology
+  id: TypanSecurityBorgModuleT2
+  name: research-technology-typan-security-borg-module-t2
+  icon:
+    entity: BorgModuleSecurityAdvanced
+  discipline: TypanWeaponry
+  tier: 2
+  cost: 15000
+  recipeUnlocks:
+  - BorgModuleSecurityAdvanced
+  position: 79,1
+  technologyPrerequisites:
+  - TypanSecurityBorgModuleT1
 
 # Tier 3
 
