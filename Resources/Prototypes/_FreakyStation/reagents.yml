@@ -1,0 +1,267 @@
+- type: reagent
+  id: AntiHydrogen
+  name: reagent-name-anti-hydrogen
+  group: Elements
+  desc: reagent-desc-anti-hydrogen
+  physicalDesc: reagent-physical-desc-gaseous
+  flavor: bitter
+  color: "#cccccc"
+  boilingPoint: -253.0
+  meltingPoint: -259.2
+
+- type: reaction
+  id: AntiHydrogen
+  reactants:
+    Hydrogen:
+      amount: 3
+    Plasma:
+      amount: 20
+  products:
+    AntiHydrogen: 1
+    Plasma: 1
+
+- type: reaction
+  id: Annihilation
+  impact: High
+  priority: 20
+  reactants:
+    Hydrogen:
+      amount: 1
+    AntiHydrogen:
+      amount: 1
+  effects:
+    - !type:ExplosionReactionEffect
+      explosionType: Default
+      maxIntensity: 9
+      intensityPerUnit: 1
+      intensitySlope: 3
+      maxTotalIntensity: 12000
+
+- type: reaction
+  id: AnnihilationWater
+  impact: High
+  priority: 20
+  reactants:
+    Water:
+      amount: 5
+    AntiHydrogen:
+      amount: 1
+  effects:
+    - !type:ExplosionReactionEffect
+      explosionType: Default
+      maxIntensity: 9
+      intensityPerUnit: 1
+      intensitySlope: 3
+      maxTotalIntensity: 6000
+
+- type: reagent
+  id: Temperanin
+  name: reagent-name-temperanin
+  group: Medicine
+  desc: reagent-desc-temperanin
+  physicalDesc: reagent-physical-desc-cloudy
+  flavor: medicine
+  color: "#8b4513"
+  boilingPoint: 200
+  meltingPoint: 185
+  metabolisms:
+    Medicine:
+      effects:
+      - !type:AdjustPainFeels
+        conditions:
+        - !type:ReagentThreshold
+          min: 25
+        amount: 0.04
+      - !type:HealthChange
+        damage:
+          types:
+            Heat: -5
+            Shock: -5
+            Cold: -5
+      - !type:HealthChange
+        conditions:
+        - !type:OrganType
+          type: Yowie
+          shouldHave: false
+        - !type:ReagentThreshold
+          min: 25
+        damage:
+          types:
+            Poison: 1.2
+      - !type:ChemVomit
+        conditions:
+        - !type:OrganType
+          type: Yowie
+          shouldHave: false
+        - !type:ReagentThreshold
+          min: 25
+        probability: 0.02
+      - !type:Jitter
+        conditions:
+        - !type:ReagentThreshold
+          min: 25
+      - !type:AdjustConsciousness
+        conditions:
+        - !type:ReagentThreshold
+          min: 25
+        allowNewModifiers: true
+        modifierType: Pain
+        identifier: Suffocation
+        amount: -1.5
+        time: 12
+
+- type: reaction
+  id: Temperanin
+  reactants:
+    Dermaline:
+      amount: 1
+    Plasma:
+      amount: 5
+      catalyst: true
+    Marlevine:
+      amount: 1
+  products:
+    Temperanin: 4
+
+- type: reagent
+  id: HyperPlasma
+  name: reagent-name-hyper-plasma
+  group: Toxins
+  desc: reagent-desc-hyper-plasma
+  physicalDesc: reagent-physical-desc-overpowering
+  flavor: bitter
+  color: "#7e009e"
+  boilingPoint: 400
+  meltingPoint: 113
+  metabolisms:
+    Poison:
+      effects:
+      - !type:HealthChange
+        damage:
+          types:
+            Poison: 2.5
+            Shock: 0.8
+
+- type: reaction
+  id: HyperPlasma
+  reactants:
+    Licoxide:
+      amount: 5
+    Plasma:
+      amount: 5
+  products:
+    HyperPlasma: 10
+
+- type: reagent
+  id: Paraphys
+  name: reagent-name-paraphys
+  group: Toxins
+  desc: reagent-desc-paraphys
+  physicalDesc: reagent-physical-desc-unidentifiable
+  flavor: medicine
+  color: "#4a412a"
+  boilingPoint: 2000.3
+  meltingPoint: 1900
+  metabolisms:
+    Poison:
+      effects:
+      - !type:HealthChange
+        damage:
+          types:
+            Holy: 4
+            Cellular: 0.8
+
+- type: reaction
+  id: Paraphys
+  reactants:
+    Gold:
+      amount: 5
+    HyperPlasma:
+      amount: 5
+    AntiHydrogen:
+      amount: 1
+  products:
+    Paraphys: 10
+
+- type: reaction
+  id: APyro
+  impact: High
+  quantized: true
+  minTemp: 600
+  reactants:
+    Napalm:
+      amount: 25
+    HyperPlasma:
+      amount: 25
+    Paraphys:
+      amount: 25
+  effects:
+    - !type:CreateEntityReactionEffect
+      entity: AnomalyPyroclastic
+
+- type: reaction
+  id: AIce
+  impact: High
+  quantized: true
+  reactants:
+    Ice:
+      amount: 10
+    Water:
+      amount: 15
+    HyperPlasma:
+      amount: 25
+    Paraphys:
+      amount: 25
+  effects:
+    - !type:CreateEntityReactionEffect
+      entity: AnomalyIce
+
+- type: reaction
+  id: ARock
+  impact: High
+  quantized: true
+  reactants:
+    Iron:
+      amount: 10
+    Lithium:
+      amount: 15
+    HyperPlasma:
+      amount: 25
+    Paraphys:
+      amount: 25
+  effects:
+    - !type:CreateEntityReactionEffect
+      entity: AnomalyRockBase
+
+- type: reaction
+  id: Portalizer
+  impact: High
+  quantized: true
+  reactants:
+    HyperPlasma:
+      amount: 25
+    Paraphys:
+      amount: 25
+  effects:
+    - !type:CreateEntityReactionEffect
+      entity: Wormhole
+
+- type: entity
+  id: Wormhole
+  parent: BasePortal
+  components:
+  - type: Sprite
+    layers:
+    - state: portal-blue
+  - type: PointLight
+    color: SkyBlue
+    radius: 3
+    energy: 1
+    netsync: false
+  - type: TimedDespawn
+    lifetime: 2
+
+
+
+
+

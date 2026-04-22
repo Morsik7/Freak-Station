@@ -1,0 +1,55 @@
+- type: animatedLobbyScreen
+  id: AzunaLobbyScreen
+  path: /Textures/_FreakStation/LobbyScreens/Azuna.rsi
+
+- type: animatedLobbyScreen
+  id: CentcommLobbyScreen
+  path: /Textures/_FreakStation/LobbyScreens/centcomm.rsi
+
+- type: animatedLobbyScreen
+  id: CubeLobbyScreen
+  path: /Textures/_FreakStation/LobbyScreens/cube.rsi
+
+- type: animatedLobbyScreen
+  id: FleetLobbyScreen
+  path: /Textures/_FreakStation/LobbyScreens/Fleet.rsi
+
+- type: animatedLobbyScreen
+  id: GachiLobbyScreen
+  path: /Textures/_FreakStation/LobbyScreens/Gachi.rsi
+
+- type: animatedLobbyScreen
+  id: LongExpeditionLobbyScreen
+  path: /Textures/_FreakStation/LobbyScreens/LongExpedition.rsi
+
+- type: animatedLobbyScreen
+  id: NativeLobbyScreen
+  path: /Textures/_FreakStation/LobbyScreens/native.rsi
+
+- type: animatedLobbyScreen
+  id: PortalLobbyScreen
+  path: /Textures/_FreakStation/LobbyScreens/Portal.rsi
+
+- type: animatedLobbyScreen
+  id: RocketLobbyScreen
+  path: /Textures/_FreakStation/LobbyScreens/rocket.rsi
+
+- type: animatedLobbyScreen
+  id: SeaLobbyScreen
+  path: /Textures/_FreakStation/LobbyScreens/sea.rsi
+
+- type: animatedLobbyScreen
+  id: SpaceCombatLobbyScreen
+  path: /Textures/_FreakStation/LobbyScreens/SpaceCombat.rsi
+
+#⡶⠶⠂⠐⠲⠶⣶⣶⣶⣶⣶⣶⣶⣶⣶⣶⣶⣶⣶⣶⣶⣶⣶⣶⣶⣶⡶⠶⡶⣶
+#⣗⠀⠀⠀⠀⠀⠀⠀⠉⠛⠿⠿⣿⠿⣿⣿⣿⣿⠿⠿⠿⠟⠛⠉⠁⠀⠀⠀⢠⣿
+#⣿⣷⣀⠀⠈⠛⠢⠥⠴⠟⠂⠀⠀⠀⠉⣛⠉⠁⠀⠐⠲⠤⠖⠛⠁⠀⠀⣐⣿⣿
+#⣿⣿⣿⣦⣄⡀⠀⠀⠀⠀⣀⡠⣤⣦⣿⣿⣿⣆⣴⣠⣀⣀⡀⣀⣀⣚⣿⣿⣿⢳
+#⣧⠉⠙⢿⣿⣿⣶⣶⣾⣿⡿⢿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠿⢇⣿
+#⣿⣷⡄⠈⣿⣿⣿⣿⣯⣥⣦⢿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡟⢉⣴⣿⣿
+#⣿⣿⣿⣦⣘⠋⢻⠿⢿⣿⣿⣿⣾⣭⣛⣛⣛⣯⣷⣿⣿⠿⠟⠋⠉⣴⣿⣿⣿⣿
+#⢠⠖⢲⠀⠀⡖⢲⡄⡴⠒⠆⡖⠒⠂⠀⣶⠲⡄⢰⡆⠀⡖⢦⠀⡆⢰⡆⡴⠒⣄
+#⢨⠟⢻⠀⠀⣏⣉⠇⢧⣀⡄⣏⣉⡁⠀⣿⠚⢡⠗⠺⡄⣏⣹⠆⡏⢹⡇⢧⣀⡞
+#⢰⣒⡒⠰⡄⡴⠀⡶⢲⡆⢢⣀⡖⠀⠀⡖⠒⠲⢰⠒⣦⢀⡶⡄⠒⢲⠒⢲⣆⣀
+#⠸⠤⠽⠠⠽⠁⣴⠧⠼⣧⠤⠟⠀⠀⠈⠧⣤⠤⠸⠉⠁⠞⠒⠳⠀⠸⠀⠸⠧⠼

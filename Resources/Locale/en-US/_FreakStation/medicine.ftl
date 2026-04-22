@@ -1,0 +1,10 @@
+reagent-name-marlevine = marlevine
+reagent-desc-marlevine = A potent crimson medical reagent that rapidly stabilizes severe injuries by suppressing pain, reducing bleeding, and accelerating recovery from blunt trauma. In higher concentrations it places heavy strain on the body, potentially causing intoxication, tremors, nausea, and oxygen deprivation, making careful dosing essential.
+reagent-name-anti-hydrogen = anti-hydrogen
+reagent-desc-anti-hydrogen = The opposite of hydrogen.
+reagent-name-temperanin = temperanin
+reagent-desc-temperanin = A brown medical reagent that is highly effective at treating burns.
+reagent-name-hyper-plasma = hyper-plasma
+reagent-desc-hyper-plasma = A charged and more potent version of plasma.
+reagent-name-paraphys = paraphys
+reagent-desc-paraphys = An anomalous substance that causes bodily decay and disturbing sensations.

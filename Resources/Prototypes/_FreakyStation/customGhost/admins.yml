@@ -1,0 +1,79 @@
+- type: customGhost
+  id: EgorqlGhost
+  ckey: Egorql
+  sprite: /Textures/_FreakStation/Ghost/GhostEgorql.rsi
+  alpha: 0.8
+  ghostName: Валера
+  ghostDescription: Я не егорик блядь
+
+- type: customGhost
+  id: CashaGhost
+  ckey: Casha
+  sprite: /Textures/_FreakStation/Ghost/GhostCasha.rsi
+  alpha: 0.8
+  ghostName: Casha
+  ghostDescription: Допиваю свой бокал и снова в жизни ищу толк
+
+# - type: customGhost #понижен до бустера тип
+  # id: kef1rOOGhost
+  # ckey: kef1r00
+  # sprite: /Textures/_FreakStation/Ghost/GhostWhite.rsi
+  # alpha: 0.8
+  # ghostName: kef1r00
+  # ghostDescription: "я не придумал"
+
+# - type: customGhost # мне не нравится крч
+  # id: ANIvarmGhost
+  # ckey: ANIvarm
+  # sprite: /Textures/_FreakStation/Ghost/GhostKaiju.rsi
+  # alpha: 0.8
+  # ghostName: ANIvarm
+  # ghostDescription: brr brr patapim
+
+# - type: customGhost
+#   id: SherlookGhost
+#   ckey: Sherlook
+#   sprite: /Textures/_FreakStation/Ghost/GhostFaceless.rsi
+#   alpha: 0.8
+#   ghostName: Sherlook
+#   ghostDescription: Моя сука пенивайз, понеслась
+
+- type: customGhost
+  id: SmesharikGhost
+  ckey: Smesharik
+  sprite: /Textures/_FreakStation/Ghost/GhostIce.rsi
+  alpha: 0.8
+  ghostName: Smesharik
+  ghostDescription: Крест на шею, пулю в лоб, петли красят потолок
+
+- type: customGhost
+  id: HomyakkGhost
+  ckey: Homyakk
+  sprite: /Textures/_FreakStation/Ghost/GhostStar.rsi
+  alpha: 0.8
+  ghostName: Homyakk
+  ghostDescription: Долбоёб, нихуя не умеет
+
+- type: customGhost
+  id: EDsLi1103Ghost
+  ckey: EDsLi1103
+  sprite: /Textures/_FreakStation/Ghost/GhostEDsLi1103.rsi
+  alpha: 0.8
+  ghostName: 'EDsLi1103'
+  ghostDescription: 'Привет, не надо писать мне из какого я города, какой у меня номер телефона и имя. Я сам знаю.'
+
+- type: customGhost
+  id: EraNebullaGhost
+  ckey: EraNebulla
+  sprite: /Textures/_FreakStation/Ghost/GhostEraNebulla.rsi
+  alpha: 0.8
+  ghostName: 'EraNebulla'
+  ghostDescription: "Been spendin' most their bans, Livin' in a admin's paradise"
+
+- type: customGhost
+  id: TimurDomaNetGhost
+  ckey: TimurDomaNet
+  sprite: /Textures/_FreakStation/Ghost/GhostTimur.rsi
+  alpha: 0.8
+  ghostName: 'TimurDomaNet'
+  ghostDescription: "Могущество мыла сильно, но преувеличено, реальная сила таится в том что летит в лицо нам. Самый 'адекватный' админ"

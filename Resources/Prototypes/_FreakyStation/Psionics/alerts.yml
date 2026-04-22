@@ -1,0 +1,14 @@
+- type: alert
+  id: PsionicHeat
+  category: Counter
+  icons:
+  - sprite: /Textures/Interface/Alerts/generic_counter.rsi
+    state: 0
+  - sprite: /Textures/Interface/Alerts/generic_counter.rsi
+    state: 1
+  - sprite: /Textures/Interface/Alerts/generic_counter.rsi
+    state: 2
+  name: alerts-psionic-heat-name
+  description: alerts-psionic-heat-desc
+  minSeverity: 0
+  maxSeverity: 2

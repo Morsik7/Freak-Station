@@ -1,0 +1,100 @@
+# Real entity prototypes needed after the upstream merge. Keep them out of the
+# generic compat layer so follow-up content can evolve them normally.
+
+# Typan mech compatibility
+- type: entity
+  id: TypanRipleyCentralElectronics
+  parent: RipleyCentralElectronics
+  name: typan ripley central control module
+  description: A control module for the Typan Ripley.
+  components:
+  - type: Tag
+    tags:
+    - TypanRipleyCentralControlModule
+
+- type: entity
+  id: TypanRipleyPeripheralsElectronics
+  parent: RipleyPeripheralsElectronics
+  name: typan ripley peripherals control module
+  description: A peripherals control module for the Typan Ripley.
+  components:
+  - type: Tag
+    tags:
+    - TypanRipleyPeripheralsControlModule
+
+# Typan turret compatibility
+- type: entity
+  parent: WeaponEnergyTurretStationBase
+  id: WeaponEnergyTurretTypanAI
+  name: охранная турель
+  description: Высокотехнологичная автономная система вооружения, предназначенная для предотвращения проникновений посторонних лиц в важные зоны.
+  suffix: Тайпан, ИИ, Борги
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Turrets/sentry_turret.rsi
+  - type: AccessReader
+    access: [["StationAi"], ["TypanResearchDirector"]]
+  - type: StationAiTurret
+  - type: TurretTargetSettings
+    exemptAccessLevels:
+    - Borg
+    - BasicSilicon
+  - type: Machine
+    board: WeaponEnergyTurretTypanAIMachineCircuitboard
+  - type: DeviceNetwork
+    receiveFrequencyId: TurretControlAI
+    transmitFrequencyId: TurretAI
+
+- type: entity
+  parent: WeaponEnergyTurretStationBase
+  id: WeaponEnergyTurretTypanProtection
+  name: охранная турель
+  description: Высокотехнологичная автономная система вооружения, предназначенная для предотвращения проникновений посторонних лиц в важные зоны.
+  suffix: Тайпан, Охрана
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Turrets/sentry_turret.rsi
+  - type: AccessReader
+    access: [["StationAi"], ["TypanProtection"]]
+  - type: TurretTargetSettings
+    exemptAccessLevels:
+    - TypanProtection
+    - Borg
+    - BasicSilicon
+  - type: Machine
+    board: WeaponEnergyTurretTypanProtectionMachineCircuitboard
+  - type: DeviceNetwork
+    receiveFrequencyId: TurretControl
+    transmitFrequencyId: Turret
+
+- type: entity
+  parent: WeaponEnergyTurretStationBase
+  id: WeaponEnergyTurretTypanCommand
+  name: охранная турель
+  description: Высокотехнологичная автономная система вооружения, предназначенная для предотвращения проникновений посторонних лиц в важные зоны.
+  suffix: Тайпан, Командование
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Turrets/sentry_turret.rsi
+  - type: AccessReader
+    access: [["StationAi"], ["TypanCommand"]]
+  - type: TurretTargetSettings
+    exemptAccessLevels:
+    - TypanCommand
+    - Borg
+    - BasicSilicon
+  - type: Machine
+    board: WeaponEnergyTurretTypanCommandMachineCircuitboard
+  - type: DeviceNetwork
+    receiveFrequencyId: TurretControl
+    transmitFrequencyId: Turret
+
+- type: entity
+  id: BaseUplinkRadio40TC
+  parent: BaseUplinkRadio
+  suffix: 40 TC
+  components:
+  - type: Store
+    balance:
+      Telecrystal: 40
+

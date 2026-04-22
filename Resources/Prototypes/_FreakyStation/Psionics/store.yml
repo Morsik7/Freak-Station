@@ -1,0 +1,136 @@
+- type: currency
+  id: PsionicPoint
+  displayName: store-currency-display-psionic-point
+  canWithdraw: false
+
+- type: storeCategory
+  id: PsionicBranchVector
+  name: store-psionic-branch-vector
+  priority: 0
+
+- type: storeCategory
+  id: PsionicBranchGravity
+  name: store-psionic-branch-gravity
+  priority: 1
+
+- type: storeCategory
+  id: PsionicBranchMolecular
+  name: store-psionic-branch-molecular
+  priority: 2
+
+- type: storeCategory
+  id: PsionicBranchBio
+  name: store-psionic-branch-bio
+  priority: 3
+
+- type: listing
+  id: PsionicLearnVectorImpulse
+  name: store-psionic-vector-name
+  description: store-psionic-vector-desc
+  icon: { sprite: Interface/Actions/actions_ai.rsi, state: mass_scanner }
+  productPsionicAbility: VectorImpulse
+  cost:
+    PsionicPoint: 1
+  categories:
+  - PsionicBranchVector
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
+- type: listing
+  id: PsionicLearnKineticDash
+  name: store-psionic-dash-name
+  description: store-psionic-dash-desc
+  icon: { sprite: Interface/Actions/actions_ai.rsi, state: camera_jump }
+  productPsionicAbility: KineticDash
+  cost:
+    PsionicPoint: 2
+  categories:
+  - PsionicBranchVector
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
+- type: listing
+  id: PsionicLearnGravityWell
+  name: store-psionic-gravity-name
+  description: store-psionic-gravity-desc
+  icon: { sprite: Interface/Actions/actions_ai.rsi, state: crew_monitor }
+  productPsionicAbility: GravityWell
+  cost:
+    PsionicPoint: 1
+  categories:
+  - PsionicBranchGravity
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
+- type: listing
+  id: PsionicLearnCrushingPulse
+  name: store-psionic-crushing-name
+  description: store-psionic-crushing-desc
+  icon: { sprite: Interface/Actions/actions_ai.rsi, state: comms_console }
+  productPsionicAbility: CrushingPulse
+  cost:
+    PsionicPoint: 2
+  categories:
+  - PsionicBranchGravity
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
+- type: listing
+  id: PsionicLearnMolecularBlink
+  name: store-psionic-molecular-name
+  description: store-psionic-molecular-desc
+  icon: { sprite: Interface/Actions/actions_ai.rsi, state: borg_control }
+  productPsionicAbility: MolecularBlink
+  cost:
+    PsionicPoint: 1
+  categories:
+  - PsionicBranchMolecular
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
+- type: listing
+  id: PsionicLearnPhaseShift
+  name: store-psionic-phase-name
+  description: store-psionic-phase-desc
+  icon: { sprite: Interface/Actions/actions_ai.rsi, state: state_laws }
+  productPsionicAbility: PhaseShift
+  cost:
+    PsionicPoint: 2
+  categories:
+  - PsionicBranchMolecular
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
+- type: listing
+  id: PsionicLearnBioSurge
+  name: store-psionic-bio-name
+  description: store-psionic-bio-desc
+  icon: { sprite: Interface/Actions/actions_ai.rsi, state: manifest }
+  productPsionicAbility: BioSurge
+  cost:
+    PsionicPoint: 1
+  categories:
+  - PsionicBranchBio
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
+- type: listing
+  id: PsionicLearnNeuroshockWave
+  name: store-psionic-neuroshock-name
+  description: store-psionic-neuroshock-desc
+  icon: { sprite: Interface/Actions/actions_ai.rsi, state: emergency_on }
+  productPsionicAbility: NeuroshockWave
+  cost:
+    PsionicPoint: 2
+  categories:
+  - PsionicBranchBio
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1

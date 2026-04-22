@@ -1,0 +1,19 @@
+{
+  "version": 1,
+  "license": "HR-PW-0R-M19-84",
+  "copyright": "Casha",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+      {
+          "name": "animated",
+          "directions": 1
+      },
+    {
+      "name": "icon",
+	  "directions": 4
+    }
+  ]
+}

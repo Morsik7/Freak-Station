@@ -1,0 +1,11 @@
+- type: entity
+  parent: ClothingBeltBase
+  id: ClothingBeltStrapon
+  name: страпон
+  description: Крепкий, большой резиновый дилдо прикреплённый к чёрному поясу.
+  components:
+  - type: Sprite
+    sprite: _FreakStation/Casha/clothing/belt/strapon.rsi
+  - type: Clothing
+    sprite: _FreakStation/Casha/clothing/belt/strapon.rsi
+    quickEquip: true

@@ -1,0 +1,35 @@
+- type: entity
+  parent: ShardCrystalCyan
+  id: PsionicGemVector
+  name: vector psionic gem
+  description: A condensed psionic shard. Use in hand to absorb 1 psionic point.
+  components:
+  - type: PsionicGem
+    pointValue: 1
+
+- type: entity
+  parent: ShardCrystalBlue
+  id: PsionicGemGravity
+  name: gravity psionic gem
+  description: A condensed psionic shard. Use in hand to absorb 1 psionic point.
+  components:
+  - type: PsionicGem
+    pointValue: 1
+
+- type: entity
+  parent: ShardCrystalPink
+  id: PsionicGemMolecular
+  name: molecular psionic gem
+  description: A condensed psionic shard. Use in hand to absorb 1 psionic point.
+  components:
+  - type: PsionicGem
+    pointValue: 1
+
+- type: entity
+  parent: ShardCrystalGreen
+  id: PsionicGemBio
+  name: bio psionic gem
+  description: A condensed psionic shard. Use in hand to absorb 1 psionic point.
+  components:
+  - type: PsionicGem
+    pointValue: 1

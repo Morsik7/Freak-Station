@@ -1,0 +1,11 @@
+- type: entity
+  parent: ClothingShoesBaseButcherable
+  id: pizdecbotinki
+  name: ботинки
+  description: Красивые чёрные ботинки с красными шнурками.
+  components:
+  - type: Sprite
+    sprite: _FreakStation/Casha/clothing/boots/Sherlookpizdec.rsi
+  - type: Clothing
+    sprite: _FreakStation/Casha/clothing/boots/Sherlookpizdec.rsi
+  - type: Matchbox

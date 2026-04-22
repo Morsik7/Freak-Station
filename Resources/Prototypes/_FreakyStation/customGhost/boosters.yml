@@ -1,0 +1,41 @@
+#- type: customGhost
+#  id:  # сикей человека
+#  ckey: ckey
+#  sprite: /Textures/_FreakStation/Ghost/ghost_red.rsi
+#  alpha: 0.8
+#  ghostName:  # сикей человека
+#  ghostDescription:  # описание если захочет
+
+# - type: customGhost
+#   id: DonLiteGhost
+#   ckey: DonLite
+#   sprite: /Textures/_FreakStation/Ghost/GhostRed.rsi
+#   alpha: 0.8
+#   ghostName: DonLite
+#   ghostDescription: ку
+  
+# - type: customGhost
+#   id: Arab2004Ghost
+#   ckey: Arab2004
+#   sprite: /Textures/_FreakStation/Ghost/ghost_red.rsi
+#   alpha: 0.8
+#   ghostName: Arab2004
+#   ghostDescription: Ку
+  
+# - type: customGhost
+#   id: VernyaGhost
+#   ckey: Vernya
+#   sprite: /Textures/_FreakStation/Ghost/Booster/vernya.rsi
+#   scale: 0.5
+#   alpha: 0.8
+#   ghostName: Vernya
+#   ghostDescription: НЕ уходил на рыбалку
+  
+- type: customGhost
+  id: TipuganGhost
+  ckey: Tipugan
+  sprite: /Textures/_FreakStation/Ghost/Booster/tipugan.rsi
+  size: 0.5, 0.5
+  alpha: 0.8
+  ghostName: BlackCat
+  ghostDescription: Мяу

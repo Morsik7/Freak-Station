@@ -1,0 +1,29 @@
+- type: alertCategory
+  id: ArousalCategory
+- type: alert
+  id: Arousal
+  icons:
+  - sprite: /Textures/_FreakStation/Alerts/sus.rsi
+    state: a8
+  - sprite: /Textures/_FreakStation/Alerts/sus.rsi
+    state: a7
+  - sprite: /Textures/_FreakStation/Alerts/sus.rsi
+    state: a6
+  - sprite: /Textures/_FreakStation/Alerts/sus.rsi
+    state: a5
+  - sprite: /Textures/_FreakStation/Alerts/sus.rsi
+    state: a4
+  - sprite: /Textures/_FreakStation/Alerts/sus.rsi
+    state: a3
+  - sprite: /Textures/_FreakStation/Alerts/sus.rsi
+    state: a2
+  - sprite: /Textures/_FreakStation/Alerts/sus.rsi
+    state: a1
+  - sprite: /Textures/_FreakStation/Alerts/sus.rsi
+    state: a9
+  - sprite: /Textures/_FreakStation/Alerts/sus.rsi
+    state: a10
+  name: alerts-health-name
+  description: alerts-health-desc
+  minSeverity: 1
+  maxSeverity: 10
