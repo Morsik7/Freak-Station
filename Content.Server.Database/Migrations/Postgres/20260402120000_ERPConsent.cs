@@ -8,24 +8,30 @@ namespace Content.Server.Database.Migrations.Postgres
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.RenameColumn(
-                name: "erps",
+            migrationBuilder.AddColumn<string>(
+                name: "erp_consent",
                 table: "profile",
-                newName: "erp_consent");
+                type: "text",
+                nullable: false,
+                defaultValue: "Disabled");
 
-            migrationBuilder.Sql("UPDATE profile SET erp_consent = 'Enabled' WHERE erp_consent IN ('Yes', 'Full', 'Partial');");
-            migrationBuilder.Sql("UPDATE profile SET erp_consent = 'Disabled' WHERE erp_consent IN ('No', 'Disabled');");
+            migrationBuilder.AddColumn<bool>(
+                name: "non_con",
+                table: "profile",
+                type: "boolean",
+                nullable: false,
+                defaultValue: false);
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.Sql("UPDATE profile SET erp_consent = 'Yes' WHERE erp_consent IN ('Enabled', 'Full');");
-            migrationBuilder.Sql("UPDATE profile SET erp_consent = 'No' WHERE erp_consent IN ('Disabled', 'No', 'Partial');");
-
-            migrationBuilder.RenameColumn(
+            migrationBuilder.DropColumn(
                 name: "erp_consent",
-                table: "profile",
-                newName: "erps");
+                table: "profile");
+
+            migrationBuilder.DropColumn(
+                name: "non_con",
+                table: "profile");
         }
 
     }

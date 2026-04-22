@@ -1,7 +1,6 @@
 using Content.Server.Administration.Logs;
 using Content.Server.Chat.Managers;
 using Content.Server.GameTicking;
-using Content.Server._Mini.AntagTokens;
 using Content.Shared._White;
 using Content.Shared.Database;
 using Content.Shared.Ghost;
@@ -23,7 +22,6 @@ public sealed class GhostReturnToRoundSystem : EntitySystem
     [Dependency] private readonly IPlayerManager _playerManager = default!;
     [Dependency] private readonly IGameTiming _gameTiming = default!;
     [Dependency] private readonly IConfigurationManager _cfg = default!;
-    [Dependency] private readonly AntagTokenSystem _antagTokens = default!;
 
     public override void Initialize()
     {
@@ -66,13 +64,6 @@ public sealed class GhostReturnToRoundSystem : EntitySystem
         var timePast = (_gameTiming.CurTime - deathTime).TotalMinutes;
         if (timePast >= timeUntilRespawn)
         {
-            if (!_antagTokens.TrySpendBalance(userId, RespawnCost, out _))
-            {
-                message = Loc.GetString("ghost-respawn-not-enough-currency", ("amount", RespawnCost));
-                wrappedMessage = Loc.GetString("chat-manager-server-wrap-message", ("message", message));
-                return;
-            }
-
             var ticker = Get<GameTicker>();
             _playerManager.TryGetSessionById(userId, out var targetPlayer);
 

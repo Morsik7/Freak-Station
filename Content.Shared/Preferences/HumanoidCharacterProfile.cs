@@ -185,6 +185,13 @@ namespace Content.Shared.Preferences
         [DataField]
         public PreferenceUnavailableMode PreferenceUnavailable { get; private set; } =
             PreferenceUnavailableMode.SpawnAsOverflow;
+
+        [DataField]
+        public ERPConsent ERPConsent { get; set; } = ERPConsent.Disabled;
+
+        [DataField]
+        public bool NonCon { get; set; }
+
         public HumanoidCharacterProfile(
             string name,
             string flavortext,

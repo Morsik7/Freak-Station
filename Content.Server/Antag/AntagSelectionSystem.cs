@@ -2,7 +2,6 @@
 // Мини-станция/Freaky-station, Licensed under custom terms with restrictions on public hosting and commercial use, full text: https://raw.githubusercontent.com/ministation/mini-station-goob/master/LICENSE.TXT
 using System.Linq;
 using Content.Server.Administration.Managers;
-using Content.Server._Mini.AntagTokens;
 using Content.Server.Antag.Components;
 using Content.Server.Chat.Managers;
 using Content.Server.GameTicking;
@@ -305,13 +304,14 @@ public sealed partial class AntagSelectionSystem : GameRuleSystem<AntagSelection
         bool midround = false)
     {
         var existingAntagCount = ent.Comp.PreSelectedSessions.TryGetValue(def, out var existingAntags) ?  existingAntags.Count : 0;
-        var forcedCandidatesEv = new AntagSelectionGetForcedCandidatesEvent(def, pool);
-        RaiseLocalEvent(ent, forcedCandidatesEv, true);
-        var forcedCandidates = forcedCandidatesEv.ForcedSessions
-            .Distinct()
-            .Where(session => !ent.Comp.AssignedSessions.Contains(session))
-            .Where(session => !ent.Comp.PreSelectedSessions.Values.Any(x => x.Contains(session)))
-            .ToList();
+        // var forcedCandidatesEv = new AntagSelectionGetForcedCandidatesEvent(def, pool);
+        // RaiseLocalEvent(ent, forcedCandidatesEv, true);
+        var forcedCandidates = new List<ICommonSession>();
+        // var forcedCandidates = forcedCandidatesEv.ForcedSessions
+        //     .Distinct()
+        //     .Where(session => !ent.Comp.AssignedSessions.Contains(session))
+        //     .Where(session => !ent.Comp.PreSelectedSessions.Values.Any(x => x.Contains(session)))
+        //     .ToList();
 
         var count = GetTargetAntagCount(ent, GetTotalPlayerCount(pool), def) - existingAntagCount;
         count = Math.Max(count, forcedCandidates.Count);
@@ -410,9 +410,9 @@ public sealed partial class AntagSelectionSystem : GameRuleSystem<AntagSelection
 
         if (checkPref && !ValidAntagPreference(session, def.PrefRoles))
         {
-            var bypassEv = new AntagSelectionBypassPreferenceCheckEvent(session, def);
-            RaiseLocalEvent(ent, bypassEv, true);
-            if (!bypassEv.Bypass)
+            // var bypassEv = new AntagSelectionBypassPreferenceCheckEvent(session, def);
+            // RaiseLocalEvent(ent, bypassEv, true);
+            // if (!bypassEv.Bypass)
                 return false;
         }
 
@@ -590,10 +590,10 @@ public sealed partial class AntagSelectionSystem : GameRuleSystem<AntagSelection
             if (ent.Comp.PreSelectedSessions.TryGetValue(def, out var preSelected) && preSelected.Contains(session))
                 continue;
 
-            var excludeEv = new AntagSelectionExcludeSessionEvent(session, def);
-            RaiseLocalEvent(ent, excludeEv, true);
-            if (excludeEv.Excluded)
-                continue;
+            // var excludeEv = new AntagSelectionExcludeSessionEvent(session, def);
+            // RaiseLocalEvent(ent, excludeEv, true);
+            // if (excludeEv.Excluded)
+            //     continue;
 
             // Add player to the appropriate antag pool
             if (ValidAntagPreference(session, def.PrefRoles))
