@@ -34,6 +34,9 @@ public sealed partial class ERPPrototype : IPrototype
     [DataField]
     public bool TargetWithoutCloth = false;
 
+    [DataField]
+    public bool Penetrative = false;
+
     [DataField("arousalDelta")] public int ArousalDelta = 0;
     [DataField("lovePercent", readOnly: true, priority: 0)] public int LegacyLovePercent
     {

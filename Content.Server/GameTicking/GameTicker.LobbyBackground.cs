@@ -10,11 +10,9 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Shared.GameTicking.Prototypes;
-using Robust.Shared.Random;
 using System.Linq;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
-using System.Linq;
 using Content.Shared._OS;
 
 namespace Content.Server.GameTicking;
@@ -30,8 +28,18 @@ public sealed partial class GameTicker
 
     private void InitializeLobbyBackground()
     {
-        _lobbyBackgrounds = _prototypeManager.EnumeratePrototypes<AnimatedLobbyScreenPrototype>() // OpenSpace edit
-            .Select(x => x.Path) // OpenSpace edit
+        var animatedLobbyBackgrounds = _prototypeManager
+            .EnumeratePrototypes<AnimatedLobbyScreenPrototype>()
+            .Select(x => x.Path);
+
+        var staticLobbyBackgrounds = _prototypeManager
+            .EnumeratePrototypes<LobbyBackgroundPrototype>()
+            .Where(x => x.Background.ToString().EndsWith(".rsi", StringComparison.OrdinalIgnoreCase))
+            .Select(x => x.ID);
+
+        _lobbyBackgrounds = animatedLobbyBackgrounds
+            .Concat(staticLobbyBackgrounds)
+            .Distinct()
             .ToList();
 
         RandomizeLobbyBackground();

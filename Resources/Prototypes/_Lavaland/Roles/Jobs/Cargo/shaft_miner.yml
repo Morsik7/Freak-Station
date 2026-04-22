@@ -15,10 +15,6 @@
   - Cargo
   goobcoins: 20
   supervisors: job-supervisors-qm
-  skills: # CorvaxGoob-Skills
-  - ShuttleControl
-  - Shooting
-  - Butchering
   access:
   - Cargo
   - Salvage

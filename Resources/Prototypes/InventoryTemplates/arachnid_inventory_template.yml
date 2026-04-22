@@ -133,7 +133,36 @@
       blacklist:
         tags:
         - PetOnly
-
+    - name: breast
+      slotTexture: breast
+      slotFlags: breast
+      stripTime: 6
+      uiWindowPos: 3,3
+      strippingWindowPos: 3,1
+      displayName: breast
+      whitelist:
+        tags:
+          - breast
+    - name: underwear
+      slotTexture: underwear
+      slotFlags: UNDERWEAR
+      stripTime: 6
+      uiWindowPos: 3,2
+      strippingWindowPos: 3,2
+      displayName: Underwear
+      whitelist:
+        tags:
+          - underwear        
+    - name: sockss
+      slotTexture: sockss
+      slotFlags: SOCKSS
+      stripTime: 6
+      uiWindowPos: 3,1
+      strippingWindowPos: 3,3
+      displayName: Sockss
+      whitelist:
+        tags:
+          - sockss
     - name: pocket4
       slotTexture: web
       fullTextureName: template_small

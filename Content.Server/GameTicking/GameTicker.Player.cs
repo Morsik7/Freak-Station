@@ -42,6 +42,8 @@ using Robust.Shared.Enums;
 using Robust.Shared.Player;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
+using Content.Server.Discord;
+using System.Linq;
 
 namespace Content.Server.GameTicking
 {
@@ -95,7 +97,7 @@ namespace Content.Server.GameTicking
 
                     _chatManager.SendAdminAnnouncement(firstConnection
                         ? Loc.GetString("player-first-join-message", ("name", args.Session.Name))
-                        : Loc.GetString("player-join-message", ("name", args.Session.Name)));
+                        : Loc.GetString("player-join-message", ("name", args.Session.Name)), sendToChat: false);
 
                     RaiseNetworkEvent(GetConnectionStatusMsg(), session.Channel);
 
@@ -153,7 +155,7 @@ namespace Content.Server.GameTicking
 
                 case SessionStatus.Disconnected:
                 {
-                    _chatManager.SendAdminAnnouncement(Loc.GetString("player-leave-message", ("name", args.Session.Name)));
+                    _chatManager.SendAdminAnnouncement(Loc.GetString("player-leave-message", ("name", args.Session.Name)), sendToChat: false);
                     if (mindId != null)
                     {
                         _pvsOverride.RemoveSessionOverride(mindId.Value, session);

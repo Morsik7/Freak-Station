@@ -120,7 +120,7 @@ using Robust.Shared.Map;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
-
+using Content.Shared.ADT.CharacterFlavor;
 namespace Content.Server.Station.Systems;
 
 /// <summary>
@@ -242,7 +242,14 @@ public sealed class StationSpawningSystem : SharedStationSpawningSystem
 
             if (profile.FlavorText != "" && _configurationManager.GetCVar(CCVars.FlavorText))
             {
-                AddComp<DetailExaminableComponent>(entity.Value).Content = profile.FlavorText;
+                //ADT-tweak-start: Реворк флаворов
+                // AddComp<DetailExaminableComponent>(entity.Value).Content = profile.FlavorText;
+                var flavor = EnsureComp<CharacterFlavorComponent>(entity.Value);
+                flavor.FlavorText = profile.FlavorText;
+                flavor.OOCNotes = profile.OOCNotes;
+                flavor.HeadshotUrl = profile.HeadshotUrl;
+                //возможное TODO: добавить кастомное описание рас
+                //ADT-tweak-end
             }
         }
 

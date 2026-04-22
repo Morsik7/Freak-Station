@@ -1,5 +1,6 @@
 ﻿using Content.Server.GameTicking;
 using Robust.Server.GameObjects;
+using Robust.Server.Player;
 using Robust.Shared.EntitySerialization;
 using Robust.Shared.Map;
 using Robust.Shared.Prototypes;
@@ -10,6 +11,7 @@ namespace Content.Server._TT.AdditionalMap;
 public sealed class AdditionalMapLoaderSystem : EntitySystem
 {
     [Dependency] private readonly IPrototypeManager _prototype = default!;
+    [Dependency] private readonly IPlayerManager _playerManager = default!;
     [Dependency] private readonly MapSystem _map = default!;
     [Dependency] private readonly GameTicker _gameTicker = default!;
 
@@ -29,6 +31,8 @@ public sealed class AdditionalMapLoaderSystem : EntitySystem
         foreach (var mapProtoId in proto.MapProtoIds)
         {
             if (!_prototype.TryIndex(mapProtoId, out var mapProto))
+                continue;
+            if (mapProto.MinPlayers > _playerManager.PlayerCount || mapProto.MaxPlayers < _playerManager.PlayerCount)
                 continue;
 
             _gameTicker.LoadGameMap(mapProto,

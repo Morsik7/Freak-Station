@@ -198,7 +198,7 @@ namespace Content.Server.Administration.Systems
         private const ushort MessageLengthCap = 3000;
 
         // Mini-Ahelp-Antispam-Start
-        private readonly TimeSpan _messageCooldown = TimeSpan.FromSeconds(2);
+        private readonly TimeSpan _messageCooldown = TimeSpan.FromSeconds(0); // Freak
 
         private readonly Queue<(NetUserId Channel, string Text, TimeSpan Timestamp)> _recentMessages = new();
         private const int MaxRecentMessages = 10;

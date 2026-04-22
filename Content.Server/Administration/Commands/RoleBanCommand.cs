@@ -1,4 +1,8 @@
 using Content.Server.Administration.Managers;
+using Content.Server.ADT.Discord;
+using Content.Server.ADT.Discord.Bans;
+using Content.Server.ADT.Discord.Bans.PayloadGenerators;
+using Content.Server.Database;
 using Content.Shared.Administration;
 using Content.Shared.CCVar;
 using Content.Shared.Database;
@@ -16,6 +20,8 @@ public sealed class RoleBanCommand : IConsoleCommand
     [Dependency] private readonly IBanManager _bans = default!;
     [Dependency] private readonly IConfigurationManager _cfg = default!;
     [Dependency] private readonly IPrototypeManager _proto = default!;
+    [Dependency] private readonly IServerDbManager _dbManager = default!;
+    [Dependency] private readonly IDiscordBanInfoSender _discordBanInfoSender = default!;
 
     public string Command => "roleban";
     public string Description => Loc.GetString("cmd-roleban-desc");
@@ -92,7 +98,6 @@ public sealed class RoleBanCommand : IConsoleCommand
 
         var targetUid = located.UserId;
         var targetHWid = located.LastHWId;
-
         var banInfo = new CreateRoleBanInfo(reason);
         if (minutes > 0)
             banInfo.WithMinutes(minutes);
@@ -116,6 +121,19 @@ public sealed class RoleBanCommand : IConsoleCommand
         }
 
         _bans.CreateRoleBan(banInfo);
+
+        var discordBanInfo = new BanInfo
+        {
+            BanId = string.Empty,
+            Target = target,
+            Player = shell.Player,
+            Minutes = minutes,
+            Reason = reason,
+            Expires = minutes > 0 ? DateTimeOffset.Now + TimeSpan.FromMinutes(minutes) : null,
+            AdditionalInfo = new() { { "role", role } }
+        };
+
+        await _discordBanInfoSender.SendBanInfoAsync<RoleBanPayloadGenerator>(discordBanInfo);
     }
 
     public CompletionResult GetCompletion(IConsoleShell shell, string[] args)

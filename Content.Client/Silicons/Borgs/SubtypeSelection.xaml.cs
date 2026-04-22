@@ -37,18 +37,17 @@ public partial class SubtypeSelection : Control
                      .EnumeratePrototypes<BorgSubtypePrototype>()
                      .Where(s => s.ParentBorgType == parentPrototype))
         {
-            var selectedSubtype = borgSubtype;
             var button = new Button();
             button.Group = group;
             button.OnPressed += _ =>
             {
-                SelectedBorgSubtype = selectedSubtype;
+                SelectedBorgSubtype = borgSubtype;
                 SubtypeSelected?.Invoke();
             };
 
             var entPrototypeView = new EntityPrototypeView();
 
-            entPrototypeView.SetPrototype(selectedSubtype.DummyPrototype);
+            entPrototypeView.SetPrototype(borgSubtype.DummyPrototype);
             entPrototypeView.Scale *= 2;
 
             button.AddChild(entPrototypeView);

@@ -1,6 +1,6 @@
 ### Connecting dialog when you start up the game
 
-connecting-title = Мини-станция
+connecting-title = Freaky Station
 connecting-exit = Выйти
 connecting-retry = Повторить
 connecting-reconnect = Переподключиться

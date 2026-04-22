@@ -4,7 +4,7 @@
   mapPath: /Maps/_CorvaxGoob/Stations/Mascara/corvax_mascara.yml
   maxRandomOffset: 0
   randomRotation: false
-  minPlayers: 25
+  minPlayers: 7 # FreakyStation
   maxPlayers: 55
   stations:
     CorvaxMascara:
@@ -70,7 +70,7 @@
             Mime: [ 1, 1 ]
             Musician: [ 1, 2 ]
             ServiceWorker: [ 2, 2 ]
-            Passenger: [ 1, 1 ]
+            Passenger: [ -1, -1 ]
             RadioHost: [ 1, 1 ]
             # silicon
             StationAi: [ 1, 1 ]

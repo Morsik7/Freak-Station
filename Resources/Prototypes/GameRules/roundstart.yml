@@ -1,4 +1,3 @@
-# SPDX-FileCopyrightText: 2026 Casha
 # SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2022 Moony <moonheart08@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2022 Paul Ritter <ritter.paul1@googlemail.com>
@@ -102,7 +101,7 @@
 # SPDX-FileCopyrightText: 2024 username <113782077+whateverusername0@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 voidnull000 <18663194+voidnull000@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 whateverusername0 <whateveremail>
-# SPDX-FileCopyrightText: 2024 РђСЂС‚ <123451459+JustArt1m@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Арт <123451459+JustArt1m@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Armok <155400926+ARMOKS@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 August Eymann <august.eymann@gmail.com>
@@ -318,7 +317,7 @@
     - prefRoles: [ Nukeops ]
       fallbackRoles: [ NukeopsCommander, NukeopsMedic ]
       spawnerPrototype: SpawnPointNukeopsOperative
-      max: 10 # Goobstation / еЏ¤еёѓз©єй—ґз«™ - жІЎжњ‰й™ђе€¶зљ„ж ёз‰№е·Ґ
+      max: 10 # Goobstation / 古布空间站 - 没有限制的核特工
       playerRatio: 16 # Goobstation
       chaosScore: 300 # Goobstation
       startingGear: SyndicateOperativeGearFull
@@ -392,7 +391,7 @@
   id: Traitor
   components:
   - type: GameRule
-    minPlayers: 0
+    minPlayers: 5
   - type: AntagSelection
     selectionTime: IntraPlayerSpawn # Goobstation
     definitions:
@@ -416,7 +415,7 @@
   parent: BaseGameRule
   components:
   - type: GameRule
-    minPlayers: 0
+    minPlayers: 8 # Freaky Station
     chaosScore: 1000 # Goobstation - intentionally not per-antag
   - type: RevolutionaryRule
   - type: AntagSelection
@@ -510,7 +509,7 @@
   parent: BaseGameRule
   components:
   - type: GameRule
-    minPlayers: 0
+    minPlayers: 20
     delay:
       min: 600
       max: 900

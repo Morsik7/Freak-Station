@@ -94,9 +94,6 @@
   parent: SinkEmpty
   suffix: Water
   components:
-  - type: Construction
-    graph: SinkGraph
-    node: sinkWater
   - type: SolutionContainerManager
     solutions:
       drainBuffer:
@@ -122,9 +119,6 @@
       maxFillLevels: 1
       fillBaseName: sink_wide-fill-
       solutionName: drainBuffer
-    - type: Construction
-      graph: SinkWideGraph
-      node: sinkWide
 
 #Stemless Sink
 
@@ -147,9 +141,6 @@
   parent: SinkStemless
   suffix: Water
   components:
-  - type: Construction
-    graph: SinkStemlessGraph
-    node: sinkStemlessWater
   - type: SolutionContainerManager
     solutions:
       drainBuffer:

@@ -213,43 +213,6 @@
   spritePath: Mobs/Silicon/chassis.rsi
   dummyPrototype: BorgChassisService
 
-# Security subtypes
-- type: borgSubtype
-  parentBorgType: security
-  id: security_default
-  spritePath: Mobs/Silicon/chassis.rsi
-  dummyPrototype: BorgChassisSecurity
-
-- type: entity
-  id: BorgChassisSecurityTread
-  parent: BorgChassisSecurity
-  name: security cyborg
-  components:
-  - type: Sprite
-    sprite: ADT/Mobs/Silicon/Borgs/Borg_subtype/Security/tread_security.rsi
-    layers:
-    - state: sec
-      map: ["enum.BorgVisualLayers.Body", "movement"]
-    - state: sec_e_r
-      map: ["enum.BorgVisualLayers.Light"]
-      shader: unshaded
-      visible: false
-    - state: sec_l
-      shader: unshaded
-      map: ["light", "enum.BorgVisualLayers.LightStatus"]
-      visible: false
-  - type: BorgTransponder
-    sprite:
-      sprite: ADT/Mobs/Silicon/Borgs/Borg_subtype/Security/tread_security.rsi
-      state: sec
-    name: security cyborg
-
-- type: borgSubtype
-  parentBorgType: security
-  id: security_tread
-  spritePath: ADT/Mobs/Silicon/Borgs/Borg_subtype/Security/tread_security.rsi
-  dummyPrototype: BorgChassisSecurityTread
-
 # - type: borgSubtype
 #   parentBorgType: service
 #   id: service_standart

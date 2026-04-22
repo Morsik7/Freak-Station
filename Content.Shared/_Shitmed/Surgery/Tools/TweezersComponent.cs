@@ -15,7 +15,7 @@ namespace Content.Shared._Shitmed.Medical.Surgery.Tools;
 [RegisterComponent, NetworkedComponent]
 public sealed partial class TweezersComponent : Component, ISurgeryToolComponent
 {
-    public string ToolName => "itemswitch-component-state-tweezers"; // CorvaxGoob-localization
+    public string ToolName => "tweezers";
     [DataField]
     public bool? Used { get; set; } = null;
     [DataField]

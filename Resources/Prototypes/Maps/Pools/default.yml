@@ -2,12 +2,39 @@
 - type: gameMapPool
   id: DefaultMapPool
   maps:
+  # Highpop 55+
+  - CorvaxAstra
+  #- CorvaxAvrite
+  - CorvaxBox
+  - CorvaxChloris
+  #- CorvaxDelta
+  - CorvaxGlacier
+  - CorvaxPilgrim
+
+  # Midpop 25–55
+  # - CorvaxAmber
+  - CorvaxAwesome
+  - CorvaxBagel
+  #- CorvaxMarathon
+  - CorvaxPaper
+  #- CorvaxPearl
+  - CorvaxVoid
+
+  # Lowpop 0–25
+  - CorvaxOutpost
+  - CorvaxMascara
+  - CorvaxMaus
+  - FreakyOmega # Freaky
+  - FreakySaltern # Freaky
+  - CorvaxPacked
+  # - CorvaxSilly
   # - Atlas
   - Amber
   - Bagel
   - Box
   - MiniSilly
   - MiniCluster
+  - LegacyCluster
   #- Core
   - Fland
  # - Gate Goobstation - My name is Walter Hartwell White, I live at 2308 Negra alloya line albequrque new mexico.
@@ -15,7 +42,6 @@
   - Marathon
   - Meta
   - Oasis
-  - MiniOmega
   - Origin
   # - Saltern
   - MiniPacked

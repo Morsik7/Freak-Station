@@ -35,7 +35,7 @@
   id: Cluster
   mapName: 'Cluster'
   mapPath: /Maps/_Goobstation/cluster.yml
-  minPlayers: 0
+  minPlayers: 0 # Freak, was 10
   maxPlayers: 35
   stations:
     Cluster:
@@ -92,7 +92,7 @@
             SalvageSpecialist: [ -1, -1 ]
             CargoTechnician: [ 2, 2 ]
             #civillian
-            Passenger: [ 1, 1 ]
+            Passenger: [ -1, -1 ]
             Clown: [ 1, 1 ]
             Mime: [ 1, 1 ]
             Musician: [ 1, 1 ]

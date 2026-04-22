@@ -1,0 +1,35 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Created by Casha (FreakStation)",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "feed"
+    },
+    {
+      "name": "possess"
+    },
+    {
+      "name": "leave"
+    },
+    {
+      "name": "tentacle"
+    },
+    {
+      "name": "dash"
+    },
+    {
+      "name": "heal"
+    },
+    {
+      "name": "chimera_dash"
+    },
+    {
+      "name": "hack"
+    }
+  ]
+}

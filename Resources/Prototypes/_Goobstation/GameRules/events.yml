@@ -33,9 +33,9 @@
     chaosScore: 150
   - type: StationEvent
     weight: 4.5 # Uncommon
-    earliestStart: 30
+    earliestStart: 6 # Freaky Station
     reoccurrenceDelay: 30
-    minimumPlayers: 4
+    minimumPlayers: 7 # Freaky Station
     duration: null
   - type: SpaceSpawnRule
     spawnDistance: 0

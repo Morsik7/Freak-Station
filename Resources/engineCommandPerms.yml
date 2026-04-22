@@ -112,6 +112,8 @@
   - tpgrid
   - gridtc
   - togglespritenetsync
+  - pausemap #FreakyStation
+  - unpausemap #FreakyStation
 
 - Flags: ADMIN
   Commands:
@@ -129,14 +131,12 @@
 - Flags: FUN
   Commands:
   - tippy
-  - loadprototype # Goobstation
+#  - loadprototype # Goobstation # ебать фан
   - tip
 
 - Flags: SERVER
   Commands:
   - delete
-  - pausemap
-  - unpausemap
   - restart
   - shutdown
 
@@ -175,6 +175,7 @@
   Commands:
   - uploadfile
   - uploadfolder
+  - loadprototype # Freaky Station
 
 - Commands:
   - "|"

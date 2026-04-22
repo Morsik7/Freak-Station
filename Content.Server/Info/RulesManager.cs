@@ -35,10 +35,14 @@ public sealed class RulesManager
 
     private async void OnConnected(object? sender, NetChannelArgs e)
     {
-         var isLocalhost = IPAddress.IsLoopback(e.Channel.RemoteEndPoint.Address) &&
-                               _cfg.GetCVar(CCVars.RulesExemptLocal);
+        var channel = e.Channel;
+        var isLocalhost = IPAddress.IsLoopback(channel.RemoteEndPoint.Address) &&
+                          _cfg.GetCVar(CCVars.RulesExemptLocal);
 
-        var lastRead = await _dbManager.GetLastReadRules(e.Channel.UserId);
+        var lastRead = await _dbManager.GetLastReadRules(channel.UserId);
+        if (!channel.IsConnected)
+            return;
+
         var hasCooldown = lastRead > LastValidReadTime;
 
         var showRulesMessage = new SendRulesInformationMessage
@@ -47,7 +51,11 @@ public sealed class RulesManager
             CoreRules = _cfg.GetCVar(CCVars.RulesFile),
             ShouldShowRules = !isLocalhost && !hasCooldown,
         };
-        _netManager.ServerSendMessage(showRulesMessage, e.Channel);
+
+        if (!channel.IsConnected)
+            return;
+
+        _netManager.ServerSendMessage(showRulesMessage, channel);
     }
 
     private async void OnRulesAccepted(RulesAcceptedMessage message)

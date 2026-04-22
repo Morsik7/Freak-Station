@@ -240,8 +240,12 @@
     shoes: ClothingShoesBootsJack
     ears: ClothingHeadsetGrey
     gloves: ClothingHandsGlovesFingerless
-  inhand:
-    - WeaponMeleeToolboxRobust
+    belt: ClothingBeltStorageWaistbag
+    id: CentcomPDA
+    pocket1: BaseUplinkRadio100TC
+    pocket2: BaseUplinkOpsRadio100TC
+    outerClothing: ClothingOuterArmorBasic
+
 
 #Brigmedic
 

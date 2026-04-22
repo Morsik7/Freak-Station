@@ -28,7 +28,6 @@ namespace Content.Client.Silicons.Borgs;
 [GenerateTypedNameReferences]
 public sealed partial class BorgSelectTypeMenu : FancyWindow
 {
-    [Dependency] private readonly IEntityManager _entityManager = default!;
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
 
     private BorgTypePrototype? _selectedBorgType;
@@ -37,12 +36,12 @@ public sealed partial class BorgSelectTypeMenu : FancyWindow
 
     private static readonly List<ProtoId<GuideEntryPrototype>> GuidebookEntries = new() { "Cyborgs", "Robotics" };
 
-    public BorgSelectTypeMenu(EntityUid owner)
+    public BorgSelectTypeMenu()
     {
         RobustXamlLoader.Load(this);
         IoCManager.InjectDependencies(this);
 
-        foreach (var borgType in GetAvailableBorgTypes(owner).OrderBy(PrototypeName))
+        foreach (var borgType in _prototypeManager.EnumeratePrototypes<BorgTypePrototype>().OrderBy(PrototypeName))
         {
             // Goobstation-Start: Customizable borgs sprites
             var chassisList = new EntityPrototypeView
@@ -67,37 +66,6 @@ public sealed partial class BorgSelectTypeMenu : FancyWindow
             ConfirmTypeButton.Disabled = false;
         // Goobstation-End: Customizable borgs sprites
     }
-
-    // Ministation-Start: Typan Borg Selection and Mimicry
-    private IEnumerable<BorgTypePrototype> GetAvailableBorgTypes(EntityUid owner)
-    {
-        if (_entityManager.TryGetComponent(owner, out BorgSwitchableTypeComponent? switchableType) &&
-            switchableType.AllowedBorgTypes.Length > 0)
-        {
-            var resolvedAny = false;
-
-            foreach (var borgTypeId in switchableType.AllowedBorgTypes)
-            {
-                if (_prototypeManager.TryIndex(borgTypeId, out BorgTypePrototype? prototype))
-                {
-                    resolvedAny = true;
-                    yield return prototype;
-                }
-            }
-
-            if (resolvedAny)
-                yield break;
-        }
-
-        foreach (var prototype in _prototypeManager.EnumeratePrototypes<BorgTypePrototype>())
-        {
-            if (!prototype.ShowInGlobalSelection)
-                continue;
-
-            yield return prototype;
-        }
-    }
-    // Ministation-End: Typan Borg Selection and Mimicry
 
     private void UpdateInformation(BorgTypePrototype prototype)
     {

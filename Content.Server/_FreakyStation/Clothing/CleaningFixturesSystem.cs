@@ -3,6 +3,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Shared._FreakyStation.Clothing;
+using Content.Shared._FreakyStation.ERP;
 using Content.Shared.Inventory;
 using Content.Shared.Interaction;
 using Content.Shared.Popups;
@@ -50,6 +51,10 @@ public sealed class CleaningFixturesSystem : EntitySystem
                          LookupFlags.Dynamic | LookupFlags.Uncontained))
             {
                 _stains.CleanEquippedClothing(target);
+
+                // Update shower time for STD prevention
+                if (TryComp<ERPComponent>(target, out var erpComp))
+                    erpComp.LastShowerTime = _timing.CurTime;
             }
         }
 

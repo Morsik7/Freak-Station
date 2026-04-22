@@ -193,6 +193,9 @@ public sealed class DebrisFeaturePlacerSystem : BaseWorldSystem
             if (pointDensity == 0 && component.DensityClip || _random.Prob(component.RandomCancellationChance))
                 continue;
 
+            if (!IsWithinSpawnDistance(point, component.MaxSpawnDistance))
+                continue;
+
             if (HasCollisions(mapId, safetyBounds.Translated(point)))
                 continue;
 
@@ -246,6 +249,18 @@ public sealed class DebrisFeaturePlacerSystem : BaseWorldSystem
         _mapGrids.Clear();
         _mapManager.FindGridsIntersecting(mapId, point, ref _mapGrids);
         return _mapGrids.Count > 0;
+    }
+
+    /// <summary>
+    ///     Checks whether a world position is inside the configured debris spawn radius.
+    /// </summary>
+    public static bool IsWithinSpawnDistance(Vector2 worldPosition, float maxSpawnDistance)
+    {
+        if (maxSpawnDistance <= 0)
+            return true;
+
+        var maxDistanceSquared = maxSpawnDistance * maxSpawnDistance;
+        return worldPosition.LengthSquared() <= maxDistanceSquared;
     }
 
     /// <summary>

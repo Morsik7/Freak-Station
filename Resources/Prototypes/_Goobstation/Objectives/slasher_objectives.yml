@@ -17,7 +17,7 @@
 - type: entity
   id: SlasherSurviveObjective
   name: Survive until the end
-  description: While death may be a foreign concept to you, getting banished is not.
+  description: You wouldn't be the Slasher if you died.
   components:
   - type: Objective
     difficulty: 1

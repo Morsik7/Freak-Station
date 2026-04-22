@@ -5,8 +5,8 @@
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
-server-currency-name-singular = Корвух Коин
-server-currency-name-plural = Корвух Коины
+server-currency-name-singular = Фрики Коин
+server-currency-name-plural = Фрики Коины
 
 ## Команды
 
@@ -54,20 +54,47 @@ gs-balanceui-shop-buy = Купить
 gs-balanceui-shop-footer = ⚠ Используйте ваш токен через Ahelp. Только 1 раз в день.
 gs-balanceui-shop-token-label = Токены
 gs-balanceui-shop-tittle-label = Титулы
-gs-balanceui-shop-buy-token-antag = Купить токен антага - { $price } Губ Коинов
-gs-balanceui-shop-buy-token-admin-abuse = Купить токен на злоупотребление админом - { $price } Губ Коинов
-gs-balanceui-shop-buy-token-hat = Купить токен на шляпу - { $price } Губ Коинов
-gs-balanceui-shop-token-antag = Токен высокого уровня антага
+gs-balanceui-shop-buy-token-antag-high = Купить хайтир токен антага - { $price } Фрики Коинов
+gs-balanceui-shop-buy-token-antag-mid = Купить мидтир токен антага - { $price } Фрики Коинов
+gs-balanceui-shop-buy-token-antag-low = Купить лоутир токен антага - { $price } Фрики Коинов
+gs-balanceui-shop-buy-token-admin-abuse = Купить токен на злоупотребление админом - { $price } Фрики Коинов
+gs-balanceui-shop-buy-token-hat = Купить токен на шляпу - { $price } Фрики Коинов
+gs-balanceui-shop-token-antag-high = Хайтир токен антага
+gs-balanceui-shop-token-antag-mid = Мидтир токен антага
+gs-balanceui-shop-token-antag-low = Лоутир токен антага
 gs-balanceui-shop-token-admin-abuse = Токен злоупотребления админом
 gs-balanceui-shop-token-hat = Токен шляпы
-gs-balanceui-shop-buy-token-antag-desc = Позволяет стать любым антагом (кроме волшебников).
+gs-balanceui-shop-buy-token-antag-high-desc = Позволяет получить роль хайтир антага (кроме волшебников).
+gs-balanceui-shop-buy-token-antag-mid-desc = Позволяет получить роль мидтир антага.
+gs-balanceui-shop-buy-token-antag-low-desc = Позволяет получить роль лоутир антага.
 gs-balanceui-shop-buy-token-admin-abuse-desc = Позволяет попросить админа злоупотребить своими полномочиями по отношению к вам. Админам рекомендуется не сдерживаться.
 gs-balanceui-shop-buy-token-hat-desc = Админ выдаст вам случайную шляпу.
 gs-balanceui-admin-add-label = Добавить (или убрать) деньги:
 gs-balanceui-admin-add-player = Имя игрока
 gs-balanceui-admin-add-value = Сумма
-gs-balanceui-remark-token-antag = Куплен токен антага.
+gs-balanceui-remark-token-antag-high = Куплен хайтир токен антага.
+gs-balanceui-remark-token-antag-mid = Куплен мидтир токен антага.
+gs-balanceui-remark-token-antag-low = Куплен лоутир токен антага.
 gs-balanceui-remark-token-admin-abuse = Куплен токен злоупотребления админом.
 gs-balanceui-remark-token-hat = Куплен токен шляпы.
 gs-balanceui-shop-click-confirm = Нажмите ещё раз для подтверждения
 gs-balanceui-shop-purchased = Куплено { $item }
+gs-balanceui-roulette-label = Рулетка Фрики Коинов
+gs-balanceui-roulette-open = Открыть рулетку
+gs-balanceui-roulette-bet = Ставка
+gs-balanceui-roulette-spin = Крутить
+gs-balanceui-roulette-balance = Баланс: { $balance }
+gs-balanceui-roulette-spinning = Крутим...
+gs-balanceui-roulette-invalid-bet = Введите корректную ставку (целое число не меньше { $min }).
+gs-balanceui-roulette-mode-mult = Режимы коэффициента
+gs-balanceui-roulette-mode-x2 = x2
+gs-balanceui-roulette-mode-x5 = x5
+gs-balanceui-roulette-mode-x10 = x10
+gs-balanceui-roulette-mode-selected = Режим: { $mode } | Шанс выигрыша: { $chance }% | Коэффициент: x{ $multiplier }
+gs-balanceui-roulette-fast-spin = Быстрый спин
+gs-balanceui-roulette-result-lose = Рулетка: x{ $multiplier }. Вы депнули { $bet }.
+gs-balanceui-roulette-result-win = Рулетка: x{ $multiplier }. Ставка { $bet } -> выплата { $payout }.
+gs-roulette-jackpot-notify = { $player } сорвал ДЖЕКПОТ x10 и получил { $amount }! Всего депнуто в рулетку на сервере: { $pot }.
+gs-roulette-busted-notify = { $player } депнул все свои Фрики Коины в рулетке. Лошара
+gs-roulette-round-end-lost = В рулетке за раунд проиграно: { $amount }.
+gs-roulette-station-report-lost = Рулетка: за раунд проиграно { $amount }.

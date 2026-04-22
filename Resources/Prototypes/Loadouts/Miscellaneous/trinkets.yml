@@ -325,70 +325,6 @@
     - ClothingNeckGenderfluidPin
   groupBy: "pin"
 
-# Corvax Pins
-- type: loadout
-  id: ClothingNeckAtharaPin
-  storage:
-    back:
-    - ClothingNeckAtharaPin
-  groupBy: "pin"
-
-- type: loadout
-  id: ClothingNeckCorvaxPin
-  storage:
-    back:
-    - ClothingNeckCorvaxPin
-  groupBy: "pin"
-
-- type: loadout
-  id: ClothingNeckEchoPin
-  storage:
-    back:
-    - ClothingNeckEchoPin
-  groupBy: "pin"
-
-- type: loadout
-  id: ClothingNeckElysiumPin
-  storage:
-    back:
-    - ClothingNeckElysiumPin
-  groupBy: "pin"
-
-- type: loadout
-  id: ClothingNeckMainPin
-  storage:
-    back:
-    - ClothingNeckMainPin
-  groupBy: "pin"
-
-- type: loadout
-  id: ClothingNeckNebulaPin
-  storage:
-    back:
-    - ClothingNeckNebulaPin
-  groupBy: "pin"
-
-- type: loadout
-  id: ClothingNeckNovaPin
-  storage:
-    back:
-    - ClothingNeckNovaPin
-  groupBy: "pin"
-
-- type: loadout
-  id: ClothingNeckSolarisPin
-  storage:
-    back:
-    - ClothingNeckSolarisPin
-  groupBy: "pin"
-
-- type: loadout
-  id: ClothingNeckWhiteListPin
-  storage:
-    back:
-    - ClothingNeckWhiteListPin
-  groupBy: "pin"
-
 # Canes
 # The white cane is intentionally not included here. Thats for the blind.
 - type: loadout
@@ -457,6 +393,7 @@
     - Cane
   groupBy: "canes"
 
+
 # Playing Cards (GoobStation START)
 - type: loadout
   id: CardBoxBlack
@@ -483,6 +420,7 @@
     - CardBoxNanotrasen
 
 # Candy!
+
 - type: loadout
   id: FoodSnackLollypopWrapped
   effects:
@@ -493,7 +431,6 @@
   storage:
     back:
     - FoodSnackLollypopWrapped
-  groupBy: "candy" # CorvaxGoob
 
 - type: loadout
   id: FoodSnackLollypopWrappedRainbow
@@ -505,7 +442,6 @@
   storage:
     back:
     - FoodSnackLollypopWrappedRainbow
-  groupBy: "candy" # CorvaxGoob
 
 - type: loadout
   id: FoodSnackLollypopWrappedCarp
@@ -518,30 +454,8 @@
   storage:
     back:
     - FoodSnackLollypopWrappedCarp
-  groupBy: "candy" # CorvaxGoob
 
 # End GoobStation
-
-# CorvaxGoob Candy
-- type: loadout
-  id: FoodSnackLollypopWrappedTricordrazine
-  storage:
-    back:
-    - FoodSnackLollypopWrappedTricordrazine
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: LollypopTricordrazine
-  groupBy: "candy"
-
-- type: loadoutEffectGroup
-  id: LollypopTricordrazine
-  effects:
-  - !type:JobRequirementLoadoutEffect
-    requirement:
-      !type:DepartmentTimeRequirement
-      department: Medical
-      time: 360000 # 100 hours
-# CorvaxGoob Candy end
 
 # Towels
 - type: loadout

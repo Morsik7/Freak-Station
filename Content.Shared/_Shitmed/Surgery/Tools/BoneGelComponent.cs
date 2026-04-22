@@ -12,7 +12,7 @@ namespace Content.Shared._Shitmed.Medical.Surgery.Tools;
 [RegisterComponent, NetworkedComponent]
 public sealed partial class BoneGelComponent : Component, ISurgeryToolComponent
 {
-    public string ToolName => "itemswitch-component-state-bonegel"; // CorvaxGoob-localization
+    public string ToolName => "bone gel";
 
     [DataField]
     public bool? Used { get; set; } = null;

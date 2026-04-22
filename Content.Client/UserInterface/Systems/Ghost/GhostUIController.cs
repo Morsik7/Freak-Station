@@ -27,9 +27,6 @@ using Content.Goobstation.Shared.MisandryBox.Thunderdome;
 using Content.Shared.Ghost;
 using Robust.Client.UserInterface;
 using Robust.Client.UserInterface.Controllers;
-using Content.Shared._Mini.MiniCCVars;
-// using Content._Mini.Interfaces.Shared;
-using Robust.Shared.Configuration;
 using GhostWarpsResponseEvent = Content.Shared.Ghost.SharedGhostSystem.GhostWarpsResponseEvent;
 
 namespace Content.Client.UserInterface.Systems.Ghost;
@@ -43,6 +40,7 @@ public sealed class GhostUIController : UIController, IOnSystemChanged<GhostSyst
 
     private GhostGui? Gui => UIManager.GetActiveUIWidgetOrNull<GhostGui>();
 
+
     public override void Initialize()
     {
         base.Initialize();
@@ -51,9 +49,10 @@ public sealed class GhostUIController : UIController, IOnSystemChanged<GhostSyst
         gameplayStateLoad.OnScreenLoad += OnScreenLoad;
         gameplayStateLoad.OnScreenUnload += OnScreenUnload;
 
-        // Goobstation - Thunderdome
-        _entManager.EventBus.SubscribeEvent<ThunderdomePlayerCountEvent>
-            (EventSource.Network, this, OnThunderdomePlayerCount);
+        _entManager.EventBus.SubscribeEvent<ThunderdomePlayerCountEvent>(
+            EventSource.Network,
+            this,
+            OnThunderdomePlayerCount);
     }
 
     private void OnScreenLoad()
@@ -94,7 +93,7 @@ public sealed class GhostUIController : UIController, IOnSystemChanged<GhostSyst
         }
 
         Gui.Visible = _system?.IsGhost ?? false;
-        Gui.Update(_system?.AvailableGhostRoleCount, _system?.Player?.CanReturnToBody, _system?.Player?.CanEnterGhostBar, _system?.Player?.CanTakeGhostRoles); // CorvaxGoob-GhostBar edit
+        Gui.Update(_system?.AvailableGhostRoleCount, _system?.Player?.CanReturnToBody, _system?.Player?.CanTakeGhostRoles);
     }
 
     private void OnPlayerRemoved(GhostComponent component)
@@ -150,11 +149,8 @@ public sealed class GhostUIController : UIController, IOnSystemChanged<GhostSyst
         Gui.ReturnToBodyPressed += ReturnToBody;
         Gui.ReturnToRoundPressed += ReturnToRound;
         Gui.GhostRolesPressed += GhostRolesPressed;
-        //Gui.GhostBarPressed += GhostBarPressed; // CorvaxGoob-GhostBar
-        Gui.ThunderdomePressed += ThunderdomePressed; // Goobstation - Thunderdome
+        Gui.ThunderdomePressed += ThunderdomePressed;
         Gui.TargetWindow.WarpClicked += OnWarpClicked;
-        Gui.ReturnToRoundPressed += ReturnToRound; // FREAKY EDIT
-        // Gui.TargetWindow.OnGhostnadoClicked += OnGhostnadoClicked;
 
         UpdateGui();
     }
@@ -168,9 +164,8 @@ public sealed class GhostUIController : UIController, IOnSystemChanged<GhostSyst
         Gui.ReturnToBodyPressed -= ReturnToBody;
         Gui.ReturnToRoundPressed -= ReturnToRound;
         Gui.GhostRolesPressed -= GhostRolesPressed;
-        Gui.ThunderdomePressed -= ThunderdomePressed; // Goobstation - Thunderdome
+        Gui.ThunderdomePressed -= ThunderdomePressed;
         Gui.TargetWindow.WarpClicked -= OnWarpClicked;
-        Gui.ReturnToRoundPressed += ReturnToRound; // FREAKY EDIT
 
         Gui.Hide();
     }
@@ -180,7 +175,7 @@ public sealed class GhostUIController : UIController, IOnSystemChanged<GhostSyst
         _system?.ReturnToBody();
     }
 
-    private void ReturnToRound() // FREAKY EDIT
+    private void ReturnToRound()
     {
         _system?.ReturnToRound();
     }
@@ -197,12 +192,6 @@ public sealed class GhostUIController : UIController, IOnSystemChanged<GhostSyst
         _system?.OpenGhostRoles();
     }
 
-    private void GhostBarSpawnPressed() // CorvaxGoob-GhostBar
-    {
-        _system?.GhostBarSpawn();
-    }
-
-    // Goobstation - Thunderdome
     private void ThunderdomePressed()
     {
         _net.SendSystemNetworkMessage(new ThunderdomeJoinRequestEvent());

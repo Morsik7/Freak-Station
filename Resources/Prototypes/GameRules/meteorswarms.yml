@@ -181,8 +181,8 @@
         path: /Audio/_CorvaxGoob/Announcements/Announcers/Intern/meteorcleared.ogg
     # CorvaxGoob-CustomAnnouncers-End
     reoccurrenceDelay: 1
-    earliestStart: 12
-    minimumPlayers: 25
+    earliestStart: 4 # Freaky Station
+    minimumPlayers: 12 # Freaky Station
   - type: MeteorSwarm
 
 - type: entity
@@ -334,11 +334,11 @@
       Intern:
         path: /Audio/_CorvaxGoob/Announcements/Announcers/Intern/irod.ogg
     # CorvaxGoob-CustomAnnouncers-End
-    weight: 3.5
+    weight: 0.15 # Freaky Station
     reoccurrenceDelay: 1
     duration: 30 # CorvaxGoob-CustomAnnouncers
-    earliestStart: 30
-    minimumPlayers: 25
+    earliestStart: 45 # Freaky Station
+    minimumPlayers: 30 # Freaky Station
     chaos: # Goobstation
       Power: 100
       Atmos: 100

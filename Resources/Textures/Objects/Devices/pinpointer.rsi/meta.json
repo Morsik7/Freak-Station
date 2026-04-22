@@ -1,5 +1,5 @@
 {
-    "version": 2,
+    "version": 1,
     "size": {
         "x": 32,
         "y": 32
@@ -12,55 +12,45 @@
             "directions": 8,
             "delays": [
                 [
-                    0.4,
-                    0.4
+                    0.2,
+                    0.2
                 ],
                 [
-                    0.4,
-                    0.4
+                    0.2,
+                    0.2
                 ],
                 [
-                    0.4,
-                    0.4
+                    0.2,
+                    0.2
                 ],
                 [
-                    0.4,
-                    0.4
+                    0.2,
+                    0.2
                 ],
                 [
-                    0.4,
-                    0.4
+                    0.2,
+                    0.2
                 ],
                 [
-                    0.4,
-                    0.4
+                    0.2,
+                    0.2
                 ],
                 [
-                    0.4,
-                    0.4
+                    0.2,
+                    0.2
                 ],
                 [
-                    0.4,
-                    0.4
+                    0.2,
+                    0.2
                 ]
             ]
-        },
-		{
-            "name": "pinpointer-detective",
-			"_comment": "Goobstation"
-        },
-        {
-            "name": "pinpointer-universal"
-        },
-        {
-            "name": "pinpointer-science"
         },
         {
             "name": "pinonalertdirect",
             "delays": [
                 [
-                    0.4,
-                    0.4
+                    0.2,
+                    0.2
                 ]
             ]
         },
@@ -68,8 +58,8 @@
             "name": "pinonalertnull",
             "delays": [
                 [
-                    0.4,
-                    0.4
+                    0.2,
+                    0.2
                 ]
             ]
         },
@@ -77,8 +67,8 @@
             "name": "pinonclose",
             "delays": [
                 [
-                    0.4,
-                    0.4
+                    0.2,
+                    0.2
                 ]
             ]
         },
@@ -86,8 +76,8 @@
             "name": "pinondirect",
             "delays": [
                 [
-                    0.4,
-                    0.4
+                    0.2,
+                    0.2
                 ]
             ]
         },
@@ -95,8 +85,8 @@
             "name": "pinondirectlarge",
             "delays": [
                 [
-                    0.4,
-                    0.4
+                    0.2,
+                    0.2
                 ]
             ]
         },
@@ -104,8 +94,8 @@
             "name": "pinondirectsmall",
             "delays": [
                 [
-                    0.4,
-                    0.4
+                    0.2,
+                    0.2
                 ]
             ]
         },
@@ -113,8 +103,8 @@
             "name": "pinondirectxtrlarge",
             "delays": [
                 [
-                    0.4,
-                    0.4
+                    0.2,
+                    0.2
                 ]
             ]
         },
@@ -123,7 +113,7 @@
             "delays": [
                 [
                     0.6,
-                    0.4
+                    0.2
                 ]
             ]
         },
@@ -132,7 +122,7 @@
             "delays": [
                 [
                     0.4,
-                    0.4
+                    0.2
                 ]
             ]
         },
@@ -140,8 +130,8 @@
             "name": "pinonnull",
             "delays": [
                 [
-                    0.4,
-                    0.4
+                    0.2,
+                    0.2
                 ]
             ]
         },
@@ -158,6 +148,9 @@
             "name": "pinpointer-syndicate"
         },
         {
+            "name": "pinpointer-syndicate-way"
+        },
+        {
             "name": "pinpointer_thief"
         },
         {
@@ -166,8 +159,15 @@
         {
             "name": "pinpointer-station"
         },
+		{
+            "name": "pinpointer-detective",
+			"_comment": "Goobstation"
+        },
         {
-            "name": "pinpointer-syndicate-way"
+            "name": "pinpointer-universal"
+        },
+        {
+            "name": "pinpointer-science"
         },
         {
             "name": "inhand-left",

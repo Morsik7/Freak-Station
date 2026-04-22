@@ -18,10 +18,9 @@
   id: TraitorMidround
   components:
   - type: StationEvent
-    earliestStart: 30
-    weight: 8
-    minimumPlayers: 15
-    maxOccurrences: 1
+    earliestStart: 4 # Freaky Station
+    weight: 10
+    minimumPlayers: 5 # Freaky Station
     startAnnouncement: station-event-communication-interception
     startAudio:
       path: /Audio/Announcements/intercept.ogg
@@ -66,8 +65,7 @@
   - type: StationEvent
     weight: 5
     duration: 1
-    minimumPlayers: 15
-    maxOccurrences: 2
+    minimumPlayers: 4 # Freaky Station
     chaos:
       Hostile: 40
       Medical: 40
@@ -87,9 +85,9 @@
   id: BlobMidround
   components:
   - type: StationEvent
-    weight: 1
-    earliestStart: 45
-    minimumPlayers: 50
+    weight: 2 # Freaky Station
+    earliestStart: 4 # Freaky Station
+    minimumPlayers: 13 # Freaky Station
     duration: null
     maxOccurrences: 1
     chaos:
@@ -114,8 +112,8 @@
   components:
   - type: StationEvent
     weight: 15
-    earliestStart: 15
-    minimumPlayers: 15
+    earliestStart: 1 # Freaky Station
+    minimumPlayers: 5 # Freaky Station
     maxOccurrences: 2
     eventType: Neutral
   - type: GameRule
@@ -325,8 +323,6 @@
       min: 1
       max: 1
       pickPlayer: false
-      skills: # CorvaxGoob-Skills
-      - All
       mindRoles:
       - MindRoleGhostRoleSoloAntagonist
       - MindRoleTraitor
@@ -419,8 +415,6 @@
       min: 3
       max: 4
       pickPlayer: false
-      skills: # CorvaxGoob-Skills
-      - All
       mindRoles:
       - MindRoleGhostRoleTeamAntagonist
       - MindRoleThief
@@ -486,8 +480,6 @@
       min: 1
       max: 1
       pickPlayer: false
-      skills: # CorvaxGoob-Skills
-      - All
       startingGear: SlasherGear
       briefing:
         text: slasher-role-greeting
@@ -519,7 +511,7 @@
       - type: MobThresholds
         thresholds:
           0: Alive
-          150: Dead
+          200: Dead
       - type: RandomMetadata
         nameSegments:
         - NamesSlasherTitle

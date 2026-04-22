@@ -11,6 +11,10 @@
 
 using Content.Server.Administration.Managers;
 using Content.Shared.Administration;
+using Content.Server.ADT.Discord;
+using Content.Server.ADT.Discord.Bans;
+using Content.Server.ADT.Discord.Bans.PayloadGenerators;
+using Content.Server.Database;
 using Content.Shared.CCVar;
 using Content.Shared.Database;
 using Content.Shared.Roles;
@@ -27,6 +31,8 @@ public sealed class DepartmentBanCommand : IConsoleCommand
     [Dependency] private readonly IPlayerLocator _locator = default!;
     [Dependency] private readonly IBanManager _banManager = default!;
     [Dependency] private readonly IConfigurationManager _cfg = default!;
+    [Dependency] private readonly IServerDbManager _dbManager = default!;
+    [Dependency] private readonly IDiscordBanInfoSender _discordBanInfoSender = default!;
 
     public string Command => "departmentban";
     public string Description => Loc.GetString("cmd-departmentban-desc");
@@ -117,6 +123,19 @@ public sealed class DepartmentBanCommand : IConsoleCommand
         }
 
         _banManager.CreateRoleBan(banInfo);
+
+        var discordBanInfo = new BanInfo
+        {
+            BanId = string.Empty,
+            Target = target,
+            Player = shell.Player,
+            Minutes = minutes,
+            Reason = reason,
+            Expires = minutes > 0 ? DateTimeOffset.Now + TimeSpan.FromMinutes(minutes) : null,
+            AdditionalInfo = new() { { "department", department } }
+        };
+
+        await _discordBanInfoSender.SendBanInfoAsync<DepartmentBanPayloadGenerator>(discordBanInfo);
     }
 
     public CompletionResult GetCompletion(IConsoleShell shell, string[] args)

@@ -119,7 +119,7 @@
   joinNotifyCrew: true
   supervisors: job-supervisors-centcom
   canBeAntag: false
-  #goobcoins: 40 Corvax-Goob-coins
+  goobcoins: 40
   guides:
   # - NanotrasenRep SOP Hidden by CorvaxGoob
   # - SOP Hidden by CorvaxGoob
@@ -142,8 +142,6 @@
   - Cargo
   - Theatre
   - NanotrasenRepresentative
-  skills: # CorvaxGoob-Skills
-  - ShuttleControl
   special:
   - !type:AddImplantSpecial
     implants: [ MindShieldImplant ]

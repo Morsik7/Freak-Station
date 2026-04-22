@@ -4,7 +4,7 @@
   mapPath: /Maps/_CorvaxGoob/Stations/Amber/corvax_amber.yml
   maxRandomOffset: 0
   randomRotation: false
-  minPlayers: 25
+  minPlayers: 15 # FreakyStation
   maxPlayers: 55
   stations:
     CorvaxAmber:
@@ -66,7 +66,7 @@
             Musician: [ 1, 1 ]
             Reporter: [ 1, 1 ]
             ServiceWorker: [ 1, 3 ]
-            Passenger: [ 1, 1 ]
+            Passenger: [ -1, -1 ]
             # silicon
             StationAi: [ 1, 1 ]
             Borg: [ 2, 2 ]

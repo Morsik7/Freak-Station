@@ -1,0 +1,37 @@
+# Parasite Eggs
+
+- type: entity
+  id: ParasiteUnfertilizedEgg
+  name: parasite egg
+  description: A pulsating organic egg. Something is growing inside.
+  components:
+  - type: Sprite
+    sprite: _FreakStation/Objects/Specific/parasite_eggs.rsi
+    state: egg
+  - type: Item
+    size: Small
+  - type: Food
+  - type: FlavorProfile
+    flavors:
+    - disgusting
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 10
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 5
+  - type: ParasiteInfectious
+    infectionChance: 0.8
+  - type: ParasiteEgg
+    hatchTime: 300
+
+- type: entity
+  id: ParasiteFertilizedEgg
+  name: fertilized parasite egg
+  description: A large pulsating egg. You can see something moving inside.
+  parent: ParasiteUnfertilizedEgg
+  components:
+  - type: ParasiteEgg
+    hatchTime: 600
+    isFertilized: true

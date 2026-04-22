@@ -112,32 +112,41 @@ SPDX-License-Identifier: AGPL-3.0-or-later
                                     <Control HorizontalExpand="True"/>
                                     <OptionButton Name="SpawnPriorityButton" HorizontalAlignment="Right" />
                                 </BoxContainer>
-                                <!-- CorvaxGoob-Revert : DB conflicts -->
+                                <BoxContainer HorizontalExpand="True">
+                                    <Label Text="{Loc 'humanoid-profile-editor-erp-consent-label'}" />
+                                    <Control HorizontalExpand="True"/>
+                                    <OptionButton Name="ERPConsentButton" HorizontalAlignment="Right" />
+                                </BoxContainer>
+                                <BoxContainer HorizontalExpand="True">
+                                    <Label Text="{Loc 'humanoid-profile-editor-non-con-label'}" />
+                                    <Control HorizontalExpand="True"/>
+                                    <OptionButton Name="NonConButton" HorizontalAlignment="Right" />
+                                </BoxContainer>
                                 <!-- Height Slider --> <!-- begin Goobstation: port EE height/width sliders -->
-                                <!-- <BoxContainer HorizontalExpand="True">
+                                <BoxContainer HorizontalExpand="True">
                                     <Label Name="HeightLabel" MinWidth="110" />
                                     <Slider Name="HeightSlider" MinValue="0.5" Value="1" MaxValue="1.5" HorizontalExpand="True" Margin="5 0 5 0" />
                                     <Button Name="HeightReset" Text="{Loc 'ui-options-bind-reset'}" />
-                                </BoxContainer> -->
+                                </BoxContainer>
                                 <!-- Width Slider -->
-                                <!-- <BoxContainer HorizontalExpand="True">
+                                <BoxContainer HorizontalExpand="True">
                                     <Label Name="WidthLabel" MinWidth="110" />
                                     <Slider Name="WidthSlider" MinValue="0.5" Value="1" MaxValue="1.5" HorizontalExpand="True" Margin="5 0 5 0" />
                                     <Button Name="WidthReset" Text="{Loc 'ui-options-bind-reset'}" />
-                                </BoxContainer> -->
+                                </BoxContainer>
                                 <!--Weight (Derived from height and width)-->
-                                <!-- <BoxContainer HorizontalExpand="True">
+                                <BoxContainer HorizontalExpand="True">
                                     <Label Name="WeightLabel" />
-                                </BoxContainer> -->
+                                </BoxContainer>
                                 <!-- end Goobstation: port EE height/width sliders -->
-                                <!-- Corvax-Frontier-Barks-Start -->
-                                <!-- <BoxContainer HorizontalExpand="True" Visible="False" Name="BarksContainer">
-                                    <Label Text="{Loc 'humanoid-profile-editor-voice-label'}" />
+                                <!-- ADT Barks Start -->
+                                <BoxContainer HorizontalExpand="True" Visible="False" Name="BarksContainer">
+                                    <Label Text="{Loc 'humanoid-profile-editor-bark-label'}" />
                                     <Control HorizontalExpand="True"/>
-                                    <OptionButton Name="BarkVoiceButton" HorizontalAlignment="Right" />
-                                    <Button Name="BarkVoicePlayButton" Text="{Loc 'humanoid-profile-editor-voice-play'}" MaxWidth="80" />
-                                </BoxContainer> -->
-                                <!-- Corvax-Frontier-Barks-End -->
+                                    <Button Name="BarkProtoButton" HorizontalAlignment="Right" MinWidth="150" />
+                                    <Button Name="BarkPlayButton" Text="{Loc 'humanoid-profile-editor-voice-play'}" MaxWidth="80" />
+                                </BoxContainer>
+                                <!-- ADT Barks End -->
                             </BoxContainer>
                             <!-- Skin -->
                             <BoxContainer Margin="10" HorizontalExpand="True" Orientation="Vertical">

@@ -124,6 +124,7 @@ using Content.Server.Speech.Prototypes;
 using Content.Server.Station.Systems;
 using Content.Shared._CorvaxGoob.Chat;
 using Content.Shared._EinsteinEngines.Language; // Einstein Engines - Language
+using Content.Shared._Nuclear.Chat;
 using Content.Shared._Goobstation.Wizard.Chuuni;
 using Content.Shared._Starlight.CollectiveMind; // Goobstation - Starlight collective mind port
 using Content.Shared.ActionBlocker;
@@ -145,6 +146,7 @@ using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Configuration;
 using Robust.Shared.Console;
+using Robust.Shared.GameObjects;
 using Robust.Shared.Network;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
@@ -402,6 +404,9 @@ public sealed partial class ChatSystem : SharedChatSystem
         {
             if (TryProccessRadioMessage(source, message, out var modMessage, out var channel))
             {
+                if (desiredType == InGameICChatType.Speak && !CanSendEntityChat(source, ChatChannel.Local))
+                    return;
+
                 SendEntityWhisper(source, modMessage, range, channel, nameOverride, language, hideLog, ignoreActionBlocker, colorOverride); // Goob edit & Einstein Engines - Language
                 return;
             }
@@ -711,6 +716,9 @@ public sealed partial class ChatSystem : SharedChatSystem
         if (!_actionBlocker.CanSpeak(source) && !ignoreActionBlocker)
             return;
 
+        if (!CanSendEntityChat(source, ChatChannel.Local))
+            return;
+
         // The Original Message [-] Einstein Engines - Language
         var message = FormattedMessage.RemoveMarkupOrThrow(originalMessage);  // Remove markup before transforming.
         message = FormattedMessage.EscapeText(message); // Escape after removing markup
@@ -817,6 +825,9 @@ public sealed partial class ChatSystem : SharedChatSystem
         )
     {
         if (!_actionBlocker.CanSpeak(source) && !ignoreActionBlocker)
+            return;
+
+        if (!CanSendEntityChat(source, ChatChannel.Whisper))
             return;
 
         // Goob edit start
@@ -944,6 +955,9 @@ public sealed partial class ChatSystem : SharedChatSystem
         if (!_actionBlocker.CanEmote(source) && !ignoreActionBlocker)
             return;
 
+        if (!CanSendEntityChat(source, ChatChannel.Emotes))
+            return;
+
         // get the entity's apparent name (if no override provided).
         var ent = Identity.Entity(source, EntityManager);
         string name = FormattedMessage.EscapeText(nameOverride ?? Name(ent));
@@ -992,6 +1006,9 @@ public sealed partial class ChatSystem : SharedChatSystem
         if (!_critLoocEnabled && _mobStateSystem.IsCritical(source))
             return;
 
+        if (!CanSendChat(player, ChatChannel.LOOC))
+            return;
+
         var wrappedMessage = Loc.GetString("chat-manager-entity-looc-wrap-message",
             ("entityName", name),
             ("message", FormattedMessage.EscapeText(message)));
@@ -1021,6 +1038,9 @@ public sealed partial class ChatSystem : SharedChatSystem
 
         var speech = GetSpeechVerb(source, message); // Goobstation - Dead chat verbs
 
+        if (!CanSendChat(player, ChatChannel.Dead))
+            return;
+
         if (_adminManager.IsAdmin(player))
         {
             wrappedMessage = Loc.GetString("chat-manager-send-admin-dead-chat-wrap-message",
@@ -1045,6 +1065,21 @@ public sealed partial class ChatSystem : SharedChatSystem
     #endregion
 
     #region Utility
+
+    private bool CanSendChat(ICommonSession player, ChatChannel channel)
+    {
+        var sendAttempt = new NuclearChatSendAttemptEvent(player, channel);
+        EntityManager.EventBus.RaiseEvent(EventSource.Local, sendAttempt);
+        return !sendAttempt.Cancelled;
+    }
+
+    private bool CanSendEntityChat(EntityUid source, ChatChannel channel)
+    {
+        if (!TryComp<ActorComponent>(source, out var actor))
+            return true;
+
+        return CanSendChat(actor.PlayerSession, channel);
+    }
 
     private enum MessageRangeCheckResult
     {

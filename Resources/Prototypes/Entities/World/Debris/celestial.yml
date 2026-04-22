@@ -1,0 +1,57 @@
+# SPDX-License-Identifier: MIT
+
+- type: entity
+  id: BaseCelestialDebris
+  parent: BaseDebris
+  abstract: true
+  name: celestial object
+  categories: [ HideSpawnMenu ]
+  components:
+    - type: IFF
+      flags: HideLabel
+      color: "#d9e1ff"
+
+- type: entity
+  id: StarDebrisBlue
+  parent: BaseCelestialDebris
+  name: blue star
+  components:
+    - type: Sprite
+      sprite: Structures/Specific/Anomalies/Cores/bluespace_core.rsi
+      state: pulse
+      scale: 1.7, 1.7
+    - type: PointLight
+      color: "#7ecbff"
+      radius: 4.0
+      energy: 3.0
+      softness: 4
+
+- type: entity
+  id: StarDebrisYellow
+  parent: BaseCelestialDebris
+  name: yellow star
+  components:
+    - type: Sprite
+      sprite: Structures/Specific/anomaly.rsi
+      state: anom5-pulse
+      scale: 1.6, 1.6
+    - type: PointLight
+      color: "#ffd77f"
+      radius: 4.0
+      energy: 2.5
+      softness: 4
+
+- type: entity
+  id: CosmicAnomalyDebris
+  parent: BaseCelestialDebris
+  name: cosmic anomaly
+  components:
+    - type: Sprite
+      sprite: Structures/Specific/Anomalies/tech_anom.rsi
+      state: pulse
+      scale: 1.2, 1.2
+    - type: PointLight
+      color: "#b58bff"
+      radius: 3.0
+      energy: 2.0
+      softness: 3

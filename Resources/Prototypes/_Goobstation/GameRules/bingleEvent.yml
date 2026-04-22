@@ -16,10 +16,10 @@
   parent: BaseStationEventShortDelay
   components:
   - type: StationEvent
-    earliestStart: 50
+    earliestStart: 0 # Freaky Station
     weight: 3
     duration: 50
-    minimumPlayers: 50
+    minimumPlayers: 5 # Freaky Station
     chaos: # Goobstation
       Hostile: 200
       Friend: 20

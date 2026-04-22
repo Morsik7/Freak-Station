@@ -57,6 +57,7 @@ namespace Content.Shared.Mind.Components;
 public sealed partial class MindContainerComponent : Component
 {
     // Mini edit start - для гостпанельки. Сохраняет последний разум, который был в теле
+    [AutoNetworkedField]
     [Access(Other = AccessPermissions.ReadWriteExecute)]
     public EntityUid? LastMindStored;
     // Mini edit end

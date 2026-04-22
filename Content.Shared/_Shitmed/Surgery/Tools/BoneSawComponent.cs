@@ -12,7 +12,7 @@ namespace Content.Shared._Shitmed.Medical.Surgery.Tools;
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class BoneSawComponent : Component, ISurgeryToolComponent
 {
-    public string ToolName => "itemswitch-component-state-bonesaw"; // CorvaxGoob-localization
+    public string ToolName => "a bone saw";
     [DataField]
     public bool? Used { get; set; } = null;
     [DataField, AutoNetworkedField]

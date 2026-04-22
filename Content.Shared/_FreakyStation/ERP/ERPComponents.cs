@@ -27,4 +27,16 @@ public sealed partial class ERPComponent : Component
 
     [DataField]
     public TimeSpan LastInteractionAt;
+
+    [DataField]
+    public int OrgasmCount;
+
+    [DataField]
+    public TimeSpan OrgasmCountResetAt;
+
+    [DataField]
+    public TimeSpan LastShowerTime;
+
+    [DataField]
+    public TimeSpan LastPenetrativeInteractionTime;
 }

@@ -36,8 +36,9 @@
   - Rodentia
   - SlimePerson
   - Dwarf
-  - Feroxi
-  - Chitinid
+  - Feroxi # Freak
+  - Chitinid # Freak
+  - Felinid # Freak
   components:
   - type: RandomHumanoidAppearance
     randomizeName: false

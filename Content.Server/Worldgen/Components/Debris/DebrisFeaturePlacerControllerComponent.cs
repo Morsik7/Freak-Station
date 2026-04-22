@@ -48,4 +48,10 @@ public sealed partial class DebrisFeaturePlacerControllerComponent : Component
     /// </summary>
     [DataField("densityNoiseChannel", customTypeSerializer: typeof(PrototypeIdSerializer<NoiseChannelPrototype>))]
     public string DensityNoiseChannel { get; private set; } = default!;
+
+    /// <summary>
+    ///     Maximum distance from map origin where debris can be spawned.
+    ///     Set to 0 or below to disable distance limiting.
+    /// </summary>
+    [DataField("maxSpawnDistance")] public float MaxSpawnDistance = 10_000f;
 }

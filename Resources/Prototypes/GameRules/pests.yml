@@ -37,7 +37,7 @@
     startAnnouncement: station-event-vent-creatures-start-announcement
     startAudio:
       path: /Audio/Announcements/attention.ogg
-    earliestStart: 15
+    earliestStart: 2 # Freaky Station
     weight: 6
     duration: 30 # DeltaV: was 50, used as a delay now
     chaos: # Goobstation
@@ -62,10 +62,10 @@
     startAnnouncement: station-event-vent-creatures-start-announcement
     startAudio:
       path: /Audio/Announcements/attention.ogg
-    earliestStart: 15
+    earliestStart: 3 # Freaky Station
     weight: 6
     duration: 30 # DeltaV: was 50, used as a delay now
-    minimumPlayers: 30 # Hopefully this is enough for the Rat King's potential Army (it was not, raised from 15 -> 30)
+    minimumPlayers: 13 # Freaky Station
     chaos: # Goobstation
       Mess: 10
       Hostile: 1 # low chance to spawn rat king
@@ -125,7 +125,7 @@
     startAnnouncement: station-event-vent-creatures-start-announcement
     startAudio:
       path: /Audio/Announcements/attention.ogg
-    weight: 6
+    weight: 7 # Freaky Station
     duration: 30 # DeltaV: was 50, used as a delay now
     chaos: # Goobstation
       Friend: -5
@@ -149,10 +149,10 @@
     startAnnouncement: station-event-vent-creatures-start-announcement
     startAudio:
       path: /Audio/Announcements/attention.ogg
-    earliestStart: 15
+    earliestStart: 4 # Freaky Station
     weight: 6
     duration: 30 # DeltaV: was 50, used as a delay now
-    minimumPlayers: 30
+    minimumPlayers: 8 # Freaky Station
     chaos: # Goobstation
       Mess: 5
       Hostile: 1 # the very low gib snail prob

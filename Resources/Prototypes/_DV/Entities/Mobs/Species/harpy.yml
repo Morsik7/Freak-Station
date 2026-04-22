@@ -93,11 +93,14 @@
       - map: [ "underpants" ]
       - map: [ "undershirt" ]
       - map: [ "socks" ]
+      - map: [ "underwear" ]
+      - map: [ "breast" ]
       - map: [ "jumpsuit" ]
       - map: ["enum.HumanoidVisualLayers.LFoot"]
       - map: ["enum.HumanoidVisualLayers.RFoot"]
       - map: ["enum.HumanoidVisualLayers.LHand"]
       - map: ["enum.HumanoidVisualLayers.RHand"]
+      - map: [ "sockss" ]
       - map: [ "enum.HumanoidVisualLayers.Handcuffs" ]
         color: "#ffffff"
         sprite: Objects/Misc/handcuffs.rsi
@@ -250,7 +253,7 @@
       - map: [ "enum.HumanoidVisualLayers.LLeg" ]
       - map: [ "underpants" ]
       - map: [ "undershirt" ]
-      - map: [ "socks" ]
+      - map: [ "sockss" ]
       - map: [ "jumpsuit" ]
       - map: ["enum.HumanoidVisualLayers.LFoot"]
       - map: ["enum.HumanoidVisualLayers.RFoot"]

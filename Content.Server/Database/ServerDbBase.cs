@@ -138,6 +138,7 @@ using System.Text.Json;
 using System.Threading;
 using System.Threading.Tasks;
 using Content.Server.Administration.Logs;
+using Content.Shared.ADT.SpeechBarks;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Construction.Prototypes;
 using Content.Shared.Database;
@@ -152,6 +153,7 @@ using Robust.Shared.Enums;
 using Robust.Shared.Network;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
+using System.Text.Json;
 
 namespace Content.Server.Database
 {
@@ -300,6 +302,179 @@ namespace Content.Server.Database
             await db.DbContext.SaveChangesAsync();
         }
 
+        private static List<Marking> dDeserializeProfileMarkings(JsonDocument? markingsDocument)
+        {
+            if (markingsDocument is null)
+            {
+                return new List<Marking>();
+            }
+
+            var root = markingsDocument.RootElement;
+            if (root.ValueKind != JsonValueKind.Array)
+            {
+                return new List<Marking>();
+            }
+
+            var markings = new List<Marking>();
+            foreach (var element in root.EnumerateArray())
+            {
+                if (element.ValueKind == JsonValueKind.String)
+                {
+                    var str = element.GetString();
+                    if (str == null)
+                        continue;
+
+                    var parsed = Marking.ParseFromDbString(str);
+                    if (parsed != null)
+                        markings.Add(parsed);
+
+                    continue;
+                }
+
+                if (element.ValueKind != JsonValueKind.Object)
+                    continue;
+
+                var markingId = TryGetStringProperty(element, "markingId")
+                                ?? TryGetStringProperty(element, "MarkingId")
+                                ?? TryGetStringProperty(element, "id");
+                if (markingId == null)
+                    continue;
+
+                var colors = ParseColorArray(element, "markingColors")
+                             ?? ParseColorArray(element, "MarkingColors")
+                             ?? ParseColorArray(element, "markingColor")
+                             ?? ParseColorArray(element, "colors")
+                             ?? new List<Color>();
+
+                if (colors.Count == 0)
+                    colors.Add(Color.White);
+
+                var marking = new Marking(markingId, colors)
+                {
+                    Visible = TryGetBoolProperty(element, "visible", true),
+                    Forced = TryGetBoolProperty(element, "forced", false)
+                };
+
+                markings.Add(marking);
+            }
+
+            return markings;
+        }
+
+        private static List<Color>? ParseColorArray(JsonElement element, string propertyName)
+        {
+            if (!element.TryGetProperty(propertyName, out var value) || value.ValueKind != JsonValueKind.Array)
+                return null;
+
+            var colors = new List<Color>();
+            foreach (var colorElement in value.EnumerateArray())
+            {
+                if (TryParseColor(colorElement, out var color))
+                    colors.Add(color);
+            }
+
+            return colors;
+        }
+
+        private static bool TryParseColor(JsonElement element, out Color color)
+        {
+            color = default;
+            switch (element.ValueKind)
+            {
+                case JsonValueKind.String:
+                {
+                    var text = element.GetString();
+                    if (!string.IsNullOrWhiteSpace(text))
+                    {
+                        try
+                        {
+                            color = Color.FromHex(text);
+                            return true;
+                        }
+                        catch
+                        {
+                            return false;
+                        }
+                    }
+
+                    return false;
+                }
+                case JsonValueKind.Object:
+                {
+                    if (TryGetFloatProperty(element, "r", out var r) || TryGetFloatProperty(element, "R", out r))
+                    {
+                        var g = TryGetFloatProperty(element, "g", out var gVal) ? gVal : 0f;
+                        var b = TryGetFloatProperty(element, "b", out var bVal) ? bVal : 0f;
+                        var a = TryGetFloatProperty(element, "a", out var aVal) ? aVal : 1f;
+                        color = new Color(r, g, b, a);
+                        return true;
+                    }
+
+                    return false;
+                }
+                case JsonValueKind.Array:
+                {
+                    var enumerator = element.EnumerateArray();
+                    if (!enumerator.MoveNext())
+                        return false;
+
+                    if (!TryGetFloatFromElement(enumerator.Current, out var r))
+                        return false;
+
+                    if (!enumerator.MoveNext() || !TryGetFloatFromElement(enumerator.Current, out var g))
+                        return false;
+
+                    if (!enumerator.MoveNext() || !TryGetFloatFromElement(enumerator.Current, out var b))
+                        return false;
+
+                    var a = 1f;
+                    if (enumerator.MoveNext())
+                        TryGetFloatFromElement(enumerator.Current, out a);
+
+                    color = new Color(r, g, b, a);
+                    return true;
+                }
+            }
+
+            return false;
+        }
+
+        private static string? TryGetStringProperty(JsonElement element, string name)
+        {
+            return element.TryGetProperty(name, out var property) && property.ValueKind == JsonValueKind.String
+                ? property.GetString()
+                : null;
+        }
+
+        private static bool TryGetBoolProperty(JsonElement element, string name, bool defaultValue)
+        {
+            return element.TryGetProperty(name, out var property) && property.ValueKind == JsonValueKind.True;
+        }
+
+        private static bool TryGetFloatProperty(JsonElement element, string name, out float value)
+        {
+            if (element.TryGetProperty(name, out var property))
+                return TryGetFloatFromElement(property, out value);
+
+            value = 0f;
+            return false;
+        }
+
+        private static bool TryGetFloatFromElement(JsonElement element, out float value)
+        {
+            switch (element.ValueKind)
+            {
+                case JsonValueKind.Number:
+                    return element.TryGetSingle(out value);
+                case JsonValueKind.String when float.TryParse(element.GetString(), out var parsed):
+                    value = parsed;
+                    return true;
+                default:
+                    value = 0f;
+                    return false;
+            }
+        }
+
         public async Task SaveAdminOOCColorAsync(NetUserId userId, Color color)
         {
             await using var db = await GetDb();
@@ -344,6 +519,10 @@ namespace Content.Server.Database
 
             var spawnPriority = (SpawnPriorityPreference) profile.SpawnPriority;
 
+            var consent = ERPConsent.Disabled;
+            if (Enum.TryParse<ERPConsent>(profile.ERPConsent, true, out var consentVal))
+                consent = consentVal;
+
             var gender = sex == Sex.Male ? Gender.Male : Gender.Female;
             if (Enum.TryParse<Gender>(profile.Gender, true, out var genderVal))
                 gender = genderVal;
@@ -355,7 +534,9 @@ namespace Content.Server.Database
             // CorvaxGoob-TTS-End
 
             // ReSharper disable once ConditionalAccessQualifierIsNonNullableAccordingToAPIContract
-            var markingsRaw = profile.Markings?.Deserialize<List<string>>();
+            var markingsRaw = DeserializeProfileMarkings(profile.Markings?.RootElement.GetRawText() ?? "[]");
+
+            var bark = new BarkData(profile.BarkProto ?? string.Empty, profile.BarkPitch ?? 1.0f, profile.LowBarkVar ?? 0.0f, profile.HighBarkVar ?? 0.0f);
 
             List<Marking> markings = new();
             if (markingsRaw != null)
@@ -394,14 +575,11 @@ namespace Content.Server.Database
                 loadouts[role.RoleName] = loadout;
             }
 
-            // CorvaxGoob-Revert : DB conflicts
-            // var barkVoice = profile.BarkVoice ?? SharedHumanoidAppearanceSystem.DefaultBarkVoice; // Goob Station - Barks
-
             return new HumanoidCharacterProfile(
                 profile.CharacterName,
                 profile.FlavorText,
                 profile.Species,
-                voice, // CorvaxGoob-TTS
+                voice,
                 profile.Age,
                 sex,
                 gender,
@@ -420,26 +598,88 @@ namespace Content.Server.Database
                 (PreferenceUnavailableMode) profile.PreferenceUnavailable,
                 antags.ToHashSet(),
                 traits.ToHashSet(),
-                loadouts
-                // barkVoice // Goob Station - Barks // CorvaxGoob-Revert : DB conflicts
+                loadouts,
+                consent,
+                profile.NonCon,
+                profile.OOCNotes,
+                profile.HeadshotUrl,
+                bark
             );
+        }
+
+        private static List<string>? DeserializeProfileMarkings(string markingsJson)
+        {
+            try
+            {
+                // Try to parse as array of objects first (new format)
+                var markingsList = JsonSerializer.Deserialize<List<Dictionary<string, object>>>(markingsJson);
+                if (markingsList != null)
+                {
+                    return markingsList.Select(TryParseColor).Where(x => x != null).ToList()!;
+                }
+            }
+            catch (JsonException)
+            {
+                // Fall back to old format (array of strings)
+            }
+
+            try
+            {
+                return JsonSerializer.Deserialize<List<string>>(markingsJson);
+            }
+            catch (JsonException)
+            {
+                return null;
+            }
+        }
+
+        private static string? TryParseColor(Dictionary<string, object> markingObj)
+        {
+            if (!markingObj.TryGetValue("marking", out var marking) || marking is not string markingStr)
+                return null;
+
+            if (!markingObj.TryGetValue("color", out var color))
+                return markingStr;
+
+            if (color is string colorStr)
+            {
+                return $"{markingStr}:{colorStr}";
+            }
+            else if (color is JsonElement colorElement && colorElement.ValueKind == JsonValueKind.Array)
+            {
+                var colors = ParseColorArray(colorElement);
+                if (colors.Length == 0)
+                    return markingStr;
+
+                return $"{markingStr}:{string.Join(",", colors)}";
+            }
+
+            return markingStr;
+        }
+
+        private static string[] ParseColorArray(JsonElement colorArray)
+        {
+            var colors = new List<string>();
+            foreach (var color in colorArray.EnumerateArray())
+            {
+                if (color.ValueKind == JsonValueKind.String)
+                {
+                    colors.Add(color.GetString()!);
+                }
+            }
+            return colors.ToArray();
         }
 
         private static Profile ConvertProfiles(HumanoidCharacterProfile humanoid, int slot, Profile? profile = null)
         {
             profile ??= new Profile();
             var appearance = (HumanoidCharacterAppearance) humanoid.CharacterAppearance;
-            List<string> markingStrings = new();
-            foreach (var marking in appearance.Markings)
-            {
-                markingStrings.Add(marking.ToString());
-            }
-            var markings = JsonSerializer.SerializeToDocument(markingStrings);
+            var markings = JsonSerializer.SerializeToDocument(appearance.Markings);
 
             profile.CharacterName = humanoid.Name;
             profile.FlavorText = humanoid.FlavorText;
             profile.Species = humanoid.Species;
-            profile.Voice = humanoid.Voice; // CorvaxGoob-TTS
+            profile.Voice = humanoid.Voice;
             profile.Age = humanoid.Age;
             profile.Sex = humanoid.Sex.ToString();
             profile.Gender = humanoid.Gender.ToString();
@@ -453,58 +693,53 @@ namespace Content.Server.Database
             profile.Markings = markings;
             profile.Slot = slot;
             profile.PreferenceUnavailable = (DbPreferenceUnavailableMode) humanoid.PreferenceUnavailable;
+            profile.HeadshotUrl = humanoid.HeadshotUrl;
+            profile.OOCNotes = humanoid.OOCNotes ?? string.Empty; // Добавлено: установка OOC заметок
 
+            // Очищаем существующие коллекции
             profile.Jobs.Clear();
-            profile.Jobs.AddRange(
-                humanoid.JobPriorities
-                    .Where(j => j.Value != JobPriority.Never)
-                    .Select(j => new Job { JobName = j.Key, Priority = (DbJobPriority) j.Value })
-            );
-
             profile.Antags.Clear();
-            profile.Antags.AddRange(
-                humanoid.AntagPreferences
-                    .Select(a => new Antag { AntagName = a })
-            );
-
             profile.Traits.Clear();
-            profile.Traits.AddRange(
-                humanoid.TraitPreferences
-                        .Select(t => new Trait { TraitName = t })
-            );
-
-            // CorvaxGoob-Revert : DB conflicts
-            // profile.BarkVoice = humanoid.BarkVoice; // Goob Station - Barks
-
             profile.Loadouts.Clear();
 
-            foreach (var (role, loadouts) in humanoid.Loadouts)
+            // Добавляем новые значения
+            foreach (var job in humanoid.JobPriorities.Where(j => j.Value != JobPriority.Never))
             {
-                var dz = new ProfileRoleLoadout()
+                profile.Jobs.Add(new Job { JobName = job.Key, Priority = (DbJobPriority) job.Value });
+            }
+
+            foreach (var antag in humanoid.AntagPreferences)
+            {
+                profile.Antags.Add(new Antag { AntagName = antag });
+            }
+
+            foreach (var trait in humanoid.TraitPreferences)
+            {
+                profile.Traits.Add(new Trait { TraitName = trait });
+            }
+
+            // Обработка Loadouts
+            foreach (var roleLoadout in humanoid.Loadouts)
+            {
+                var profileRoleLoadout = new ProfileRoleLoadout
                 {
-                    RoleName = role,
-                    EntityName = loadouts.EntityName ?? string.Empty,
+                    RoleName = roleLoadout.Key,
+                    EntityName = roleLoadout.Value.EntityName ?? string.Empty,
+                    Groups = new List<ProfileLoadoutGroup>()
                 };
 
-                foreach (var (group, groupLoadouts) in loadouts.SelectedLoadouts)
+                foreach (var groupLoadout in roleLoadout.Value.SelectedLoadouts)
                 {
-                    var profileGroup = new ProfileLoadoutGroup()
+                    var group = new ProfileLoadoutGroup
                     {
-                        GroupName = group,
+                        GroupName = groupLoadout.Key,
+                        Loadouts = groupLoadout.Value.Select(l => new ProfileLoadout { LoadoutName = l.Prototype }).ToList()
                     };
 
-                    foreach (var loadout in groupLoadouts)
-                    {
-                        profileGroup.Loadouts.Add(new ProfileLoadout()
-                        {
-                            LoadoutName = loadout.Prototype,
-                        });
-                    }
-
-                    dz.Groups.Add(profileGroup);
+                    profileRoleLoadout.Groups.Add(group);
                 }
 
-                profile.Loadouts.Add(dz);
+                profile.Loadouts.Add(profileRoleLoadout);
             }
 
             return profile;
@@ -826,51 +1061,8 @@ namespace Content.Server.Database
             else
             {
                 existing.TokenId = tokenId;
-                if (existing.AntagId != antagId)
-                {
-                    existing.AntagId = antagId;
-                    existing.SelectedAt = DateTime.UtcNow;
-                }
-            }
-
-            await db.DbContext.SaveChangesAsync();
-        }
-
-        public async Task<PlayerGhostRoleTickets?> GetPlayerGhostRoleTickets(Guid playerId, CancellationToken cancel = default)
-        {
-            await using var db = await GetDb(cancel);
-
-            return await db.DbContext.PlayerGhostRoleTickets
-                .SingleOrDefaultAsync(t => t.PlayerId == playerId, cancel);
-        }
-
-        public async Task UpsertPlayerGhostRoleTickets(PlayerGhostRoleTickets tickets)
-        {
-            await using var db = await GetDb();
-
-            var existing = await db.DbContext.PlayerGhostRoleTickets
-                .SingleOrDefaultAsync(t => t.PlayerId == tickets.PlayerId);
-
-            if (existing == null)
-            {
-                db.DbContext.PlayerGhostRoleTickets.Add(new PlayerGhostRoleTickets
-                {
-                    PlayerId = tickets.PlayerId,
-                    Tickets = tickets.Tickets,
-                    LastGrantTime = tickets.LastGrantTime,
-                    TicketMilestones = tickets.TicketMilestones,
-                    StreakMilestones = tickets.StreakMilestones,
-                    CreatedAt = DateTime.UtcNow,
-                    UpdatedAt = DateTime.UtcNow
-                });
-            }
-            else
-            {
-                existing.Tickets = tickets.Tickets;
-                existing.LastGrantTime = tickets.LastGrantTime;
-                existing.TicketMilestones = tickets.TicketMilestones;
-                existing.StreakMilestones = tickets.StreakMilestones;
-                existing.UpdatedAt = DateTime.UtcNow;
+                existing.AntagId = antagId;
+                existing.SelectedAt = DateTime.UtcNow;
             }
 
             await db.DbContext.SaveChangesAsync();
@@ -2231,4 +2423,3 @@ INSERT INTO player_round (players_id, rounds_id) VALUES ({players[player]}, {id}
         }
     }
 }
-

@@ -22,6 +22,7 @@
 using Content.Goobstation.Maths.FixedPoint;
 using Content.Shared._CorvaxGoob.Events;
 using Content.Shared._CorvaxGoob.Events.StatusEffects;
+using Content.Shared._FreakyStation.Psionics;
 using Content.Shared.Heretic.Prototypes; // Goob
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
@@ -135,6 +136,9 @@ public partial class ListingData : IEquatable<ListingData>, ICloneable
     public ProtoId<HereticKnowledgePrototype>? ProductHereticKnowledge;
 
     [DataField]
+    public PsionicAbility? ProductPsionicAbility;
+
+    [DataField]
     public bool RaiseProductEventOnUser;
 
     /// <summary>
@@ -199,6 +203,7 @@ public partial class ListingData : IEquatable<ListingData>, ICloneable
             Description != listing.Description ||
             ProductEntity != listing.ProductEntity ||
             ProductAction != listing.ProductAction ||
+            ProductPsionicAbility != listing.ProductPsionicAbility ||
             RaiseProductEventOnUser != listing.RaiseProductEventOnUser || // Goobstation
             DisableRefund != listing.DisableRefund || // Goobstation
             ResetRestockOnPurchase != listing.ResetRestockOnPurchase || // Goobstation
@@ -255,6 +260,7 @@ public partial class ListingData : IEquatable<ListingData>, ICloneable
             ProductEvent = ProductEvent,
             RaiseProductEventOnUser = RaiseProductEventOnUser, // goob edit
             ProductHereticKnowledge = ProductHereticKnowledge, // goob edit
+            ProductPsionicAbility = ProductPsionicAbility,
             DisableRefund = DisableRefund, // goob edit
             BlockRefundListings = BlockRefundListings, // goob edit
             ResetRestockOnPurchase = ResetRestockOnPurchase, // goob edit

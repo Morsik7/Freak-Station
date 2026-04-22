@@ -124,6 +124,7 @@
 using Content.Client._durkcode.ServerCurrency;
 using Content.Client._RMC14.LinkAccount;
 CorvaxGoob-Coins-end */
+using Content.Client._Nuclear.Administration.ScreenCheck;
 using Content.Client.Administration.Managers;
 using Content.Client.Changelog;
 using Content.Client.Chat.Managers;
@@ -134,7 +135,6 @@ using Content.Client.Fullscreen;
 using Content.Client.GameTicking.Managers;
 using Content.Client.GhostKick;
 using Content.Client.Guidebook;
-using Content.Client._Mini.CharacterBlock;
 using Content.Client.Launcher;
 using Content.Client.Mapping;
 using Content.Client.Parallax.Managers;
@@ -168,6 +168,7 @@ namespace Content.Client.IoC
             collection.Register<IClientPreferencesManager, ClientPreferencesManager>();
             collection.Register<IStylesheetManager, StylesheetManager>();
             collection.Register<IScreenshotHook, ScreenshotHook>();
+            collection.Register<ScreenCheckClientManager>();
             collection.Register<FullscreenHook, FullscreenHook>();
             collection.Register<IClickMapManager, ClickMapManager>();
             collection.Register<IClientAdminManager, ClientAdminManager>();
@@ -193,7 +194,6 @@ namespace Content.Client.IoC
             collection.Register<LinkAccountManager>(); // RMC14
             CorvaxGoob-Coins-end */
             collection.Register<ClientsidePlaytimeTrackingManager>();
-            collection.Register<CharacterBlockManager>(); // edit
         }
     }
 }

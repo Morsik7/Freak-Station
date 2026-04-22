@@ -28,7 +28,7 @@ public sealed partial class NavMapBeaconComponent : Component
     /// Used so that mappers can still override Text while mapping.
     /// </summary>
     [DataField]
-    public string? DefaultText; //CorvaxGoob-EditableText
+    public LocId? DefaultText;
 
     [DataField, AutoNetworkedField]
     public Color Color = Color.Orange;

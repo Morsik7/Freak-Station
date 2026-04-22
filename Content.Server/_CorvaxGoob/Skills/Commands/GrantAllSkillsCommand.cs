@@ -1,22 +1,22 @@
-using System.Linq;
 using Content.Server.Administration;
 using Content.Shared.Administration;
-using Content.Shared.Mind;
-using Content.Shared.Mind.Components;
 using Robust.Shared.Console;
 
 namespace Content.Server._CorvaxGoob.Skills.Commands;
 
 [AdminCommand(AdminFlags.Admin)]
-public sealed class GrantAllSkillsCommand : LocalizedEntityCommands
+public sealed class GrantAllSkillsCommand : IConsoleCommand
 {
     [Dependency] private readonly ILocalizationManager _localization = default!;
-    [Dependency] private readonly SharedMindSystem _mind = default!;
-    [Dependency] private readonly SkillsSystem _skills = default!;
+    [Dependency] private readonly IEntityManager _entity = default!;
 
-    public override string Command => "grantallskills";
+    public string Command => "grantallskills";
 
-    public override void Execute(IConsoleShell shell, string arg, string[] args)
+    public string Description => "Grants all skills to given entity.";
+
+    public string Help => "grantallskills <entityuid>";
+
+    public void Execute(IConsoleShell shell, string arg, string[] args)
     {
         if (args.Length != 1)
         {
@@ -30,31 +30,12 @@ public sealed class GrantAllSkillsCommand : LocalizedEntityCommands
             return;
         }
 
-        if (!EntityManager.TryGetEntity(id, out var entity))
+        if (!_entity.TryGetEntity(id, out var entity))
         {
             shell.WriteError(_localization.GetString("shell-invalid-entity-id"));
             return;
         }
 
-        if (!_mind.TryGetMind(entity.Value, out _, out _))
-        {
-            shell.WriteError(_localization.GetString("shell-invalid-entity-id"));
-            return;
-        }
-
-        _skills.GrantAllSkills(entity.Value);
-    }
-
-    public override CompletionResult GetCompletion(IConsoleShell shell, string[] args)
-    {
-        if (args.Length == 1)
-        {
-            return CompletionResult.FromHintOptions(
-                CompletionHelper.Components<MindContainerComponent>(args[0], EntityManager, 1000).Where(option =>
-                !EntityManager.HasComponent<MindComponent>(new EntityUid(int.Parse(option.Value))) &&
-                EntityManager.GetComponent<MindContainerComponent>(new EntityUid(int.Parse(option.Value))).HasMind),
-                _localization.GetString("shell-argument-net-entity"));
-        }
-        return CompletionResult.Empty;
+        _entity.System<SkillsSystem>().GrantAllSkills(entity.Value);
     }
 }

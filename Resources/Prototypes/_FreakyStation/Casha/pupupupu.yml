@@ -166,6 +166,7 @@
   userWithoutCloth: true
   useSelf: true
   targetWithoutCloth: false
+  penetrative: true
   arousalDelta: 20
 
 - type: interaction
@@ -223,6 +224,7 @@
   userWithoutCloth: true
   useSelf: true
   targetWithoutCloth: false
+  penetrative: true
   arousalDelta: 25
 
 - type: interaction
@@ -259,6 +261,7 @@
   userWithoutCloth: true
   useSelf: true
   targetWithoutCloth: false
+  penetrative: true
   arousalDelta: 20
 
 - type: interaction
@@ -312,6 +315,7 @@
   targetSex: Female
   userWithoutCloth: false
   targetWithoutCloth: true
+  penetrative: true
   arousalDelta: 15
 #Мужчина с женщиной
 - type: interaction
@@ -330,6 +334,7 @@
   targetSex: Unsexed
   userWithoutCloth: true
   targetWithoutCloth: true
+  penetrative: true
   arousalDelta: 20
 
 - type: interaction
@@ -348,6 +353,7 @@
   targetSex: Female
   userWithoutCloth: true
   targetWithoutCloth: true
+  penetrative: true
   arousalDelta: 20
 - type: interaction
   id: ERPminetM
@@ -365,6 +371,7 @@
   targetSex: Unsexed
   userWithoutCloth: true
   targetWithoutCloth: false
+  penetrative: true
   arousalDelta: 20
   
 - type: interaction

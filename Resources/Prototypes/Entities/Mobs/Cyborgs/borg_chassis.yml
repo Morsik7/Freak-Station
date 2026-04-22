@@ -47,7 +47,7 @@
   parent: BaseBorgChassisNT
   components:
   - type: TTS # CorvaxGoob-TTS
-    voice: Robot
+    voice: TrainingRobot
   - type: Sprite
     layers:
     - state: robot
@@ -141,16 +141,6 @@
     selectedBorgType: service
   - type: BorgSwitchableSubtype # Goobstation
     borgSubtype: default_service
-
-- type: entity
-  id: BorgChassisSecurity
-  parent: BorgChassisSelectable
-  name: security cyborg
-  components:
-  - type: BorgSwitchableType
-    selectedBorgType: security
-  - type: BorgSwitchableSubtype # Goobstation
-    borgSubtype: security_default
 
 - type: entity
   id: BorgChassisSyndicateAssault

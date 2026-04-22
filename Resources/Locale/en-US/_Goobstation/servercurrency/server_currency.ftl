@@ -64,15 +64,21 @@ gs-balanceui-shop-footer = ⚠ Ahelp to use your token. Only 1 use per day.
 gs-balanceui-shop-token-label = Tokens
 gs-balanceui-shop-tittle-label = Titles
 
-gs-balanceui-shop-buy-token-antag = Buy an Antag Token - {$price} Goob Coins
+gs-balanceui-shop-buy-token-antag-high = Buy a High Tier Antag Token - {$price} Goob Coins
+gs-balanceui-shop-buy-token-antag-mid = Buy a Mid Tier Antag Token - {$price} Goob Coins
+gs-balanceui-shop-buy-token-antag-low = Buy a Low Tier Antag Token - {$price} Goob Coins
 gs-balanceui-shop-buy-token-admin-abuse = Buy an Admin Abuse Token - {$price} Goob Coins
 gs-balanceui-shop-buy-token-hat = Buy a Hat Token - {$price} Goob Coins
 
-gs-balanceui-shop-token-antag = High Tier Antag Token
+gs-balanceui-shop-token-antag-high = High Tier Antag Token
+gs-balanceui-shop-token-antag-mid = Mid Tier Antag Token
+gs-balanceui-shop-token-antag-low = Low Tier Antag Token
 gs-balanceui-shop-token-admin-abuse = Admin Abuse Token
 gs-balanceui-shop-token-hat = Hat Token
 
-gs-balanceui-shop-buy-token-antag-desc = Allows you become any antag. (Excluding Wizards)
+gs-balanceui-shop-buy-token-antag-high-desc = Allows a high-tier antag roll. (Excluding Wizards)
+gs-balanceui-shop-buy-token-antag-mid-desc = Allows a mid-tier antag roll.
+gs-balanceui-shop-buy-token-antag-low-desc = Allows a low-tier antag roll.
 gs-balanceui-shop-buy-token-admin-abuse-desc = Allows you to request an admin to abuse their powers against you. Admins are encouraged to go wild.
 gs-balanceui-shop-buy-token-hat-desc = An admin will give you a random hat.
 
@@ -80,8 +86,29 @@ gs-balanceui-admin-add-label = Add (or subtract) money:
 gs-balanceui-admin-add-player = Player name
 gs-balanceui-admin-add-value = Value
 
-gs-balanceui-remark-token-antag = Bought an antag token.
+gs-balanceui-remark-token-antag-high = Bought a high tier antag token.
+gs-balanceui-remark-token-antag-mid = Bought a mid tier antag token.
+gs-balanceui-remark-token-antag-low = Bought a low tier antag token.
 gs-balanceui-remark-token-admin-abuse = Bought an admin abuse token.
 gs-balanceui-remark-token-hat = Bought a hat token.
 gs-balanceui-shop-click-confirm = Click again to confirm
 gs-balanceui-shop-purchased = Purchased {$item}
+gs-balanceui-roulette-label = Freaky Coin Roulette
+gs-balanceui-roulette-open = Open roulette
+gs-balanceui-roulette-bet = Bet
+gs-balanceui-roulette-spin = Spin
+gs-balanceui-roulette-balance = Balance: {$balance}
+gs-balanceui-roulette-spinning = Spinning...
+gs-balanceui-roulette-invalid-bet = Enter a valid bet (integer not less than {$min}).
+gs-balanceui-roulette-mode-mult = Coefficient modes
+gs-balanceui-roulette-mode-x2 = x2
+gs-balanceui-roulette-mode-x5 = x5
+gs-balanceui-roulette-mode-x10 = x10
+gs-balanceui-roulette-mode-selected = Mode: {$mode} | Win chance: {$chance}% | Multiplier: x{$multiplier}
+gs-balanceui-roulette-fast-spin = Fast spin
+gs-balanceui-roulette-result-lose = Roulette: x{$multiplier}. You lost {$bet}.
+gs-balanceui-roulette-result-win = Roulette: x{$multiplier}. Bet {$bet} -> payout {$payout}.
+gs-roulette-jackpot-notify = {$player} hit the x10 JACKPOT and won {$amount}! Total coins deposited into roulette server-wide: {$pot}.
+gs-roulette-busted-notify = {$player} lost all their Freaky Coins in roulette.
+gs-roulette-round-end-lost = Coins lost in roulette this round: {$amount}.
+gs-roulette-station-report-lost = Roulette: coins lost this round {$amount}.

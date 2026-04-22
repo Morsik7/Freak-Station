@@ -37,8 +37,7 @@ public sealed partial class CharacterPickerButton : ContainerButton
         IPrototypeManager prototypeManager,
         ButtonGroup group,
         ICharacterProfile profile,
-        bool isSelected,
-        bool wasInRound) //  edit
+        bool isSelected)
     {
         RobustXamlLoader.Load(this);
         _entManager = entityManager;
@@ -82,13 +81,6 @@ public sealed partial class CharacterPickerButton : ContainerButton
             DeleteButton.Visible = false;
             ConfirmDeleteButton.Visible = true;
         };
-
-        //  edit start
-        if (wasInRound)
-        {
-            AvailableIndicator.BackgroundPanelColor = Color.FromHex("#EE204D");
-        }
-        //  edit end
     }
 
     protected override void Dispose(bool disposing)

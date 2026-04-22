@@ -150,6 +150,19 @@
 - type: entity
   parent: BaseUplinkRadio
   # Goobstation - Telecrystal rework
+  id: BaseUplinkOpsRadio100TC
+  suffix: 100 TC, Nukeops Deathmatch #(LoneOps suffix Removed)
+  components:
+  - type: Store
+    balance:
+      Telecrystal: 100
+  - type: Tag
+    tags:
+    - NukeOpsUplink
+
+- type: entity
+  parent: BaseUplinkRadio
+  # Goobstation - Telecrystal rework
   id: BaseUplinkRadio125TC
   suffix: 60 TC
   components:

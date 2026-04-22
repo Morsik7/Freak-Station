@@ -56,9 +56,11 @@
   - SeedExtractorMachineCircuitboard
   - HydroponicsTrayMachineCircuitboard
   - ReagentGrinderIndustrialMachineCircuitboard
+  - ADTBotanicalSeedDNAManipulatorCircuitboard
   # Goobstation R&D Console rework start
   position: -3,4
   technologyPrerequisites:
+  #ADT-Tweak-Start
   - AdvancedEntertainment
   # Goobstation R&D Console rework end
 

@@ -1,4 +1,5 @@
 // SPDX-FileCopyrightText: 2019 CatTheSystem <pogorelov950@gmail.com>
+// SPDX-FileCopyrightText: 2026 Casha
 // SPDX-FileCopyrightText: 2019 Peter Wedder <burneddi@gmail.com>
 // SPDX-FileCopyrightText: 2019 Pieter-Jan Briers <pieterjan.briers@gmail.com>
 // SPDX-FileCopyrightText: 2019 Remie Richards <remierichards@gmail.com>
@@ -149,7 +150,6 @@ using Robust.Client.UserInterface;
 using Robust.Client.UserInterface.Controls;
 using Robust.Client.UserInterface.CustomControls;
 using static Robust.Client.UserInterface.StylesheetHelpers;
-using Content.Client.Stylesheets;
 
 namespace Content.Client.Stylesheets
 {
@@ -253,7 +253,7 @@ namespace Content.Client.Stylesheets
         public const string StyleClassPopupMessageMediumCaution = "PopupMessageMediumCaution";
         public const string StyleClassPopupMessageLarge = "PopupMessageLarge";
         public const string StyleClassPopupMessageLargeCaution = "PopupMessageLargeCaution";
-        public const string StyleClassLobbyBackground = "LobbyBackground";
+
         public static readonly Color PanelDark = Color.FromHex("#1E1E22");
 
         public static readonly Color NanoGold = Color.FromHex("#A88B5E");
@@ -262,12 +262,12 @@ namespace Content.Client.Stylesheets
         public static readonly Color DangerousRedFore = Color.FromHex("#BB3232");
         public static readonly Color DisabledFore = Color.FromHex("#5A5A5A");
 
-        public static readonly Color ButtonColorDefault = Color.FromHex("#464966");
+        public static readonly Color ButtonColorDefault = Color.FromHex("#353745");
         public static readonly Color ButtonColorDefaultRed = Color.FromHex("#D43B3B");
-        public static readonly Color ButtonColorHovered = Color.FromHex("#575b7f");
+        public static readonly Color ButtonColorHovered = Color.FromHex("#404354");
         public static readonly Color ButtonColorHoveredRed = Color.FromHex("#DF6B6B");
-        public static readonly Color ButtonColorPressed = Color.FromHex("#3e6c45");
-        public static readonly Color ButtonColorDisabled = Color.FromHex("#30313c");
+        public static readonly Color ButtonColorPressed = Color.FromHex("#2F313E");
+        public static readonly Color ButtonColorDisabled = Color.FromHex("#2A2B36");
 
         public static readonly Color ButtonColorCautionDefault = Color.FromHex("#ab3232");
         public static readonly Color ButtonColorCautionHovered = Color.FromHex("#cf2f2f");
@@ -284,15 +284,15 @@ namespace Content.Client.Stylesheets
         public static readonly Color PointMagenta = Color.FromHex("#FF00FF");
 
         // Context menu button colors
-        public static readonly Color ButtonColorContext = Color.FromHex("#2d3341d9");
-        public static readonly Color ButtonColorContextHover = Color.FromHex("#2d2e33");
-        public static readonly Color ButtonColorContextPressed = Color.FromHex("#404352");
+        public static readonly Color ButtonColorContext = Color.FromHex("#1A2233D9");
+        public static readonly Color ButtonColorContextHover = Color.FromHex("#36394A");
+        public static readonly Color ButtonColorContextPressed = Color.FromHex("#42465A");
         public static readonly Color ButtonColorContextDisabled = Color.Black;
 
         // Examine button colors
         public static readonly Color ExamineButtonColorContext = Color.Transparent;
-        public static readonly Color ExamineButtonColorContextHover = Color.DarkSlateGray;
-        public static readonly Color ExamineButtonColorContextPressed = Color.LightSlateGray;
+        public static readonly Color ExamineButtonColorContextHover = Color.FromHex("#36394A");
+        public static readonly Color ExamineButtonColorContextPressed = Color.FromHex("#42465A");
         public static readonly Color ExamineButtonColorContextDisabled = Color.FromHex("#5A5A5A");
 
         // Fancy Tree elements
@@ -329,7 +329,7 @@ namespace Content.Client.Stylesheets
 
         public StyleNano(IResourceCache resCache, Color? accentColor = null) : base(resCache)
         {
-            var accent = accentColor ?? Color.FromHex("#8f8569c3");
+            var accent = accentColor ?? Color.FromHex("#7FB7FF");
             var accentGray = (byte) (accent.R * 0.299f + accent.G * 0.587f + accent.B * 0.114f);
             var neutralAccent = new Color(accentGray, accentGray, accentGray);
             var tonedAccent = Color.InterpolateBetween(accent, neutralAccent, 0.35f);
@@ -342,6 +342,20 @@ namespace Content.Client.Stylesheets
                     tonedMix = 0.75f;
                 return Color.InterpolateBetween(original, tonedAccent, tonedMix).WithAlpha(alpha);
             }
+
+            var legacyWindowTint = Accent("#353A43F2", 0.26f);
+            var legacyBorderedWindowTint = Accent("#404651F2", 0.30f);
+            var legacyTransparentWindowTint = Accent("#2A3240CC", 0.42f);
+            var legacyContextMenuTint = Accent("#2F3744F2", 0.34f);
+            var legacyInventoryTint = Accent("#4B5360F2", 0.20f);
+            var legacyHighlightTint = Accent("#AFC9FFF2", 0.62f);
+            var legacySearchTint = Accent("#252B33F2", 0.28f);
+            var legacyTabTint = Accent("#3A404AF2", 0.24f);
+            var legacyTooltipTint = Accent("#343B46F2", 0.22f);
+            var legacyWhisperTint = Accent("#2E3540F2", 0.22f);
+            var legacyListTint = Accent("#39414CF2", 0.22f);
+            var legacyHeadingTint = Accent("#313A45F2", 0.28f);
+            var legacyStripeTint = Accent("#29313CF2", 0.32f);
 
             var notoSans8 = resCache.NotoStack(size: 8);
             var notoSans10 = resCache.NotoStack(size: 10);
@@ -383,6 +397,7 @@ namespace Content.Client.Stylesheets
             var windowBackground = new StyleBoxTexture
             {
                 Texture = windowBackgroundTex,
+                Modulate = legacyWindowTint,
             };
             windowBackground.SetPatchMargin(StyleBox.Margin.Horizontal | StyleBox.Margin.Bottom, 2);
             windowBackground.SetExpandMargin(StyleBox.Margin.Horizontal | StyleBox.Margin.Bottom, 2);
@@ -391,12 +406,14 @@ namespace Content.Client.Stylesheets
             var borderedWindowBackground = new StyleBoxTexture
             {
                 Texture = borderedWindowBackgroundTex,
+                Modulate = legacyBorderedWindowTint,
             };
             borderedWindowBackground.SetPatchMargin(StyleBox.Margin.All, 2);
 
             var contextMenuBackground = new StyleBoxTexture
             {
                 Texture = borderedWindowBackgroundTex,
+                Modulate = legacyContextMenuTint,
             };
             contextMenuBackground.SetPatchMargin(StyleBox.Margin.All, ContextMenuElement.ElementMargin);
 
@@ -404,6 +421,7 @@ namespace Content.Client.Stylesheets
             var invSlotBg = new StyleBoxTexture
             {
                 Texture = invSlotBgTex,
+                Modulate = legacyInventoryTint,
             };
             invSlotBg.SetPatchMargin(StyleBox.Margin.All, 2);
             invSlotBg.SetContentMarginOverride(StyleBox.Margin.All, 0);
@@ -412,6 +430,7 @@ namespace Content.Client.Stylesheets
             var handSlotHighlight = new StyleBoxTexture
             {
                 Texture = handSlotHighlightTex,
+                Modulate = legacyHighlightTint,
             };
             handSlotHighlight.SetPatchMargin(StyleBox.Margin.All, 2);
 
@@ -419,6 +438,7 @@ namespace Content.Client.Stylesheets
             var borderedTransparentWindowBackground = new StyleBoxTexture
             {
                 Texture = borderedTransparentWindowBackgroundTex,
+                Modulate = legacyTransparentWindowTint,
             };
             borderedTransparentWindowBackground.SetPatchMargin(StyleBox.Margin.All, 2);
 
@@ -436,17 +456,6 @@ namespace Content.Client.Stylesheets
             buttonStorage.SetContentMarginOverride(StyleBox.Margin.Horizontal, 4);
 
             var buttonContext = new StyleBoxTexture { Texture = Texture.White };
-
-            var backgroundTex = resCache.GetTexture("/Textures/Interface/Nano/lobby_b.png");
-            var background = new StyleBoxTexture
-            {
-                Texture = backgroundTex,
-                Mode = StyleBoxTexture.StretchMode.Tile
-            };
-
-            background.SetPatchMargin(StyleBox.Margin.All, 24);
-            background.SetExpandMargin(StyleBox.Margin.All, -4);
-            background.SetContentMarginOverride(StyleBox.Margin.All, 8);
 
             var buttonRectTex = resCache.GetTexture("/Textures/Interface/Nano/light_panel_background_bordered.png");
             var buttonRect = new StyleBoxTexture(BaseButton)
@@ -580,6 +589,7 @@ namespace Content.Client.Stylesheets
             var actionSearchBox = new StyleBoxTexture
             {
                 Texture = actionSearchBoxTex,
+                Modulate = legacySearchTint,
             };
             actionSearchBox.SetPatchMargin(StyleBox.Margin.All, 3);
             actionSearchBox.SetContentMarginOverride(StyleBox.Margin.Horizontal, 5);
@@ -588,6 +598,7 @@ namespace Content.Client.Stylesheets
             var tabContainerPanel = new StyleBoxTexture
             {
                 Texture = tabContainerPanelTex,
+                Modulate = legacyTabTint,
             };
             tabContainerPanel.SetPatchMargin(StyleBox.Margin.All, 2);
 
@@ -668,6 +679,7 @@ namespace Content.Client.Stylesheets
             var tooltipBox = new StyleBoxTexture
             {
                 Texture = tooltipTexture,
+                Modulate = legacyTooltipTint,
             };
             tooltipBox.SetPatchMargin(StyleBox.Margin.All, 2);
             tooltipBox.SetContentMarginOverride(StyleBox.Margin.Horizontal, 7);
@@ -677,6 +689,7 @@ namespace Content.Client.Stylesheets
             var whisperBox = new StyleBoxTexture
             {
                 Texture = whisperTexture,
+                Modulate = legacyWhisperTint,
             };
             whisperBox.SetPatchMargin(StyleBox.Margin.All, 2);
             whisperBox.SetContentMarginOverride(StyleBox.Margin.Horizontal, 7);
@@ -705,6 +718,7 @@ namespace Content.Client.Stylesheets
             var listContainerButton = new StyleBoxTexture
             {
                 Texture = squareTex,
+                Modulate = legacyListTint,
                 ContentMarginLeftOverride = 10
             };
 
@@ -713,6 +727,7 @@ namespace Content.Client.Stylesheets
             var nanoHeadingBox = new StyleBoxTexture
             {
                 Texture = nanoHeadingTex,
+                Modulate = legacyHeadingTint,
                 PatchMarginRight = 10,
                 PatchMarginTop = 10,
                 ContentMarginTopOverride = 2,
@@ -727,6 +742,7 @@ namespace Content.Client.Stylesheets
             var stripeBack = new StyleBoxTexture
             {
                 Texture = stripeBackTex,
+                Modulate = legacyStripeTint,
                 Mode = StyleBoxTexture.StretchMode.Tile
             };
 
@@ -793,13 +809,12 @@ namespace Content.Client.Stylesheets
             var directionIconQuestionTex = resCache.GetTexture("/Textures/Interface/VerbIcons/information.svg.192dpi.png");
             var directionIconHereTex = resCache.GetTexture("/Textures/Interface/VerbIcons/dot.svg.192dpi.png");
 
-            // Liquid glass global overrides - More transparent, slightly lighter, no borders on buttons
-
+            // Liquid glass global overrides for XAML-heavy client UI.
             var glassWindowPanel = new StyleBoxFlat
             {
-                BackgroundColor = Accent("#14141CCC", 0.06f),      // было 0.10
-                BorderColor = Accent("#5A5A6E88", 0.42f),          // было 0.48
-                BorderThickness = new Thickness(0),
+                BackgroundColor = Accent("#162235CC", 0.22f),
+                BorderColor = Accent("#9FBCE766", 0.50f),
+                BorderThickness = new Thickness(1),
                 Padding = new Thickness(2),
                 ContentMarginLeftOverride = 6,
                 ContentMarginTopOverride = 6,
@@ -809,9 +824,9 @@ namespace Content.Client.Stylesheets
 
             var glassWindowHeader = new StyleBoxFlat
             {
-                BackgroundColor = Accent("#22222AD9", 0.18f),      // было 0.24
-                BorderColor = Accent("#6A6A8099", 0.46f),          // было 0.52
-                BorderThickness = new Thickness(0, 0, 0, 2),
+                BackgroundColor = Accent("#274765D9", 0.46f),
+                BorderColor = Accent("#C0D8FF7F", 0.55f),
+                BorderThickness = new Thickness(0, 0, 0, 1),
                 Padding = new Thickness(2),
                 ContentMarginLeftOverride = 3,
                 ContentMarginTopOverride = 1,
@@ -819,11 +834,11 @@ namespace Content.Client.Stylesheets
                 ContentMarginBottomOverride = 1,
             };
 
-            // Кнопки БЕЗ границ
             var glassButtonNormal = new StyleBoxFlat
             {
-                BackgroundColor = Accent("#20202ACC", 0.16f),      // было 0.22
-                BorderThickness = new Thickness(0),
+                BackgroundColor = Accent("#264767CC", 0.44f),
+                BorderColor = Accent("#D6E8FF7A", 0.58f),
+                BorderThickness = new Thickness(1),
                 Padding = new Thickness(2),
                 ContentMarginLeftOverride = 10,
                 ContentMarginTopOverride = 2,
@@ -833,25 +848,27 @@ namespace Content.Client.Stylesheets
 
             var glassButtonHover = new StyleBoxFlat(glassButtonNormal)
             {
-                BackgroundColor = Accent("#30303CCC", 0.24f),      // было 0.30
+                BackgroundColor = Accent("#35689ACC", 0.52f),
+                BorderColor = Accent("#E7F0FFAA", 0.60f),
             };
 
             var glassButtonPressed = new StyleBoxFlat(glassButtonNormal)
             {
-                BackgroundColor = Accent("#181822E6", 0.12f),      // было 0.18
+                BackgroundColor = Accent("#1B3855E6", 0.42f),
+                BorderColor = Accent("#95C6FF99", 0.56f),
             };
 
             var glassButtonDisabled = new StyleBoxFlat(glassButtonNormal)
             {
-                BackgroundColor = Accent("#14141C8A", 0.08f),      // было 0.14
+                BackgroundColor = Accent("#1D25328A", 0.30f),
+                BorderColor = Accent("#7A8DAF66", 0.42f),
             };
 
-            // Поля ввода
             var glassLineEdit = new StyleBoxFlat
             {
-                BackgroundColor = Accent("#12121CCF", 0.06f),      // было 0.10
-                BorderColor = Accent("#60607888", 0.42f),          // было 0.48
-                BorderThickness = new Thickness(0),
+                BackgroundColor = Accent("#101B2ACF", 0.20f),
+                BorderColor = Accent("#A4C2EA66", 0.55f),
+                BorderThickness = new Thickness(1),
                 Padding = new Thickness(2),
                 ContentMarginLeftOverride = 6,
                 ContentMarginTopOverride = 2,
@@ -859,12 +876,11 @@ namespace Content.Client.Stylesheets
                 ContentMarginBottomOverride = 2,
             };
 
-            // Вкладки БЕЗ границ
             var glassTabActive = new StyleBoxFlat
             {
-                BackgroundColor = Accent("#323240D9", 0.24f),      // было 0.32
-                BorderThickness = new Thickness(0),
-                Padding = new Thickness(1),
+                BackgroundColor = Accent("#31557ED9", 0.50f),
+                BorderColor = Accent("#D8EAFF99", 0.58f),
+                BorderThickness = new Thickness(1),
                 ContentMarginLeftOverride = 6,
                 ContentMarginTopOverride = 3,
                 ContentMarginRightOverride = 6,
@@ -873,24 +889,24 @@ namespace Content.Client.Stylesheets
 
             var glassTabInactive = new StyleBoxFlat(glassTabActive)
             {
-                BackgroundColor = Accent("#1A1A24B3", 0.12f),      // было 0.18
+                BackgroundColor = Accent("#1A2A3FB3", 0.38f),
+                BorderColor = Accent("#91ABC766", 0.50f),
             };
 
             var glassTabPanel = new StyleBoxFlat
             {
-                BackgroundColor = Accent("#101018C0", 0.08f),      // было 0.12
-                BorderColor = Accent("#55556C88", 0.40f),          // было 0.46
-                BorderThickness = new Thickness(0),
-                Padding = new Thickness(1),
+                BackgroundColor = Accent("#0F1A2BC0", 0.30f),
+                BorderColor = Accent("#7FA4CC66", 0.52f),
+                BorderThickness = new Thickness(1),
+                Padding = new Thickness(2),
             };
 
-            // Поверхности
             var glassSurfaceDark = new StyleBoxFlat
             {
-                BackgroundColor = Accent("#24242fe7", 0.06f),      // было 0.10
-                BorderColor = Accent("#4A4A6088", 0.38f),          // было 0.44
-                BorderThickness = new Thickness(0),
-                Padding = new Thickness(1),
+                BackgroundColor = Accent("#101A29CC", 0.28f),
+                BorderColor = Accent("#86A8CF66", 0.52f),
+                BorderThickness = new Thickness(1),
+                Padding = new Thickness(2),
                 ContentMarginLeftOverride = 4,
                 ContentMarginTopOverride = 4,
                 ContentMarginRightOverride = 4,
@@ -899,16 +915,16 @@ namespace Content.Client.Stylesheets
 
             var glassSurfaceMid = new StyleBoxFlat(glassSurfaceDark)
             {
-                BackgroundColor = Accent("#181824CE", 0.10f),      // было 0.16
-                BorderColor = Accent("#60607899", 0.42f),          // было 0.48
+                BackgroundColor = Accent("#18263ACE", 0.36f),
+                BorderColor = Accent("#A8C6E87A", 0.56f),
             };
 
             var glassHeadingSurface = new StyleBoxFlat
             {
-                BackgroundColor = Accent("#2A2A38D9", 0.26f),      // было 0.34
-                BorderColor = Accent("#7A7A9099", 0.46f),          // было 0.52
-                BorderThickness = new Thickness(0),
-                Padding = new Thickness(1),
+                BackgroundColor = Accent("#2A4A6FD9", 0.56f),
+                BorderColor = Accent("#D2E5FF88", 0.60f),
+                BorderThickness = new Thickness(1),
+                Padding = new Thickness(2),
                 ContentMarginLeftOverride = 6,
                 ContentMarginTopOverride = 2,
                 ContentMarginRightOverride = 6,
@@ -917,17 +933,15 @@ namespace Content.Client.Stylesheets
 
             var glassListBackground = new StyleBoxFlat
             {
-                BackgroundColor = Accent("#11111ad5", 0.04f),      // было 0.08
-                BorderColor = Accent("#4A4A6088", 0.38f),          // было 0.44
-                BorderThickness = new Thickness(0),
+                BackgroundColor = Accent("#0E1B2DC4", 0.30f),
+                BorderColor = Accent("#7EA6D066", 0.50f),
+                BorderThickness = new Thickness(1),
                 Padding = new Thickness(2),
             };
 
             var glassListItem = new StyleBoxFlat
             {
-                BackgroundColor = Accent("#161620BF", 0.10f),      // было 0.16
-                BorderThickness = new Thickness(0),
-                Padding = new Thickness(2),
+                BackgroundColor = Accent("#1A2D45BF", 0.40f),
                 ContentMarginLeftOverride = 4,
                 ContentMarginTopOverride = 1,
                 ContentMarginRightOverride = 4,
@@ -936,9 +950,9 @@ namespace Content.Client.Stylesheets
 
             var glassListItemSelected = new StyleBoxFlat
             {
-                BackgroundColor = Accent("#3A3A4CD9", 0.32f),      // было 0.40
-                BorderThickness = new Thickness(0),
-                Padding = new Thickness(2),
+                BackgroundColor = Accent("#3A6EA4D9", 0.58f),
+                BorderColor = Accent("#D7EAFF99", 0.60f),
+                BorderThickness = new Thickness(1),
                 ContentMarginLeftOverride = 4,
                 ContentMarginTopOverride = 1,
                 ContentMarginRightOverride = 4,
@@ -947,9 +961,7 @@ namespace Content.Client.Stylesheets
 
             var glassTreeEven = new StyleBoxFlat
             {
-                BackgroundColor = Accent("#12121AB5", 0.08f),      // было 0.14
-                BorderThickness = new Thickness(0),
-                Padding = new Thickness(2),
+                BackgroundColor = Accent("#17273AB5", 0.36f),
                 ContentMarginLeftOverride = 2,
                 ContentMarginTopOverride = 1,
                 ContentMarginRightOverride = 2,
@@ -958,14 +970,14 @@ namespace Content.Client.Stylesheets
 
             var glassTreeOdd = new StyleBoxFlat(glassTreeEven)
             {
-                BackgroundColor = Accent("#1A1A24B8", 0.12f),      // было 0.18
+                BackgroundColor = Accent("#1D3048B8", 0.40f),
             };
 
             var glassTreeSelected = new StyleBoxFlat(glassTreeEven)
             {
-                BackgroundColor = Accent("#343448D9", 0.34f),      // было 0.42
-                BorderThickness = new Thickness(0),
-                Padding = new Thickness(2),
+                BackgroundColor = Accent("#3C72A8D9", 0.60f),
+                BorderColor = Accent("#D8ECFF9A", 0.62f),
+                BorderThickness = new Thickness(1),
             };
 
             Stylesheet = new Stylesheet(BaseRules.Concat(new[]
@@ -1118,13 +1130,6 @@ namespace Content.Client.Stylesheets
                 Element<ConfirmButton>()
                     .Pseudo(ConfirmButton.ConfirmPrefix + ContainerButton.StylePseudoClassDisabled)
                     .Prop(Control.StylePropertyModulateSelf, ButtonColorCautionDisabled),
-
-                new StyleRule(
-                    new SelectorElement(null, new[] {StyleClassLobbyBackground}, null, null),
-                    new[]
-                    {
-                        new StyleProperty(PanelContainer.StylePropertyPanel, background),
-                    }),
 
                 new StyleRule(new SelectorChild(
                     new SelectorElement(typeof(Button), null, null, new[] {ContainerButton.StylePseudoClassDisabled}),
@@ -1403,14 +1408,6 @@ namespace Content.Client.Stylesheets
                 new StyleRule(new SelectorElement(typeof(PanelContainer), new[] {"speechBox", "whisperBox"}, null, null), new[]
                 {
                     new StyleProperty(PanelContainer.StylePropertyPanel, whisperBox)
-                }),
-
-                new StyleRule(new SelectorChild(
-                    new SelectorElement(typeof(PanelContainer), new[] {"speechBox", "whisperBox"}, null, null),
-                    new SelectorElement(typeof(RichTextLabel), new[] {"bubbleContent"}, null, null)),
-                    new[]
-                {
-                    new StyleProperty("font", notoSansItalic12),
                 }),
 
                 new StyleRule(new SelectorChild(
@@ -2287,36 +2284,6 @@ namespace Content.Client.Stylesheets
                 Element<PanelContainer>()
                     .Class(StyleClassInset)
                     .Prop(PanelContainer.StylePropertyPanel, insetBack),
-
-            // Yellow Button Styles Integration
-            Element<Button>().Class(YellowButtonStyles.StyleClassButtonColorYellow)
-                .Prop(Control.StylePropertyModulateSelf, YellowButtonStyles.ButtonColorDefaultYellow),
-
-            Element<Button>().Class(YellowButtonStyles.StyleClassButtonColorYellow)
-                .Pseudo(ContainerButton.StylePseudoClassNormal)
-                .Prop(Control.StylePropertyModulateSelf, YellowButtonStyles.ButtonColorDefaultYellow),
-
-            Element<Button>().Class(YellowButtonStyles.StyleClassButtonColorYellow)
-                .Pseudo(ContainerButton.StylePseudoClassHover)
-                .Prop(Control.StylePropertyModulateSelf, YellowButtonStyles.ButtonColorHoveredYellow),
-
-            Element<Button>().Class(YellowButtonStyles.StyleClassButtonColorYellow)
-                .Pseudo(ContainerButton.StylePseudoClassPressed)
-                .Prop(Control.StylePropertyModulateSelf, YellowButtonStyles.ButtonColorPressedYellow),
-
-            Element<Button>().Class(YellowButtonStyles.StyleClassButtonColorYellow)
-                .Pseudo(ContainerButton.StylePseudoClassDisabled)
-                .Prop(Control.StylePropertyModulateSelf, YellowButtonStyles.ButtonColorDisabledYellow),
-
-            // Yellow button text color
-            new StyleRule(
-                new SelectorChild(
-                    new SelectorElement(typeof(Button), new[] { YellowButtonStyles.StyleClassButtonColorYellow }, null, null),
-                    new SelectorElement(typeof(Label), null, null, null)),
-                new[]
-                {
-                    new StyleProperty("font-color", YellowButtonStyles.ButtonColorTextYellow)
-                }),
 
                 // Liquid glass - global window/panel/button/input/tab pass.
                 new StyleRule(

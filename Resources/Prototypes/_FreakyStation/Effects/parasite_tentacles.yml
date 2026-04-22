@@ -1,0 +1,72 @@
+# Parasite Tentacle Effects (based on Goliath system)
+
+- type: entity
+  id: BaseEffectParasiteTentacleSpawn
+  abstract: true
+  components:
+  - type: Transform
+    anchored: True
+  - type: Physics
+    bodyType: Static
+    canCollide: false
+  - type: Sprite
+    sprite: _FreakStation/Effects/parasite_tentacle.rsi
+  - type: InteractionOutline
+  - type: TimedDespawn
+    lifetime: 0.7
+
+- type: entity
+  id: EffectParasiteTentacleSpawn
+  parent: BaseEffectParasiteTentacleSpawn
+  categories: [ HideSpawnMenu ]
+  name: parasitic tentacle
+  components:
+    - type: Sprite
+      state: tentacle_spawn
+    - type: SpawnOnDespawn
+      prototype: ParasiteTentacle
+
+- type: entity
+  id: EffectParasiteTentacleRetract
+  parent: BaseEffectParasiteTentacleSpawn
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    state: tentacle_retract
+  - type: EffectVisuals
+  - type: AnimationPlayer
+
+- type: entity
+  id: ParasiteTentacle
+  name: parasitic tentacle
+  components:
+  - type: Transform
+    anchored: True
+  - type: Physics
+    bodyType: Static
+    canCollide: true
+  - type: InteractionOutline
+  - type: Sprite
+    sprite: _FreakStation/Effects/parasite_tentacle.rsi
+    state: tentacle
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.4,-0.4,0.4,0.4"
+        hard: false
+        layer:
+        - LowImpassable
+  - type: TimedDespawn
+    lifetime: 1
+  - type: SpawnOnDespawn
+    prototype: EffectParasiteTentacleRetract
+  - type: TriggerOnCollide
+  - type: DamageOtherOnCollide
+    damage:
+      types:
+        Slash: 15
+  - type: StunOnCollide
+    stunAmount: 2
+    knockdownAmount: 2

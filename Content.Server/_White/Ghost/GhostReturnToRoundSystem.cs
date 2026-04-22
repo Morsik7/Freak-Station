@@ -3,10 +3,10 @@ using Content.Server.Chat.Managers;
 using Content.Server.GameTicking;
 using Content.Shared._White;
 using Content.Shared.Database;
+using Content.Shared.GameTicking;
 using Content.Shared.Ghost;
 using Robust.Server.Player;
 using Robust.Shared.Configuration;
-using Robust.Shared.Maths;
 using Robust.Shared.Network;
 using Robust.Shared.Timing;
 
@@ -14,9 +14,6 @@ namespace Content.Server._White.Ghost;
 
 public sealed class GhostReturnToRoundSystem : EntitySystem
 {
-    private const int RespawnCost = 1;
-    private const int RequiredPlayerCount = 20;
-
     [Dependency] private readonly IChatManager _chatManager = default!;
     [Dependency] private readonly IAdminLogManager _adminLogger = default!;
     [Dependency] private readonly IPlayerManager _playerManager = default!;
@@ -40,8 +37,7 @@ public sealed class GhostReturnToRoundSystem : EntitySystem
 
         TryGhostReturnToRound(uid.Value, connectedClient, userId, out var message, out var wrappedMessage);
 
-        _chatManager.ChatMessageToOne(
-            Shared.Chat.ChatChannel.Server,
+        _chatManager.ChatMessageToOne(Shared.Chat.ChatChannel.Server,
             message,
             wrappedMessage,
             default,
@@ -52,9 +48,10 @@ public sealed class GhostReturnToRoundSystem : EntitySystem
 
     private void TryGhostReturnToRound(EntityUid uid, INetChannel connectedClient, NetUserId userId, out string message, out string wrappedMessage)
     {
-        if (_playerManager.PlayerCount <= RequiredPlayerCount)
+        var maxPlayers = _cfg.GetCVar(WhiteCVars.GhostRespawnMaxPlayers);
+        if (_playerManager.PlayerCount >= maxPlayers)
         {
-            message = Loc.GetString("ghost-respawn-max-players", ("players", RequiredPlayerCount));
+            message = Loc.GetString("ghost-respawn-max-players", ("players", maxPlayers));
             wrappedMessage = Loc.GetString("chat-manager-server-wrap-message", ("message", message));
             return;
         }
@@ -74,6 +71,7 @@ public sealed class GhostReturnToRoundSystem : EntitySystem
 
             message = Loc.GetString("ghost-respawn-window-rules-footer");
             wrappedMessage = Loc.GetString("chat-manager-server-wrap-message", ("message", message));
+
             return;
         }
 

@@ -4,7 +4,7 @@
   mapPath: /Maps/_CorvaxGoob/Stations/Pearl/corvax_pearl.yml
   maxRandomOffset: 0
   randomRotation: false
-  minPlayers: 25
+  minPlayers: 10 # FreakyStation
   maxPlayers: 55
   stations:
     CorvaxPearl:
@@ -66,7 +66,7 @@
             Mime: [ 1, 1 ]
             Musician: [ 2, 2 ]
             ServiceWorker: [ 2, 2 ]
-            Passenger: [ 1, 1 ]
+            Passenger: [ -1, -1 ]
             Reporter: [ 1, 1 ]
             # silicon
             Borg: [ 1, 1 ]

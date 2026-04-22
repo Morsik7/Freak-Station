@@ -94,6 +94,12 @@
   parent: JobIconChiefEngineer
   id: JobIconTypanTechnicalOperationsSupervisor
 
+# Loadout compatibility
+- type: loadout
+  id: SyndiWintercoat
+  equipment:
+    outerClothing: ClothingOuterWinterSyndie
+
 # Borg subtype compatibility
 - type: borgSubtype
   parentBorgType: engineering

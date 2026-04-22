@@ -138,7 +138,7 @@
       prob: 0.1
       orGroup: Junk
     # CorvaxGoob-changes-start:
-    - id: ShardCrystalGreen
+    - id: ShardCrystalRandom
       prob: 0.1
       orGroup: Junk
     - id: ShardGlassClockwork

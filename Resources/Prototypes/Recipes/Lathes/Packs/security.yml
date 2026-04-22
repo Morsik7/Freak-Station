@@ -40,6 +40,7 @@
   - SpeedLoaderMagnumPractice
   - MagazinePistolSubMachineGunPractice
   - WeaponFlareGunSecurity
+  - MagazineM16Practice #FreakyStation
 
 # Shared between secfab and emagged autolathe
 - type: latheRecipePack
@@ -68,6 +69,13 @@
   - SpeedLoaderMagnum
   - SpeedLoaderMagnumEmpty
   - ShrapnelPayload
+    #Freaky Start
+  - MagazineM16
+  - MagazineM16Empty
+  - MagazineUSAS12
+  - MagazineUSAS12Empty
+  - MagazineUSAS12Slug
+    #Freaky End
 
 - type: latheRecipePack
   id: SecurityWeaponsStatic
@@ -137,6 +145,12 @@
   - MagazineShotgunIncendiary
   - SpeedLoaderMagnumIncendiary
   - SpeedLoaderMagnumUranium
+    #Freaky Start
+  - MagazineM16Uranium
+  - MagazineM16Incendiary
+  - MagazineUSAS12beanbags
+  - MagazineUSAS12incendiary
+    #Freaky End
 
 - type: latheRecipePack
   id: SecurityWeapons
@@ -148,6 +162,7 @@
   - WeaponXrayCannon
   - WeaponTemperatureGun # Goobstation
   - Terminus # Goobstation
+  - WeaponEnergyRiffle #FreakyStation
 
 - type: latheRecipePack
   id: SecurityDisablers

@@ -39,6 +39,9 @@ SPDX-License-Identifier: AGPL-3.0-or-later
     <Nullable>enable</Nullable>
   </PropertyGroup>
   <ItemGroup>
+    <None Remove="ADT\CharacterFlavor\SharedCharacterFlavorSystem.cs‎" />
+  </ItemGroup>
+  <ItemGroup>
     <PackageReference Include="JetBrains.Annotations" PrivateAssets="All" />
   </ItemGroup>
   <ItemGroup>

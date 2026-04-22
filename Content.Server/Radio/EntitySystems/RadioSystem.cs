@@ -231,44 +231,9 @@ public sealed partial class RadioSystem : EntitySystem
             ? FormattedMessage.EscapeText(message)
             : message;
 
-        var headsetColor = TryComp(radioSource, out HeadsetComponent? headset) ? headset.Color : channel.Color;
-
-        var job = String.Empty;
-        if (_inventory.HasSlot(messageSource, "id"))
-        {
-            job = Loc.GetString("chat-radio-source-unknown");
-
-            if (_inventory.TryGetSlotEntity(messageSource, "id", out var idSlotEntity))
-            {
-                if (TryComp(idSlotEntity, out PdaComponent? pda))
-                    idSlotEntity = pda.ContainedId;
-
-                job = TryComp(idSlotEntity, out IdCardComponent? idCard) && !string.IsNullOrEmpty(idCard.LocalizedJobTitle)
-                    ? _chat.SanitizeMessageCapital(idCard.LocalizedJobTitle)
-                    : Loc.GetString("chat-radio-source-unknown");
-            }
-
-            job = $"\\[{job}\\] ";
-        }
-
         content = Highlight(content);
 
-        var wrappedMessage = Loc.GetString(speech.Bold ? "chat-radio-message-wrap-bold" : "chat-radio-message-wrap",
-            ("channel-color", channel.Color),
-            // Mini Station test fixes start
-            ("color", channel.Color),
-            ("languageColor", channel.Color),
-            // Mini Station test fixes end
-            ("fontType", speech.FontId),
-            ("fontSize", speech.FontSize),
-            ("verb", Loc.GetString(_random.Pick(speech.SpeechVerbStrings))),
-            ("channel", $"\\[{channel.LocalizedName}\\]"),
-            ("name", name),
-            ("message", content),
-            ("headset-color", headsetColor),
-            ("job", job));
-        // ("language", language));
-        // var wrappedMessage = WrapRadioMessage(messageSource, channel, name, content, language); // Einstein Engines - Language
+        var wrappedMessage = WrapRadioMessage(messageSource, channel, name, content, language, jobIcon, jobName);
 
         // most radios are relayed to chat, so lets parse the chat message beforehand
         // var chat = new ChatMessage(
@@ -287,7 +252,7 @@ public sealed partial class RadioSystem : EntitySystem
         var obfuscated = _language.ObfuscateSpeech(content, language);
         // Goobstation - Chat Pings
         // Added GetNetEntity(messageSource), to source
-        var obfuscatedWrapped = WrapRadioMessage(messageSource, channel, name, obfuscated, language, jobIcon, jobName, headsetColor, job);
+        var obfuscatedWrapped = WrapRadioMessage(messageSource, channel, name, obfuscated, language, jobIcon, jobName);
         var notUdsMsg = new ChatMessage(ChatChannel.Radio, obfuscated, obfuscatedWrapped, GetNetEntity(messageSource), null);
         var ev = new RadioReceiveEvent(messageSource, channel, msg, notUdsMsg, language, radioSource);
         // Einstein Engines - Language end
@@ -401,9 +366,7 @@ public sealed partial class RadioSystem : EntitySystem
         string message,
         LanguagePrototype language,
         ProtoId<JobIconPrototype>? jobIcon, // Goob edit
-        string? jobName, // Gaby Radio icons
-        Color headsetColor,
-        string job)
+        string? jobName = null) // Gaby Radio icons
     {
         // TODO: code duplication with ChatSystem.WrapMessage
         var speech = _chat.GetSpeechVerb(source, message);
@@ -448,7 +411,6 @@ public sealed partial class RadioSystem : EntitySystem
         // goob end
 
         return Loc.GetString(wrapId,
-            ("channel-color", channel.Color),
             ("color", channel.Color),
             ("languageColor", languageColor),
             ("fontType", language.SpeechOverride.FontId ?? speech.FontId),
@@ -458,8 +420,6 @@ public sealed partial class RadioSystem : EntitySystem
             ("channel", $"\\[{channel.LocalizedName}\\]"),
             ("name", nameString), // goob
             ("message", message),
-            ("headset-color", headsetColor),
-            ("job", job),
             ("language", languageDisplay));
     }
     // Einstein Engines - Language end

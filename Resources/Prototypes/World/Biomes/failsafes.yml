@@ -17,6 +17,7 @@
   chunkComponents:
     - type: DebrisFeaturePlacerController
       densityNoiseChannel: Density
+      maxSpawnDistance: 10000
     - type: SimpleDebrisSelector
       debrisTable:
         - id: AsteroidDebrisSmall
@@ -25,3 +26,7 @@
           prob: 0.7
         - id: AsteroidDebrisLarger
           prob: 0.4
+        - id: StarDebrisBlue
+          prob: 0.3
+        - id: StarDebrisYellow
+          prob: 0.3

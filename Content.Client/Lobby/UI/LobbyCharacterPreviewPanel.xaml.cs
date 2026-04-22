@@ -55,7 +55,7 @@ public sealed partial class LobbyCharacterPreviewPanel : Control
 {
     [Dependency] private readonly IEntityManager _entManager = default!;
 
-    // public Button CharacterSetupButton => CharacterSetup;
+    public Button CharacterSetupButton => CharacterSetup;
 
     private EntityUid? _previewDummy;
 
@@ -74,6 +74,11 @@ public sealed partial class LobbyCharacterPreviewPanel : Control
     public void SetSummaryText(string value)
     {
         Summary.Text = value;
+    }
+
+    public void SetCharacterSetupVisible(bool visible)
+    {
+        CharacterSetup.Visible = visible;
     }
 
     public void SetSprite(EntityUid uid)

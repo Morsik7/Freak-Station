@@ -4,18 +4,16 @@
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
-# Mini Station IntegrationTests fix start
-# - type: reaction
-#   id: OrganicPotash
-#   minTemp: 354
-#   reactants:
-#     Water:
-#       amount: 1
-#     Ash:
-#       amount: 1
-#   products:
-#     Potash: 2
-# Mini Station IntegrationTests fix end
+- type: reaction
+  id: OrganicPotash
+  minTemp: 354
+  reactants:
+    Water:
+      amount: 1
+    Ash:
+      amount: 1
+  products:
+    Potash: 2
 
 - type: reaction
   id: Potash

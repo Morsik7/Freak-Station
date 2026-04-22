@@ -120,6 +120,8 @@
   # - MagazineBoxLightRifleIncendiary # Goobstation - remove light rifle
   - MagazineBoxRifleIncendiary
   # Goobstation R&D Console rework start
+  - MagazineM16Incendiary #FreakyStation
+  - MagazineUSAS12incendiary #FreakyStation
   position: 2,2
   technologyPrerequisites:
   - SalvageWeapons
@@ -141,6 +143,7 @@
   - WeaponEnergyIonRifle # Goobstation - CR second energy bolt update(and ion)
   - PowerCellIonRevolver # Goobstation
   # Goobstation R&D Console rework start
+  - WeaponEnergyRiffle #FreakyStation
   position: 4,0
   technologyPrerequisites:
   - WeaponLaserCellRevolverTech
@@ -162,6 +165,7 @@
   - MagazineBoxShotgunBeanbagHighCaliber # Goobstation
   - WeaponDisabler
   - WeaponMechCombatDisabler # Goobstation
+  - MagazineUSAS12beanbags #FreakyStation
   # Goobstation R&D Console rework start
   position: 2,3
   technologyPrerequisites:
@@ -189,6 +193,7 @@
   - MagazineBoxRifleUranium
   - BoxShotgunUranium
   - MagazineBoxShotgunUraniumHighCaliber # Goobstation
+  - MagazineM16Uranium #FreakyStation
   # Goobstation R&D Console rework start
   position: 3,2
   technologyPrerequisites:

@@ -101,7 +101,7 @@
 # SPDX-FileCopyrightText: 2023 Waylon Cude <waylon.cude@finzdani.net>
 # SPDX-FileCopyrightText: 2023 Whisper <121047731+QuietlyWhisper@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2023 avery <51971268+graevy@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 brainfood1183 <113240905+brainfood1183@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 breastinfood1183 <113240905+breastinfood1183@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2023 faint <46868845+ficcialfaint@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2023 forthbridge <79264743+forthbridge@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2023 keronshb <54602815+keronshb@users.noreply.github.com>
@@ -117,7 +117,7 @@
 # SPDX-FileCopyrightText: 2024 ArkiveDev <95712736+ArkiveDev@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 AstroDogeDX <48888500+AstroDogeDX@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 Boaz1111 <149967078+Boaz1111@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Brandon Hu <103440971+Brandon-Huu@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 breastndon Hu <103440971+breastndon-Huu@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 CaasGit <87243814+CaasGit@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 Chief-Engineer <119664036+Chief-Engineer@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 Cojoke <83733158+Cojoke-dot@users.noreply.github.com>
@@ -273,9 +273,12 @@
     - map: [ "enum.HumanoidVisualLayers.LLeg" ]
     - map: [ "enum.HumanoidVisualLayers.Underwear" ] # Goob 3370
     - map: [ "enum.HumanoidVisualLayers.Undershirt" ] # Goob 3370
+    - map: [ "underwear" ]
+    - map: [ "breast" ]
     - map: ["jumpsuit"]
     - map: ["enum.HumanoidVisualLayers.LFoot"]
     - map: ["enum.HumanoidVisualLayers.RFoot"]
+    - map: [ "sockss" ]
     - map: ["enum.HumanoidVisualLayers.LHand"]
     - map: ["enum.HumanoidVisualLayers.RHand"]
     - map: ["enum.HumanoidVisualLayers.Face"] #Goob 120 - why did we have face on dummy but not basespecies
@@ -390,9 +393,9 @@
     - Flashed
     - RadiationProtection
     - Vulgarity # Goobstation - add Profanol
-    - Brainrotted # Goobstation - skibidi rizz ohio update
+    - breastinrotted # Goobstation - skibidi rizz ohio update
     - Adrenaline
-    - Brainrotted # Goobstation - skibidi rizz ohio update
+    - breastinrotted # Goobstation - skibidi rizz ohio update
     - Dementia # Goobstation - Amnestic spray!
   - type: Body
     prototype: Human
@@ -459,11 +462,14 @@
       enum.WizardTeleportUiKey.Key: # Goobstation - wizard
         type: WizardTeleportBoundUserInterface
         requireInputValidation: false
+      enum.PsionicStudyUiKey.Key:
+        type: PsionicStudyBoundUserInterface
       enum.RadarConsoleUiKey.Key: #goob - contractor
         type: RadarConsoleBoundUserInterface
   - type: Puller
   - type: Speech
     speechSounds: Alto
+  - type: SpeechBarks
   - type: DamageForceSay
   - type: Vocal
     sounds:
@@ -669,3 +675,5 @@
     interfaces:
       enum.HumanoidMarkingModifierKey.Key: # sure, this can go here too
         type: HumanoidMarkingModifierBoundUserInterface
+      enum.PsionicStudyUiKey.Key:
+        type: PsionicStudyBoundUserInterface

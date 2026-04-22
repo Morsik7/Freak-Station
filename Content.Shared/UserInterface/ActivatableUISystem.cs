@@ -53,7 +53,6 @@ using Content.Shared.Interaction.Events;
 using Content.Shared.Popups;
 using Content.Shared.Verbs;
 using Content.Shared.Whitelist;
-using Robust.Shared.Audio.Components;
 using Robust.Shared.Utility;
 
 namespace Content.Shared.UserInterface;
@@ -249,10 +248,7 @@ public sealed partial class ActivatableUISystem : EntitySystem
             return true;
         }
 
-        if (!_blockerSystem.CanInteract(user, uiEntity)) // CorvaxGoob-GhostUIViewing
-            return false;
-
-        if (TryComp<GhostComponent>(user, out var ghost) && aui.BlockSpectators && !ghost.CanGhostInteract) // CorvaxGoob-GhostUIViewing
+        if (!_blockerSystem.CanInteract(user, uiEntity) && (!HasComp<GhostComponent>(user) || aui.BlockSpectators))
             return false;
 
         /* if (aui.RequiresComplex) CorvaxGoob-GhostUIViewing : смещено вниз
@@ -288,13 +284,15 @@ public sealed partial class ActivatableUISystem : EntitySystem
         }
 
         // CorvaxGoob-GhostUIViewing-Start
-        if (aui.RequiresComplex && ghost is null) // Гостам не думаю что требуется комплексное взаимодействие для открытие консолей. ведь так?
+        TryComp<GhostComponent>(user, out var ghostComp);
+
+        if (aui.RequiresComplex && ghostComp is null) // Гостам не думаю что требуется комплексное взаимодействие для открытие консолей. ведь так?
         {
             if (!_blockerSystem.CanComplexInteract(user))
                 return false;
         }
 
-        if (ghost is not null && !ghost.CanGhostOpenUI)
+        if (ghostComp is not null && !ghostComp.CanGhostOpenUI)
             return false;
         // CorvaxGoob-GhostUIViewing-End
 

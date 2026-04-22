@@ -249,3 +249,48 @@
   license: "CC-BY-NC-SA-3.0"
   copyright: "The Future Soon by Jonathan Coulton"
   source: "https://www.youtube.com/watch?v=l5PEz3kGbp4"
+
+- files: ["eiffel65_blue.ogg"]
+  license: "CC-BY-NC-SA-3.0"
+  copyright: "I AM BLUE DABBA DEE DABBA DA. Converted from MP3 to OGG."
+  source: "https://www.youtube.com/watch?v=68ugkg9RePc"
+
+- files: ["freaks.ogg"]
+  license: "CC-BY-NC-SA-3.0"
+  copyright: "I am just a freak. Converted from MP3 to OGG."
+  source: "https://www.youtube.com/watch?v=NfMegACVJQw"
+
+- files: ["ebnutayaLyaguha.ogg"]
+  license: "CC-BY-NC-SA-3.0"
+  copyright: "SUPER CRAZY froooooooog. Converted from MP3 to OGG."
+  source: "https://www.youtube.com/watch?v=k85mRPqvMbE"
+
+- files: ["legendary_griffer.ogg"]
+  license: "CC-BY-NC-SA-3.0"
+  copyright: "Если грифер ты в душе - лайк поставить должен. Converted from MP3 to OGG."
+  source: "https://www.youtube.com/watch?v=1NDLW9OSi60"
+
+- files: ["absolutealkogolichka.ogg"]
+  license: "CC-BY-NC-SA-3.0"
+  copyright: "Artur Pirozhkov feat Ken Ashcorp. Mashuped by MarkosYT. Converted to OGG by Sherlook."
+  source: "https://www.youtube.com/watch?v=_nw-pyZZZKY&list=RDkFZKgf5WG0g&index=2"
+
+- files: ["evangelion.ogg"]
+  license: "CC-BY-NC-SA-3.0"
+  copyright: "Vyu chyo, evangelion ne smotreli. Converted from MP3 to OGG."
+  source: "https://www.youtube.com/watch?v=o6wtDPVkKqI"
+
+- files: ["podarokpina.ogg"]
+  license: "CC-BY-NC-SA-3.0"
+  copyright: "Podarok Pina. Converted from MP3 to OGG."
+  source: "https://www.youtube.com/watch?v=-cNnAckVhWc&list=PLMqzXHutS1p8CO-1W0YMT5Wc17_hFDMdR&index=2"
+
+- files: ["smeshariki.ogg"]
+  license: "CC-BY-NC-SA-3.0"
+  copyright: "Mat Dona ebal. Converted from MP3 to OGG."
+  source: "https://www.youtube.com/watch?v=1Pagm4Ldnb4&list=PLMqzXHutS1p8CO-1W0YMT5Wc17_hFDMdR&index=73"
+
+- files: ["The_Only_Thing_I_Know_for_Real.ogg"]
+  license: "CC-BY-NC-SA-3.0"
+  copyright: "MEMORIES BROKEN. Converted from MP3 to OGG."
+  source: "https://www.youtube.com/watch?v=ZDupR9FXwCU&list=PL1tFM4hAoC6VGoSUQBWXdykwzjT96cYeb&index=2"

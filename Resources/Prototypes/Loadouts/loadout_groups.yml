@@ -1453,7 +1453,6 @@
   - DetectiveArmorVest
   - DetectiveCoat
   - DetectiveCoatGrey
-  - DetectiveCoatBlack # CorvaxGoob
 
 - type: loadoutGroup
   id: SecurityCadetJumpsuit
@@ -1733,7 +1732,7 @@
 
 - type: loadoutGroup
   id: SyndicateCoat
-  name: loadout-group-syndicate-coat-outer
+  name: loadout-group-syndicate-coat
   loadouts:
   - SyndiWintercoat
 

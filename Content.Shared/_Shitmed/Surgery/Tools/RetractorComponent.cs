@@ -12,7 +12,7 @@ namespace Content.Shared._Shitmed.Medical.Surgery.Tools;
 [RegisterComponent, NetworkedComponent]
 public sealed partial class RetractorComponent : Component, ISurgeryToolComponent
 {
-    public string ToolName => "itemswitch-component-state-retractor"; // CorvaxGoob-localization
+    public string ToolName => "a retractor";
     [DataField]
     public bool? Used { get; set; } = null;
     [DataField]

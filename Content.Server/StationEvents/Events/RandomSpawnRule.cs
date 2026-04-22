@@ -8,7 +8,6 @@
 
 using Content.Server.StationEvents.Components;
 using Content.Shared.GameTicking.Components;
-using Robust.Shared.GameObjects;
 
 namespace Content.Server.StationEvents.Events;
 

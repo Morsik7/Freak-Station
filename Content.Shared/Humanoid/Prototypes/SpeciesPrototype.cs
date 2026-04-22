@@ -163,7 +163,10 @@ public sealed partial class SpeciesPrototype : IPrototype
     /// </summary>
     [DataField]
     public int MaxAge = 120;
-
+     // ADT start
+    [DataField]
+    public string ShortDesc = string.Empty;
+    // ADT end
     // begin Goobstation: port EE height/width sliders
 
     /// <summary>

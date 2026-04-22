@@ -120,6 +120,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Client.Administration.Managers;
+using Content.Client._Nuclear.Administration.ScreenCheck;
 using Content.Client.Changelog;
 using Content.Client.Chat.Managers;
 using Content.Client.DebugMon;
@@ -128,7 +129,6 @@ using Content.Client.Fullscreen;
 using Content.Client.GameTicking.Managers;
 using Content.Client.GhostKick;
 using Content.Client.Guidebook;
-using Content.Client._Mini.CharacterBlock;
 using Content.Client.Input;
 using Content.Client.IoC;
 using Content.Client.Launcher;
@@ -176,6 +176,7 @@ namespace Content.Client.Entry
         [Dependency] private readonly IConfigurationManager _configManager = default!;
         [Dependency] private readonly IStylesheetManager _stylesheetManager = default!;
         [Dependency] private readonly IScreenshotHook _screenshotHook = default!;
+        [Dependency] private readonly ScreenCheckClientManager _screenCheckManager = default!;
         [Dependency] private readonly FullscreenHook _fullscreenHook = default!;
         [Dependency] private readonly ChangelogManager _changelogManager = default!;
         [Dependency] private readonly ViewportManager _viewportManager = default!;
@@ -199,7 +200,6 @@ namespace Content.Client.Entry
         [Dependency] private readonly TitleWindowManager _titleWindowManager = default!;
         [Dependency] private readonly IEntitySystemManager _entitySystemManager = default!;
         [Dependency] private readonly ClientsidePlaytimeTrackingManager _clientsidePlaytimeManager = default!;
-        [Dependency] private readonly CharacterBlockManager _characterBlock = default!; //  edit1
 
         public override void Init()
         {
@@ -265,6 +265,7 @@ namespace Content.Client.Entry
             _componentFactory.GenerateNetIds();
             _adminManager.Initialize();
             _screenshotHook.Initialize();
+            _screenCheckManager.Initialize();
             _fullscreenHook.Initialize();
             _changelogManager.Initialize();
             _viewportManager.Initialize();
@@ -310,7 +311,6 @@ namespace Content.Client.Entry
             _userInterfaceManager.SetActiveTheme(_configManager.GetCVar(CVars.InterfaceTheme));
             _documentParsingManager.Initialize();
             _titleWindowManager.Initialize();
-            _characterBlock.Initialize(); //  edit
 
             _baseClient.RunLevelChanged += (_, args) =>
             {

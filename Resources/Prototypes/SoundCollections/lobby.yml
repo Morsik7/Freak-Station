@@ -134,18 +134,34 @@
 #    # Goobstation - Custom lobby music
 #    - /Audio/Lobby/skubstep.ogg
     - /Audio/Lobby/sneedsfeedandseed.ogg
-#    - /Audio/Lobby/clownalwayswins.ogg
-#    - /Audio/Lobby/clownwmv.ogg
-#    - /Audio/Lobby/dawsonschristian.ogg
-#    - /Audio/Lobby/thewizard.ogg
-#    - /Audio/Lobby/skubstub.ogg
-#    - /Audio/Lobby/space_radiation.ogg
-#    - /Audio/Lobby/redsun.ogg
-#    - /Audio/Lobby/chollima.ogg
-#    - /Audio/Lobby/monument.ogg
-#    - /Audio/Lobby/marhaba.ogg
-#    - /Audio/Lobby/the_future_soon.ogg
-#    - /Audio/Lobby/horn.ogg
+    - /Audio/Lobby/clownalwayswins.ogg
+    - /Audio/Lobby/clownwmv.ogg
+    - /Audio/Lobby/dawsonschristian.ogg
+    - /Audio/Lobby/thewizard.ogg
+    - /Audio/Lobby/skubstub.ogg
+    - /Audio/Lobby/space_radiation.ogg
+    - /Audio/Lobby/redsun.ogg
+    - /Audio/Lobby/chollima.ogg
+    - /Audio/Lobby/monument.ogg
+    - /Audio/Lobby/marhaba.ogg
+    - /Audio/Lobby/the_future_soon.ogg
+    - /Audio/Lobby/horn.ogg
+    # FreakyStation - Custom lobby music
+    #- /Audio/_FreakStation/Lobby/_Stressed_Out_W_.ogg
+    #- /Audio/_FreakStation/Lobby/Bee_Gees_Stayin_Alive_Saturday.ogg
+    #- /Audio/_FreakStation/Lobby/Bell_Biv_Devoie_Poison.ogg
+    #- /Audio/_FreakStation/Lobby/Billie_Eilish_Bad_Guy.ogg
+    #- /Audio/_FreakStation/Lobby/Gorillaz_Clint_eastwood.ogg
+    #- /Audio/_FreakStation/Lobby/Gorillaz_feel_good_inc.ogg
+    #- /Audio/_FreakStation/Lobby/Haddaway_What_Is_Love.ogg
+    #- /Audio/_FreakStation/Lobby/Manu_Chao_Me_gustas_tu.ogg
+    #- /Audio/_FreakStation/Lobby/Katy_Perry_Hot_n_cold.ogg
+    #- /Audio/_FreakStation/Lobby/Peggy_Gou_It_Goes_Like_Nanana.ogg
+    #- /Audio/_FreakStation/Lobby/Post_Meloni_Rock_Star.ogg
+    #- /Audio/_FreakStation/Lobby/Stromae_Alors_on_danse.ogg
+    #- /Audio/_FreakStation/Lobby/The_Weeknd_Blinding_Light.ogg
+    #- /Audio/_FreakStation/Lobby/XXXTENTACTION_SAD.ogg
+    #- /Audio/_FreakStation/Lobby/Zusebi_Rock_That_Body.ogg
     # Nuclear - Custom lobby music
     - /Audio/_Nuclear/Lobby/aurora_caelus.ogg
     - /Audio/_Nuclear/Lobby/cascade.ogg

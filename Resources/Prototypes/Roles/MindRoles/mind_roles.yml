@@ -26,7 +26,6 @@
   id: BaseMindRoleAntag
   abstract: true
   components:
-  - type: IgnoreSkills
   - type: MindRole
     antag: true
     antagPrototype: GenericAntagonist

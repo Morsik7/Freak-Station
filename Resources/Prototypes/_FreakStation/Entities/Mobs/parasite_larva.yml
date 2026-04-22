@@ -1,0 +1,60 @@
+# Parasite Larva (Husk Worm)
+- type: entity
+  id: MobParasiteLarva
+  name: parasite larva
+  description: A slow-moving parasitic worm. It looks hungry.
+  parent: SimpleMobBase
+  components:
+  - type: Sprite
+    sprite: _FreakStation/Mobs/Parasites/parasite_larva.rsi
+    drawdepth: Mobs
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: larva
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.DamageStateVisualLayers.Base:
+        enum.DamageStateVisualLayers.Base:
+          Alive: { state: larva }
+          Critical: { state: larva }
+          Dead: { state: larva_dead }
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      50: Dead
+  - type: Stamina
+    critThreshold: 100
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 1.5
+    baseSprintSpeed: 2.0
+  - type: MeleeWeapon
+    damage:
+      types:
+        Piercing: 5
+    angle: 0
+    animation: WeaponArcBite
+    soundHit:
+      path: /Audio/Effects/bite.ogg
+  - type: ParasiteLarva
+    biteDamage: 5
+    infectionChanceOnBite: 0.05
+  - type: NpcFactionMember
+    factions:
+    - Xeno
+  - type: HTN
+    rootTask:
+      task: SimpleHostileCompound
+  - type: InputMover
+  - type: MobMover
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.35
+        density: 50
+        mask:
+        - MobMask
+        layer:
+        - MobLayer

@@ -1,0 +1,33 @@
+# Anti-Parasite Medicines
+
+# Antiparasitic Drug - kills parasites, reduces infection, damages parasite entities
+- type: reagent
+  id: Antiparasitic
+  name: reagent-name-antiparasitic
+  group: Medicine
+  desc: reagent-desc-antiparasitic
+  physicalDesc: reagent-physical-desc-syrupy
+  flavor: bitter
+  color: "#4A90E2"
+  metabolisms:
+    Medicine:
+      effects:
+      - !type:HealthChange
+        damage:
+          types:
+            Poison: -2
+      - !type:AntiparasiticReagent
+
+# Parasite Growth Accelerator - heals host, grows infection 5-10%, chance to grow parasitic limb
+- type: reagent
+  id: ParasiteGrowthAccelerator
+  name: reagent-name-parasite-growth-accelerator
+  group: Biological
+  desc: reagent-desc-parasite-growth-accelerator
+  physicalDesc: reagent-physical-desc-glowing
+  flavor: sweet
+  color: "#9B59B6"
+  metabolisms:
+    Medicine:
+      effects:
+      - !type:ParasiteGrowthAcceleratorReagent

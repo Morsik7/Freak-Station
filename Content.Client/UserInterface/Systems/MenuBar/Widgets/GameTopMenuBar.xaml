@@ -93,7 +93,7 @@ SPDX-License-Identifier: AGPL-3.0-or-later
         Access="Internal"
         Icon="{xe:Tex '/Textures/_EinsteinEngines/Interface/language.png'}"
         BoundKey = "{x:Static is:ContentKeyFunctions.OpenLanguageMenu}"
-        ToolTip="{Loc 'ui-options-function-open-a-language-menu'}"
+        ToolTip="Open the Language Menu"
         MinSize="42 64"
         HorizontalExpand="True"
         AppendStyleClass="{x:Static style:StyleBase.ButtonSquare}"
@@ -118,15 +118,6 @@ SPDX-License-Identifier: AGPL-3.0-or-later
         HorizontalExpand="True"
         AppendStyleClass="{x:Static style:StyleBase.ButtonSquare}"
         />
-    <!-- <ui:MenuButton
-        Name="AntagTokensButton"
-        Access="Internal"
-        Icon="{xe:Tex '/Textures/_Mini/Interface/Coin.png'}"
-        ToolTip="{Loc 'Антагонисты'}"
-        MinSize="42 64"
-        HorizontalExpand="True"
-        AppendStyleClass="{x:Static style:StyleBase.ButtonSquare}"
-    /> -->
     <ui:MenuButton
         Name="AHelpButton"
         Access="Internal"

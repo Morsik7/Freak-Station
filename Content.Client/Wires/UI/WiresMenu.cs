@@ -446,6 +446,10 @@ namespace Content.Client.Wires.UI
                 protected override void Draw(DrawingHandleScreen handle)
                 {
                     var colorValue = _color.ColorValue();
+                    // Keep dark wire colors readable against dark backgrounds.
+                    var hsv = Color.ToHsv(colorValue);
+                    hsv.Z = MathF.Max(0.62f, hsv.Z + (1f - hsv.Z) * 0.35f);
+                    colorValue = Color.FromHsv(hsv);
                     var tex = _resourceCache.GetTexture(_isCut ? TextureCut[_type] : TextureNormal[_type]);
 
                     var l = 0f;

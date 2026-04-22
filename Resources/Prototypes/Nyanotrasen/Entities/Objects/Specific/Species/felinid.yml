@@ -12,7 +12,7 @@
   - type: Sprite
     sprite: Nyanotrasen/Objects/Specific/Species/felinid.rsi
     state: icon
-  - type: Hairball
+  - type: Hairball 
   - type: SolutionContainerManager
     solutions:
       hairball:

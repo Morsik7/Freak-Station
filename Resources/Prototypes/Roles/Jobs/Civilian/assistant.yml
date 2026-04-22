@@ -1,4 +1,5 @@
 # SPDX-FileCopyrightText: 2019 ZelteHonor <gabrieldionbouchard@gmail.com>
+# SPDX-FileCopyrightText: 2026 Casha
 # SPDX-FileCopyrightText: 2020 20kdc <asdd2808@gmail.com>
 # SPDX-FileCopyrightText: 2020 AJCM-git <60196617+AJCM-git@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2020 Bright <nsmoak10@yahoo.com>
@@ -84,7 +85,7 @@
   startingGear: PassengerGear
   icon: "JobIconPassenger"
   supervisors: job-supervisors-everyone
-  # goobcoins: 20 #Goob content Corvax-Goob-coins
+  goobcoins: 20 #Goob content
   access:
   - Maintenance
   special: # Goobstation

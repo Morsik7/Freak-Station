@@ -52,6 +52,9 @@
         state: l_leg
       - map: [ "enum.HumanoidVisualLayers.Underwear" ] # Goob 120
       - map: [ "enum.HumanoidVisualLayers.Undershirt" ] # Goob 120
+      - map: [ "sockss" ]
+      - map: [ "underwear" ]
+      - map: [ "breast" ]
       - map: [ "jumpsuit" ]
       - map: [ "enum.HumanoidVisualLayers.LHand" ]
       - map: [ "enum.HumanoidVisualLayers.RHand" ]

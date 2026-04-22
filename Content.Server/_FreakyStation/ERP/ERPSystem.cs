@@ -218,10 +218,10 @@ namespace Content.Server._FreakyStation.ERP
 
             args.PushMarkup(
                 Loc.GetString("erp-examine-consent", ("consent", ERPFormatting.FormatConsentMarkup(component.Consent))),
-                -1);
+                ExaminePriorities.FeatureStatus);
             args.PushMarkup(
                 Loc.GetString("erp-examine-non-con", ("nonCon", ERPFormatting.FormatNonConMarkup(component.NonCon))),
-                -1);
+                ExaminePriorities.FeatureStatus);
         }
 
         private void DirtyRelevantEuis(EntityUid first, EntityUid? second = null)

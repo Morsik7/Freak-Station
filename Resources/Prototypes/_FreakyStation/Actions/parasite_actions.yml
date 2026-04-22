@@ -1,0 +1,139 @@
+# Parasite Actions
+
+# Larva possession action
+- type: entity
+  id: ActionParasitePossess
+  name: Possess Host
+  description: Enter a target creature and begin infecting them from within.
+  components:
+  - type: Action
+    raiseOnUser: true
+    useDelay: 5
+    itemIconStyle: BigAction
+    icon: { sprite: _FreakStation/Interface/Actions/parasite.rsi, state: possess }
+  - type: TargetAction
+    range: 1.5
+    interactOnMiss: false
+  - type: EntityTargetAction
+    canTargetSelf: false
+    event: !type:ParasitePossessActionEvent
+
+# Leave host action (for mouse/monkey only)
+- type: entity
+  id: ActionParasiteLeaveHost
+  name: Leave Host
+  description: Exit your current host and return to larva form.
+  components:
+  - type: Action
+    raiseOnUser: true
+    useDelay: 3
+    itemIconStyle: BigAction
+    icon: { sprite: _FreakStation/Interface/Actions/parasite.rsi, state: leave }
+  - type: InstantAction
+    event: !type:ParasiteLeaveHostActionEvent
+
+# Feeding toggle action
+- type: entity
+  id: ActionToggleParasiteFeeding
+  name: Toggle Parasite Feeding
+  description: Control whether the parasite continues to grow and consume you.
+  components:
+  - type: Action
+    raiseOnUser: true
+    useDelay: 1
+    itemIconStyle: BigAction
+    icon: { sprite: _FreakStation/Interface/Actions/parasite.rsi, state: feed }
+  - type: InstantAction
+    event: !type:ToggleParasiteFeedingActionEvent
+
+# Tentacle attack action (uses Goliath system)
+- type: entity
+  id: ActionParasiteTentacles
+  name: Tentacle Strike
+  description: Summon parasitic tentacles at target location to damage and stun enemies.
+  components:
+  - type: Action
+    raiseOnUser: true
+    useDelay: 8
+    checkCanInteract: false
+    itemIconStyle: BigAction
+    icon: { sprite: _FreakStation/Interface/Actions/parasite.rsi, state: tentacle }
+  - type: TargetAction
+    range: 10
+  - type: WorldTargetAction
+    event: !type:ParasiteSummonTentacleAction
+
+# Dash action (mouse stage)
+- type: entity
+  id: ActionParasiteDash
+  name: Parasite Dash
+  description: Quickly dash forward with enhanced speed.
+  components:
+  - type: Action
+    raiseOnUser: true
+    useDelay: 8
+    checkCanInteract: false
+    itemIconStyle: BigAction
+    icon: { sprite: _FreakStation/Interface/Actions/parasite.rsi, state: dash }
+  - type: InstantAction
+    event: !type:ParasiteDashActionEvent
+
+# Lay eggs action (monkey stage)
+- type: entity
+  id: ActionParasiteLayEggs
+  name: Lay Eggs
+  description: Lay parasitic eggs that will hatch into new larvae.
+  components:
+  - type: Action
+    raiseOnUser: true
+    useDelay: 30
+    checkCanInteract: false
+    itemIconStyle: BigAction
+    icon: { sprite: _White/Interface/Actions/xenomorph.rsi, state: egg }
+  - type: InstantAction
+    event: !type:ParasiteLayEggsActionEvent
+
+# Heal action (monkey stage)
+- type: entity
+  id: ActionParasiteHeal
+  name: Regenerate
+  description: Use parasitic biomass to heal your wounds.
+  components:
+  - type: Action
+    raiseOnUser: true
+    useDelay: 20
+    checkCanInteract: false
+    itemIconStyle: BigAction
+    icon: { sprite: _FreakStation/Interface/Actions/parasite.rsi, state: heal }
+  - type: InstantAction
+    event: !type:ParasiteHealActionEvent
+
+# Chimera dash (human stage at 60%)
+- type: entity
+  id: ActionChimeraDash
+  name: Chimera Dash
+  description: Use your parasitic limbs to dash forward with incredible speed.
+  components:
+  - type: Action
+    raiseOnUser: true
+    useDelay: 10
+    checkCanInteract: false
+    itemIconStyle: BigAction
+    icon: { sprite: _FreakStation/Interface/Actions/parasite.rsi, state: chimera_dash }
+  - type: InstantAction
+    event: !type:ChimeraDashActionEvent
+
+# Temporary control (parasite ability at 60%)
+- type: entity
+  id: ActionParasiteTakeControl
+  name: Take Control
+  description: Temporarily seize control of the host's body for 30 seconds.
+  components:
+  - type: Action
+    raiseOnUser: true
+    useDelay: 60
+    checkCanInteract: false
+    itemIconStyle: BigAction
+    icon: { sprite: _FreakStation/Interface/Actions/parasite.rsi, state: possess }
+  - type: InstantAction
+    event: !type:ParasiteTakeControlActionEvent

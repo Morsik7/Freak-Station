@@ -182,10 +182,10 @@ public sealed partial class FelinidSystem : EntitySystem
     }
     private void OnHairballHit(EntityUid uid, HairballComponent component, ThrowDoHitEvent args)
     {
-        if (HasComp<FelinidComponent>(args.Target) || !HasComp<StatusEffectsComponent>(args.Target))
-            return;
-        if (_robustRandom.Prob(0.2f))
-            _vomitSystem.Vomit(args.Target);
+        //if (HasComp<FelinidComponent>(args.Target) || !HasComp<StatusEffectsComponent>(args.Target))
+        //    return;
+        //if (_robustRandom.Prob(0.2f))
+        //    _vomitSystem.Vomit(args.Target);
     }
 
     private void OnHairballPickupAttempt(EntityUid uid, HairballComponent component, GettingPickedUpAttemptEvent args)

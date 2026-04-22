@@ -31,6 +31,7 @@
 using System.Linq;
 using Content.Goobstation.Shared.NTR;
 using Content.Goobstation.Shared.NTR.Events;
+using Content.Server._FreakyStation.Psionics;
 using Content.Server._Goobstation.Wizard.Store;
 using Content.Server.Actions;
 using Content.Server.Administration.Logs;
@@ -39,6 +40,7 @@ using Content.Server.PDA.Ringer;
 using Content.Server.Stack;
 using Content.Server.Store.Components;
 using Content.Shared._Goobstation.Wizard.Refund; // Goob
+using Content.Shared._FreakyStation.Psionics;
 using Content.Shared.Actions;
 using Content.Shared.Database;
 using Content.Goobstation.Maths.FixedPoint;
@@ -74,6 +76,7 @@ public sealed partial class StoreSystem
     [Dependency] private readonly StackSystem _stack = default!;
     [Dependency] private readonly UserInterfaceSystem _ui = default!;
     [Dependency] private readonly HereticKnowledgeSystem _heretic = default!; // goobstation - heretics
+    [Dependency] private readonly PsionicSystem _psionic = default!;
     [Dependency] private readonly IGameTiming _timing = default!; // goobstation - ntr update
     [Dependency] private readonly SparksSystem _sparks = default!; // CorvaxGoob
 
@@ -203,6 +206,15 @@ public sealed partial class StoreSystem
                 return;
         }
 
+        if (listing.ProductPsionicAbility != null)
+        {
+            if (!TryComp<PsionicComponent>(buyer, out var psionic) ||
+                psionic.LearnedAbilities.Contains(listing.ProductPsionicAbility.Value))
+            {
+                return;
+            }
+        }
+
         //check that we have enough money
         // var cost = listing.Cost; // Goobstation
         foreach (var currency in listing.Cost)
@@ -245,6 +257,12 @@ public sealed partial class StoreSystem
         {
             if (TryComp<HereticComponent>(buyer, out var heretic))
                 _heretic.AddKnowledge(buyer, heretic, (ProtoId<HereticKnowledgePrototype>) listing.ProductHereticKnowledge);
+        }
+
+        if (listing.ProductPsionicAbility != null)
+        {
+            if (TryComp<PsionicComponent>(buyer, out var psionic))
+                _psionic.TryLearnAbility(buyer, listing.ProductPsionicAbility.Value, psionic);
         }
 
         //spawn entity

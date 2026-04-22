@@ -31,13 +31,14 @@ public sealed partial class CCVars
     ///     Allows flavor text (character descriptions).
     /// </summary>
     public static readonly CVarDef<bool> FlavorText =
-        CVarDef.Create("ic.flavor_text", false, CVar.SERVER | CVar.REPLICATED);
+        CVarDef.Create("ic.flavor_text", true, CVar.SERVER | CVar.REPLICATED);//ADT-tweak: включен для тестов на локалке
+    //Freak: Я хз нужно ли было копипастить их коммент но да всё же скопипастил.
 
     /// <summary>
     ///     Sets the maximum length for flavor text (character descriptions).
     /// </summary>
     public static readonly CVarDef<int> MaxFlavorTextLength =
-        CVarDef.Create("ic.flavor_text_length", 512, CVar.SERVER | CVar.REPLICATED);
+        CVarDef.Create("ic.flavor_text_length", 1024, CVar.SERVER | CVar.REPLICATED);  //ADT-tweak: повышение флавор текста в 2 раза
 
     /// <summary>
     ///     Sets the maximum character length of a job on an ID.

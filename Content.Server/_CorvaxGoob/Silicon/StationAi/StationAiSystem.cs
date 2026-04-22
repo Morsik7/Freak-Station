@@ -23,7 +23,7 @@ public sealed class StationAiSystem : EntitySystem
         if (!_stationAiSystem.TryGetCore(entity.Owner, out var core))
             return;
 
-        if (!_containers.TryGetContainer(core, StationAiCoreComponent.PdaContainer, out var container))
+        if (!_containers.TryGetContainer(core, StationAiCoreComponent.Container, out var container))
             return;
 
         if (container.ContainedEntities.Count == 0)

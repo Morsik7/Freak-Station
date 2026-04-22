@@ -360,6 +360,19 @@ namespace Content.Server.Database
         public string EyeColor { get; set; } = null!;
         public string SkinColor { get; set; } = null!;
         public int SpawnPriority { get; set; } = 0;
+
+        // FreakyStation fields
+        [Column("erp_consent")] public string ERPConsent { get; set; } = "Disabled";
+        [Column("non_con")] public bool NonCon { get; set; }
+        [Column("ooc_notes")] public string OOCNotes { get; set; } = string.Empty;
+        [Column("headshot_url")] public string HeadshotUrl { get; set; } = string.Empty;
+
+        // Bark fields (ADT)
+        [Column("bark_proto")] public string? BarkProto { get; set; }
+        [Column("bark_pitch")] public float? BarkPitch { get; set; }
+        [Column("low_bark_var")] public float? LowBarkVar { get; set; }
+        [Column("high_bark_var")] public float? HighBarkVar { get; set; }
+
         public List<Job> Jobs { get; } = new();
         public List<Antag> Antags { get; } = new();
         public List<Trait> Traits { get; } = new();

@@ -240,7 +240,7 @@
     rootTask:
       task: SimpleHostileCompound
   - type: TTS # CorvaxGoob-TTS
-    voice: Goga
+    voice: Chen
 
 - type: entity
   name: blue slime

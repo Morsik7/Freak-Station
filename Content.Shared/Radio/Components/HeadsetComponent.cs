@@ -5,14 +5,13 @@
 // SPDX-License-Identifier: MIT
 
 using Content.Shared.Inventory;
-using Robust.Shared.GameStates;
 
 namespace Content.Shared.Radio.Components;
 
 /// <summary>
 ///     This component relays radio messages to the parent entity's chat when equipped.
 /// </summary>
-[RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
+[RegisterComponent]
 public sealed partial class HeadsetComponent : Component
 {
     [DataField("enabled")]
@@ -23,16 +22,6 @@ public sealed partial class HeadsetComponent : Component
     [DataField("requiredSlot")]
     public SlotFlags RequiredSlot = SlotFlags.EARS;
 
-    [DataField, AutoNetworkedField]
-    public Color Color = Color.Lime;
-
-    public void CopyColorFrom(HeadsetComponent other)
-    {
-        Color = other.Color;
-    }
-
-    public void ResetColorToDefault()
-    {
-        Color = Color.Lime;
-    }
+    [DataField]
+    public Color Color { get; private set; } = Color.Lime;
 }

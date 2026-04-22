@@ -10,6 +10,7 @@ using Content.Shared._FreakyStation.ERP;
 using Content.Shared.Chat;
 using Content.Shared.Humanoid;
 using Content.Shared.IdentityManagement;
+using Content.Shared.StatusEffect;
 using Content.Shared.Vapor;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.ContentPack;
@@ -31,6 +32,7 @@ namespace Content.Server._FreakyStation.ERP
         private static readonly TimeSpan ArousalDecayDelay = TimeSpan.FromSeconds(15);
         private static readonly TimeSpan InteractionCooldown = TimeSpan.FromSeconds(2);
         private static readonly TimeSpan OrgasmCooldown = TimeSpan.FromMinutes(1);
+        private static readonly TimeSpan OrgasmCountResetTime = TimeSpan.FromHours(1);
         private const float ArousalDecayPerSecond = 0.06f;
 
         [Dependency] private readonly AlertsSystem _alerts = default!;
@@ -42,6 +44,7 @@ namespace Content.Server._FreakyStation.ERP
         [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
         [Dependency] private readonly IResourceManager _resources = default!;
         [Dependency] private readonly IRobustRandom _random = default!;
+        [Dependency] private readonly StatusEffectsSystem _statusEffects = default!;
 
         private readonly HashSet<string> _missingOptionalEffects = new();
         private readonly HashSet<ResPath> _missingOptionalSounds = new();
@@ -63,6 +66,14 @@ namespace Content.Server._FreakyStation.ERP
                 ApplyArousal(user, userComp, interaction.ArousalDelta);
                 ApplyArousal(target, targetComp, interaction.ArousalDelta);
             }
+
+            // Check for STD transmission (removed - implement separately if needed)
+            // if (interaction.Penetrative)
+            // {
+            //     var userUncovered = !interaction.UserWithoutCloth || interaction.UserWithoutCloth;
+            //     var targetUncovered = !interaction.TargetWithoutCloth || interaction.TargetWithoutCloth;
+            //     _stdSystem.TryInfectFromInteraction(user, target, userUncovered, targetUncovered, true);
+            // }
 
             return true;
         }
@@ -134,6 +145,15 @@ namespace Content.Server._FreakyStation.ERP
             comp.TargetArousal = 0f;
             comp.CooldownUntil = currentTime + OrgasmCooldown;
 
+            // Reset orgasm count if hour has passed
+            if (currentTime - comp.OrgasmCountResetAt > OrgasmCountResetTime)
+            {
+                comp.OrgasmCount = 0;
+                comp.OrgasmCountResetAt = currentTime;
+            }
+
+            comp.OrgasmCount++;
+
             if (!TryComp<HumanoidAppearanceComponent>(uid, out var humanoid))
                 return;
 
@@ -147,6 +167,38 @@ namespace Content.Server._FreakyStation.ERP
             {
                 TrySpawnOptionalEffect("EffectSquirt", Transform(uid).Coordinates, SquirtEffectColor);
                 TryPlayOptionalSound(FemaleOrgasmSound, uid);
+            }
+
+            ApplyPostOrgasmDebuffs(uid, comp.OrgasmCount);
+        }
+
+        private void ApplyPostOrgasmDebuffs(EntityUid uid, int orgasmCount)
+        {
+            // Progressive debuff system based on orgasm count
+            switch (orgasmCount)
+            {
+                case 1:
+                    // Light debuffs - 5 minutes
+                    _statusEffects.TryAddStatusEffect(uid, "PostOrgasmFatigue1", TimeSpan.FromMinutes(5), true);
+                    break;
+                case 2:
+                    // Medium debuffs - 10 minutes
+                    _statusEffects.TryAddStatusEffect(uid, "PostOrgasmFatigue2", TimeSpan.FromMinutes(10), true);
+                    _statusEffects.TryAddStatusEffect(uid, "PostOrgasmDrowsiness", TimeSpan.FromMinutes(10), true);
+                    break;
+                case 3:
+                    // Heavy debuffs - 20 minutes
+                    _statusEffects.TryAddStatusEffect(uid, "PostOrgasmFatigue3", TimeSpan.FromMinutes(20), true);
+                    _statusEffects.TryAddStatusEffect(uid, "PostOrgasmDrowsiness", TimeSpan.FromMinutes(20), true);
+                    _statusEffects.TryAddStatusEffect(uid, "PostOrgasmWeakness", TimeSpan.FromMinutes(20), true);
+                    break;
+                default:
+                    // Critical debuffs - 30 minutes + chance to pass out
+                    _statusEffects.TryAddStatusEffect(uid, "PostOrgasmFatigue3", TimeSpan.FromMinutes(30), true);
+                    _statusEffects.TryAddStatusEffect(uid, "PostOrgasmDrowsiness", TimeSpan.FromMinutes(30), true);
+                    _statusEffects.TryAddStatusEffect(uid, "PostOrgasmWeakness", TimeSpan.FromMinutes(30), true);
+                    _statusEffects.TryAddStatusEffect(uid, "KnockedDown", TimeSpan.FromSeconds(5), true);
+                    break;
             }
         }
 

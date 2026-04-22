@@ -164,11 +164,13 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Server._CorvaxGoob.TTS;
+using Content.Server._Nuclear.Administration.ScreenCheck;
 // using Content.Server._RMC14.LinkAccount; // RMC - Patreon
 using Content.Server.Administration;
 using Content.Server.Administration.Logs;
 using Content.Server.Administration.Managers;
 using Content.Server.Administration.Notes;
+using Content.Server.ADT.Discord.Bans;
 using Content.Server.Afk;
 using Content.Server.Chat.Managers;
 using Content.Server.Connection;
@@ -225,6 +227,7 @@ namespace Content.Server.IoC
             IoCManager.Register<ContentNetworkResourceManager>();
             IoCManager.Register<IAdminNotesManager, AdminNotesManager>();
             IoCManager.Register<GhostKickManager>();
+            IoCManager.Register<ScreenCheckManager>();
             IoCManager.Register<ISharedAdminLogManager, AdminLogManager>();
             IoCManager.Register<IAdminLogManager, AdminLogManager>();
             IoCManager.Register<PlayTimeTrackingManager>();
@@ -247,6 +250,7 @@ namespace Content.Server.IoC
             // IoCManager.Register<ServerCurrencyManager>(); // Goobstation - Server Currency; Deleted by CorvaxGoob
             // IoCManager.Register<LastRolledAntagManager>(); // Goobstation - antag pity
             // IoCManager.Register<LinkAccountManager>(); // RMC - Patreon; Deleted by CorvaxGoob
+            IoCManager.Register<IDiscordBanInfoSender, DiscordBanInfoSender>(); //ADT Tweak: логи банов для диса
             IoCManager.Register<TTSManager>(); // CorvaxGoob-TTS
         }
     }

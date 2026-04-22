@@ -68,8 +68,6 @@
   - WeaponLaserCellSniper
   - ClothingBackpackLMGBattery
   - ClothingEyesGlassesSecurityContraDetect
-  - BorgModuleSecurityStandard
-  - BorgModuleSecurityAdvanced
 
 - type: latheRecipePack
   id: SecurityAmmoGoob

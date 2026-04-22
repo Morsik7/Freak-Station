@@ -1,0 +1,124 @@
+<controls:FancyWindow xmlns="https://spacestation14.io"
+                      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                      xmlns:gfx="clr-namespace:Robust.Client.Graphics;assembly=Robust.Client"
+                      xmlns:ui="clr-namespace:Robust.Client.UserInterface.Controls;assembly=Robust.Client"
+                      xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls;assembly=Content.Client"
+                      x:Class="Content.Client.ADT.CharacterFlavor.CharacterFlavorWindow" 
+                      Title="Character Flavor"
+                      MinSize="800 752">
+
+    <controls:FancyWindow.Children>
+        <ui:BoxContainer Orientation="Vertical" Margin="10" HorizontalExpand="True" VerticalExpand="True">
+            <ui:BoxContainer.Children>
+
+                <!-- Заголовок -->
+                <ui:BoxContainer Orientation="Vertical" Margin="10" HorizontalExpand="True" VerticalExpand="True">
+                    <ui:BoxContainer.Children>
+                        <ui:RichTextLabel Name="LabelName" Text="Character Flavor" HorizontalExpand="True" Margin="8"/>
+                    </ui:BoxContainer.Children>
+                </ui:BoxContainer>
+
+                <!-- Верхний ряд -->
+                <ui:BoxContainer Orientation="Horizontal" HorizontalExpand="True" VerticalExpand="True" SeparationOverride="10" MinSize="0 300">
+                    <ui:BoxContainer.Children>
+
+                        <ui:PanelContainer VerticalExpand="True" MinWidth="300">
+                            <ui:PanelContainer.PanelOverride>
+                                <gfx:StyleBoxFlat BackgroundColor="#1a1a1a"/>
+                            </ui:PanelContainer.PanelOverride>
+                            <ui:PanelContainer.Children>
+                                <ui:BoxContainer Orientation="Vertical" Margin="8">
+                                    <ui:BoxContainer.Children>
+                                        <ui:Label Text="Character Preview" HorizontalAlignment="Center" StyleClasses="LabelHeading" Margin="0 0 5 0"/>
+                                        <ui:SpriteView Name="CharacterView" VerticalAlignment="Center" HorizontalAlignment="Center" OverrideDirection="South" SetSize="250 250" Scale="6 6"/>
+                                    </ui:BoxContainer.Children>
+                                </ui:BoxContainer>
+                            </ui:PanelContainer.Children>
+                        </ui:PanelContainer>
+
+                        <ui:PanelContainer VerticalExpand="True" HorizontalExpand="True">
+                            <ui:PanelContainer.PanelOverride>
+                                <gfx:StyleBoxFlat BackgroundColor="#1a1a1a"/>
+                            </ui:PanelContainer.PanelOverride>
+                            <ui:PanelContainer.Children>
+                                <ui:BoxContainer Orientation="Vertical" Margin="8">
+                                    <ui:BoxContainer.Children>
+                                        <ui:Label Text="Flavor Text" StyleClasses="LabelHeading" Margin="0 0 5 0"/>
+                                        <ui:ScrollContainer VerticalExpand="True" HorizontalExpand="True">
+                                            <ui:ScrollContainer.Children>
+                                                <ui:RichTextLabel Name="FlavorTextLabel" HorizontalExpand="True" VerticalAlignment="Top" Margin="8"/>
+                                            </ui:ScrollContainer.Children>
+                                        </ui:ScrollContainer>
+                                    </ui:BoxContainer.Children>
+                                </ui:BoxContainer>
+                            </ui:PanelContainer.Children>
+                        </ui:PanelContainer>
+
+                    </ui:BoxContainer.Children>
+                </ui:BoxContainer>
+
+                <!-- Нижний ряд -->
+                <ui:BoxContainer Orientation="Horizontal" HorizontalExpand="True" VerticalExpand="True" SeparationOverride="10" MinSize="0 300" Margin="0 10 0 0">
+                    <ui:BoxContainer.Children>
+
+                        <ui:PanelContainer VerticalExpand="True" MinWidth="300" Name="HeadshotContainer">
+                            <ui:PanelContainer.PanelOverride>
+                                <gfx:StyleBoxFlat BackgroundColor="#1a1a1a"/>
+                            </ui:PanelContainer.PanelOverride>
+                            <ui:PanelContainer.Children>
+                                <ui:BoxContainer Orientation="Vertical" Margin="8">
+                                    <ui:BoxContainer.Children>
+                                        <ui:Label Text="Headshot" HorizontalAlignment="Center" StyleClasses="LabelHeading" Margin="0 0 5 0"/>
+                                        <ui:TextureRect Name="HeadshotImage" VerticalExpand="True" HorizontalExpand="True" Stretch="KeepAspectCentered">
+                                            <ui:TextureRect.Children>
+                                                <ui:RichTextLabel Name="HeadshotLoadingLabel" HorizontalAlignment="Center" VerticalAlignment="Center" Text="Loading..."/>
+                                            </ui:TextureRect.Children>
+                                        </ui:TextureRect>
+                                    </ui:BoxContainer.Children>
+                                </ui:BoxContainer>
+                            </ui:PanelContainer.Children>
+                        </ui:PanelContainer>
+
+                        <ui:PanelContainer HorizontalExpand="True" VerticalExpand="True" SizeFlagsStretchRatio="3">
+                            <ui:PanelContainer.PanelOverride>
+                                <gfx:StyleBoxFlat BackgroundColor="#1a1a1a"/>
+                            </ui:PanelContainer.PanelOverride>
+                            <ui:PanelContainer.Children>
+                                <ui:BoxContainer Orientation="Vertical" Margin="8">
+                                    <ui:BoxContainer.Children>
+                                        <ui:Label Text="OOC Notes" StyleClasses="LabelHeading" Margin="0 0 5 0"/>
+                                        <ui:ScrollContainer VerticalExpand="True" HorizontalExpand="True">
+                                            <ui:ScrollContainer.Children>
+                                                <ui:RichTextLabel Name="OOCNotesLabel" HorizontalExpand="True" VerticalAlignment="Top" Margin="8"/>
+                                            </ui:ScrollContainer.Children>
+                                        </ui:ScrollContainer>
+                                    </ui:BoxContainer.Children>
+                                </ui:BoxContainer>
+                            </ui:PanelContainer.Children>
+                        </ui:PanelContainer>
+
+                        <ui:PanelContainer HorizontalExpand="True" VerticalExpand="True" SizeFlagsStretchRatio="1">
+                            <ui:PanelContainer.PanelOverride>
+                                <gfx:StyleBoxFlat BackgroundColor="#1a1a1a"/>
+                            </ui:PanelContainer.PanelOverride>
+                            <ui:PanelContainer.Children>
+                                <ui:BoxContainer Orientation="Vertical" Margin="8">
+                                    <ui:BoxContainer.Children>
+                                        <ui:Label Name="CustomSpeciesTitle" Text="Custom Species" StyleClasses="LabelHeading" Margin="0 0 5 0"/>
+                                        <ui:ScrollContainer VerticalExpand="True" HorizontalExpand="True">
+                                            <ui:ScrollContainer.Children>
+                                                <ui:RichTextLabel Name="CustomSpeciesLabel" Text="No custom species" HorizontalExpand="True" VerticalAlignment="Top" Margin="8"/>
+                                            </ui:ScrollContainer.Children>
+                                        </ui:ScrollContainer>
+                                    </ui:BoxContainer.Children>
+                                </ui:BoxContainer>
+                            </ui:PanelContainer.Children>
+                        </ui:PanelContainer>
+
+                    </ui:BoxContainer.Children>
+                </ui:BoxContainer>
+
+            </ui:BoxContainer.Children>
+        </ui:BoxContainer>
+    </controls:FancyWindow.Children>
+</controls:FancyWindow>

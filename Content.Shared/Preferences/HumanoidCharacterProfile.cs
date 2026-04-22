@@ -51,6 +51,7 @@
 
 using System.Linq;
 using System.Text.RegularExpressions;
+using Content.Shared.ADT.SpeechBarks;
 using Content.Shared.CCVar;
 using Content.Shared._CorvaxGoob.TTS;
 using Content.Shared.Dataset;
@@ -60,7 +61,6 @@ using Content.Shared.Humanoid.Prototypes;
 using Content.Shared.Preferences.Loadouts;
 using Content.Shared.Random.Helpers;
 using Content.Shared.Roles;
-using Content.Goobstation.Common.Barks; // Goob Station - Barks
 using Content.Shared.Traits;
 using Robust.Shared.Collections;
 using Robust.Shared.Configuration;
@@ -70,6 +70,7 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Serialization;
 using Robust.Shared.Utility;
+using Content.Shared.ADT.CCVar;
 
 namespace Content.Shared.Preferences
 {
@@ -82,6 +83,7 @@ namespace Content.Shared.Preferences
     {
         private static readonly Regex RestrictedNameRegex = new("[^А-Яа-яёЁ0-9' -]"); // CorvaxGoob-Localization
         private static readonly Regex ICNameCaseRegex = new(@"^(?<word>\w)|\b(?<word>\w)(?=\w*$)");
+        private static readonly ProtoId<TraitPrototype> LegacyErpTraitId = "ERP";
 
         /// <summary>
         /// Job preferences for initial spawn.
@@ -122,6 +124,24 @@ namespace Content.Shared.Preferences
         /// </summary>
         [DataField]
         public string FlavorText { get; set; } = string.Empty;
+
+        //ADT-tweak-start
+        /// <summary>
+        /// ООС заметки у персонажа
+        /// </summary>
+        [DataField]
+        public string OOCNotes { get; set; } = string.Empty;
+        /// <summary>
+        /// ссылка на хэдшот персонажа
+        /// </summary>
+        [DataField]
+        public string HeadshotUrl { get; set; } = string.Empty;
+        //ADT-tweak-end
+        [DataField]
+        public ERPConsent ERPConsent { get; set; } = ERPConsent.Disabled;
+
+        [DataField]
+        public bool NonCon { get; set; }
 
         /// <summary>
         /// Associated <see cref="SpeciesPrototype"/> for this profile.
@@ -164,6 +184,11 @@ namespace Content.Shared.Preferences
         [DataField]
         public SpawnPriorityPreference SpawnPriority { get; private set; } = SpawnPriorityPreference.None;
 
+        // ADT Barks start
+        [DataField]
+        public BarkData Bark { get; set; } = new();
+        // ADT Barks end
+
         /// <summary>
         /// <see cref="_jobPriorities"/>
         /// </summary>
@@ -186,12 +211,6 @@ namespace Content.Shared.Preferences
         public PreferenceUnavailableMode PreferenceUnavailable { get; private set; } =
             PreferenceUnavailableMode.SpawnAsOverflow;
 
-        [DataField]
-        public ERPConsent ERPConsent { get; set; } = ERPConsent.Disabled;
-
-        [DataField]
-        public bool NonCon { get; set; }
-
         public HumanoidCharacterProfile(
             string name,
             string flavortext,
@@ -206,7 +225,15 @@ namespace Content.Shared.Preferences
             PreferenceUnavailableMode preferenceUnavailable,
             HashSet<ProtoId<AntagPrototype>> antagPreferences,
             HashSet<ProtoId<TraitPrototype>> traitPreferences,
-            Dictionary<string, RoleLoadout> loadouts)
+            Dictionary<string, RoleLoadout> loadouts,
+            ERPConsent erpConsent,
+            bool nonCon,
+            //ADT Start
+            string oocNotes,
+            string headshotUrl,
+            BarkData bark
+            //ADT End
+        )
             // ProtoId<BarkPrototype> barkVoice) // Goob Station - Barks // CorvaxGoob-Revert : DB conflicts
         {
             Name = name;
@@ -223,6 +250,13 @@ namespace Content.Shared.Preferences
             _antagPreferences = antagPreferences;
             _traitPreferences = traitPreferences;
             _loadouts = loadouts;
+            ERPConsent = erpConsent;
+            NonCon = nonCon;
+            // ADT start
+            OOCNotes = oocNotes;
+            HeadshotUrl = headshotUrl;
+            // ADT end
+            Bark = bark.Copy();
             // BarkVoice = barkVoice; // Goob Station - Barks // CorvaxGoob-Revert : DB conflicts
 
             var hasHighPrority = false;
@@ -255,7 +289,15 @@ namespace Content.Shared.Preferences
                 other.PreferenceUnavailable,
                 new HashSet<ProtoId<AntagPrototype>>(other.AntagPreferences),
                 new HashSet<ProtoId<TraitPrototype>>(other.TraitPreferences),
-                new Dictionary<string, RoleLoadout>(other.Loadouts))
+                new Dictionary<string, RoleLoadout>(other.Loadouts),
+                other.ERPConsent,
+                other.NonCon,
+                // ADT start
+                other.OOCNotes,
+                other.HeadshotUrl,
+                other.Bark.Copy()
+                )
+                // ADT end
                 // other.BarkVoice) // Goob Station - Barks // CorvaxGoob-Revert : DB conflicts
         {
         }
@@ -370,7 +412,16 @@ namespace Content.Shared.Preferences
         {
             return new(this) { FlavorText = flavorText };
         }
-
+        //ADT-tweak-start: ООС заметки и ЮРЛ
+        public HumanoidCharacterProfile WithOOCNotes(string oocNotes)
+        {
+            return new(this) { OOCNotes = oocNotes };
+        }
+        public HumanoidCharacterProfile WithHeadshotUrl(string headshotUrl)
+        {
+            return new(this) { HeadshotUrl = headshotUrl };
+        }
+        //ADT-tweak-end
         public HumanoidCharacterProfile WithAge(int age)
         {
             return new(this) { Age = age };
@@ -379,6 +430,16 @@ namespace Content.Shared.Preferences
         public HumanoidCharacterProfile WithSex(Sex sex)
         {
             return new(this) { Sex = sex };
+        }
+
+        public HumanoidCharacterProfile WithERPConsent(ERPConsent consent)
+        {
+            return new(this) { ERPConsent = consent };
+        }
+
+        public HumanoidCharacterProfile WithNonCon(bool nonCon)
+        {
+            return new(this) { NonCon = nonCon };
         }
 
         public HumanoidCharacterProfile WithGender(Gender gender)
@@ -407,6 +468,28 @@ namespace Content.Shared.Preferences
         {
             return new(this) { SpawnPriority = spawnPriority };
         }
+
+        // ADT Barks start
+        public HumanoidCharacterProfile WithBarkProto(string bark)
+        {
+            return new(this) { Bark = Bark.WithProto(bark) };
+        }
+
+        public HumanoidCharacterProfile WithBarkPitch(float pitch)
+        {
+            return new(this) { Bark = Bark.WithPitch(pitch) };
+        }
+
+        public HumanoidCharacterProfile WithBarkMinVariation(float variation)
+        {
+            return new(this) { Bark = Bark.WithMinVar(variation) };
+        }
+
+        public HumanoidCharacterProfile WithBarkMaxVariation(float variation)
+        {
+            return new(this) { Bark = Bark.WithMaxVar(variation) };
+        }
+        // ADT Barks end
 
         // CorvaxGoob-Revert : DB conflicts
 /*        // Goob Station - Barks Start
@@ -582,6 +665,9 @@ namespace Content.Shared.Preferences
             // if (Height != other.Height) return false; // Goobstation: port EE height/width sliders // CorvaxGoob-Clearing
             // if (Width != other.Width) return false; // Goobstation: port EE height/width sliders // CorvaxGoob-Clearing
             // if (BarkVoice != other.BarkVoice) return false; // Goob Station - Barks // CorvaxGoob-Clearing
+            if (!Bark.MemberwiseEquals(other.Bark)) return false; // ADT Barks
+            if (ERPConsent != other.ERPConsent) return false;
+            if (NonCon != other.NonCon) return false;
             if (PreferenceUnavailable != other.PreferenceUnavailable) return false;
             if (SpawnPriority != other.SpawnPriority) return false;
             if (!_jobPriorities.SequenceEqual(other._jobPriorities)) return false;
@@ -589,6 +675,10 @@ namespace Content.Shared.Preferences
             if (!_traitPreferences.SequenceEqual(other._traitPreferences)) return false;
             if (!Loadouts.SequenceEqual(other.Loadouts)) return false;
             if (FlavorText != other.FlavorText) return false;
+            //ADT-Start
+            if (OOCNotes != other.OOCNotes) return false;
+            if (HeadshotUrl != other.HeadshotUrl) return false;
+            //ADT-End
             return Appearance.MemberwiseEquals(other.Appearance);
         }
 
@@ -596,6 +686,7 @@ namespace Content.Shared.Preferences
         {
             var configManager = collection.Resolve<IConfigurationManager>();
             var prototypeManager = collection.Resolve<IPrototypeManager>();
+            var hasLegacyErpTrait = TraitPreferences.Contains(LegacyErpTraitId);
 
             if (!prototypeManager.TryIndex(Species, out var speciesPrototype) || speciesPrototype.RoundStart == false)
             {
@@ -634,36 +725,40 @@ namespace Content.Shared.Preferences
                 _ => Gender.Epicene // Invalid enum values.
             };
 
-            // Mini Station IntegrationTests fix Start
+            string name;
             var maxNameLength = configManager.GetCVar(CCVars.MaxNameLength);
-            var restrictedNames = configManager.GetCVar(CCVars.RestrictedNames);
-            var icNameCase = configManager.GetCVar(CCVars.ICNameCase);
-
-            var name = SanitizeName(Name);
-            if (string.IsNullOrWhiteSpace(name))
+            if (string.IsNullOrEmpty(Name))
             {
                 name = GetName(Species, gender);
-                if (string.IsNullOrWhiteSpace(name))
-                    name = "0";
             }
-
-            string SanitizeName(string input)
+            else if (Name.Length > maxNameLength)
             {
-                var sanitized = input;
-                if (sanitized.Length > maxNameLength)
-                    sanitized = sanitized[..maxNameLength];
-
-                sanitized = sanitized.Trim();
-
-                if (restrictedNames)
-                    sanitized = RestrictedNameRegex.Replace(sanitized, string.Empty).Trim();
-
-                if (icNameCase)
-                    sanitized = ICNameCaseRegex.Replace(sanitized, m => m.Groups["word"].Value.ToUpper()).Trim();
-
-                return sanitized;
+                name = Name[..maxNameLength];
             }
-            // Mini Station IntegrationTests fix End
+            else
+            {
+                name = Name;
+            }
+
+            name = name.Trim();
+
+
+            if (configManager.GetCVar(CCVars.RestrictedNames))
+            {
+                name = RestrictedNameRegex.Replace(name, string.Empty);
+            }
+
+            if (configManager.GetCVar(CCVars.ICNameCase))
+            {
+                // This regex replaces the first character of the first and last words of the name with their uppercase version
+                name = ICNameCaseRegex.Replace(name, m => m.Groups["word"].Value.ToUpper());
+            }
+
+            if (string.IsNullOrEmpty(name))
+            {
+                name = GetName(Species, gender);
+            }
+
 
             string flavortext;
             var maxFlavorTextLength = configManager.GetCVar(CCVars.MaxFlavorTextLength);
@@ -675,7 +770,24 @@ namespace Content.Shared.Preferences
             {
                 flavortext = FormattedMessage.RemoveMarkupOrThrow(FlavorText);
             }
+            //ADT-tweak-start
+            string oocNotes = OOCNotes; // Initialize with the property value
+            if (oocNotes.Length > maxFlavorTextLength)
+            {
+                oocNotes = FormattedMessage.RemoveMarkupOrThrow(oocNotes)[..maxFlavorTextLength];
+            }
+            else
+            {
+                oocNotes = FormattedMessage.RemoveMarkupOrThrow(oocNotes);
+            }
 
+            string headshoturl = HeadshotUrl;
+            if (headshoturl.Length > 500 || !HeadshotUrl.Contains(configManager.GetCVar(ADTCCVars.HeadshotUrl))) //чутка хардкод, но это просто чтобы не засирали ссылкками на что угодно
+            {
+                headshoturl = string.Empty;
+            }
+            //максимальная длина ООЦ заметок не больше чем длина флавора
+            //ADT-tweak-end
             var appearance = HumanoidCharacterAppearance.EnsureValid(Appearance, Species, Sex, sponsorPrototypes); // CorvaxGoob-Sponsors
 
             var prefsUnavailableMode = PreferenceUnavailable switch
@@ -692,6 +804,16 @@ namespace Content.Shared.Preferences
                 SpawnPriorityPreference.Cryosleep => SpawnPriorityPreference.Cryosleep,
                 _ => SpawnPriorityPreference.None // Invalid enum values.
             };
+
+            var erpConsent = ERPConsent switch
+            {
+                ERPConsent.Enabled => ERPConsent.Enabled,
+                ERPConsent.Disabled => ERPConsent.Disabled,
+                _ => ERPConsent.Disabled
+            };
+
+            if (erpConsent == ERPConsent.Disabled && hasLegacyErpTrait)
+                erpConsent = ERPConsent.Enabled;
 
             var priorities = new Dictionary<ProtoId<JobPrototype>, JobPriority>(JobPriorities
                 .Where(p => prototypeManager.TryIndex<JobPrototype>(p.Key, out var job) && job.SetPreference && p.Value switch
@@ -719,17 +841,20 @@ namespace Content.Shared.Preferences
                 .ToList();
 
             var traits = TraitPreferences
-                         .Where(prototypeManager.HasIndex)
+                         .Where(id => id != LegacyErpTraitId && prototypeManager.HasIndex(id))
                          .ToList();
 
             Name = name;
             FlavorText = flavortext;
+            //ADT-tweak-start
+            OOCNotes = oocNotes;
+            HeadshotUrl = headshoturl;
+            //ADT-tweak-end
             Age = age;
-            // Height = height; // Goobstation: port EE height/width sliders // CorvaxGoob-Clearing
-            // Width = width; // Goobstation: port EE height/width sliders // CorvaxGoob-Clearing
             Sex = sex;
             Gender = gender;
             Appearance = appearance;
+            ERPConsent = erpConsent;
             SpawnPriority = spawnPriority;
 
             _jobPriorities.Clear();
@@ -752,6 +877,9 @@ namespace Content.Shared.Preferences
             if (voice is null || !CanHaveVoice(voice, Sex))
                 Voice = SharedHumanoidAppearanceSystem.DefaultSexVoice[sex];
             // CorvaxGoob-TTS-End
+
+            if (!prototypeManager.HasIndex<BarkPrototype>(Bark.Proto))
+                Bark = new BarkData(SharedHumanoidAppearanceSystem.DefaultBark, Bark.Pitch, Bark.MinVar, Bark.MaxVar);
 
             // Checks prototypes exist for all loadouts and dump / set to default if not.
             var toRemove = new ValueList<string>();
@@ -788,8 +916,11 @@ namespace Content.Shared.Preferences
                 if (!protoManager.TryIndex(trait, out var traitProto))
                     continue;
 
+                if (trait == LegacyErpTraitId)
+                    continue;
+
                 //Sponsor think
-                if(traitProto.SponsorOnly && !sponsorPrototypes.Contains(trait.Id))
+                if (traitProto.SponsorOnly && !sponsorPrototypes.Contains(trait.Id))
                     continue;
 
                 // Always valid.
@@ -824,6 +955,7 @@ namespace Content.Shared.Preferences
             return voice.RoundStart && sex == Sex.Unsexed || (voice.Sex == sex || voice.Sex == Sex.Unsexed);
         }
         // CorvaxGoob-TTS-End
+
         public ICharacterProfile Validated(ICommonSession session, IDependencyCollection collection, string[] sponsorPrototypes)
         {
             var profile = new HumanoidCharacterProfile(this);
@@ -831,8 +963,6 @@ namespace Content.Shared.Preferences
             return profile;
         }
 
-        // sorry this is kind of weird and duplicated,
-        /// working inside these non entity systems is a bit wack
         public static string GetName(string species, Gender gender)
         {
             var namingSystem = IoCManager.Resolve<IEntitySystemManager>().GetEntitySystem<NamingSystem>();
@@ -859,17 +989,25 @@ namespace Content.Shared.Preferences
             hashCode.Add(_traitPreferences);
             hashCode.Add(_loadouts);
             hashCode.Add(Name);
+            //ADT-tweak-start
+            hashCode.Add(OOCNotes);
+            hashCode.Add(HeadshotUrl);
+            //ADT-tweak-end
             hashCode.Add(FlavorText);
             hashCode.Add(Species);
-            // hashCode.Add(Height); // Goobstation: port EE height/width sliders // CorvaxGoob-Clearing
-            // hashCode.Add(Width); // Goobstation: port EE height/width sliders // CorvaxGoob-Clearing
             hashCode.Add(Age);
             hashCode.Add((int) Sex);
             hashCode.Add((int) Gender);
             hashCode.Add(Appearance);
+            hashCode.Add(Bark.Proto);
+            hashCode.Add(Bark.Pitch);
+            hashCode.Add(Bark.MinVar);
+            hashCode.Add(Bark.MaxVar);
             // hashCode.Add(BarkVoice); // Goob Station - Barks // CorvaxGoob-Revert : DB conflicts
             hashCode.Add((int) SpawnPriority);
             hashCode.Add((int) PreferenceUnavailable);
+            hashCode.Add((int) ERPConsent);
+            hashCode.Add(NonCon);
             return hashCode.ToHashCode();
         }
 

@@ -589,6 +589,19 @@
 - type: entity
   name: pill canister
   parent: PillCanister
+  id: PillCanisterStrangePills
+  suffix: Strange pills, 15 # Goobstation
+  components:
+  - type: Label
+    currentLabel: ???
+  - type: StorageFill
+    contents:
+    - id: StrangePill
+      amount: 15 # Goobstation
+
+- type: entity
+  name: pill canister
+  parent: PillCanister
   id: PillCanisterHyronalin
   suffix: Hyronalin 10u, 15 # Goobstation
   components:

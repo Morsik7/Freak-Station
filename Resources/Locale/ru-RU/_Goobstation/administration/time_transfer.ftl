@@ -5,7 +5,7 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 time-transfer-panel-title = Передача времени
-time-transfer-panel-player-label = Игрок
+time-transfer-panel-player-label = Фрик
 time-transfer-panel-time = Время
 time-transfer-panel-add-time = Добавить время
 time-transfer-panel-set-time = Установить время
@@ -21,7 +21,7 @@ time-transfer-overall-checkbox = Общее
 time-transfer-panel-search-placeholder = Поиск ролей
 cmd-timetransferpanel-desc = Открыть меню передачи времени
 admin-player-actions-window-time-transfer = Передача времени
-time-transfer-panel-no-player-database-message = Игрок не найден в базе данных
+time-transfer-panel-no-player-database-message = Фрик не найден в базе данных
 
 # Please change it if you really-really need to do it
 
