@@ -34,6 +34,7 @@ using Content.Shared.Random;
 using Content.Shared.Random.Helpers;
 using Robust.Server.GameObjects;
 using Robust.Shared.Map;
+using Robust.Shared.Physics.Systems;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using System.Diagnostics.CodeAnalysis;
@@ -53,8 +54,10 @@ public sealed partial class BotanySystem : EntitySystem
     [Dependency] private readonly AppearanceSystem _appearance = default!;
     [Dependency] private readonly PopupSystem _popupSystem = default!;
     [Dependency] private readonly SharedHandsSystem _hands = default!;
+    [Dependency] private readonly SharedPointLightSystem _light = default!;
     [Dependency] private readonly SharedSolutionContainerSystem _solutionContainerSystem = default!;
     [Dependency] private readonly MetaDataSystem _metaData = default!;
+    [Dependency] private readonly FixtureSystem _fixtureSystem = default!;
     [Dependency] private readonly RandomHelperSystem _randomHelper = default!;
     [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
     [Dependency] private readonly SharedEntityEffectSystem _effect = default!; // goob edit
@@ -113,7 +116,7 @@ public sealed partial class BotanySystem : EntitySystem
         if (!TryGetSeed(component, out var seed))
             return;
 
-        using (args.PushGroup(nameof(SeedComponent), 1))
+        using (args.PushGroup(nameof(SeedComponent)))
         {
             var name = Loc.GetString(seed.DisplayName);
             args.PushMarkup(Loc.GetString($"seed-component-description", ("seedName", name)));
@@ -177,21 +180,7 @@ public sealed partial class BotanySystem : EntitySystem
 
     public IEnumerable<EntityUid> GenerateProduct(SeedData proto, EntityCoordinates position, int yieldMod = 1)
     {
-    // CorvaxGoob-Plant-Analyzer-Start
-    /*
-        var totalYield = 0;
-        if (proto.Yield > -1)
-        {
-            if (yieldMod < 0)
-                totalYield = proto.Yield;
-            else
-                totalYield = proto.Yield * yieldMod;
-
-            totalYield = Math.Max(1, totalYield);
-        }
-    */
         var totalYield = CalculateTotalYield(proto.Yield, yieldMod);
-    // CorvaxGoob-Plant-Analyzer-End
         var products = new List<EntityUid>();
 
         if (totalYield > 1 || proto.HarvestRepeat != HarvestType.NoRepeat)
@@ -230,7 +219,6 @@ public sealed partial class BotanySystem : EntitySystem
         return !proto.Ligneous || proto.Ligneous && held != null && HasComp<SharpComponent>(held);
     }
 
-    // CorvaxGoob-Plant-Analyzer-Start
     public static int CalculateTotalYield(int yield, int yieldMod)
     {
         var totalYield = 0;
@@ -245,7 +233,6 @@ public sealed partial class BotanySystem : EntitySystem
         }
         return totalYield;
     }
-    // CorvaxGoob-Plant-Analyzer-End
 
     #endregion
 }

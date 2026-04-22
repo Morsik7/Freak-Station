@@ -261,8 +261,16 @@ namespace Content.IntegrationTests.Tests
             "CorvaxSilly",
             "CorvaxCluster",
             "CorvaxAvrite",
-            "Box_CS"
+            "Box_CS",
             // Corvax-Goob-Maps-end
+
+            // Mini Station test maps start
+            "MiniCluster",
+            "MiniOmega",
+            "MiniPacked",
+            "MiniSilly",
+            "Typan",
+            // Mini Station test maps end
         };
         // Goobstation edit start, yeah i know, but this is easier and less load than loading protoman or something.
         private static readonly string[] GameMapsInCurrentPool = // plus dev
@@ -292,6 +300,10 @@ namespace Content.IntegrationTests.Tests
               "Loop",
               "Marathon",
               "Meta",
+              "MiniCluster",
+              "MiniOmega",
+              "MiniPacked",
+              "MiniSilly",
             //"MeteorArena",    // Deathmatch
               "Oasis",
               "OasisHighPop",
@@ -304,6 +316,7 @@ namespace Content.IntegrationTests.Tests
               "Reach",
               "Saltern",
               "Serpentcrest",
+              "Typan",
         };
         // Goobstation edit end
 

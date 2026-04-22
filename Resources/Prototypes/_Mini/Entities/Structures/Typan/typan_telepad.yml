@@ -1,0 +1,10 @@
+- type: entity
+  id: CargoTelepadTypan
+  parent: CargoTelepad
+  name: грузовой телепад
+  description:
+  components:
+  - type: Sprite
+    sprite: _Mini/Structures/Machines/Typan/cargo_telepad.rsi
+  - type: Machine
+    board: CargoTelepadMachineCircuitboardTypan

@@ -1,0 +1,19 @@
+<Document>
+  <ColorBox Color="#3a2a2a" OutlineColor="#5a4a4a" OutlineThickness="2" Margin="5">
+    <Box Orientation="Vertical">
+      <Box Orientation="Horizontal" HorizontalAlignment="Center">
+        Правило 6: Самоантагонизм
+      </Box>
+      <Box Orientation="Vertical" Margin="10">
+        Мелкие нарушения и шалости разрешены, но только если они не          портят опыт другим и имеют IC-обоснование.
+        <Box Orientation="Vertical" Margin="10">
+        Безосновательное использование взрывчатки — самоантагонизм.
+
+        Беспричинное хищение предметов особой ценности приравнивается к действиям антагониста.
+       </Box>
+    - [textlink="6.1 Взрывчатка" link="DefaultRule61"]
+    - [textlink="6.2 Освобождение из брига" link="DefaultRule62"]
+      </Box>
+    </Box>
+  </ColorBox>
+</Document>

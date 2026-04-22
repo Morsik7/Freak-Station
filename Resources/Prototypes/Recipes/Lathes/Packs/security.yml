@@ -55,6 +55,7 @@
   # - MagazineLightRifleEmpty # Goobstation - remove light rifle
   - MagazinePistol
   - MagazinePistolEmpty
+  - MagazineMagnumAntimaterial
   - MagazinePistolSubMachineGun
   - MagazinePistolSubMachineGunEmpty
   - MagazinePistolSubMachineGunTopMounted

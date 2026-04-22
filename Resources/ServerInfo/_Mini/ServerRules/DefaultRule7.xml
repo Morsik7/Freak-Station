@@ -1,0 +1,16 @@
+<Document>
+  <ColorBox Color="#3a2a2a" OutlineColor="#5a4a4a" OutlineThickness="2" Margin="1">
+    <Box Orientation="Vertical">
+      <Box Orientation="Horizontal" HorizontalAlignment="Center">
+        Правило 7: Валидхант
+      </Box>
+      <Box Orientation="Vertical" Margin="10">
+        Охота на антагонистов — прерогатива СБ. Обычные игроки не должны бросать работу ради охоты.
+      </Box>
+    - [textlink="7.1 Защита и преследование" link="DefaultRule71"]
+    - [textlink="7.2 Специальные роли" link="DefaultRule72"]
+    - [textlink="7.3 Отсутствие СБ" link="DefaultRule73"]
+    - [textlink="7.4 Доказательства" link="DefaultRule74"]
+   </Box>
+  </ColorBox>
+</Document>

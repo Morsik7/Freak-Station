@@ -126,7 +126,7 @@
             MedicalDoctor: [ 4, 5 ]
             MedicalIntern: [ 3, 4 ]
             Paramedic: [ 1, 2 ]
-            Virologist: [ 1, 1 ]
+            Virologist: [ 1, 2 ]
             #science
             ResearchDirector: [ 1, 1 ]
             Scientist: [ 4, 6 ]
@@ -143,7 +143,7 @@
             ShaftMiner: [ 4, 4 ]
             CargoTechnician: [ 4, 6 ]
             #civillian
-            Passenger: [ -1, -1 ]
+            Passenger: [ 1, 1 ]
             Clown: [ 2, 2 ]
             Mime: [ 1, 1 ]
             Musician: [ 1, 1 ]

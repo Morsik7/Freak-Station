@@ -1,0 +1,17 @@
+<Document>
+  <ColorBox Color="#3a2a2a" OutlineColor="#5a4a4a" OutlineThickness="2" Margin="1">
+    <Box Orientation="Vertical">
+      <Box Orientation="Horizontal" HorizontalAlignment="Center">
+        Правило 10: Злоупотребление АХелпом / Спам
+      </Box>
+      <Box Orientation="Vertical" Margin="10">
+      Не отвлекайте администрацию понапрасну.
+      Флуд в АХелп отвлекает модераторов — каждый репорт будет обработан, спам не нужен.
+      Спам запрещён в любом виде. Не пишите оффтоп, избегайте неприличных и оскорбительных слов.
+      Ведите уважительный диалог. Попытки вывести администратора на конфликт будут пресечены.
+        <Box Orientation="Vertical" Margin="10">
+      </Box>
+    </Box>
+    </Box>
+  </ColorBox>
+</Document>

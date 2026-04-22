@@ -241,10 +241,6 @@ public sealed class PlantHolderSystem : EntitySystem
                 }
                 component.LastCycle = _gameTiming.CurTime;
 
-                if (TryComp<PaperLabelComponent>(args.Used, out var paperLabel))
-                {
-                    _itemSlots.TryEjectToHands(args.Used, paperLabel.LabelSlot, args.User);
-                }
                 QueueDel(args.Used);
 
                 CheckLevelSanity(uid, component);

@@ -1,0 +1,35 @@
+- type: job
+  id: TypanChef
+  name: job-name-typan-chef
+  playTimeTracker: JobTypanChef
+  description: job-description-typan-chef
+  startingGear: TypanChef
+  icon: "JobIconTypanChef"
+  supervisors: job-supervisors-typan-telecommunications-officer
+  canBeAntag: false
+  requirements:
+    - !type:DepartmentTimeRequirement
+      department: Civilian
+      time: 7200
+  access:
+  - TypanService
+  - SyndicateAgent
+  - TypanMaint
+  skills: # CorvaxGoob-Skills
+    - Shooting
+    - Butchering
+  special:
+  - !type:AddComponentSpecial
+    components:
+      - type: AntagImmune
+      - type: NpcFactionMember
+        factions:
+        - Typan
+
+- type: startingGear
+  id: TypanChef
+  equipment:
+    ears: ClothingHeadsetAltSyndicate
+    outerClothing: ClothingOuterApronTypanChef
+    shoes: ClothingShoesColorBlack
+    id: SyndiPDAChef

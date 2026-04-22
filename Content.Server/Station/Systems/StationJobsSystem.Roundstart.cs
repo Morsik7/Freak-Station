@@ -220,23 +220,46 @@ public sealed partial class StationJobsSystem
                 // Clear for reuse.
                 stationShares.Clear();
 
-                // How many players we've distributed so far. Used to grant any remaining slots if we have leftovers.
                 var distributed = 0;
 
-                // Goes through each station and figures out how many players we should give it for the current iteration.
                 foreach (var station in stations)
                 {
-                    // Calculates the percent share then multiplies.
-                    stationShares[station] = (int)Math.Floor(((float)stationTotalSlots[station] / totalSlots) * candidates.Count);
+                    var share = (int)Math.Floor(((float)stationTotalSlots[station] / totalSlots) * candidates.Count);
+                    var selecting = currentlySelectingJobs[station];
+                    var hasUncappedJob = selecting.Values.Any(x => x == null);
+                    var maxShare = hasUncappedJob ? candidates.Count : stationTotalSlots[station];
+                    stationShares[station] = Math.Min(share, maxShare);
                     distributed += stationShares[station];
                 }
 
-                // Avoids the fair share problem where if there's two stations and one player neither gets one.
-                // We do this by simply selecting a station randomly and giving it the remaining share(s).
-                if (distributed < candidates.Count)
+                var remainder = candidates.Count - distributed;
+                while (remainder > 0)
                 {
-                    var choice = _random.Pick(stations);
-                    stationShares[choice] += candidates.Count - distributed;
+                    var withRoom = new List<EntityUid>();
+                    foreach (var station in stations)
+                    {
+                        var selecting = currentlySelectingJobs[station];
+                        var hasUncappedJob = selecting.Values.Any(x => x == null);
+                        if (hasUncappedJob
+                            ? stationShares[station] < candidates.Count
+                            : stationShares[station] < stationTotalSlots[station])
+                        {
+                            withRoom.Add(station);
+                        }
+                    }
+
+                    if (withRoom.Count == 0)
+                        break;
+
+                    _random.Shuffle(withRoom);
+                    foreach (var station in withRoom)
+                    {
+                        if (remainder == 0)
+                            break;
+
+                        stationShares[station]++;
+                        remainder--;
+                    }
                 }
 
                 // Actual meat, goes through each station and shakes the tree until everyone has a job.

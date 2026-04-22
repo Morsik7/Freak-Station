@@ -1,0 +1,447 @@
+- type: entity
+  id: LockerSyndicateAtmos
+  name: syndicate atmospheric technician's locker
+  parent: LockerAtmospherics
+  description: A standard-issue Syndicate storage unit.
+  components:
+    - type: Appearance
+    - type: EntityStorageVisuals
+      stateBaseClosed: typanatm
+      stateDoorOpen: tac_open
+      stateDoorClosed: typanatm_door
+    - type: StorageFill
+      contents:
+        - id: ClothingMaskGasAtmos
+        - id: ClothingOuterSuitAtmosFire
+        - id: ClothingHeadHelmetAtmosFire
+        - id: GasAnalyzer
+        - id: MedkitOxygenFilled
+        - id: HolofanProjector
+        - id: RCDAmmo
+        - id: RPDsindi
+        - id: RCDSyndicate
+    - type: AccessReader
+      access: [["TypanAtmospherics"]]
+
+- type: entity
+  id: LockerSyndicateCap
+  name: syndicate captain's locker
+  parent: LockerAtmospherics
+  description: A standard-issue Syndicate storage unit.
+  components:
+    - type: Appearance
+    - type: EntityStorageVisuals
+      stateBaseClosed: tac
+      stateDoorOpen: tac_open
+      stateDoorClosed: tac_door
+    - type: StorageFill
+      contents:
+        - id: WeaponRevolverPython
+    - type: AccessReader
+      access: [["TypanAtmospherics"]]
+
+- type: entity
+  id: LockerSyndicateCargo
+  name: syndicate cargo technician's locker
+  parent: LockerSalvageSpecialist
+  description: A standard-issue Syndicate storage unit.
+  components:
+    - type: Appearance
+    - type: EntityStorageVisuals
+      stateBaseClosed: typancargo
+      stateDoorOpen: tac_open
+      stateDoorClosed: typancargo_door
+    - type: AccessReader
+      access: [["TypanCargo"]]
+    - type: EntityTableContainerFill
+      containers:
+        entity_storage: !type:NestedSelector
+          tableId: LockerFillSalvageSpecialistSyndie
+
+- type: entity
+  id: LockerSyndicateMed
+  name: medical locker
+  parent: LockerMedicineFilled
+  description: A standard-issue Syndicate storage unit.
+  components:
+    - type: Appearance
+    - type: EntityStorageVisuals
+      stateBaseClosed: typanmed
+      stateDoorOpen: tac_open
+      stateDoorClosed: typanmed_door
+    - type: AccessReader
+      access: [["TypanMedical"]]
+
+- type: entityTable
+  id: LockerFillSalvageSpecialistSyndie
+  table: !type:AllSelector
+    children:
+      - id: ClothingBeltUtilityFilled
+      - id: SurvivalKnife
+      - id: HandheldGPSBasic
+      - id: RadioHandheld
+      - id: AppraisalTool
+      - id: FireExtinguisher
+      # Lavaland Change Start
+      - id: WeaponProtoKineticAccelerator
+      - id: OreBag
+      - id: Pickaxe
+      - id: MineralScanner
+      - id: ClothingEyesGlassesMeson
+      - id: SeismicCharge
+
+- type: entity
+  id: LockerSyndicateSci
+  name: шкаф учёного
+  parent: LockerScienceFilled
+  description: Хранилище вещей учёного.
+  components:
+    - type: Appearance
+    - type: EntityStorageVisuals
+      stateBaseClosed: typan_sci
+      stateDoorOpen: tac_open
+      stateDoorClosed: typan_sci_door
+    - type: AccessReader
+      access: [["TypanScience"]]
+
+- type: entity
+  id: LockerSyndicateBot
+  name: шкаф ботаника
+  parent: LockerBotanistFilled
+  description: Хранилище вещей ботаника.
+  components:
+    - type: Appearance
+    - type: EntityStorageVisuals
+      stateBaseClosed: typanbot
+      stateDoorOpen: tac_open
+      stateDoorClosed: typanbot_door
+    - type: AccessReader
+      access: [["TypanService"]]
+
+- type: entity
+  id: SuitStorageTypanBase
+  parent: SuitStorageBase
+  name: хранилище скафандра
+  description: Необычное высокотехнологичное хранилище Синдиката, предназначенное для хранения космических скафандров.
+  suffix: Тайпан
+  components:
+  - type: Sprite
+    noRot: true
+    sprite: _Mini/Structures/Storage/suit_storage.rsi
+    layers:
+    - state: base
+      map: ["enum.StorageVisualLayers.Base"]
+    - state: door
+      map: ["enum.StorageVisualLayers.Door"]
+    - state: welded
+      visible: false
+      map: ["enum.WeldableLayers.BaseWelded"]
+    - state: open
+      shader: unshaded
+    - state: locked
+      map: ["enum.LockVisualLayers.Lock"]
+      shader: unshaded
+  - type: EntityStorage
+    closeSound:
+      path: /Audio/Machines/blastdoor.ogg
+      params:
+        volume: -7
+    openSound:
+      path: /Audio/Machines/blastdoor.ogg
+      params:
+        volume: -7
+  #  - type: Lock
+  #    lockingSound:
+  #      path: /Audio/Machines/quickbeep.ogg
+  #      params:
+  #        volume: -3
+  #    unlockingSound:
+  #      path: /Audio/Machines/quickbeep.ogg
+  #      params:
+  #        volume: -3
+
+- type: entity
+  id: LockerTypanBaseSecure
+  parent: LockerBaseSecure
+  name: защищённый шкаф
+  description: Стандартное хранилище Синдиката.
+  abstract: true
+  suffix: Тайпан
+  components:
+  - type: Sprite
+    sprite: _Mini/Structures/Storage/closet.rsi
+    noRot: true
+    layers:
+    - state: sec
+      map: ["enum.StorageVisualLayers.Base"]
+    - state: sec_door
+      map: ["enum.StorageVisualLayers.Door"]
+    - state: locked
+      map: ["enum.LockVisualLayers.Lock"]
+      shader: unshaded
+    - state: welded
+      visible: false
+      map: ["enum.WeldableLayers.BaseWelded"]
+    - state: paper
+      visible: false
+      sprite: Structures/Storage/closet_labels.rsi
+      offset: "-0.065,0"
+      map: ["enum.PaperLabelVisuals.Layer"]
+  - type: Appearance
+
+- type: entity
+  id: ClosetTypanSteel
+  parent: ClosetSteelBase
+  name: шкаф
+  description: Стандартное хранилище Синдиката.
+  components:
+  - type: Sprite
+    noRot: true
+    sprite: _Mini/Structures/Storage/closet.rsi
+    layers:
+    - state: secure
+      map: ["enum.StorageVisualLayers.Base"]
+    - state: generic_door
+      map: ["enum.StorageVisualLayers.Door"]
+    - state: welded
+      visible: false
+      map: ["enum.WeldableLayers.BaseWelded"]
+    - state: paper
+      visible: false
+      sprite: Structures/Storage/closet_labels.rsi
+      map: ["enum.PaperLabelVisuals.Layer"]
+  - type: Appearance
+  - type: EntityStorageVisuals
+    stateBaseClosed: secure
+    stateDoorOpen: door_open
+    stateDoorClosed: generic_door
+
+- type: entity
+  id: LockerTypanSteel
+  parent: LockerTypanBaseSecure
+  name: защищённый шкаф
+  description: Стандартное хранилище Синдиката.
+  components:
+  - type: Appearance
+  - type: EntityStorageVisuals
+    stateBaseClosed: secure
+    stateDoorOpen: door_open
+    stateDoorClosed: secure_door
+
+# Booze
+- type: entity
+  id: LockerTypanBooze
+  parent: LockerBooze
+  name: шкафчик со спиртным
+  description: Здесь бармен хранит алкоголь.
+  components:
+  - type: AccessReader
+    access: [["TypanService"]]
+
+# Technical Operations Supervisor
+- type: entity
+  id: LockerTypanTechnicalOperationsSupervisor
+  parent: LockerTypanBaseSecure
+  name: шкаф руководителя техобеспечения
+  components:
+  - type: EntityStorageVisuals
+    stateBaseClosed: ts
+    stateDoorOpen: door_open
+    stateDoorClosed: ts_door
+  - type: AccessReader
+    access: [["TypanCommand"]]
+
+# Cargotech
+- type: entity
+  id: LockerTypanCargotech
+  parent: LockerTypanBaseSecure
+  name: шкаф карготехника
+  components:
+  - type: EntityStorageVisuals
+    stateBaseClosed: mining
+    stateDoorOpen: door_open
+    stateDoorClosed: mining_door
+  - type: AccessReader
+    access: [["TypanCargo"]]
+
+# Atmospherics Engineer
+- type: entity
+  id: LockerTypanAtmosphericsEngineer
+  parent: LockerTypanBaseSecure
+  name: шкаф атмосферного инженера
+  components:
+  - type: EntityStorageVisuals
+    stateBaseClosed: atmos
+    stateDoorOpen: door_open
+    stateDoorClosed: atmos_door
+  - type: AccessReader
+    access: [["TypanAtmospherics"]]
+
+# Technician
+- type: entity
+  id: LockerTypanTechnician
+  parent: LockerTypanBaseSecure
+  name: шкаф ремонтника
+  components:
+  - type: EntityStorageVisuals
+    stateBaseClosed: eng_secure
+    stateDoorOpen: door_open
+    stateDoorClosed: eng_secure_door
+  - type: AccessReader
+    access: [["TypanEngineering"]]
+
+# Freezer
+- type: entity
+  id: LockerTypanFreezer
+  parent: LockerFreezerBase
+  name: холодильник
+  suffix: Тайпан, Закрыт
+  components:
+  - type: AccessReader
+    access: [["TypanService"]]
+
+# Botanist
+- type: entity
+  id: LockerTypanBotanist
+  parent: LockerTypanBaseSecure
+  name: шкаф ботаника
+  components:
+  - type: EntityStorageVisuals
+    stateBaseClosed: hydro
+    stateDoorOpen: door_open
+    stateDoorClosed: hydro_door
+  - type: AccessReader
+    access: [["TypanService"]]
+
+# Chef
+- type: entity
+  id: LockerTypanChef
+  parent: LockerTypanBaseSecure
+  name: шкаф повара
+  components:
+  - type: EntityStorageVisuals
+    stateBaseClosed: chef
+    stateDoorOpen: door_open
+    stateDoorClosed: chef_door
+  - type: AccessReader
+    access: [["TypanService"]]
+
+# Medicine
+- type: entity
+  id: LockerTypanMedicine
+  parent: LockerBase
+  name: медицинский шкаф
+  description: Стандартное хранилище Синдиката.
+  suffix: Тайпан
+  components:
+  - type: EntityStorageVisuals
+    stateBaseClosed: med
+    stateDoorOpen: med_open
+    stateDoorClosed: med_door
+  - type: AccessReader
+    access: [["TypanMedical"]]
+
+# Medic
+- type: entity
+  id: LockerTypanMedic
+  parent: LockerTypanBaseSecure
+  name: шкаф медика
+  components:
+  - type: EntityStorageVisuals
+    stateBaseClosed: med_secure
+    stateDoorOpen: door_open
+    stateDoorClosed: med_secure_door
+  - type: AccessReader
+    access: [["TypanMedical"]]
+
+# Paramedic
+- type: entity
+  id: LockerTypanParamedic
+  parent: LockerTypanBaseSecure
+  name: шкаф парамедика
+  components:
+  - type: EntityStorageVisuals
+    stateBaseClosed: paramed
+    stateDoorOpen: door_open
+    stateDoorClosed: paramed_door
+  - type: AccessReader
+    access: [["TypanMedical"]]
+
+# Chemical
+- type: entity
+  id: LockerTypanChemistry
+  parent: LockerBase
+  name: шкаф химика
+  description: Стандартное хранилище Синдиката.
+  suffix: Тайпан
+  components:
+  - type: EntityStorageVisuals
+    stateBaseClosed: med
+    stateDoorOpen: med_open
+    stateDoorClosed: chemical_door
+  - type: AccessReader
+    access: [["TypanMedical"], ["TypanScience"]]
+
+# Research Director
+- type: entity
+  id: LockerTypanResearchDirector
+  parent: LockerTypanBaseSecure
+  name: шкаф директора исследований
+  components:
+  - type: EntityStorageVisuals
+    stateBaseClosed: rd
+    stateDoorOpen: door_open
+    stateDoorClosed: rd_door
+  - type: AccessReader
+    access: [["TypanResearchDirector"]]
+
+# Researcher
+- type: entity
+  id: LockerTypanResearcher
+  parent: LockerTypanBaseSecure
+  name: шкаф исследователя
+  components:
+  - type: EntityStorageVisuals
+    stateBaseClosed: science
+    stateDoorOpen: door_open
+    stateDoorClosed: science_door
+  - type: AccessReader
+    access: [["TypanScience"]]
+
+# Communications Officer
+- type: entity
+  id: LockerTypanCommunicationsOfficer
+  parent: LockerTypanBaseSecure
+  name: шкаф офицера телекоммуникаций
+  components:
+  - type: EntityStorageVisuals
+    stateBaseClosed: co
+    stateDoorOpen: door_open
+    stateDoorClosed: co_door
+  - type: AccessReader
+    access: [["TypanCommunicationsOfficer"]]
+
+# Security Officer
+- type: entity
+  id: LockerTypanPatrol
+  parent: LockerTypanBaseSecure
+  name: шкаф патрульного
+  components:
+  - type: EntityStorageVisuals
+    stateBaseClosed: sec
+    stateDoorOpen: door_open
+    stateDoorClosed: sec_door
+  - type: AccessReader
+    access: [["TypanCommand"]]
+
+- type: entity
+  id: GunSafeTypan
+  parent: LockerTypanBaseSecure
+  name: оружейный шкаф
+  components:
+  - type: EntityStorageVisuals
+    stateBaseClosed: shotguncase
+    stateDoorOpen: shotguncase_open
+    stateDoorClosed: shotguncase_door
+  - type: AccessReader
+    access: [["TypanArmory"]]

@@ -1,7 +1,7 @@
 ## COSMIC CULT ROUND, ANTAG & GAMEMODE TEXT
 
 cosmiccult-announcement-sender = ???
-cosmiccult-title = Культ космоса
+cosmiccult-title = Космокульт
 cosmiccult-description = Культисты скрываются среди экипажа.
 roles-antag-cosmiccult-name = Космический культист
 roles-antag-cosmiccult-description = Веди к концу всего сущего через обман и саботаж, промывая мозги тем, кто противостоит тебе.
@@ -65,7 +65,7 @@ cosmiccult-elimination-announcement = Согласно сканированию 
 cosmiccult-role-roundstart-fluff =
     Пока вы готовитесь к ещё одной смене на очередной станции NanoTrasen, в ваш разум врывается поток неисчислимых запретных знаний!
     Откровения, не имеющее равных. Конец циклическим, сизифовым страданиям.
-    
+
     Всё, что вам остаётся — лишь впустить это.
 cosmiccult-role-short-briefing =
     Вы — Космический культист!
@@ -74,7 +74,7 @@ cosmiccult-role-short-briefing =
 cosmiccult-role-conversion-fluff =
     По завершении ритуала, в ваш разум врывается поток неисчислимых запретных знаний!
     Откровения, не имеющие равных. Конец циклическим, сизифовым страданиям.
-    
+
     Всё, что вам остаётся — лишь впустить это.
 cosmiccult-role-deconverted-fluff =
     Ваш разум захлёстывает великая пустота. Утешительная, но незнакомая пустота...

@@ -152,6 +152,14 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Content.Corvax.Interfaces.C
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Content.Corvax.Interfaces.Server", "Corvax\Content.Corvax.Interfaces.Server\Content.Corvax.Interfaces.Server.csproj", "{0E16F203-484F-42FC-8AD5-640470E146B9}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Content.SponsorImplementations.Shared", "SponsorImplementations\Content.SponsorImplementations.Shared\Content.SponsorImplementations.Shared.csproj", "{A393D3B6-40FD-4E26-B954-75E1D2E07FB6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Content.SponsorImplementations.Client", "SponsorImplementations\Content.SponsorImplementations.Client\Content.SponsorImplementations.Client.csproj", "{FC796FA5-5860-4563-B060-B63E6182E0D6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Content.SponsorImplementations.Server", "SponsorImplementations\Content.SponsorImplementations.Server\Content.SponsorImplementations.Server.csproj", "{F55A6E6F-374F-480E-BD7F-C29D25B71163}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SponsorImplementation", "SponsorImplementation", "{2AB539DC-E29A-4BCE-8B48-2E4B6E6B1274}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

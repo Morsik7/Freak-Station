@@ -384,6 +384,9 @@
   id: BorgModuleService
 
 - type: Tag
+  id: BorgModuleSecurity
+
+- type: Tag
   id: BorgModuleSyndicate
 
 - type: Tag
@@ -1550,6 +1553,9 @@
 
 - type: Tag
   id: Soap
+
+- type: Tag
+  id: sockss
 
 - type: Tag
   id: Softsuit # Used for Yowies outerslot whitelist

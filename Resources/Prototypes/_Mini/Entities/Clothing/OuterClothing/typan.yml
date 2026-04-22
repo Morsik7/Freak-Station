@@ -1,0 +1,21 @@
+- type: entity
+  parent: ClothingOuterStorageBase
+  id: ClothingOuterApronTypanChef
+  name: фартук шеф-повара синдиката
+  description: Пятна крови на нём смотрятся как влитые.
+  components:
+  - type: Sprite
+    sprite: _Mini/Clothing/OuterClothing/apron_chef.rsi
+  - type: Clothing
+    sprite: _Mini/Clothing/OuterClothing/apron_chef.rsi
+
+- type: entity
+  parent: ClothingOuterWinterCoat
+  id: ClothingOuterWinterTypanChef
+  name: куртка шеф-повара синдиката
+  description:  Куртка, разработанная специально для работы в холодильных камерах.
+  components:
+  - type: Sprite
+    sprite: _Mini/Clothing/OuterClothing/chefjacket.rsi
+  - type: Clothing
+    sprite: _Mini/Clothing/OuterClothing/chefjacket.rsi

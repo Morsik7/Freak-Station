@@ -1,0 +1,17 @@
+<Document>
+  <ColorBox Color="#3a2a2a" OutlineColor="#5a4a4a" OutlineThickness="2" Margin="1">
+    <Box Orientation="Vertical">
+      <Box Orientation="Horizontal" HorizontalAlignment="Center">
+        2.1. Самооборона
+      </Box>
+      <Box Orientation="Vertical" Margin="10">
+         Доводить до критического состояния можно лишь в случае, если нападавший пытался убить или серьёзно покалечить вас.
+
+         Преднамеренная нейтрализация, несоразмерное применение силы или добивание — не самооборона.
+
+         Добивание лежащего игрока — месть, а не защита. Даже несколько «лишних кликов» после обезвреживания будут расценены как убийство.
+      </Box>
+   </Box>
+  </ColorBox>
+</Document>
+

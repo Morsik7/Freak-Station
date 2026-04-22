@@ -1,5 +1,8 @@
+// SPDX-FileCopyrightText: 2026 Casha
+// Мини-станция/Freaky-station, Licensed under custom terms with restrictions on public hosting and commercial use, full text: https://raw.githubusercontent.com/ministation/mini-station-goob/master/LICENSE.TXT
 using System.Linq;
 using Content.Server.Administration.Managers;
+using Content.Server._Mini.AntagTokens;
 using Content.Server.Antag.Components;
 using Content.Server.Chat.Managers;
 using Content.Server.GameTicking;
@@ -60,6 +63,7 @@ public sealed partial class AntagSelectionSystem : GameRuleSystem<AntagSelection
     [Dependency] private readonly EntityWhitelistSystem _whitelist = default!;
     [Dependency] private readonly InventorySystem _inventory = default!; // Goobstation
     [Dependency] private readonly SkillsSystem _skills = default!; // CorvaxGoob-Skills
+    [Dependency] private readonly SponsorSystem _sponsor = default!; // mini-station donate privellege
     [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
 
     // arbitrary random number to give late joining some mild interest.
@@ -300,9 +304,36 @@ public sealed partial class AntagSelectionSystem : GameRuleSystem<AntagSelection
         AntagSelectionDefinition def,
         bool midround = false)
     {
-        var playerPool = GetPlayerPool(ent, pool, def);
         var existingAntagCount = ent.Comp.PreSelectedSessions.TryGetValue(def, out var existingAntags) ?  existingAntags.Count : 0;
+        var forcedCandidatesEv = new AntagSelectionGetForcedCandidatesEvent(def, pool);
+        RaiseLocalEvent(ent, forcedCandidatesEv, true);
+        var forcedCandidates = forcedCandidatesEv.ForcedSessions
+            .Distinct()
+            .Where(session => !ent.Comp.AssignedSessions.Contains(session))
+            .Where(session => !ent.Comp.PreSelectedSessions.Values.Any(x => x.Contains(session)))
+            .ToList();
+
         var count = GetTargetAntagCount(ent, GetTotalPlayerCount(pool), def) - existingAntagCount;
+        count = Math.Max(count, forcedCandidates.Count);
+
+        if (count <= 0)
+            return;
+
+        foreach (var session in forcedCandidates)
+        {
+            if (count <= 0)
+                break;
+
+            if (!TryMakeAntag(ent, session, def, checkPref: true, onlyPreSelect: true))
+                continue;
+
+            count--;
+        }
+
+        if (count <= 0)
+            return;
+
+        var playerPool = GetPlayerPool(ent, pool, def);
 
         // if there is both a spawner and players getting picked, let it fall back to a spawner.
         var noSpawner = def.SpawnerPrototype == null;
@@ -378,9 +409,19 @@ public sealed partial class AntagSelectionSystem : GameRuleSystem<AntagSelection
         _adminLogger.Add(LogType.AntagSelection, $"Start trying to make {session} become the antagonist: {ToPrettyString(ent)}");
 
         if (checkPref && !ValidAntagPreference(session, def.PrefRoles))
+        {
+            var bypassEv = new AntagSelectionBypassPreferenceCheckEvent(session, def);
+            RaiseLocalEvent(ent, bypassEv, true);
+            if (!bypassEv.Bypass)
+                return false;
+        }
+
+        if (!IsSessionValid(ent, session, def))
             return false;
 
-        if (!IsSessionValid(ent, session, def) || !IsEntityValid(session?.AttachedEntity, def))
+        // Roundstart deposits are pre-selected while the player is still in the lobby,
+        // so they may not have a valid attached entity yet.
+        if (!onlyPreSelect && !IsEntityValid(session?.AttachedEntity, def))
             return false;
 
         if (onlyPreSelect && session != null)
@@ -536,6 +577,7 @@ public sealed partial class AntagSelectionSystem : GameRuleSystem<AntagSelection
     /// <summary>
     /// Gets an ordered player pool based on player preferences and the antagonist definition.
     /// </summary>
+    /// mini-station antag priority
     public AntagSelectionPlayerPool GetPlayerPool(Entity<AntagSelectionComponent> ent, IList<ICommonSession> sessions, AntagSelectionDefinition def)
     {
         var preferredList = new List<ICommonSession>();
@@ -548,10 +590,37 @@ public sealed partial class AntagSelectionSystem : GameRuleSystem<AntagSelection
             if (ent.Comp.PreSelectedSessions.TryGetValue(def, out var preSelected) && preSelected.Contains(session))
                 continue;
 
+            var excludeEv = new AntagSelectionExcludeSessionEvent(session, def);
+            RaiseLocalEvent(ent, excludeEv, true);
+            if (excludeEv.Excluded)
+                continue;
+
             // Add player to the appropriate antag pool
             if (ValidAntagPreference(session, def.PrefRoles))
             {
                 preferredList.Add(session);
+                //mini-station donate privellege
+                var sponsor = _sponsor.Sponsors.FirstOrDefault(s => s.Uid == session.UserId.ToString());
+
+                if (sponsor.Level > 0)
+                {
+                    var level = sponsor.Level;
+
+                    // РџСЂРѕРІРµСЂСЏРµРј СѓСЃР»РѕРІРёСЏ РїРѕ СЂРѕР»СЏРј Рё СѓСЂРѕРІРЅСЏРј
+                    bool matchesTier1 = (def.PrefRoles.Contains("Traitor") || def.PrefRoles.Contains("Thief")) && level > 0;
+                    bool matchesTier2 = (def.PrefRoles.Contains("HeadRev") || def.PrefRoles.Contains("Zombie") || def.PrefRoles.Contains("Abductor")) && level > 1;
+                    bool matchesTier3 = (def.PrefRoles.Contains("Nukeops") || def.PrefRoles.Contains("Devil") || def.PrefRoles.Contains("Cultist")) && level > 2;
+                    bool matchesTier4 = level > 3;
+
+                    // Р•СЃР»Рё С…РѕС‚СЊ РѕРґРЅРѕ СѓСЃР»РѕРІРёРµ СЃСЂР°Р±РѕС‚Р°Р»Рѕ вЂ” РґРѕР±Р°РІР»СЏРµРј РІРµСЃР°
+                    if (matchesTier1 || matchesTier2 || matchesTier3 || matchesTier4)
+                    {
+                        for (var i = 0; i < 4; i++)
+                        {
+                            preferredList.Add(session);
+                        }
+                    }
+                }
             }
             else if (ValidAntagPreference(session, def.FallbackRoles))
             {

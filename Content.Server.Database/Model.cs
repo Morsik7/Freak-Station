@@ -1,3 +1,4 @@
+// SPDX-FileCopyrightText: 2026 Casha
 using System;
 using System.Collections.Generic;
 using System.Collections.Immutable;
@@ -12,7 +13,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Content.Server.Database
 {
-    public abstract class ServerDbContext : DbContext
+    public abstract partial class ServerDbContext : DbContext
     {
         protected ServerDbContext(DbContextOptions options) : base(options)
         {
@@ -42,6 +43,10 @@ namespace Content.Server.Database
         public DbSet<ServerBanHit> ServerBanHit { get; set; } = default!;
 
         public DbSet<PlayTime> PlayTime { get; set; } = default!;
+        public DbSet<DailyRewardProgress> DailyRewardProgresses { get; set; } = default!;
+        public DbSet<PlayerAntagToken> PlayerAntagTokens { get; set; } = default!;
+        public DbSet<PlayerAntagTokenSelection> PlayerAntagTokenSelections { get; set; } = default!;
+        public DbSet<PlayerGhostRoleTickets> PlayerGhostRoleTickets { get; set; } = default!;
         public DbSet<UploadedResourceLog> UploadedResourceLog { get; set; } = default!;
         public DbSet<AdminNote> AdminNotes { get; set; } = null!;
         public DbSet<AdminWatchlist> AdminWatchlists { get; set; } = null!;
@@ -49,6 +54,8 @@ namespace Content.Server.Database
         public DbSet<RoleWhitelist> RoleWhitelists { get; set; } = null!;
         public DbSet<BanTemplate> BanTemplate { get; set; } = null!;
         public DbSet<IPIntelCache> IPIntelCache { get; set; } = null!;
+
+        partial void OnCustomModelCreating(ModelBuilder modelBuilder); // Cleanup for sponsor system
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -131,6 +138,18 @@ namespace Content.Server.Database
 
             modelBuilder.Entity<PlayTime>()
                 .HasIndex(v => new { v.PlayerId, Role = v.Tracker })
+                .IsUnique();
+
+            modelBuilder.Entity<DailyRewardProgress>()
+                .HasIndex(v => v.PlayerId)
+                .IsUnique();
+
+            modelBuilder.Entity<PlayerAntagToken>()
+                .HasIndex(v => new { v.PlayerId, v.TokenId })
+                .IsUnique();
+
+            modelBuilder.Entity<PlayerAntagTokenSelection>()
+                .HasIndex(v => v.PlayerId)
                 .IsUnique();
 
             modelBuilder.Entity<AdminLogPlayer>()
@@ -295,6 +314,7 @@ namespace Content.Server.Database
                 .Property(p => p.Type)
                 .HasDefaultValue(HwidType.Legacy);
 
+            OnCustomModelCreating(modelBuilder);
             ModelBan.OnModelCreating(modelBuilder);
         }
 
@@ -484,7 +504,7 @@ namespace Content.Server.Database
     }
 
     [Table("player")]
-    public class Player
+    public partial class Player
     {
         public int Id { get; set; }
 
@@ -785,6 +805,81 @@ namespace Content.Server.Database
         public TimeSpan TimeSpent { get; set; }
     }
 
+    [Table("daily_reward_progress")]
+    public sealed class DailyRewardProgress
+    {
+        [Required, Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public int Id { get; set; }
+
+        [Required, ForeignKey("player")]
+        public Guid PlayerId { get; set; }
+
+        public int CurrentStreak { get; set; }
+
+        public DateTime? LastClaimTime { get; set; }
+
+        public DateTime? PendingActiveDate { get; set; }
+
+        public TimeSpan PendingActiveTime { get; set; }
+    }
+
+    [Table("player_antag_token")]
+    public sealed class PlayerAntagToken
+    {
+        [Required, Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public int Id { get; set; }
+
+        [Required, ForeignKey("player")]
+        public Guid PlayerId { get; set; }
+
+        [Required]
+        public string TokenId { get; set; } = string.Empty;
+
+        public int Amount { get; set; }
+    }
+
+    [Table("player_antag_token_selection")]
+    public sealed class PlayerAntagTokenSelection
+    {
+        [Required, Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public int Id { get; set; }
+
+        [Required, ForeignKey("player")]
+        public Guid PlayerId { get; set; }
+
+        [Required]
+        public string TokenId { get; set; } = string.Empty;
+
+        [Required]
+        public string AntagId { get; set; } = string.Empty;
+
+        public DateTime SelectedAt { get; set; }
+    }
+
+    [Table("player_ghost_role_tickets")]
+    public sealed class PlayerGhostRoleTickets
+    {
+        [Required, Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public int Id { get; set; }
+
+        [Required, ForeignKey("player")]
+        public Guid PlayerId { get; set; }
+
+        public int Tickets { get; set; }
+
+        public DateTime? LastGrantTime { get; set; }
+
+        [Column(TypeName = "jsonb")]
+        public List<TimeSpan> TicketMilestones { get; set; } = new();
+
+        [Column(TypeName = "jsonb")]
+        public List<int> StreakMilestones { get; set; } = new();
+
+        public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
+
+        public DateTime UpdatedAt { get; set; } = DateTime.UtcNow;
+    }
+
     [Table("uploaded_resource_log")]
     public sealed class UploadedResourceLog
     {
@@ -1055,3 +1150,4 @@ namespace Content.Server.Database
         public float Score { get; set; }
     }
 }
+

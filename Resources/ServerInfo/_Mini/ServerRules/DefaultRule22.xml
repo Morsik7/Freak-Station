@@ -1,0 +1,15 @@
+<Document>
+  <ColorBox Color="#3a2a2a" OutlineColor="#5a4a4a" OutlineThickness="2" Margin="1">
+    <Box Orientation="Vertical">
+      <Box Orientation="Horizontal" HorizontalAlignment="Center">
+        2.2. Мелкие конфликты
+      </Box>
+      <Box Orientation="Vertical" Margin="10">
+        Небольшие драки и потасовки допустимы, если у обоих игроков есть веские IC-основания.
+        <Box Orientation="Vertical" Margin="10">
+         Насилие как реакция на проникновение или кражу на рабочем месте — неприемлемо. Правильная реакция: вызвать СБ и попытаться задержать нарушителя.
+        </Box>
+       </Box>
+      </Box>
+  </ColorBox>
+</Document>

@@ -57,7 +57,7 @@ public sealed class CCCVars
     /// Default volume setting of TTS sound
     /// </summary>
     public static readonly CVarDef<float> TTSVolume =
-        CVarDef.Create("tts.volume", 0f, CVar.CLIENTONLY | CVar.ARCHIVE);
+        CVarDef.Create("tts.volume", 2f, CVar.CLIENTONLY | CVar.ARCHIVE);
 
     /// <summary>
     /// Count of in-memory cached tts voice lines.
@@ -96,6 +96,24 @@ public sealed class CCCVars
     public static readonly CVarDef<bool> CalendarAnnouncerEnabled =
         CVarDef.Create("announcer.calendar", true, CVar.SERVERONLY);
 
+    public static readonly CVarDef<bool> DiscordAuthEnabled =
+        CVarDef.Create("discord_auth.enabled", false, CVar.SERVERONLY);
+
+    /// <summary>
+    ///     URL of the Discord auth server API
+    /// </summary>
+    public static readonly CVarDef<string> DiscordAuthApiUrl =
+        CVarDef.Create("discord_auth.api_url", "", CVar.SERVER | CVar.REPLICATED);
+
+    /// <summary>
+    ///     Secret key of the Discord auth server API
+    /// </summary>
+    public static readonly CVarDef<string> DiscordAuthApiKey =
+        CVarDef.Create("discord_auth.api_key", "", CVar.SERVERONLY | CVar.CONFIDENTIAL);
+
+    /// <summary>
+    ///     Combat mode sound
+    /// </summary>
     /// <summary>
     /// Offer item.
     /// </summary>

@@ -20,6 +20,9 @@
 - type: latheRecipePack
   id: ServiceStatic
   recipes:
+  #ADT-Tweak-Start
+  - ADTBotanicalSeedDNADisk
+  #ADT-Tweak-End
   - Bucket
   - Ashtray
   - DrinkMug

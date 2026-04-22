@@ -19,6 +19,9 @@ comp-pda-ui-station-alert-level = Уровень угрозы: [color={ $color }
 comp-pda-ui-station-alert-level-instructions = Инструкции: [color=white]{ $instructions }[/color]
 comp-pda-ui-station-time = Продолжительность смены: [color=white]{ $time }[/color]
 comp-pda-ui-eject-id-button = Извлечь ID
+comp-pda-ui-evac-not-called = Шаттл эвакуации [color=white]не вызван[/color]
+comp-pda-ui-evac-time = Шаттл эвакуации прибудет через: [color=white]{ $time }[/color]
+comp-pda-ui-evac-docked = Эвакуационный шаттл прибыл! Он улетит через: [color=white]{ $time }[/color]
 comp-pda-ui-eject-pen-button = Извлечь ручку
 comp-pda-ui-ringtone-button-description = Измените рингтон вашего КПК
 comp-pda-ui-ringtone-button = Рингтон

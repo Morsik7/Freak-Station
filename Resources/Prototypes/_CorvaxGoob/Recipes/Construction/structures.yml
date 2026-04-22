@@ -58,16 +58,3 @@
     - !type:TileNotBlocked
       failIfSpace: false
 
-- type: construction
-  id: ShuttleWindowDiagonal
-  name: construction-recipe-shuttle-window-diagonal
-  graph: WindowDiagonal
-  startNode: start
-  targetNode: shuttleWindowDiagonal
-  category: construction-category-structures
-  canBuildInImpassable: true
-  placementMode: SnapgridCenter
-  conditions:
-    - !type:EmptyOrWindowValidInTile
-    - !type:NoWindowsInTile
-  objectType: Structure 

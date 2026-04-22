@@ -1,0 +1,132 @@
+- type: entity
+  id: RandomHumanoidSpawnerCentralCommandOfficial
+  name: Представитель ЦК
+  suffix: ПЦК, Кастомизируемый персонаж
+  components:
+    - type: Sprite
+      layers:
+      - sprite: Markers/jobs.rsi
+        state: centcom
+    - type: RandomMetadata
+      nameSegments:
+      - NamesFirstERTOfficial
+      - NamesFirstOfficial
+      nameFormat: name-format-ert
+    - type: RandomHumanoidSpawner
+      settings: CentralCommandOfficial
+
+- type: randomHumanoidSettings
+  id: CentralCommandOfficial
+  parent: EventHumanoidERT
+  components:
+    - type: IgnoreSkills
+    - type: GhostRole
+      name: ghost-role-information-centcom-official-name
+      description: ghost-role-information-centcom-official-description
+      rules: ghost-role-information-centcom-personal-rules
+      job: CentralCommandOfficial
+      raffle:
+        settings: default
+    - type: Loadout
+      prototypes: [ CentralCommandOfficialGear ]
+    - type: RandomMetadata
+      nameSegments:
+      - NamesFirstERTOfficial
+      - NamesFirstOfficial
+      nameFormat: name-format-ert
+
+- type: startingGear
+  id: CentralCommandOfficialGear
+  equipment:
+    neck: ClothingNeckCloakCentcom
+    back: ClothingBackpackSatchelCentcomm
+    head: ClothingHeadHatCentcomcap
+    eyes: ClothingEyesGlassesHiddenSecurity
+    jumpsuit: ClothingUniformJumpsuitCentcomFormal
+    ears: ClothingHeadsetAltCentCom
+    gloves: ClothingHandsGlovesCentcomNaval
+    outerClothing: ClothingOuterArmorCentcommCarapace
+    shoes: ClothingShoesBootsLaceup
+    mask: ClothingMaskGasCentcom
+    id: CentcomPDA
+    pocket1: WeaponDisablerAdvanced
+  storage:
+    back:
+    - DoorRemoteAll
+    - HandheldFaxOfficial
+    - MedkitCombatFilled
+    - CentCommFlippo
+    - BoxSurvivalSlotsEngineering
+
+- type: roleLoadout
+  id: JobCentralCommandOfficial
+  groups:
+  # - GroupTankHarness # outerClothing slot occupied by startingGear
+  - CentralCommandOfficialLoadout
+  - Survival
+  - GroupSpeciesBreathTool
+
+- type: loadoutGroup
+  id: CentralCommandOfficialLoadout
+  name: spawner-loadout-centcomm-official
+  hidden: true
+  loadouts:
+  - CentralCommandOfficialLoadout
+
+- type: loadout
+  id: CentralCommandOfficialLoadout
+  equipment:
+    neck: ClothingNeckCloakCentcom
+    back: ClothingBackpackSatchel
+    head: ClothingHeadHatCentcomcap
+    eyes: ClothingEyesGlassesHiddenSecurity
+  storage:
+    back:
+    - PhoneInstrument
+    - DoorRemoteAll
+
+- type: localizedDataset
+  id: NamesFirstERTOfficial
+  values:
+    prefix: names-official-first-dataset-
+    count: 1
+
+- type: localizedDataset
+  id: NamesFirstOfficial
+  values:
+    prefix: names-ert-last-dataset-
+    count: 55
+
+- type: randomHumanoidSettings
+  id: EventHumanoidERT
+  parent: EventHumanoidMindShielded
+  # Nanotrasen are a bit racist
+  speciesBlacklist:
+    - Diona
+    - Dwarf
+    - Moth
+    - SlimePerson
+    - Gingerbread
+    - Harpy
+    - Vox
+    - Vulpkanin
+    - Rodentia
+    - Yowie
+    - IPC
+    - Resomi
+    - Oni
+    - Chitinid
+    - Plasmaman
+    - Feroxi
+    - IPC
+  randomizeName: false
+  components:
+    - type: NpcFactionMember
+      factions:
+      - CentralCommand
+    - type: AutoImplant
+      implants:
+      - MindShieldImplant
+      - DeathRattleImplantCentcomm
+      - TrackingImplant
+    - type: ErtStaff

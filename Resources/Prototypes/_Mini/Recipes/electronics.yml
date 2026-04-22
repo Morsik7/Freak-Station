@@ -1,0 +1,110 @@
+- type: latheRecipe
+  parent: BaseCircuitboardRecipe
+  id: PhotocopierMachineCircuitboard
+  result: PhotocopierMachineCircuitboard
+
+- type: latheRecipe
+  parent: BaseCircuitboardRecipe
+  id: GeneratorRTGMachineCircuitboard
+  result: GeneratorRTGMachineCircuitboard
+
+# Typan
+- type: latheRecipe
+  parent: BaseCircuitboardRecipe
+  id: AutolatheMachineCircuitboardTypan
+  result: AutolatheMachineCircuitboardTypan
+
+- type: latheRecipe
+  parent: BaseGoldCircuitboardRecipe
+  id: AutolatheHyperConvectionMachineCircuitboardTypan
+  result: AutolatheHyperConvectionMachineCircuitboardTypan
+
+- type: latheRecipe
+  parent: BaseCircuitboardRecipe
+  id: ProtolatheMachineCircuitboardTypan
+  result: ProtolatheMachineCircuitboardTypan
+
+- type: latheRecipe
+  parent: BaseGoldCircuitboardRecipe
+  id: ProtolatheHyperConvectionMachineCircuitboardTypan
+  result: ProtolatheHyperConvectionMachineCircuitboardTypan
+
+- type: latheRecipe
+  parent: BaseCircuitboardRecipe
+  id: CircuitImprinterMachineCircuitboardTypan
+  result: CircuitImprinterMachineCircuitboardTypan
+
+- type: latheRecipe
+  parent: BaseGoldCircuitboardRecipe
+  id: CircuitImprinterHyperConvectionMachineCircuitboardTypan
+  result: CircuitImprinterHyperConvectionMachineCircuitboardTypan
+
+- type: latheRecipe
+  parent: BaseCircuitboardRecipe
+  id: ExosuitFabricatorMachineCircuitboardTypan
+  result: ExosuitFabricatorMachineCircuitboardTypan
+
+- type: latheRecipe
+  parent: BaseCircuitboardRecipe
+  id: UniformPrinterMachineCircuitboardTypan
+  result: UniformPrinterMachineCircuitboardTypan
+
+- type: latheRecipe
+  parent: BaseCircuitboardRecipe
+  id: CargoTelepadMachineCircuitboardTypan
+  result: CargoTelepadMachineCircuitboardTypan
+
+- type: latheRecipe
+  parent: BaseCircuitboardRecipe
+  id: BiofabricatorMachineCircuitboardTypan
+  result: BiofabricatorMachineCircuitboardTypan
+
+- type: latheRecipe
+  parent: BaseGoldCircuitboardRecipe
+  id: AnalysisComputerCircuitboardTypan
+  result: AnalysisComputerCircuitboardTypan
+
+- type: latheRecipe
+  parent: BaseGoldCircuitboardRecipe
+  id: ShuttleConsoleCircuitboardTypan
+  result: ShuttleConsoleCircuitboardTypan
+
+- type: latheRecipe
+  parent: BaseCircuitboardRecipe
+  id: SurveillanceCameraMonitorCircuitboardTypan
+  result: SurveillanceCameraMonitorCircuitboardTypan
+
+- type: latheRecipe
+  parent: BaseCircuitboardRecipe
+  id: IFFConsoleCircuitboardTypan
+  result: IFFConsoleCircuitboardTypan
+
+- type: latheRecipe
+  parent: BaseCircuitboardRecipe
+  id: AnomalyVesselCircuitboardTypan
+  result: AnomalyVesselCircuitboardTypan
+
+- type: latheRecipe
+  parent: BaseGoldCircuitboardRecipe
+  id: AnomalyVesselExperimentalCircuitboardTypan
+  result: AnomalyVesselExperimentalCircuitboardTypan
+
+- type: latheRecipe
+  parent: BaseCheapElectronicsRecipe
+  id: DoorElectronicsTypan
+  result: DoorElectronicsTypan
+
+- type: latheRecipe
+  parent: BaseCircuitboardRecipe
+  id: OreProcessorMachineCircuitboardTypan
+  result: OreProcessorMachineCircuitboardTypan
+
+- type: latheRecipe
+  parent: BaseGoldCircuitboardRecipe
+  id: OreProcessorIndustrialMachineCircuitboardTypan
+  result: OreProcessorIndustrialMachineCircuitboardTypan
+
+- type: latheRecipe
+  parent: [ BaseCircuitboardRecipe, BaseGeneralMachineRecipeCategory ]
+  id: TypanHolopadMachineCircuitboard
+  result: TypanHolopadMachineCircuitboard

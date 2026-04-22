@@ -108,6 +108,12 @@
   components:
   - type: Emag
     emagType: All
+  # Mini edit start
+  - type: GhostPanelAntagonistMarker
+    name: ghost-panel-antagonist-revenant-name
+    description: ghost-panel-antagonist-revenant-description
+    priority: 70
+  # Mini edit end
   - type: Input
     context: "ghost"
   - type: Spectral
@@ -119,7 +125,7 @@
     layers:
     - state: active
   - type: TTS # CorvaxGoob-TTS
-    voice: Kelthuzad
+    voice: Boyar
   - type: StatusEffects
     allowed:
     - Corporeal

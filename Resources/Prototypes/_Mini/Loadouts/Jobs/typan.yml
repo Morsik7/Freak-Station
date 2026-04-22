@@ -1,0 +1,24 @@
+
+# Back
+- type: loadout
+  id: SyndiBackpack
+  equipment:
+    back: ClothingBackpackSyndicate
+
+- type: loadout
+  id: SyndiDuffel
+  equipment:
+    back: ClothingBackpackDuffelSyndicate
+
+- type: loadout
+  id: SyndiBag
+  equipment:
+    back: ClothingBackpackSatchelTypan
+
+- type: loadoutGroup
+  id: SyndicateBackpack
+  name: loadout-group-syndicate-backpack
+  loadouts:
+  - SyndiBackpack
+  - SyndiDuffel
+  - SyndiBag

@@ -1,0 +1,15 @@
+- type: entity
+  parent: DrinkGlass
+  id: DrinkKumisGlass
+  suffix: kumis
+  components:
+    - type: SolutionContainerManager
+      solutions:
+        drink:
+          maxVol: 30
+          reagents:
+            - ReagentId: Kumis
+              Quantity: 30
+    - type: Icon
+      sprite: _Mini/Objects/Consumable/Drinks/kumis.rsi
+      state: icon

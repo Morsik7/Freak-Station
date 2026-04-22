@@ -15,7 +15,7 @@ namespace Content.Server.Database.Migrations.Sqlite
         protected override void BuildModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
-            modelBuilder.HasAnnotation("ProductVersion", "10.0.0");
+            modelBuilder.HasAnnotation("ProductVersion", "9.0.1");
 
             modelBuilder.Entity("Content.Server.Database.Admin", b =>
                 {
@@ -798,6 +798,42 @@ namespace Content.Server.Database.Migrations.Sqlite
                     b.ToTable("connection_log", (string)null);
                 });
 
+            modelBuilder.Entity("Content.Server.Database.DailyRewardProgress", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER")
+                        .HasColumnName("daily_reward_progress_id");
+
+                    b.Property<int>("CurrentStreak")
+                        .HasColumnType("INTEGER")
+                        .HasColumnName("current_streak");
+
+                    b.Property<DateTime?>("LastClaimTime")
+                        .HasColumnType("TEXT")
+                        .HasColumnName("last_claim_time");
+
+                    b.Property<DateTime?>("PendingActiveDate")
+                        .HasColumnType("TEXT")
+                        .HasColumnName("pending_active_date");
+
+                    b.Property<TimeSpan>("PendingActiveTime")
+                        .HasColumnType("TEXT")
+                        .HasColumnName("pending_active_time");
+
+                    b.Property<Guid>("PlayerId")
+                        .HasColumnType("TEXT")
+                        .HasColumnName("player_id");
+
+                    b.HasKey("Id")
+                        .HasName("PK_daily_reward_progress");
+
+                    b.HasIndex("PlayerId")
+                        .IsUnique();
+
+                    b.ToTable("daily_reward_progress", (string)null);
+                });
+
             modelBuilder.Entity("Content.Server.Database.IPIntelCache", b =>
                 {
                     b.Property<int>("Id")
@@ -938,6 +974,115 @@ namespace Content.Server.Database.Migrations.Sqlite
                     b.ToTable("player", (string)null);
                 });
 
+            modelBuilder.Entity("Content.Server.Database.PlayerAntagToken", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER")
+                        .HasColumnName("player_antag_token_id");
+
+                    b.Property<int>("Amount")
+                        .HasColumnType("INTEGER")
+                        .HasColumnName("amount");
+
+                    b.Property<Guid>("PlayerId")
+                        .HasColumnType("TEXT")
+                        .HasColumnName("player_id");
+
+                    b.Property<string>("TokenId")
+                        .IsRequired()
+                        .HasColumnType("TEXT")
+                        .HasColumnName("token_id");
+
+                    b.HasKey("Id")
+                        .HasName("PK_player_antag_token");
+
+                    b.HasIndex("PlayerId", "TokenId")
+                        .IsUnique();
+
+                    b.ToTable("player_antag_token", (string)null);
+                });
+
+            modelBuilder.Entity("Content.Server.Database.PlayerAntagTokenSelection", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER")
+                        .HasColumnName("player_antag_token_selection_id");
+
+                    b.Property<string>("AntagId")
+                        .IsRequired()
+                        .HasColumnType("TEXT")
+                        .HasColumnName("antag_id");
+
+                    b.Property<Guid>("PlayerId")
+                        .HasColumnType("TEXT")
+                        .HasColumnName("player_id");
+
+                    b.Property<DateTime>("SelectedAt")
+                        .HasColumnType("TEXT")
+                        .HasColumnName("selected_at");
+
+                    b.Property<string>("TokenId")
+                        .IsRequired()
+                        .HasColumnType("TEXT")
+                        .HasColumnName("token_id");
+
+                    b.HasKey("Id")
+                        .HasName("PK_player_antag_token_selection");
+
+                    b.HasIndex("PlayerId")
+                        .IsUnique();
+
+                    b.ToTable("player_antag_token_selection", (string)null);
+                });
+
+            modelBuilder.Entity("Content.Server.Database.PlayerGhostRoleTickets", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER")
+                        .HasColumnName("player_ghost_role_tickets_id");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("TEXT")
+                        .HasColumnName("created_at");
+
+                    b.Property<DateTime?>("LastGrantTime")
+                        .HasColumnType("TEXT")
+                        .HasColumnName("last_grant_time");
+
+                    b.Property<Guid>("PlayerId")
+                        .HasColumnType("TEXT")
+                        .HasColumnName("player_id");
+
+                    b.Property<string>("StreakMilestones")
+                        .IsRequired()
+                        .HasColumnType("jsonb")
+                        .HasColumnName("streak_milestones");
+
+                    b.Property<string>("TicketMilestones")
+                        .IsRequired()
+                        .HasColumnType("jsonb")
+                        .HasColumnName("ticket_milestones");
+
+                    b.Property<int>("Tickets")
+                        .HasColumnType("INTEGER")
+                        .HasColumnName("tickets");
+
+                    b.Property<DateTime>("UpdatedAt")
+                        .HasColumnType("TEXT")
+                        .HasColumnName("updated_at");
+
+                    b.HasKey("Id")
+                        .HasName("PK_player_ghost_role_tickets");
+
+                    b.HasIndex("PlayerId")
+                        .IsUnique();
+
+                    b.ToTable("player_ghost_role_tickets", (string)null);
+                });
+
             modelBuilder.Entity("Content.Server.Database.Preference", b =>
                 {
                     b.Property<int>("Id")
@@ -1058,12 +1203,10 @@ namespace Content.Server.Database.Migrations.Sqlite
                         .HasColumnType("TEXT")
                         .HasColumnName("species");
 
-                    // Corvax-TTS-Start
                     b.Property<string>("Voice")
                         .IsRequired()
                         .HasColumnType("TEXT")
                         .HasColumnName("voice");
-                    // Corvax-TTS-End
 
                     b.HasKey("Id")
                         .HasName("PK_profile");
@@ -1259,6 +1402,56 @@ namespace Content.Server.Database.Migrations.Sqlite
                         .HasDatabaseName("IX_server_ban_hit_connection_id");
 
                     b.ToTable("server_ban_hit", (string)null);
+                });
+
+            modelBuilder.Entity("Content.Server.Database.ServerDbContext+SponsorDataRaw", b =>
+                {
+                    b.Property<Guid>("PlayerUserId")
+                        .HasColumnType("TEXT")
+                        .HasColumnName("player_user_id");
+
+                    b.Property<string>("Color")
+                        .HasMaxLength(10)
+                        .HasColumnType("TEXT")
+                        .HasColumnName("color");
+
+                    b.Property<int>("ExtraCharSlots")
+                        .HasColumnType("INTEGER")
+                        .HasColumnName("extra_char_slots");
+
+                    b.Property<bool>("ServerPriorityJoin")
+                        .HasColumnType("INTEGER")
+                        .HasColumnName("server_priority_join");
+
+                    b.HasKey("PlayerUserId")
+                        .HasName("PK_sponsors_list");
+
+                    b.ToTable("sponsors_list", (string)null);
+                });
+
+            modelBuilder.Entity("Content.Server.Database.ServerDbContext+SponsorPrototypeData", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER")
+                        .HasColumnName("sponsors_prototypes_id");
+
+                    b.Property<Guid>("PlayerUserId")
+                        .HasColumnType("TEXT")
+                        .HasColumnName("player_user_id");
+
+                    b.Property<string>("Prototype")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("TEXT")
+                        .HasColumnName("prototype");
+
+                    b.HasKey("Id")
+                        .HasName("PK_sponsors_prototypes");
+
+                    b.HasIndex("PlayerUserId");
+
+                    b.ToTable("sponsors_prototypes", (string)null);
                 });
 
             modelBuilder.Entity("Content.Server.Database.Trait", b =>
@@ -1890,6 +2083,32 @@ namespace Content.Server.Database.Migrations.Sqlite
                     b.Navigation("Connection");
                 });
 
+            modelBuilder.Entity("Content.Server.Database.ServerDbContext+SponsorDataRaw", b =>
+                {
+                    b.HasOne("Content.Server.Database.Player", "Player")
+                        .WithOne("SponsorData")
+                        .HasForeignKey("Content.Server.Database.ServerDbContext+SponsorDataRaw", "PlayerUserId")
+                        .HasPrincipalKey("Content.Server.Database.Player", "UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired()
+                        .HasConstraintName("FK_sponsors_list_player_player_user_id");
+
+                    b.Navigation("Player");
+                });
+
+            modelBuilder.Entity("Content.Server.Database.ServerDbContext+SponsorPrototypeData", b =>
+                {
+                    b.HasOne("Content.Server.Database.Player", "Player")
+                        .WithMany("Prototypes")
+                        .HasForeignKey("PlayerUserId")
+                        .HasPrincipalKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired()
+                        .HasConstraintName("FK_sponsors_prototypes_player_player_id");
+
+                    b.Navigation("Player");
+                });
+
             modelBuilder.Entity("Content.Server.Database.Trait", b =>
                 {
                     b.HasOne("Content.Server.Database.Profile", "Profile")
@@ -2003,6 +2222,10 @@ namespace Content.Server.Database.Migrations.Sqlite
                     b.Navigation("AdminWatchlistsReceived");
 
                     b.Navigation("JobWhitelists");
+
+                    b.Navigation("Prototypes");
+
+                    b.Navigation("SponsorData");
                 });
 
             modelBuilder.Entity("Content.Server.Database.Preference", b =>

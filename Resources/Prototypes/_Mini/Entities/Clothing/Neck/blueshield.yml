@@ -1,0 +1,37 @@
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Jarl <elliotacline@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  parent: ClothingNeckMantleBlueshield
+  id: ClothingNeckPonchoBlueshield
+  name: пончо офицера "Синий Щит"
+  description: Зимнее пончо, рекламируемое как шедевр защиты от внешней среды. Результаты могут отличаться.
+  components:
+  - type: Sprite
+    sprite: _Mini/Clothing/Neck/PonchoBlueshield.rsi
+  - type: Clothing
+    sprite: _Mini/Clothing/Neck/PonchoBlueshield.rsi
+
+- type: entity
+  parent: ClothingNeckMantleBlueshield
+  id: ClothingNeckMantleBlueshieldSecond
+  name: мантия офицера "Синий Щит"
+  description: Мантия высокопоставленных телохранителей.
+  components:
+  - type: Sprite
+    sprite: _Mini/Clothing/Neck/bsmantle.rsi
+  - type: Clothing
+    sprite: _Mini/Clothing/Neck/bsmantle.rsi
+
+- type: entity
+  parent: ClothingNeckMantleBlueshield
+  id: ClothingNeckScarfBlueshield
+  name: шарф офицера "Синий Щит"
+  description: Шарф высокопоставленных телохранителей.
+  components:
+  - type: Sprite
+    sprite: _Mini/Clothing/Neck/scarfblueshield.rsi
+  - type: Clothing
+    sprite: _Mini/Clothing/Neck/scarfblueshield.rsi

@@ -110,8 +110,8 @@
 - type: entity
   id: LockerShaftMiner
   parent: LockerBase
-  name: shaft miner's locker
-  description: Contains equipment useful for planet exploration.
+  name: шкаф шахтёра
+  description: Содержит оборудование, полезное для исследования планет.
   components:
   - type: Appearance
   - type: EntityStorageVisuals
@@ -230,7 +230,7 @@
   - type: EntityStorageVisuals
     stateBaseClosed: eng
     stateDoorOpen: eng_open
-    stateDoorClosed: eng_evac_door
+    stateDoorClosed: eng_secure_door
   - type: AccessReader
     access: [ [ "Engineering" ] ]
 

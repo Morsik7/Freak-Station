@@ -1,6 +1,6 @@
 - type: guideEntry
   id: Wraith
-  name: guide-entry-wraith
+  name: Призрак
   text: "/ServerInfo/_Goobstation/Guidebook/Antagonist/Wraith.xml"
   children:
   - Plaguebringer

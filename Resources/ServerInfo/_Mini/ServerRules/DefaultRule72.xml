@@ -1,0 +1,15 @@
+<Document>
+  <ColorBox Color="#3a2a2a" OutlineColor="#5a4a4a" OutlineThickness="2" Margin="1">
+    <Box Orientation="Vertical">
+      <Box Orientation="Horizontal" HorizontalAlignment="Center">
+        7.2. Специальные роли
+      </Box>
+      <Box Orientation="Vertical" Margin="10">
+        Капитан или глава не могут создавать "охотников" вне СБ (например,   "Охотник на вампиров").
+        <Box Orientation="Vertical" Margin="10">
+         Если хотите охотиться — вступите в СБ.
+        </Box>
+     </Box>
+    </Box>
+  </ColorBox>
+</Document>

@@ -1,0 +1,29 @@
+# Jumpsuit
+- type: loadout
+  id: TypanParamedicJumpsuit
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitTypanParamedic
+
+- type: loadout
+  id: TypanParamedicJumpskirt
+
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtTypanParamedic
+
+# Loadout Groups
+- type: loadoutGroup
+  id: TypanParamedicUniform
+  name: loadout-group-typan-paramedic-uniform
+  hidden: true
+  minLimit: 1
+  loadouts:
+  - TypanParamedicJumpsuit
+  - TypanParamedicJumpskirt
+
+# Role Loadout
+- type: roleLoadout
+  id: JobTypanParamedic
+  groups:
+  - TypanParamedicUniform
+  - GroupSpeciesBreathTool
+  - GroupTankHarness

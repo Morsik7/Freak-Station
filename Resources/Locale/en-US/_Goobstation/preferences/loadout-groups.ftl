@@ -64,10 +64,10 @@ loadout-group-security-melee = Security melee weapon
 loadout-group-animals = Animals
 
 # Virology
-loadout-group-virologist-jumpsuit = Virologist jumpsuit
-loadout-group-virologist-backpack = Virologist backpack
-loadout-group-virologist-outerclothing = Virologist outer clothing
-loadout-group-virologist-id = Virologist ID
+loadout-group-virologist-jumpsuit = Комбинезон вирусолога
+loadout-group-virologist-backpack = Обувь вирусолога
+loadout-group-virologist-outerclothing = Верхняя одежда вирусолога
+loadout-group-virologist-id = ID вирусолога
 
-#RadioHost
+# RadioHost
 loadout-group-radiohost-jumpsuit = Shirt

@@ -1,0 +1,35 @@
+# DeathRipley
+
+- type: entity
+  id: TypanRipleyCentralElectronics
+  parent: RipleyCentralElectronics
+  name: центральный модуль управления кроваво-красного Рипли
+  description: Центр управления электрооборудованием кроваво-красного Рипли.
+  components:
+  # - type: Item
+  #   storedRotation: 0
+  - type: Tag
+    tags:
+    - TypanRipleyCentralControlModule
+  # - type: GuideHelp
+  #   guides:
+  #   - Robotics
+
+- type: entity
+  id: TypanRipleyPeripheralsElectronics
+  parent: RipleyPeripheralsElectronics
+  name: модуль управления периферией кроваво-красного Рипли
+  description: Система управления электрическими периферийными устройствами кроваво-красного Рипли.
+  components:
+  - type: Tag
+    tags:
+    - TypanRipleyPeripheralsControlModule
+  # - type: GuideHelp
+  #   guides:
+  #   - Robotics
+
+- type: Tag
+  id: TypanRipleyPeripheralsControlModule
+
+- type: Tag
+  id: TypanRipleyCentralControlModule

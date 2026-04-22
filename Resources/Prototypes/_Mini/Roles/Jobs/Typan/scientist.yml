@@ -1,0 +1,38 @@
+- type: job
+  id: TypanScience
+  name: job-name-typan-science
+  playTimeTracker: JobTypanScience
+  description: job-description-typan-science
+  startingGear: TypanScience
+  icon: "JobIconSyndicateScience"
+  supervisors: job-supervisors-typan-rd
+  canBeAntag: false
+  requirements:
+    - !type:DepartmentTimeRequirement
+      department: Science
+      time: 18000
+  access:
+  - TypanScience
+  - SyndicateAgent
+  - TypanMaint
+  skills: # CorvaxGoob-Skills
+    - Shooting
+    - Surgery
+    - MedicalEquipment
+    - AdvancedBuilding
+  special:
+  - !type:AddComponentSpecial
+    components:
+      - type: AntagImmune
+      - type: NpcFactionMember
+        factions:
+        - Typan
+- type: startingGear
+  id: TypanScience
+  equipment:
+    eyes: ClothingEyesHudTypanResearch
+    ears: ClothingHeadsetAltSyndicate
+    outerClothing: ClothingOuterTypanCoatLabResearcher
+    gloves: ClothingHandsScienceTypan
+    shoes: ClothingShoesBootsCombat
+    id: SyndiPDAScience

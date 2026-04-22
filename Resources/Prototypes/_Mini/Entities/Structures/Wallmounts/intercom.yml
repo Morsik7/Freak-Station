@@ -1,0 +1,32 @@
+- type: entity
+  id: IntercomTypan
+  # name: интерком
+  # description: Интерком. На случай, когда необходимо что-то сообщить что-то коллегам из синдиката.
+  parent: BaseIntercomSecure
+  suffix: Тайпан
+  description: An intercom. It's been reinforced with metal.
+  components:
+# Mini-start: intercom resprite
+  - type: Sprite
+    layers:
+    - state: typan
+    - state: unshaded-typan
+      map: ["enum.PowerDeviceVisualLayers.Powered"]
+      shader: unshaded
+    - state: broadcasting
+      map: ["enum.RadioDeviceVisualLayers.Broadcasting"]
+      shader: unshaded
+      visible: false
+    - state: speaker
+      map: ["enum.RadioDeviceVisualLayers.Speaker"]
+      shader: unshaded
+      visible: false
+    - state: panel
+      map: ["enum.WiresVisualLayers.MaintenancePanel"]
+# Mini-end
+  - type: ContainerFill
+    containers:
+      board:
+      - IntercomElectronics
+      key_slots:
+      - EncryptionKeySyndie

@@ -40,6 +40,10 @@
   equipment:
     head: ClothingHeadHelmetSwat
 
+- type: loadout
+  id: BlueshieldOfficerBeretAlt
+  equipment:
+    head: ClothingHeadHatBeretBlueshieldAlt
 
 - type: loadout
   id: BlueshieldOfficerBeret
@@ -119,6 +123,11 @@
     outerClothing: ClothingBlueshieldArmourVest
 
 - type: loadout
+  id: BlueshieldOfficerOuterBlueshieldArmorVestAlt
+  equipment:
+    outerClothing: ClothingOuterArmorBlueShieldAlt
+
+- type: loadout
   id: BlueshieldOfficerOuterBlueshieldArmoredJacket
   equipment:
     outerClothing: ClothingBlueshieldArmoredJacket
@@ -133,6 +142,23 @@
   equipment:
     outerClothing: ClothingOuterWinterBlueshield
 
+# Glasses
+- type: loadout
+  id: BlueshieldOfficerOuterBlueshieldGlasses
+  equipment:
+    eyes: ClothingEyesGlassesBSO
+
+- type: loadout
+  id: BlueshieldOfficerOuterBlueshieldLenses
+  equipment:
+    eyes: ClothingEyesLensesBlueshield
+
+# PDA
+- type: loadout
+  id: BlueshieldOfficerPDA
+  equipment:
+    id: BlueshieldPDA
+
 # Neck
 - type: loadout
   id: BlueshieldOfficerOuterBlueshieldMantle
@@ -141,6 +167,30 @@
     proto: SeniorBlueshieldOfficer
   equipment:
     neck: ClothingNeckMantleBlueshield
+
+- type: loadout
+  id: BlueshieldOfficerOuterBlueshieldMantleAlt
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: SeniorBlueshieldOfficer
+  equipment:
+    neck: ClothingNeckMantleBlueshieldSecond
+
+- type: loadout
+  id: BlueshieldOfficerOuterBlueshieldScarf
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: SeniorBlueshieldOfficer
+  equipment:
+    neck: ClothingNeckScarfBlueshield
+
+- type: loadout
+  id: BlueshieldOfficerOuterBlueshieldPoncho
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: SeniorBlueshieldOfficer
+  equipment:
+    neck: ClothingNeckPonchoBlueshield
 
 - type: loadout
   id: BlueshieldOfficerEnsemble
@@ -158,6 +208,19 @@
     proto: SeniorBlueshieldOfficer
   equipment:
     mask: FoodSnackLollypopBlueshield
+
+- type: loadout
+  id: BlueshieldOfficerMaskGaiter
+  equipment:
+    mask: ClothingMaskNeckGaiter
+
+- type: loadout
+  id: BlueshieldOfficerMaskSwat
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: SeniorBlueshieldOfficer
+  equipment:
+    mask: ClothingMaskGasBlueshield
 
 # Back
 - type: loadout
@@ -190,3 +253,15 @@
   id: SnowjacksBso
   equipment:
     shoes: ClothingShoesBootsWinterSnowjackBso
+
+
+# Belt
+- type: loadout
+  id: MilitaryWebbingBlueShield
+  equipment:
+    belt: ClothingBeltMilitaryWebbingBlueShieldFilled
+
+- type: loadout
+  id: BeltAssault
+  equipment:
+    belt: ClothingBeltAssaultFilled

@@ -1,0 +1,419 @@
+# Weaponry
+
+## Firearms
+- type: latheRecipePack
+  id: TypanPistols
+  recipes:
+  - WeaponPistolViper
+  - WeaponRevolverPython
+  - WeaponPistolCobra
+
+- type: latheRecipePack
+  id: TypanWeapons
+  recipes:
+  - WeaponSniperMosin
+  - WeaponSniperHristov
+  - WeaponRifleAk
+  - WeaponSubMachineGunC20r
+  - WeaponShotgunBulldog
+  - WeaponLightMachineGunL6
+  - WeaponLauncherChinaLake
+
+## Energy Weapons
+- type: latheRecipePack
+  id: TypanEnergyWeapons
+  recipes:
+  - EnergyDagger
+  - EnergySword
+  - EnergyShield
+  - EnergySwordDouble
+  - WeaponEnergyCrossbow
+
+## Melee
+- type: latheRecipePack
+  id: TypanMelee
+  recipes:
+  - ThrowingKnife
+  - ClothingHandsKnuckleDustersSyndicate
+
+## Grenades
+- type: latheRecipePack
+  id: TypanGrenades
+  recipes:
+  - GrenadeShrapnel
+  - ExGrenade
+  - GrenadeFlashBang
+  - SmokeGrenade
+  - GrenadeIncendiary
+  - ClusterGrenade
+  - EmpGrenade
+  - WhiteholeGrenade
+  - HolyHandGrenade
+
+## Ammo
+- type: latheRecipePack
+  id: TypanAmmoStatic
+  recipes:
+  - MagazineBoxAntiMateriel
+  - MagazinePistolCaselessRifle
+  - MagazineLightRifleBox
+  - MagazineLightRifleIncendiary
+  - MagazineBoxLightRifleIncendiary
+  - MagazineLightRifleUranium
+  - MagazineBoxLightRifleUranium
+
+- type: latheRecipePack
+  id: TypanLightRifleAmmoResearch
+  recipes:
+  - MagazineLightRifleIncendiary
+  - MagazineBoxLightRifleIncendiary
+  - MagazineLightRifleUranium
+  - MagazineBoxLightRifleUranium
+
+## Security
+- type: latheRecipePack
+  id: TypanSecurityEquipmentStatic
+  recipes:
+  - Handcuffs
+  - Zipties
+
+# Research
+
+## Electronics
+- type: latheRecipePack
+  id: TypanElectronicsStatic
+  recipes:
+  - IntercomElectronics
+  - FirelockElectronics
+  - DoorElectronicsTypan
+  - AirAlarmElectronics
+  - StationMapElectronics
+  - FireAlarmElectronics
+  - MailingUnitElectronics
+  - SignalTimerElectronics
+  - APCElectronics
+  - SMESMachineCircuitboard
+  - SubstationMachineCircuitboard
+  - WallmountSubstationElectronics
+  - CellRechargerCircuitboard
+  - WeaponCapacitorRechargerCircuitboard
+  - FreezerElectronics
+
+## Science
+- type: latheRecipePack
+  id: TypanScienceBoardsStatic
+  recipes:
+  - ProtolatheMachineCircuitboardTypan
+  - AutolatheMachineCircuitboardTypan
+  - CircuitImprinterMachineCircuitboardTypan
+  - ExosuitFabricatorMachineCircuitboardTypan
+  - CutterMachineCircuitboard
+  - BorgChargerCircuitboard
+
+- type: latheRecipePack
+  id: TypanScienceBoards
+  recipes:
+  - TurboItemRechargerCircuitboard
+  - AutolatheHyperConvectionMachineCircuitboardTypan
+  - ProtolatheHyperConvectionMachineCircuitboardTypan
+  - CircuitImprinterHyperConvectionMachineCircuitboardTypan
+  - FlatpackerMachineCircuitboard
+  - SheetifierMachineCircuitboard
+  - PowerCageRechargerCircuitboard
+  - ADTBotanicalSeedDNAManipulatorCircuitboard
+  - AnalysisComputerCircuitboardTypan
+  - AnomalyVesselCircuitboardTypan
+  - AnomalyVesselExperimentalCircuitboardTypan
+  - AnomalySynchronizerCircuitboard
+  - APECircuitboard
+  - ArtifactAnalyzerMachineCircuitboard
+  - ArtifactCrusherMachineCircuitboard
+
+## Clothing
+- type: latheRecipePack
+  id: TypanScienceClothing
+  recipes:
+  - ClothingShoesBootsMagSyndie
+  - ClothingShoesBootsMagAdvSynd
+  - ClothingShoesBootsMoon
+
+## Robotics
+- type: latheRecipePack
+  id: TypanRoboticsStatic
+  recipes:
+  - MMI
+  - PositronicBrain
+  - SciFlash
+  - TypanCyborgEndoskeleton
+
+- type: latheRecipePack
+  id: TypanBorgLimbsStatic
+  recipes:
+  - TypanLeftArmBorg
+  - TypanRightArmBorg
+  - TypanLeftLegBorg
+  - TypanRightLegBorg
+  - TypanLightHeadBorg
+  - TypanTorsoBorg
+
+- type: latheRecipePack
+  id: TypanBorgModulesWeaponry
+  recipes:
+  - BorgModuleAdvancedChemical
+  - BorgModuleAdvancedSurgery
+  - BorgModuleSecurityStandard
+  - BorgModuleSecurityAdvanced
+  - BorgModuleSyndicateWeapon
+  - BorgModuleSyndicateWeaponAdvanced
+  - BorgModuleOperative
+  - BorgModuleMartyr
+  - BorgModuleEsword
+  - BorgModuleL6C
+
+## Mechs
+- type: latheRecipePack
+  id: TypanMech
+  recipes:
+  - TypanRipleyHarness
+  - TypanRipleyLArm
+  - TypanRipleyRArm
+  - TypanRipleyLLeg
+  - TypanRipleyRLeg
+  - MechEquipmentTypanRipleyGrabber
+
+- type: latheRecipePack
+  id: TypanMechBoards
+  recipes:
+  - TypanRipleyCentralElectronics
+  - TypanRipleyPeripheralsElectronics
+
+# Cargo
+
+## Boards
+- type: latheRecipePack
+  id: TypanCargoBoards
+  recipes:
+  - OreProcessorIndustrialMachineCircuitboardTypan
+  - CargoTelepadMachineCircuitboard
+  - ShuttleGunKineticCircuitboard
+  - SalvageExpeditionsComputerCircuitboard
+  - CargoTelepadMachineCircuitboardTypan
+
+- type: latheRecipePack
+  id: TypanCargoBoardsStatic
+  recipes:
+  - OreProcessorMachineCircuitboardTypan
+  - SalvageMagnetMachineCircuitboard
+
+## Smelting
+- type: latheRecipePack
+  id: TypanOreSmelting
+  recipes:
+  - SheetSteel
+  - SheetGlass1
+  - SheetPlasma1
+  - IngotGold1
+  - IngotSilver1
+  - MaterialBananium1
+  - MaterialDiamond
+  - SheetUranium1
+
+- type: latheRecipePack
+  id: TypanAdvancedSmelting
+  recipes:
+  - SheetPlasteel1
+  - SheetUGlass1
+  - SheetRUGlass1
+
+# Service
+
+## Boards
+- type: latheRecipePack
+  id: TypanServiceBoardsStatic
+  recipes:
+  - BiogeneratorMachineCircuitboard
+  - UniformPrinterMachineCircuitboardTypan
+  - SyndicateMicrowaveMachineCircuitboard
+  - ReagentGrinderMachineCircuitboard
+  - ElectricGrillMachineCircuitboard
+  - BoozeDispenserMachineCircuitboard
+  - SodaDispenserMachineCircuitboard
+  - PhotocopierMachineCircuitboard
+  - SurveillanceCameraMonitorCircuitboardTypan
+  - TypanHolopadMachineCircuitboard
+
+- type: latheRecipePack
+  id: TypanServiceBoards
+  recipes:
+  - FatExtractorMachineCircuitboard
+  - HydroponicsTrayMachineCircuitboard
+  - SeedExtractorMachineCircuitboard
+  - ReagentGrinderIndustrialMachineCircuitboard
+  - JukeboxCircuitBoard
+  - DawInstrumentMachineCircuitboard
+  - BiofabricatorMachineCircuitboardTypan
+
+## Clothing
+- type: latheRecipePack
+  id: TypanClothing
+  recipes:
+  - ClothingUniformJumpsuitTypanAtmosphericsEngineer
+  - ClothingUniformJumpsuitTypanBotanist
+  - ClothingUniformJumpsuitTypanChef
+  - ClothingUniformJumpsuitTypanTechnicalOperationsSupervisor
+  - ClothingUniformJumpsuitTypanCommunicationsOfficer
+  - ClothingUniformJumpsuitTypanMedic
+  - ClothingUniformJumpsuitTypanParamedic
+  - ClothingUniformJumpsuitTypanPatrol
+  - ClothingUniformJumpsuitTypanResearchDirector
+  - ClothingUniformJumpsuitTypanResearcher
+  - ClothingUniformJumpsuitTypanTechnician
+  - ClothingUniformJumpsuitTypanCargotech
+  - ClothingUniformOverallsTypanCargotech
+  - ClothingUniformJumpskirtTypanAtmosphericsEngineer
+  - ClothingUniformJumpskirtTypanBotanist
+  - ClothingUniformJumpskirtTypanChef
+  - ClothingUniformJumpskirtTypanTechnicalOperationsSupervisor
+  - ClothingUniformJumpskirtTypanCommunicationsOfficer
+  - ClothingUniformJumpskirtTypanMedic
+  - ClothingUniformJumpskirtTypanParamedic
+  # - ClothingUniformJumpskirtTypanPatrol
+  - ClothingUniformJumpskirtTypanResearchDirector
+  - ClothingUniformJumpskirtTypanResearcher
+  - ClothingUniformJumpskirtTypanTechnician
+  - ClothingUniformJumpskirtTypanCargotech
+  - ClothingOuterTrenchTypanCommunicationsOfficer
+  - ClothingOuterCoatTypanCommunicationsOfficer
+  - ClothingOuterTypanCoatLab
+  - ClothingOuterTypanCoatLabMed
+  - ClothingOuterTypanCoatLabResearchDirector
+  - ClothingOuterTypanCoatLabResearcher
+  - ClothingOuterApronTypanBotanist
+  - ClothingOuterApronTypanChef
+  # - ClothingOuterJacketTypanChef
+  - ClothingBackpackSatchelTypan
+  - ClothingBackpackSyndicate
+  - ClothingBackpackDuffelSyndicate
+
+# Chameleon
+
+- type: latheRecipePack
+  id: TypanSpecialClothing
+  recipes:
+  - ClothingBackpackChameleon
+  - ClothingHeadsetChameleon
+  - ClothingEyesChameleon
+  - ClothingHandsChameleon
+  - ClothingHeadHatChameleon
+  - ClothingMaskGasChameleon
+  - ClothingNeckChameleon
+  - ClothingOuterChameleon
+  - ClothingShoesChameleon
+  - ClothingUniformJumpsuitChameleon
+  - ClothingHandsGlovesNorthStar
+  - ClothingHandsGlovesBoxingRigged
+
+## Armor vest
+
+- type: latheRecipePack
+  id: TypanArmorVest
+  recipes:
+  - ClothingOuterVestWeb
+  - ClothingOuterVestWebElite
+
+# Medical
+
+- type: latheRecipePack
+  id: TypanMedicalStatic
+  recipes:
+  - Implanter
+  - Defibrillator
+  - HandheldHealthAnalyzer
+  - DiseaseSwab
+  - BodyBag
+  - CaneSheathFilled
+
+## Surgery
+- type: latheRecipePack
+  id: TypanSurgeryStatic
+  recipes:
+  - ScalpelAdvanced
+  - Retractor
+  - Cautery
+  - Drill
+  - SawAdvanced
+  - Hemostat
+
+## Hyposprays
+- type: latheRecipePack
+  id: TypanMedical
+  recipes:
+  - SyndiHypo
+  - Hypopen
+  - HypoDart
+  - DefibrillatorSyndicate
+
+## Cloning
+- type: latheRecipePack
+  id: TypanCloning
+  recipes:
+  - CloningPodMachineCircuitboard
+  - MedicalScannerMachineCircuitboard
+  - CloningConsoleComputerCircuitboard
+
+# Engineering
+
+## Tools
+- type: latheRecipePack
+  id: SyndicateAdvancedTools
+  recipes:
+  - SyndicatePowerDrill
+  - SyndicateWelderExperimental
+  - SyndicateJawsOfLife
+  - Fulton
+  - FultonBeacon
+
+## Hardsuits
+- type: latheRecipePack
+  id: TypanHardsuits
+  recipes:
+  - ClothingOuterEVASuitSyndicate
+  - ClothingHeadHelmetSyndicate
+  - ClothingOuterHardsuitSyndie
+  - ClothingOuterHardsuitSyndieMedic
+  - ClothingOuterHardsuitSyndieElite
+  - ClothingOuterHardsuitSyndieCommander
+  - ClothingOuterHardsuitJuggernaut
+
+## Equipment
+- type: latheRecipePack
+  id: TypanEquipment
+  recipes:
+  - HandHeldMassScanner
+  - ClothingMaskWeldingGas
+  - SignallerAdvanced
+  - SignalTrigger
+  - VoiceTrigger
+  - TimerTrigger
+  - ExplosivePayload
+  - ClothingEyesHudTypanDiagnostic
+  - ClothingEyesHudTypanMedical
+  - ClothingEyesHudTypanPatrol
+  - ClothingEyesHudTypanResearch
+  - ClothingEyesHudTypanAdvanced
+  - ClothingEyesNightVisionGogglesSyndie
+  - EmagTypanLimited
+  - ChameleonPDA
+  - ChameleonProjector
+  - WeaponPistolCHIMPUpgradeKit
+
+## Shuttles
+- type: latheRecipePack
+  id: TypanShuttleBoards
+  recipes:
+  - ShuttleConsoleCircuitboardTypan
+  - IFFConsoleCircuitboardTypan
+  - RadarConsoleCircuitboard
+  - ThrusterMachineCircuitboard
+  - GyroscopeMachineCircuitboard
+  - MiniGravityGeneratorCircuitboard

@@ -1,0 +1,16 @@
+# - type: entity
+#   parent: [ BaseBorgModuleSyndicateAssault, BaseProviderBorgModule, BaseSyndicateContraband ]
+#   id: BorgModuleC20r
+#   name: C20-r ROW cyborg module
+#   description: A weapons module that comes with a burst-fire C-20r.
+#   components:
+#   - type: Sprite
+#     layers:
+#     - state: syndicate
+#     - state: icon-syndicate
+#   - type: ItemBorgModule
+#     hands:
+#     - item: WeaponSubMachineGunC20rROW
+#     - item: PinpointerSyndicateNuclear
+#   - type: BorgModuleIcon
+#     icon: { sprite: Interface/Actions/actions_borg.rsi, state: syndicate-c20r-module }

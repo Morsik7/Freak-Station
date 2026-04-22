@@ -1,0 +1,28 @@
+# Jumpsuit
+- type: loadout
+  id: TypanCommunicationsOfficerJumpsuit
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitTypanCommunicationsOfficer
+
+- type: loadout
+  id: TypanCommunicationsOfficerJumpskirt
+
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtTypanCommunicationsOfficer
+
+# Loadout Groups
+- type: loadoutGroup
+  id: TypanCommunicationsOfficerUniform
+  name: loadout-group-typan-communications-officer-uniform
+  hidden: true
+  minLimit: 1
+  loadouts:
+  - TypanCommunicationsOfficerJumpsuit
+  - TypanCommunicationsOfficerJumpskirt
+
+- type: loadoutGroup
+  id: TypanCommunicationsOfficerUnderwear
+  name: loadout-group-typan-communications-officer-underwear
+  hidden: true
+  minLimit: 0
+  loadouts: []

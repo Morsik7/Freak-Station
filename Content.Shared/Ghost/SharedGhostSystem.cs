@@ -58,7 +58,7 @@ namespace Content.Shared.Ghost
     /// System for the <see cref="GhostComponent"/>.
     /// Prevents ghosts from interacting when <see cref="GhostComponent.CanGhostInteract"/> is false.
     /// </summary>
-    public abstract class SharedGhostSystem : EntitySystem
+    public abstract partial class SharedGhostSystem : EntitySystem
     {
         [Dependency] protected readonly SharedPopupSystem Popup = default!;
 
@@ -198,6 +198,7 @@ namespace Content.Shared.Ghost
         public bool IsWarpPoint { get;  }
     }
 
+    /* Mini EDIT - Эти штуки переделаны и вынесены в partial класс. Для панельки гостов
     /// <summary>
     /// A server to client response for a <see cref="GhostWarpsRequestEvent"/>.
     /// Contains players, and locations a ghost can warp to
@@ -215,6 +216,7 @@ namespace Content.Shared.Ghost
         /// </summary>
         public List<GhostWarp> Warps { get; }
     }
+    */
 
     /// <summary>
     ///  A client to server request for their ghost to be warped to an entity
@@ -257,4 +259,9 @@ namespace Content.Shared.Ghost
             AvailableGhostRoles = availableGhostRoleCount;
         }
     }
+
+    // FREAKY EDIT START
+    [Serializable, NetSerializable]
+    public sealed class GhostReturnToRoundRequest : EntityEventArgs;
+    // FREAKY EDIT END
 }

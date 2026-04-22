@@ -128,6 +128,8 @@
     sprite: Clothing/Ears/Headsets/cargo.rsi
   - type: Clothing
     sprite: Clothing/Ears/Headsets/cargo.rsi
+  - type: Headset
+    color: "#a46106"
 
 - type: entity
   parent: [ClothingHeadsetAlt, BaseCommandContraband] # Goobstation
@@ -139,10 +141,13 @@
       key_slots:
       - EncryptionKeyCentCom
       - EncryptionKeyStationMaster
+  - type: Headset
+    color: "#2681a5"
   - type: Sprite
     sprite: Clothing/Ears/Headsets/centcom.rsi
   - type: Clothing
     sprite: Clothing/Ears/Headsets/centcom.rsi
+
 
 - type: entity
   parent: [ClothingHeadsetAltLoudspeaker, BaseCommandContraband] # goob
@@ -153,10 +158,13 @@
     containers:
       key_slots:
       - EncryptionKeyStationMaster
+  - type: Headset
+    color: "#fcdf03"
   - type: Sprite
     sprite: Clothing/Ears/Headsets/command.rsi
   - type: Clothing
     sprite: Clothing/Ears/Headsets/command.rsi
+
 
 - type: entity
   parent: [ClothingHeadsetAltLoudspeaker, BaseCommandContraband] # goob
@@ -173,6 +181,8 @@
     sprite: Clothing/Ears/Headsets/engineering.rsi
   - type: Clothing
     sprite: Clothing/Ears/Headsets/engineering.rsi
+  - type: Headset
+    color: "#f2ac26"
 
 - type: entity
   parent: [ClothingHeadsetAltLoudspeaker, BaseCommandContraband] # goob
@@ -191,6 +201,8 @@
     sprite: Clothing/Ears/Headsets/medical.rsi
   - type: StealTarget
     stealGroup: ClothingHeadsetAltMedical
+  - type: Headset
+    color: "#57b8f0"
 
 - type: entity
   parent: [ClothingHeadsetAltLoudspeaker, BaseCommandContraband] # goob
@@ -207,6 +219,8 @@
     sprite: Clothing/Ears/Headsets/security.rsi
   - type: Clothing
     sprite: Clothing/Ears/Headsets/security.rsi
+  - type: Headset
+    color: "#ff4242"
 
 - type: entity
   parent: [ClothingHeadsetAltLoudspeaker, BaseCommandContraband] # goob
@@ -223,6 +237,8 @@
     sprite: Clothing/Ears/Headsets/science.rsi
   - type: Clothing
     sprite: Clothing/Ears/Headsets/science.rsi
+  - type: Headset
+    color: "#c68cfa"
 
 - type: entity
   parent: [ClothingHeadsetAlt, BaseSyndicateContraband]
@@ -230,7 +246,6 @@
   name: blood-red over-ear headset
   description: An updated, modular syndicate intercom that fits over the head and takes encryption keys (there are 5 key slots.).
   components:
-  - type: Headset
   - type: EncryptionKeyHolder
     keySlots: 5
   - type: ContainerFill
@@ -241,6 +256,8 @@
     sprite: Clothing/Ears/Headsets/syndicate.rsi
   - type: Clothing
     sprite: Clothing/Ears/Headsets/syndicate.rsi
+  - type: Headset
+    color: "#732123"
 
 - type: entity
   parent: ClothingHeadsetAlt

@@ -166,6 +166,7 @@
       - id: RCD
       - id: RCDAmmo
       - id: AirGrenade
+      - id: ClothingOuterHardsuitAtmos # Ministation - atmos hardsuit
       - id: ClothingHandsGlovesAtmosInsulated # Goobstation - insulated atmos gloves
       - id: ClothingBackpackFirefighterTank # Assmos - Firefighter nozzle
 

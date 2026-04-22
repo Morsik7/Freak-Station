@@ -1,0 +1,223 @@
+- type: entity
+  parent: CyborgEndoskeleton
+  id: TypanCyborgEndoskeleton
+  name: эндоскелет киборга
+  description: Каркас, на котором собираются киборги. Значительно менее жуткий, чем ожидалось.
+  suffix: Тайпан
+  components:
+  - type: Sprite
+    noRot: true
+    drawdepth: Items
+    sprite: Objects/Specific/Robotics/cyborg_parts.rsi
+    state: robo_suit
+  - type: Appearance
+  - type: ItemMapper
+    sprite: _Mini/Objects/Specific/Robotics/cyborg_parts.rsi
+    mapLayers:
+      borg_l_arm+o:
+        whitelist:
+          tags:
+          - TypanBorgLArm
+      borg_r_arm+o:
+        whitelist:
+          tags:
+          - TypanBorgRArm
+      borg_l_leg+o:
+        whitelist:
+          tags:
+          - TypanBorgLLeg
+      borg_r_leg+o:
+        whitelist:
+          tags:
+          - TypanBorgRLeg
+      borg_head+o:
+        whitelist:
+          tags:
+          - TypanBorgHead
+      borg_chest+o:
+        whitelist:
+          tags:
+          - TypanBorgTorso
+  - type: PartAssembly
+    parts:
+      typan_cyborg:
+      - TypanBorgLArm
+      - TypanBorgRArm
+      - TypanBorgLLeg
+      - TypanBorgRLeg
+      - TypanBorgHead
+      - TypanBorgTorso
+  - type: Construction
+    graph: TypanCyborg
+    node: start
+    defaultTarget: cyborg
+    containers:
+    - part-container
+    - cell_slot
+
+- type: entity
+  id: TypanPartSilicon
+  parent: PartSiliconBase
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: _Mini/Objects/Specific/Robotics/cyborg_parts.rsi
+  - type: Icon
+    sprite: _Mini/Objects/Specific/Robotics/cyborg_parts.rsi
+
+- type: entity
+  id: TypanLeftArmBorg
+  parent: TypanPartSilicon
+  name: левая рука киборга
+  suffix: Тайпан
+  components:
+  - type: BodyPart
+    partType: Hand
+    symmetry: Left
+  - type: Sprite
+    state: borg_l_arm
+  - type: Icon
+    state: borg_l_arm
+  - type: Tag
+    tags:
+    - Trash
+    - BorgArm
+    - TypanBorgLArm
+  - type: Item
+    heldPrefix: borg-arm
+
+- type: entity
+  id: TypanRightArmBorg
+  parent: TypanPartSilicon
+  name: правая рука киборга
+  suffix: Тайпан
+  components:
+  - type: BodyPart
+    partType: Hand
+    symmetry: Right
+  - type: Sprite
+    state: borg_r_arm
+  - type: Icon
+    state: borg_r_arm
+  - type: Tag
+    tags:
+    - Trash
+    - BorgArm
+    - TypanBorgRArm
+  - type: Item
+    heldPrefix: borg-arm
+
+- type: entity
+  id: TypanLeftLegBorg
+  parent: TypanPartSilicon
+  name: левая нога киборга
+  suffix: Тайпан
+  components:
+  - type: BodyPart
+    partType: Leg
+    symmetry: Left
+  - type: Sprite
+    state: borg_l_leg
+  - type: Icon
+    state: borg_l_leg
+  - type: Tag
+    tags:
+    - Trash
+    - BorgLeg
+    - TypanBorgLLeg
+  - type: Item
+    heldPrefix: borg-leg
+
+- type: entity
+  id: TypanRightLegBorg
+  parent: TypanPartSilicon
+  name: правая нога киборга
+  suffix: Тайпан
+  components:
+  - type: BodyPart
+    partType: Leg
+    symmetry: Right
+  - type: Sprite
+    state: borg_r_leg
+  - type: Icon
+    state: borg_r_leg
+  - type: Tag
+    tags:
+    - Trash
+    - BorgLeg
+    - TypanBorgRLeg
+  - type: Item
+    heldPrefix: borg-leg
+
+- type: entity
+  id: TypanLightHeadBorg
+  parent: TypanPartSilicon
+  name: голова киборга
+  suffix: Тайпан
+  components:
+  - type: BodyPart
+    partType: Head
+  - type: Sprite
+    state: borg_head
+  - type: Icon
+    state: borg_head
+  - type: Tag
+    tags:
+    - Trash
+    - BorgHead
+    - TypanBorgHead
+  - type: Item
+    heldPrefix: borg-head
+
+# - type: entity
+#   id: TypanTorsoBorg
+#   parent: TypanPartSilicon
+#   name: туловище киборга
+#   suffix: Тайпан
+#   components:
+#   - type: BodyPart
+#     partType: Torso
+#   - type: Sprite
+#     state: borg_chest
+#   - type: Icon
+#     state: borg_chest
+#   - type: Tag
+#     tags:
+#     - Trash
+#     - TypanBorgTorso
+#   - type: Item
+#     heldPrefix: borg-chest
+
+- type: entity
+  parent: [ TypanPartSilicon, BaseChestInorganic ]
+  id: TypanTorsoBorg
+  name: туловище киборга
+  suffix: Тайпан
+  components:
+  - type: Sprite
+    state: borg_chest
+  - type: Icon
+    state: borg_chest
+  - type: Tag
+    tags:
+    - Trash
+    - TypanBorgTorso
+  - type: Item
+    heldPrefix: borg-chest
+  - type: BodyPart
+    children:
+      right arm:
+        id: right arm
+        type: Arm
+      left arm:
+        id: left arm
+        type: Arm
+      head:
+        id: head
+        type: Head
+      right leg:
+        id: right leg
+        type: Leg
+      left leg:
+        id: left leg
+        type: Leg

@@ -1,0 +1,10 @@
+- type: entity
+  parent: ClothingHeadHatBeretBlueshield
+  id: ClothingHeadHatBeretBlueshieldAlt
+  name: берет офицера Синего Щита
+  description: Прочный берет из дюратекста. Обеспечивает защиту.
+  components:
+  - type: Sprite
+    sprite: _Mini/Clothing/Head/Hats/blueshield_officer_beret_alt.rsi
+  - type: Clothing
+    sprite: _Mini/Clothing/Head/Hats/blueshield_officer_beret_alt.rsi

@@ -121,6 +121,7 @@
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 ## Random humanoids
+## All role time requirements are from goobstation.
 
 - type: randomHumanoidSettings
   id: EventHumanoid
@@ -184,6 +185,7 @@
   parent: EventHumanoidMindShielded
   randomizeName: false
   components:
+  - type: IgnoreSkills # CorvaxGoob-Skills
   - type: AutoImplant
     implants:
     - MindShieldImplant
@@ -211,6 +213,7 @@
   id: DeathSquad
   parent: CentcommHumanoid # Goobstation
   components:
+    - type: IgnoreSkills # CorvaxGoob-Skills
     - type: AutoImplant
       implants: [ FreedomImplant, BluespaceLifelineImplant, RadioImplantCentcomm, NutrimentPumpImplant, StypticStimulatorImplant, DeathRattleImplantCentcomm] # Goobstation
     - type: DeathSquadMember # Goobstation
@@ -220,10 +223,6 @@
       rules: ghost-role-information-Death-Squad-rules
       raffle:
         settings: short
-      mindRoles:
-      - MindRoleGhostRoleFamiliar
-      skills: # CorvaxGoob-Skills
-      - All
       job: DeathSquad
     - type: Loadout
       prototypes: [ DeathSquadGear ]
@@ -257,6 +256,7 @@
   id: ERTLeader
   parent: CentcommHumanoid # Goobstation
   components:
+    - type: IgnoreSkills # CorvaxGoob-Skills
     - type: GhostRole
       name: ghost-role-information-ert-leader-name
       description: ghost-role-information-ert-leader-description
@@ -293,6 +293,7 @@
   id: ERTLeaderEVA
   parent: ERTLeader
   components:
+    - type: IgnoreSkills # CorvaxGoob-Skills
     - type: GhostRole
       name: ghost-role-information-ert-leader-name
       description: ghost-role-information-ert-leader-description
@@ -316,7 +317,7 @@
   components:
     - type: Sprite
       sprite: Markers/jobs.rsi
-      state: chaplain #needs an ERT variant once a good suit it made.
+      state: ertchaplain #needs an ERT variant once a good suit it made.
     - type: RandomMetadata
       nameSegments:
       - NamesMilitaryFirst
@@ -329,6 +330,7 @@
   id: ERTChaplain
   parent: ERTLeader
   components:
+    - type: IgnoreSkills # CorvaxGoob-Skills
     - type: BibleUser
     - type: GhostRole
       name: ghost-role-information-ert-chaplain-name
@@ -364,6 +366,7 @@
   id: ERTChaplainEVA
   parent: ERTChaplain
   components:
+    - type: IgnoreSkills # CorvaxGoob-Skills
     - type: GhostRole
       name: ghost-role-information-ert-chaplain-name
       description: ghost-role-information-ert-chaplain-description
@@ -400,6 +403,7 @@
   id: ERTJanitor
   parent: ERTLeader
   components:
+    - type: IgnoreSkills # CorvaxGoob-Skills
     - type: GhostRole
       name: ghost-role-information-ert-janitor-name
       description: ghost-role-information-ert-janitor-description
@@ -434,6 +438,7 @@
   id: ERTJanitorEVA
   parent: ERTJanitor
   components:
+    - type: IgnoreSkills # CorvaxGoob-Skills
     - type: GhostRole
       name: ghost-role-information-ert-janitor-name
       description: ghost-role-information-ert-janitor-description
@@ -470,6 +475,7 @@
   id: ERTEngineer
   parent: ERTLeader
   components:
+    - type: IgnoreSkills # CorvaxGoob-Skills
     - type: GhostRole
       name: ghost-role-information-ert-engineer-name
       description: ghost-role-information-ert-engineer-description
@@ -504,6 +510,7 @@
   id: ERTEngineerEVA
   parent: ERTEngineer
   components:
+    - type: IgnoreSkills # CorvaxGoob-Skills
     - type: GhostRole
       name: ghost-role-information-ert-engineer-name
       description: ghost-role-information-ert-engineer-description
@@ -540,6 +547,7 @@
   id: ERTSecurity
   parent: ERTLeader
   components:
+    - type: IgnoreSkills # CorvaxGoob-Skills
     - type: GhostRole
       name: ghost-role-information-ert-security-name
       description: ghost-role-information-ert-security-description
@@ -576,6 +584,7 @@
   id: ERTSecurityEVA
   parent: ERTSecurity
   components:
+    - type: IgnoreSkills # CorvaxGoob-Skills
     - type: GhostRole
       name: ghost-role-information-ert-security-name
       description: ghost-role-information-ert-security-description
@@ -638,6 +647,7 @@
   id: ERTMedical
   parent: ERTLeader
   components:
+    - type: IgnoreSkills # CorvaxGoob-Skills
     - type: GhostRole
       name: ghost-role-information-ert-medical-name
       description: ghost-role-information-ert-medical-description
@@ -676,6 +686,7 @@
   id: ERTMedicalEVA
   parent: ERTMedical
   components:
+    - type: IgnoreSkills # CorvaxGoob-Skills
     - type: GhostRole
       name: ghost-role-information-ert-medical-name
       description: ghost-role-information-ert-medical-description
@@ -744,6 +755,7 @@
   id: CentcomOfficial
   parent: EventHumanoidCentcomm
   components:
+    - type: IgnoreSkills # CorvaxGoob-Skills
     - type: AutoImplant
       implants: [ FreedomImplant, RadioImplantCentcomm, NutrimentPumpImplant, StypticStimulatorImplant ] # Goobstation
     - type: GhostRole
@@ -754,7 +766,6 @@
       - All
       raffle:
         settings: default
-      job: CentralCommandOfficial
     - type: Loadout
       prototypes: [ CentcomGear ]
       roleLoadout: [ RoleSurvivalStandard ]

@@ -1,0 +1,58 @@
+- type: job
+  id: TypanPatrol
+  name: job-name-typan-patrol
+  playTimeTracker: JobTypanPatrol
+  description: job-description-typan-patrol
+  startingGear: TypanPatrol
+  icon: "JobIconSyndicateOfficer"
+  supervisors: job-supervisors-typan-syndicate
+  canBeAntag: false
+  requirements:
+    - !type:DepartmentTimeRequirement
+      department: Typan
+      time: 18000
+    - !type:AgeRequirement
+      requiredAge: 26
+  access:
+  - TypanArmory
+  - TypanCommand
+  - TypanCommunicationsOfficer
+  - TypanEngineering
+  - TypanMaint
+  - TypanProtection
+  - TypanScience
+  - TypanService
+  - TypanVault
+  - TypanExternal
+  - SyndicateAgent
+  skills: # CorvaxGoob-Skills
+    - ShuttleControl
+    - Shooting
+    - MedicalEquipment
+  special:
+  - !type:AddComponentSpecial
+    components:
+      - type: AntagImmune
+      - type: NpcFactionMember
+        factions:
+        - Typan
+
+- type: startingGear
+  id: TypanPatrol
+  equipment:
+    ears: ClothingHeadsetAltSyndicate
+    shoes: ClothingShoesBootsCombat
+    gloves: ClothingHandsGlovesCombat
+    id: SyndiPDAOff
+    head: ClothingHeadHatSyndie
+    pocket1: WeaponPistolViper
+    mask: ClothingMaskGasSyndicate
+    eyes: ClothingEyesHudTypanPatrol
+    outerClothing: ClothingOuterWinterSyndieCapArmored
+  storage:
+    back:
+    - MagazinePistolIncendiary
+    - MagazinePistolIncendiary
+    - Zipties
+    - Zipties
+

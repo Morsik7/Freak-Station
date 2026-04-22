@@ -1,0 +1,211 @@
+- type: entity
+  parent: ClothingOuterStorageBase
+  id: ClothingOuterCoatAtmosWorking
+  name: спецовка атмосферного техника
+  description: Эта стильная и практичная рабочая спецовка предназначена для профессионалов, которые работают в экстремальных, но не без атмосферных условиях.
+  components:
+  - type: Sprite
+    sprite: _Mini/Clothing/OuterClothing/Coats/atmos_overalls.rsi
+  - type: Clothing
+    sprite: _Mini/Clothing/OuterClothing/Coats/atmos_overalls.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.8
+        Slash: 0.8
+        Heat: 0.75
+        Cold: 0.75
+        Caustic: 0.8
+
+- type: entity
+  parent: ClothingOuterStorageBase
+  id: ClothingOuterCoatLetterman
+  name: кожаный джемпер
+  description: Этот стильный кожаный джемпер является идеальным сочетанием комфорта и стиля. Изготовлен из высококачественной натуральной кожи, он обеспечивает надежную защиту от холода и ветра.
+  components:
+  - type: Sprite
+    sprite: _Mini/Clothing/OuterClothing/Coats/letterman.rsi
+  - type: Clothing
+    sprite: _Mini/Clothing/OuterClothing/Coats/letterman.rsi
+
+- type: entity
+  parent: ClothingOuterStorageBase
+  id: ClothingOuterCoatLettermanN
+  name: синий кожаный джемпер NanoTrasen
+  description: Оригинальный и стильный синий кожаный джемпер с яркой вышивкой большой буквы N на спине - идеальный выбор для тех, кто хочет выделиться из толпы. Изготовлен из высококачественной натуральной кожи, он не только защищает от холода, но и придает образу эксклюзивности.
+  components:
+  - type: Sprite
+    sprite: _Mini/Clothing/OuterClothing/Coats/letterman_n.rsi
+  - type: Clothing
+    sprite: _Mini/Clothing/OuterClothing/Coats/letterman_n.rsi
+
+- type: entity
+  parent: ClothingOuterStorageBase
+  id: ClothingOuterCoatLettermanRed
+  name: красный кожаный джемпер
+  description: Очаровательный и стильный красный кожаный джемпер - это неотъемлемая часть модного гардероба. Изготовлен из высококачественной натуральной кожи, он обеспечивает комфорт и защиту от холода.
+  components:
+  - type: Sprite
+    sprite: _Mini/Clothing/OuterClothing/Coats/letterman_red.rsi
+  - type: Clothing
+    sprite: _Mini/Clothing/OuterClothing/Coats/letterman_red.rsi
+
+- type: entity
+  parent: ClothingOuterCoatSyndieCapArmored
+  id: ClothingOuterTrenchTypanCommunicationsOfficer
+  name: тренч офицера телекоммуникаций
+  description: Укреплённый тренч из чёрной кожи с золотой вышивкой.
+  suffix: Тайпан
+  components:
+  - type: Sprite
+    sprite: _Mini/Clothing/OuterClothing/Coats/co_trench.rsi
+  - type: Clothing
+    sprite: _Mini/Clothing/OuterClothing/Coats/co_trench.rsi
+  - type: Tag
+    tags: [] # ignore "WhitelistChameleon" tag
+
+- type: entity
+  parent: ClothingOuterCoatSyndieCapArmored
+  id: ClothingOuterCoatTypanCommunicationsOfficer
+  name: плащ офицера телекоммуникаций
+  description: Изысканный плащ с фирменной символикой Синдиката. На вид прочный.
+  suffix: Тайпан
+  components:
+  - type: Sprite
+    sprite: _Mini/Clothing/OuterClothing/Coats/co_coat.rsi
+  - type: Clothing
+    sprite: _Mini/Clothing/OuterClothing/Coats/co_coat.rsi
+  - type: Tag
+    tags: [] # ignore "WhitelistChameleon" tag
+
+- type: entity
+  parent: ClothingOuterStorageFoldableBase
+  id: ClothingOuterTypanCoatLab
+  name: лабораторный халат
+  description: В плотную ткань въелся аромат едкой химии.
+  suffix: Тайпан
+  components:
+  - type: Sprite
+    sprite: _Mini/Clothing/OuterClothing/Coats/syndi_labcoat.rsi
+  - type: Clothing
+    sprite: _Mini/Clothing/OuterClothing/Coats/syndi_labcoat.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Caustic: 0.75
+  - type: Tag
+    tags: [] # ignore "WhitelistChameleon" tag
+
+- type: entity
+  parent: [ClothingOuterStorageFoldableBaseOpened, ClothingOuterTypanCoatLab]
+  id: ClothingOuterTypanCoatLabOpened
+  name: лабораторный халат
+  suffix: Тайпан, Расстёгнут
+
+- type: entity
+  parent: ClothingOuterStorageFoldableBase
+  id: ClothingOuterTypanCoatLabMed
+  name: лабораторный халат медика
+  description: Халат из прочной стерильной ткани. Пахнет лекарствами.
+  suffix: Тайпан
+  components:
+  - type: Sprite
+    sprite: _Mini/Clothing/OuterClothing/Coats/syndi_labcoat_med.rsi
+  - type: Clothing
+    sprite: _Mini/Clothing/OuterClothing/Coats/syndi_labcoat_med.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Caustic: 0.75
+  - type: Tag
+    tags: [] # ignore "WhitelistChameleon" tag
+
+- type: entity
+  parent: [ClothingOuterStorageFoldableBaseOpened, ClothingOuterTypanCoatLabMed]
+  id: ClothingOuterTypanCoatLabMedOpened
+  name: лабораторный халат медика
+  suffix: Тайпан, Расстёгнут
+
+- type: entity
+  parent: ClothingOuterStorageFoldableBase
+  id: ClothingOuterTypanCoatLabResearchDirector
+  name: лабораторный халат директора исследований
+  description: Халат из мягкой на ощупь ткани, местами заметны следы экспериментов.
+  suffix: Тайпан
+  components:
+  - type: Sprite
+    sprite: _Mini/Clothing/OuterClothing/Coats/syndi_labcoat_rd.rsi
+  - type: Clothing
+    sprite: _Mini/Clothing/OuterClothing/Coats/syndi_labcoat_rd.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Caustic: 0.75
+        Radiation: 0.9
+  - type: Tag
+    tags: [] # ignore "WhitelistChameleon" tag
+
+- type: entity
+  parent: [ClothingOuterStorageFoldableBaseOpened, ClothingOuterTypanCoatLabResearchDirector]
+  id: ClothingOuterTypanCoatLabResearchDirectorOpened
+  name: лабораторный халат директора исследований
+  suffix: Тайпан, Расстёгнут
+
+- type: entity
+  parent: ClothingOuterStorageFoldableBase
+  id: ClothingOuterTypanCoatLabResearcher
+  name: лабораторный халат исследователя
+  description: Белоснежный халат с ароматом химикатов.
+  suffix: Тайпан
+  components:
+  - type: Sprite
+    sprite: _Mini/Clothing/OuterClothing/Coats/syndi_labcoat_sci.rsi
+  - type: Clothing
+    sprite: _Mini/Clothing/OuterClothing/Coats/syndi_labcoat_sci.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Caustic: 0.75
+  - type: Tag
+    tags: [] # ignore "WhitelistChameleon" tag
+
+- type: entity
+  parent: [ClothingOuterStorageFoldableBaseOpened, ClothingOuterTypanCoatLabResearcher]
+  id: ClothingOuterTypanCoatLabResearcherOpened
+  name: лабораторный халат исследователя
+  suffix: Тайпан, Расстёгнут
+
+- type: entity
+  parent: ClothingOuterStorageBase
+  id: ClothingOuterCoatLettermanS
+  name: странный красный кожаный джемпер
+  description: Если вы хотите привлечь к себе внимание и подчеркнуть свою индивидуальность, то этот красный кожаный джемпер с яркой вышивкой большой буквы S на спине - ваш идеальный выбор. Изготовленный из высококачественной натуральной кожи, он обеспечивает комфорт и защиту от холода.
+  components:
+  - type: Sprite
+    sprite: _Mini/Clothing/OuterClothing/Coats/letterman_s.rsi
+  - type: Clothing
+    sprite: _Mini/Clothing/OuterClothing/Coats/letterman_s.rsi
+
+- type: entity
+  parent: ClothingOuterCoatDetective
+  id: ClothingOuterCoatDetectiveAlt
+  name: куртка следователя
+  description: Лёгкая куртка следователя, сделанная из серой ткани внутри куртки вшит лёгкий бронежилет, на левом плече куртки пришита нашивка "Детектив".
+  components:
+  - type: Sprite
+    sprite: _Mini/Clothing/OuterClothing/Coats/detective_punk.rsi
+  - type: Clothing
+    sprite: _Mini/Clothing/OuterClothing/Coats/detective_punk.rsi
+  - type: ExplosionResistance
+    damageCoefficient: 1 #its a coat. it doesnt do shit
+
+- type: entity
+  parent: ClothingOuterCoatSecurityOvercoat
+  id: ClothingOuterCoatSeniorOfficerTrench
+  name: шинель инструктора СБ
+  description: Шинель из плотной ткани с вшитым под ней кевларом, так же виден бронежилет первого класса защиты.
+  components:
+  - type: Sprite
+    sprite: _Mini/Clothing/OuterClothing/Coats/senior_officer_leather.rsi
+  - type: Clothing
+    sprite: _Mini/Clothing/OuterClothing/Coats/senior_officer_leather.rsi

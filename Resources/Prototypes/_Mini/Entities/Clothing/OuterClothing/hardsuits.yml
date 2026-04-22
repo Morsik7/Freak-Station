@@ -1,0 +1,333 @@
+- type: entity
+  parent: [ClothingOuterHardsuitBase, BaseEngineeringContraband]
+  id: ClothingOuterHardsuitAtmosSindi
+  name: Скафандр Атмос Техника
+  description: Специальный костюм для работ в самых "горячих" зонах отдела Атмоса Синдиката.
+  components:
+  - type: Sprite
+    sprite: _Mini/Clothing/OuterClothing/atmospherics.rsi
+  - type: Clothing
+    sprite: _Mini/Clothing/OuterClothing/atmospherics.rsi
+  - type: PressureProtection
+    highPressureMultiplier: 0.02
+    lowPressureMultiplier: 1000
+  - type: TemperatureProtection
+    heatingCoefficient: 0.001
+    coolingCoefficient: 0.001
+  - type: FireProtection
+    reduction: 0.8
+  - type: ExplosionResistance
+    damageCoefficient: 0.5
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.7
+        Slash: 0.7
+        Piercing: 0.7
+        Heat: 0.8
+        Radiation: 0.5
+  - type: ClothingSpeedModifier
+    walkModifier: 0.9
+    sprintModifier: 0.9
+  - type: HeldSpeedModifier
+  - type: ToggleableClothing # Goobstation - Modsuits change
+    clothingPrototypes:
+      head: ClothingHeadHelmetHardsuitAtmosSindi
+
+- type: entity
+  parent: [ ClothingHeadHardsuitBase]
+  id: ClothingHeadHelmetHardsuitAtmosSindi
+  name: Шлем Атмос Техника
+  description: Специальный костюм для работ в самых "горячих" зонах отдела Атмоса Синдиката
+  components:
+  - type: Sprite
+    sprite: _Mini/Clothing/Head/Hardsuits/atmospherics.rsi
+    layers:
+    - state: icon
+    - state: icon-unshaded
+      shader: unshaded
+    - state: light-overlay
+      visible: false
+      shader: unshaded
+      map: [ "light" ]
+  - type: HandheldLight
+    addPrefix: false
+  - type: ToggleableLightVisuals
+    spriteLayer: light
+    clothingVisuals:
+      head:
+      - state: equipped-head-light
+        shader: unshaded
+      head-vox:
+      - state: equipped-head-light-vox
+        shader: unshaded
+  - type: Clothing
+    clothingVisuals:
+      head:
+      - state: equipped-head
+      - state: equipped-head-unshaded
+        shader: unshaded
+      head-vox:
+      - state: equipped-head-vox
+      - state: equipped-head-unshaded-vox
+        shader: unshaded
+  - type: PointLight
+    color: "#adffe6"
+  - type: PressureProtection
+    highPressureMultiplier: 0.08
+    lowPressureMultiplier: 1000
+  - type: TemperatureProtection
+    heatingCoefficient: 0.005
+    coolingCoefficient: 0.005
+  - type: FireProtection
+    reduction: 0.2
+
+- type: entity
+  id: SuitStorageAtmosSyndie
+  name: хранилище скафандра
+  description: Необычное высокотехнологичное хранилище, предназначенное для хранения космических скафандров.
+  parent: SuitStorageBase
+  suffix: Тайпан атмос
+  components:
+  - type: StorageFill
+    contents:
+        - id: OxygenTankFilled
+        - id: ClothingOuterHardsuitAtmosSindi
+        - id: ClothingMaskGasSyndicate
+  - type: AccessReader
+    access: [["TypanAtmospherics"]]
+
+
+
+- type: entity
+  parent: [ClothingOuterHardsuitBase, BaseEngineeringContraband]
+  id: ClothingOuterHardsuitCapSindi
+  name: скафандр службы безопасности синдиката
+  description: Специальный костюм для работ в самых "горячих" баталиях.
+  components:
+  - type: Sprite
+    sprite: _Mini/Clothing/OuterClothing/syndie.rsi
+  - type: Clothing
+    sprite: _Mini/Clothing/OuterClothing/syndie.rsi
+  - type: PressureProtection
+    highPressureMultiplier: 0.02
+    lowPressureMultiplier: 1000
+  - type: TemperatureProtection
+    heatingCoefficient: 0.001
+    coolingCoefficient: 0.001
+  - type: FireProtection
+    reduction: 0.8
+  - type: ExplosionResistance
+    damageCoefficient: 0.5
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.6
+        Slash: 0.6
+        Piercing: 0.6
+        Heat: 0.6
+        Radiation: 0.5
+  - type: ClothingSpeedModifier
+    walkModifier: 0.9
+    sprintModifier: 0.9
+  - type: HeldSpeedModifier
+  - type: ToggleableClothing # Goobstation - Modsuits change
+    clothingPrototypes:
+      head: ClothingHeadHelmetHardsuitCapSindi
+
+- type: entity
+  parent: [ClothingHeadHardsuitBase]
+  id: ClothingHeadHelmetHardsuitCapSindi
+  name: шлем скафандра службы безопасности синдиката
+  description: Специальный костюм для работ в самых "горячих" баталиях.
+  components:
+  - type: Sprite
+    sprite: _Mini/Clothing/Head/Hardsuits/syndie.rsi
+    layers:
+    - state: icon
+    - state: icon-unshaded
+      shader: unshaded
+    - state: light-overlay
+      visible: false
+      shader: unshaded
+      map: [ "light" ]
+  - type: HandheldLight
+    addPrefix: false
+  - type: ToggleableLightVisuals
+    spriteLayer: light
+    clothingVisuals:
+      head:
+      - state: equipped-head-light
+        shader: unshaded
+      head-vox:
+      - state: equipped-head-light-vox
+        shader: unshaded
+  - type: Clothing
+    clothingVisuals:
+      head:
+      - state: equipped-head
+      - state: equipped-head-unshaded
+        shader: unshaded
+      head-vox:
+      - state: equipped-head-vox
+      - state: equipped-head-unshaded-vox
+        shader: unshaded
+  - type: PointLight
+    color: "#adffe6"
+  - type: PressureProtection
+    highPressureMultiplier: 0.08
+    lowPressureMultiplier: 1000
+  - type: TemperatureProtection
+    heatingCoefficient: 0.005
+    coolingCoefficient: 0.005
+  - type: FireProtection
+    reduction: 0.2
+
+- type: entity
+  id: SuitStorageSyndieSB
+  name: хранилище скафандра
+  description: Необычное высокотехнологичное хранилище, предназначенное для хранения космических скафандров.
+  parent: SuitStorageBase
+  suffix: тайпан СБ
+  components:
+  - type: StorageFill
+    contents:
+        - id: OxygenTankFilled
+        - id: ClothingOuterHardsuitCapSindi
+        - id: ClothingMaskGasSyndicate
+  - type: AccessReader
+    access: [["TypanCommand"]]
+
+- type: entity
+  id: SuitStorageSyndieCargo
+  name: хранилище скафандра
+  description: Необычное высокотехнологичное хранилище, предназначенное для хранения космических скафандров.
+  parent: SuitStorageBase
+  suffix: тайпан карго
+  components:
+  - type: StorageFill
+    contents:
+        - id: OxygenTankFilled
+        - id: ClothingOuterHardsuitSalvage
+        - id: ClothingMaskGasSyndicate
+  - type: AccessReader
+    access: [["TypanCargo"]]
+
+- type: entity
+  parent: ClothingOuterHardsuitAtmos
+  id: ClothingOuterHardsuitTypanAtmosphericsEngineer
+  name: скафандр атмосферного инженера
+  description: Герметичный скафандр, защищающий как от перепада давления, так и от температур.
+  components:
+  - type: Sprite
+    sprite: _Mini/Clothing/OuterClothing/Hardsuits/typan_atmospherics.rsi
+  - type: Clothing
+    sprite: _Mini/Clothing/OuterClothing/Hardsuits/typan_atmospherics.rsi
+  - type: ToggleableClothing
+    clothingPrototypes:
+      head: ClothingHeadHelmetHardsuitTypanAtmosphericsEngineer
+  - type: Tag
+    tags: [] # ignore "WhitelistChameleon" tag
+
+- type: entity
+  parent: ClothingOuterHardsuitSalvage
+  id: ClothingOuterHardsuitTypanCargotech
+  name: скафандр карготехника
+  description: Специальный укреплённый скафандр, предназначенный для работы в космосе.
+  components:
+  - type: Sprite
+    sprite: _Mini/Clothing/OuterClothing/Hardsuits/typan_cargotech.rsi
+  - type: Clothing
+    sprite: _Mini/Clothing/OuterClothing/Hardsuits/typan_cargotech.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.8
+        Slash: 0.8
+        Piercing: 0.7
+        Radiation: 0.3
+        Caustic: 0.7
+  - type: ClothingSpeedModifier
+    walkModifier: 0.85
+    sprintModifier: 0.75
+  - type: HeldSpeedModifier
+  - type: ToggleableClothing
+    clothingPrototypes:
+      head: ClothingHeadHelmetHardsuitTypanCargotech
+  - type: Tag
+    tags: [] # ignore "WhitelistChameleon" tag
+
+- type: entity
+  parent: ClothingOuterHardsuitEngineering
+  id: ClothingOuterHardsuitTypanTechnician
+  name: скафандр ремонтника
+  description: Специальный скафандр, защищающий в опасных условиях при низком давлении. Имеет встроенную защиту от радиации.
+  components:
+  - type: Sprite
+    sprite: _Mini/Clothing/OuterClothing/Hardsuits/typan_technician.rsi
+  - type: Clothing
+    sprite: _Mini/Clothing/OuterClothing/Hardsuits/typan_technician.rsi
+  - type: HeldSpeedModifier
+  - type: ToggleableClothing
+    clothingPrototypes:
+      head: ClothingHeadHelmetHardsuitTypanTechnician
+  - type: Tag
+    tags: [] # ignore "WhitelistChameleon" tag
+
+- type: entity
+  parent: ClothingOuterHardsuitBrigmedic
+  id: ClothingOuterHardsuitTypanParamedic
+  name: скафандр парамедика
+  description: Special hardsuit of the guardian angel of the brig. It is the medical version of the security hardsuit.
+  components:
+  - type: Sprite
+    sprite: _Mini/Clothing/OuterClothing/Hardsuits/typan_medical.rsi
+  - type: Clothing
+    sprite: _Mini/Clothing/OuterClothing/Hardsuits/typan_medical.rsi
+  - type: ToggleableClothing
+    clothingPrototypes:
+      head: ClothingHeadHelmetHardsuitTypanParamedic
+  - type: Tag
+    tags: [] # ignore "WhitelistChameleon" tag
+
+- type: entity
+  parent: ClothingOuterHardsuitSecurity
+  id: ClothingOuterHardsuitTypanPatrol
+  name: скафандр патрульного
+  description: Укреплённый скафандр с бронепластинами, предназначенный для работы в космосе. Немного повышает вашу скорость.
+  components:
+  - type: DNALocker
+  - type: Sprite
+    sprite: _Mini/Clothing/OuterClothing/Hardsuits/typan_patrol.rsi
+  - type: Clothing
+    sprite: _Mini/Clothing/OuterClothing/Hardsuits/typan_patrol.rsi
+  - type: ToggleableClothing
+    clothingPrototypes:
+      head: ClothingHeadHelmetHardsuitTypanPatrol
+  - type: Tag
+    tags: [] # ignore "WhitelistChameleon" tag
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.6
+        Slash: 0.6
+        Piercing: 0.6
+        Heat: 0.6
+        Radiation: 0.5
+  - type: ClothingSpeedModifier
+    walkModifier: 1.1
+    sprintModifier: 1.1
+
+- type: entity
+  parent: ClothingOuterHardsuitSecurityRed
+  id: ClothingOuterHardsuitTypanCommunicationsOfficer
+  name: скафандр офицера телекоммуникаций
+  description: A special suit that protects against hazardous, low pressure environments. Has an additional layer of armor.
+  components:
+  - type: Sprite
+    sprite: _Mini/Clothing/OuterClothing/Hardsuits/typan_co.rsi
+  - type: Clothing
+    sprite: _Mini/Clothing/OuterClothing/Hardsuits/typan_co.rsi
+  - type: ToggleableClothing
+    clothingPrototypes:
+      head: ClothingHeadHelmetHardsuitTypanCO

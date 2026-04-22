@@ -1,0 +1,46 @@
+- type: job
+  id: TypanMedic
+  name: job-name-typan-medic
+  playTimeTracker: JobTypanMedic
+  description: job-description-typan-medic
+  startingGear: TypanMedic
+  icon: "JobIconSyndicateParamedic"
+  supervisors: job-supervisors-typan-telecommunications-officer
+  canBeAntag: false
+  requirements:
+    - !type:DepartmentTimeRequirement
+      department: Medical
+      time: 18000
+  access:
+  - TypanMedical
+  - SyndicateAgent
+  - TypanMaint
+  skills: # CorvaxGoob-Skills
+    - Shooting
+    - Butchering
+    - Surgery
+    - MedicalEquipment
+  special:
+  - !type:AddComponentSpecial
+    components:
+    - type: CommandStaff
+    #start-_CorvaxNext: surgery
+    #- type: CPRTraining
+    - type: SurgerySpeedModifier
+      speedModifier: 2.5
+    #end-_CorvaxNext: surgery
+    - type: AntagImmune
+    - type: NpcFactionMember
+      factions:
+      - Typan
+
+- type: startingGear
+  id: TypanMedic
+  equipment:
+    eyes: ClothingEyesHudTypanMedical
+    ears: ClothingHeadsetAltSyndicate
+    outerClothing: ClothingOuterTypanCoatLabMed
+    shoes: ClothingShoesBootsCombat
+    id: MedicalPDASyndi
+    belt: ClothingBeltMedicalFilled
+    pocket1: SyndiHypo

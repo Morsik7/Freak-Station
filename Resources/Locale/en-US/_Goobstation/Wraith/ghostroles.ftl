@@ -1,12 +1,12 @@
-ghost-role-information-wraith-name = Wraith
-ghost-role-information-wraith-description = You are a wraith! Taken from your home in a better sector of space, your astral powers enable you to survive one banishment. Beware of salt. Absorb corpses to evolve into a much more powerful being.
-ghost-role-information-wraith-rules =  You are a [color=red]Solo Antagonist[/color] capable of summoning minions to your aid. You should generally aim to cause as much death as possible, through any means necessary. You are capable of speaking with ghosts, and may use any information they have to your advantage.
+ghost-role-information-wraith-name = Фантом
+ghost-role-information-wraith-description = Ты — Фантом! Вырванный из своего дома в лучшем секторе космоса, твои астральные силы позволяют пережить одно изгнание. Остерегайся соли. Поглощай трупы, чтобы эволюционировать в гораздо более могущественное существо.
+ghost-role-information-wraith-rules = Ты — [color=red]Одиночный Антагонист[/color], способный призывать миньонов на помощь. Как правило, ты должен стремиться причинить как можно больше смертей любыми необходимыми средствами. Ты можешь общаться с призраками и использовать любую полученную от них информацию в своих интересах.
 
-wraith-round-end-agent-name = Wraith
+wraith-round-end-agent-name = Фантом
 
 wraith-role-greeting =
-    You are the [color=red]Wraith[/color], a vengeful spirit taken from the Void. Angry and confused, killing is the only thing you remember how to do.
-    Your actions permit you to turn their own station against them. Possess objects, haunt the crew, and use their corpses as fuel for your soul to evolve into an even stronger spirit.
-    Your weakness is [color=white]salt[/color]. Walking over any form of salt will [color=darkred]cause you to become corporeal and unable to use your powers[/color]. Being caught in such a state will surely lead to your swift demise.
-    As a spirit, however, you are capable of surviving banishment once. It will leave you severely weakened, but will allow you to slowly regain your forces to enact your revenge.
-    Fear the chaplain, as they are immune to most of your actions, and can even purge the effects of your powers from others. Absorbing their corpse would surely be satisfying...
+    Ты — [color=red]Фантом[/color], мстительный дух, вырванный из Бездны. В гневе и смятении, убийство — единственное, что ты помнишь, как делать.
+    Твои способности позволяют тебе обратить их собственную станцию против них. Вселяйся в предметы, преследуй экипаж и используй их трупы как топливо для своей души, чтобы эволюционировать в ещё более сильного духа.
+    Твоя слабость — [color=white]соль[/color]. Ходьба по любой форме соли [color=darkred]заставит тебя стать материальным и неспособным использовать свои силы[/color]. Попадание в таком состоянии, несомненно, приведёт к твоей скорой гибели.
+    Однако, как дух, ты способен пережить одно изгнание. Оно оставит тебя серьёзно ослабленным, но позволит медленно восстановить силы, чтобы осуществить свою месть.
+    Бойся капеллана, ибо он невосприимчив к большинству твоих действий и даже может очищать других от эффектов твоих сил. Поглощение его трупа было бы, несомненно, приятно...

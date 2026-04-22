@@ -1,0 +1,10 @@
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitWinRar
+  name: Костюм WinRar
+  description: Что-то мне это напоминает...
+  components:
+    - type: Sprite
+      sprite: _Mini/Clothing/Uniforms/Jumpsuit/WinRar.rsi
+    - type: Clothing
+      sprite: _Mini/Clothing/Uniforms/Jumpsuit/WinRar.rsi

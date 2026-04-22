@@ -1,0 +1,12 @@
+<Document>
+  <ColorBox Color="#392a3aff" OutlineColor="#5a4a59ff" OutlineThickness="2" Margin="1">
+    <Box Orientation="Vertical">
+      <Box Orientation="Horizontal" HorizontalAlignment="Center">
+        8.1. Эротическое содержание
+      </Box>
+      <Box Orientation="Vertical" Margin="10"> 
+       Запрещено распространение рисунков, фанфиков и записей с                                развратным содержанием на бумаге в игре.
+     </Box>
+    </Box>
+  </ColorBox>
+</Document>

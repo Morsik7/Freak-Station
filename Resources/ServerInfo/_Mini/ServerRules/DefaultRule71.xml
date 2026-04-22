@@ -1,0 +1,16 @@
+<Document>
+  <ColorBox Color="#3a2a2a" OutlineColor="#5a4a4a" OutlineThickness="2" Margin="1">
+    <Box Orientation="Vertical">
+      <Box Orientation="Horizontal" HorizontalAlignment="Center">
+        7.1. Защита и преследование
+      </Box>
+      <Box Orientation="Vertical" Margin="10">
+        Вы можете защищать себя и других, если стали свидетелем нападения.
+        <Box Orientation="Vertical" Margin="10">
+         После отражения атаки преследовать антагониста не нужно.
+        </Box>
+         Если кто-то похищен — погоня разрешена, но цель — спасение, а не убийство.
+        </Box>
+      </Box>
+  </ColorBox>
+</Document>

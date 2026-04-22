@@ -1,0 +1,9 @@
+- type: reaction
+  id: Kumis
+  reactants:
+    Milk:
+      amount: 2
+    Cream:
+      amount: 1
+  products:
+    Kumis: 2

@@ -1,0 +1,354 @@
+# Tier 1
+
+- type: technology
+  id: TypanSpaceScanning
+  name: research-technology-space-scanning
+  icon:
+    sprite: Objects/Tools/handheld_mass_scanner.rsi
+    state: icon
+  discipline: TypanMechworks
+  tier: 1
+  cost: 7500
+  recipeUnlocks:
+  - RadarConsoleCircuitboard
+  - HandHeldMassScanner
+  # Goobstation R&D Console rework start
+  position: 50,0
+  technologyPrerequisites: []
+  # Goobstation R&D Console rework end
+
+- type: technology
+  id: TypanSalvageEquipment
+  name: research-technology-salvage-equipment
+  icon:
+    sprite: Objects/Tools/handdrill.rsi
+    state: handdrill
+  discipline: TypanMechworks
+  tier: 1
+  cost: 7500
+  recipeUnlocks:
+  - MiningDrill
+  - MineralScannerEmpty
+  - OreProcessorIndustrialMachineCircuitboardTypan
+  - ClothingMaskWeldingGas
+  # Goobstation R&D Console rework start
+  position: 49,1
+  technologyPrerequisites:
+  - TypanSpaceScanning
+  # Goobstation R&D Console rework end
+
+- type: technology
+  id: TypanAdvancedPowercells
+  name: research-technology-advanced-powercells
+  icon:
+    sprite: Structures/Power/turbo_recharger.rsi
+    state: empty
+  discipline: TypanMechworks
+  tier: 1
+  cost: 7500
+  recipeUnlocks:
+  - PowerCellHigh
+  - TurboItemRechargerCircuitboard
+  - SMESAdvancedMachineCircuitboard
+  # Goobstation R&D Console rework start
+  position: 51,1
+  technologyPrerequisites:
+  - TypanSpaceScanning
+  # Goobstation R&D Console rework end
+
+- type: technology
+  id: TypanMechanicalCompression
+  name: research-technology-mechanical-compression
+  icon:
+    sprite: Structures/Machines/flatpacker.rsi
+    state: base
+  discipline: TypanMechworks
+  tier: 1
+  cost: 7500
+  recipeUnlocks:
+  - FlatpackerMachineCircuitboard
+  # Goobstation R&D Console rework start
+  position: 48,2
+  technologyPrerequisites:
+  - TypanSalvageEquipment
+  # Goobstation R&D Console rework end
+
+- type: technology
+  id: TypanIndustrialEngineering
+  name: research-technology-industrial-engineering
+  icon:
+    sprite: _Mini/Structures/Machines/Typan/protolathe_hypercon.rsi
+    state: building
+  discipline: TypanMechworks
+  tier: 1
+  cost: 7500
+  recipeUnlocks:
+  - AutolatheHyperConvectionMachineCircuitboardTypan
+  - ProtolatheHyperConvectionMachineCircuitboardTypan
+  - CircuitImprinterHyperConvectionMachineCircuitboardTypan
+  - SheetifierMachineCircuitboard
+  - ADTBotanicalSeedDNAManipulatorCircuitboard
+  # Goobstation R&D Console rework start
+  position: 50,2
+  technologyPrerequisites:
+  - TypanSpaceScanning
+  # Goobstation R&D Console rework end
+
+- type: technology
+  id: TypanPowerGeneration
+  name: research-technology-power-generation
+  icon:
+    sprite: Structures/Power/Generation/portable_generator.rsi
+    state: portgen0
+  discipline: TypanMechworks
+  tier: 1
+  cost: 7500
+  recipeUnlocks:
+  - PortableGeneratorPacmanMachineCircuitboard
+  - PortableGeneratorSuperPacmanMachineCircuitboard
+  - PortableGeneratorJrPacmanMachineCircuitboard
+  - SolarControlComputerCircuitboard
+  - SolarTrackerElectronics
+  - EmitterCircuitboard
+  # Goobstation R&D Console rework start
+  position: 52,2
+  technologyPrerequisites:
+  - TypanAdvancedPowercells
+  # Goobstation R&D Console rework end
+
+- type: technology
+  id: TypanAtmosphericTech
+  name: research-technology-atmospheric-tech
+  icon:
+    sprite: Structures/Piping/Atmospherics/thermomachine.rsi
+    state: freezerOff
+  discipline: TypanMechworks
+  tier: 1
+  cost: 7500
+  recipeUnlocks:
+  - ThermomachineFreezerMachineCircuitBoard
+  - GasRecyclerMachineCircuitboard
+  # Goobstation R&D Console rework start
+  position: 47,3
+  technologyPrerequisites:
+  - TypanMechanicalCompression
+  # Goobstation R&D Console rework end
+
+- type: technology
+  id: TypanRipley
+  name: research-technology-bloodred-ripley
+  icon:
+    sprite: _Mini/Objects/Specific/Mech/mecha.rsi
+    state: bloodredripley
+  discipline: TypanMechworks
+  tier: 1
+  cost: 7500
+  recipeUnlocks:
+  - TypanRipleyHarness
+  - TypanRipleyLArm
+  - TypanRipleyRArm
+  - TypanRipleyLLeg
+  - TypanRipleyRLeg
+  - TypanRipleyCentralElectronics
+  - TypanRipleyPeripheralsElectronics
+  - MechEquipmentTypanRipleyGrabber
+  position: 48,3
+  technologyPrerequisites:
+  - TypanIndustrialEngineering
+
+- type: technology
+  id: TypanHardsuitsBasic
+  name: research-technology-basic-syndicate-hardsuits
+  icon:
+    sprite: Clothing/Head/Helmets/eva_syndicate.rsi
+    state: icon
+  discipline: TypanMechworks
+  tier: 1
+  cost: 7500
+  recipeUnlocks:
+  - ClothingOuterEVASuitSyndicate
+  - ClothingHeadHelmetSyndicate
+  # Goobstation R&D Console rework start
+  position: 51,3
+  technologyPrerequisites:
+  - TypanIndustrialEngineering
+  # Goobstation R&D Console rework end
+
+# Tier 2
+
+- type: technology
+  id: TypanShuttlecraft
+  name: research-technology-shuttlecraft
+  icon:
+    sprite: Structures/Shuttles/gyroscope.rsi
+    state: base
+  discipline: TypanMechworks
+  tier: 2
+  cost: 15000
+  recipeUnlocks:
+  - ShuttleConsoleCircuitboardTypan
+  - IFFConsoleCircuitboardTypan
+  - ThrusterMachineCircuitboard
+  - GyroscopeMachineCircuitboard
+  - MiniGravityGeneratorCircuitboard
+  # Goobstation R&D Console rework start
+  position: 53,4
+  technologyPrerequisites:
+  - TypanPowerGeneration
+  # Goobstation R&D Console rework end
+
+- type: technology
+  id: TypanAdvancedAtmospherics
+  name: research-technology-advanced-atmospherics
+  icon:
+    sprite: Objects/Devices/Holoprojectors/atmos.rsi
+    state: icon
+  discipline: TypanMechworks
+  tier: 2
+  cost: 15000
+  recipeUnlocks:
+  - HellfireFreezerMachineCircuitBoard
+  - PortableScrubberMachineCircuitBoard
+  - HolofanProjector
+  # Goobstation R&D Console rework start
+  position: 47,5
+  technologyPrerequisites:
+  - TypanAtmosphericTech
+  # Goobstation R&D Console rework end
+
+- type: technology
+  id: TypanAdvancedToolsTechnology
+  name: research-technology-advanced-tools
+  icon:
+    sprite: _Mini/Objects/Tools/welder_industrial_typan.rsi
+    state: icon
+  discipline: TypanMechworks
+  tier: 2
+  cost: 15000
+  recipeUnlocks:
+  - SyndicateWelderExperimental
+  - SyndicatePowerDrill
+  - SyndicateJawsOfLife
+  - BorgModuleAdvancedTool
+  - Fulton
+  - FultonBeacon
+  # Goobstation R&D Console rework start
+  position: 49,5
+  technologyPrerequisites:
+  - TypanIndustrialEngineering
+  # Goobstation R&D Console rework end
+
+- type: technology
+  id: TypanMassExcavation
+  name: research-technology-excavation
+  icon:
+    sprite: Objects/Tools/handdrilldiamond.rsi
+    state: handdrill
+  discipline: TypanMechworks
+  tier: 2
+  cost: 15000
+  recipeUnlocks:
+  - MiningDrillDiamond
+  - AdvancedMineralScannerEmpty
+  - BorgModuleAdvancedMining
+  - SalvageExpeditionsComputerCircuitboard
+  # Goobstation R&D Console rework start
+  position: 48,6
+  technologyPrerequisites:
+  - TypanAdvancedToolsTechnology
+  # Goobstation R&D Console rework end
+
+- type: technology
+  id: TypanHUD
+  name: research-technology-typan-hud
+  icon:
+    sprite: _Mini/Clothing/Eyes/Hud/typan_advhud.rsi
+    state: icon
+  discipline: TypanMechworks
+  tier: 2
+  cost: 15000
+  recipeUnlocks:
+  - ClothingEyesHudTypanDiagnostic
+  - ClothingEyesHudTypanMedical
+  - ClothingEyesHudTypanPatrol
+  - ClothingEyesHudTypanResearch
+  - ClothingEyesHudTypanAdvanced
+  # Goobstation R&D Console rework start
+  position: 50,5
+  technologyPrerequisites:
+  - TypanHardsuitsBasic
+  # Goobstation R&D Console rework end
+
+- type: technology
+  id: TypanHardsuits
+  name: research-technology-syndicate-hardsuits
+  icon:
+    sprite: Clothing/OuterClothing/Hardsuits/syndicate.rsi
+    state: icon
+  discipline: TypanMechworks
+  tier: 2
+  cost: 15000
+  recipeUnlocks:
+  - ClothingOuterHardsuitSyndie
+  - ClothingOuterHardsuitSyndieMedic
+  # Goobstation R&D Console rework start
+  position: 51,5
+  technologyPrerequisites:
+  - TypanHardsuitsBasic
+  # Goobstation R&D Console rework end
+
+- type: technology
+  id: TypanEliteHardsuits
+  name: research-technology-elite-syndicate-hardsuits
+  icon:
+    sprite: Clothing/OuterClothing/Hardsuits/syndieelite.rsi
+    state: icon
+  discipline: TypanMechworks
+  tier: 2
+  cost: 15000
+  recipeUnlocks:
+  - ClothingOuterHardsuitSyndieElite
+  - ClothingOuterHardsuitSyndieCommander
+  # Goobstation R&D Console rework start
+  position: 52,6
+  technologyPrerequisites:
+  - TypanHardsuits
+  # Goobstation R&D Console rework end
+
+# Tier 3
+
+- type: technology
+  id: TypanOptimizedMicrogalvanism
+  name: research-technology-optimized-microgalvanism
+  icon:
+    sprite: Objects/Power/power_cells.rsi
+    state: microreactor
+  discipline: TypanMechworks
+  tier: 3
+  cost: 30000
+  recipeUnlocks:
+  - PowerCellMicroreactor
+  - PowerCellHyper
+  # Goobstation R&D Console rework start
+  position: 50,7
+  technologyPrerequisites:
+  - TypanHUD
+  - TypanEliteHardsuits
+  # Goobstation R&D Console rework end
+
+- type: technology
+  id: TypanHeavyHardsuits
+  name: research-technology-heavy-syndicate-hardsuits
+  icon:
+    sprite: Clothing/OuterClothing/Hardsuits/cybersun.rsi
+    state: icon
+  discipline: TypanMechworks
+  tier: 3
+  cost: 30000
+  recipeUnlocks:
+  - ClothingOuterHardsuitJuggernaut
+  # Goobstation R&D Console rework start
+  position: 51,7
+  technologyPrerequisites:
+  - TypanEliteHardsuits
+  # Goobstation R&D Console rework end

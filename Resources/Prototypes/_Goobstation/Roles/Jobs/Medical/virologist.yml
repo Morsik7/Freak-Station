@@ -3,6 +3,9 @@
   name: job-name-virologist
   description: job-description-virologist
   playTimeTracker: JobVirologist
+  skills: # CorvaxGoob-Skills
+  - Surgery
+  - MedicalEquipment
   requirements:
     - !type:DepartmentTimeRequirement
       department: Medical
@@ -11,8 +14,6 @@
   icon: "JobIconVirologist"
   supervisors: job-supervisors-cmo
   goobcoins: 20 #Goob content
-  skills: # CorvaxGoob-Skills
-  - MedicalEquipment
   guides:
   - MedicalDoctor
   - Medical
@@ -36,8 +37,10 @@
     ears: ClothingHeadsetMedical
     eyes: ClothingEyesHudViro
     belt: ClothingBeltMedicalFilled #No request and still medical so uh delete if want them with no belt I guess
-  #storage:
-    #back:
+  storage:
+    back:
+    - BoxMouthSwab
+
 
 - type: chameleonOutfit
   id: VirologistChameleonOutfit

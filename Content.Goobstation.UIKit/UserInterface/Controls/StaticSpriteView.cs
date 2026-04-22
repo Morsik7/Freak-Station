@@ -35,26 +35,26 @@ public class StaticSpriteView : Control
 
     /// <summary>
     /// This field configures automatic scaling of the sprite. This automatic scaling is done before
-    /// applying the explicitly set scale <see cref="SunriseStaticSpriteView.Scale"/>.
+    /// applying the explicitly set scale <see cref="MiniStaticSpriteView.Scale"/>.
     /// </summary>
     public StretchMode Stretch  { get; set; } = StretchMode.Fit;
 
     public enum StretchMode
     {
         /// <summary>
-        /// Don't automatically scale the sprite. The sprite can still be scaled via <see cref="SunriseStaticSpriteView.Scale"/>
+        /// Don't automatically scale the sprite. The sprite can still be scaled via <see cref="MiniStaticSpriteView.Scale"/>
         /// </summary>
         None,
 
         /// <summary>
         /// Scales the sprite down so that it fits within the control. Does not scale the sprite up. Keeps the same
-        /// aspect ratio. This automatic scaling is done before applying <see cref="SunriseStaticSpriteView.Scale"/>.
+        /// aspect ratio. This automatic scaling is done before applying <see cref="MiniStaticSpriteView.Scale"/>.
         /// </summary>
         Fit,
 
         /// <summary>
         /// Scale the sprite up or down so that it fills the whole control. Keeps the same aspect ratio. This
-        /// automatic scaling is done before applying <see cref="SunriseStaticSpriteView.Scale"/>.
+        /// automatic scaling is done before applying <see cref="MiniStaticSpriteView.Scale"/>.
         /// </summary>
         Fill
     }

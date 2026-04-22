@@ -1,0 +1,110 @@
+- type: entity
+  parent: BaseItem
+  id: BaseComputerCircuitboardTypan
+  name: консольная плата
+  abstract: true
+  suffix: Тайпан
+  components:
+  - type: ComputerBoard
+  - type: Sprite
+    sprite: _Mini/Objects/Misc/module.rsi
+    state: cpu_syndicate
+  - type: Item
+    storedRotation: -90
+  - type: StaticPrice
+    price: 100
+  - type: PhysicalComposition
+    materialComposition:
+      Glass: 230
+    chemicalComposition:
+      Silicon: 20
+
+- type: entity
+  parent: BaseComputerCircuitboardTypan
+  id: AnalysisComputerCircuitboardTypan
+  name: аналитическая консоль (консольная плата)
+  description: Консольная плата для аналитической консоли.
+  components:
+  - type: ComputerBoard
+    prototype: MiniComputerAnalysisConsole
+
+- type: entity
+  parent: BaseComputerCircuitboardTypan
+  id: SurveillanceCameraMonitorCircuitboardTypan
+  name: монитор камер слежения (консольная плата)
+  description: Консольная плата для монитора камер слежения.
+  components:
+  - type: ComputerBoard
+    prototype: MiniComputerSurveillanceCameraMonitor
+
+- type: entity
+  parent: BaseComputerCircuitboardTypan
+  id: CommsComputerCircuitboardTypan
+  name: консоль связи (консольная плата)
+  description: Консольная плата для консоли связи.
+  components:
+  - type: ComputerBoard
+    prototype: ComputerTypanComms
+
+- type: entity
+  parent: BaseComputerCircuitboardTypan
+  id: CrewMonitoringComputerCircuitboardTypan
+  name: консоль мониторинга экипажа (консольная плата)
+  description: Консольная плата для консоли мониторинга экипажа.
+  components:
+  - type: ComputerBoard
+    prototype: MiniComputerCrewMonitoring
+
+- type: entity
+  parent: BaseComputerCircuitboardTypan
+  id: IDComputerCircuitboardTypan
+  name: консоль ID карт (консольная плата)
+  description: Консольная плата для консоли ID карт.
+  components:
+  - type: ComputerBoard
+    prototype: MiniSyndieComputerId
+
+- type: entity
+  parent: BaseComputerCircuitboardTypan
+  id: IFFConsoleCircuitboardTypan
+  name: консоль системы опознавания (консольная плата)
+  description: Позволяет управлять параметрами системы опознавания судна.
+  components:
+  - type: ComputerBoard
+    prototype: MiniComputerIFF
+
+- type: entity
+  parent: BaseComputerCircuitboardTypan
+  id: ResearchComputerCircuitboardTypan
+  name: исследовательская консоль (консольная плата)
+  description: Консольная плата исследовательской консоли.
+  components:
+  - type: ComputerBoard
+    prototype: MiniComputerResearchAndDevelopment
+
+- type: entity
+  parent: BaseComputerCircuitboardTypan
+  id: RoboticsConsoleCircuitboardTypan
+  name: консоль управления робототехникой (консольная плата)
+  description: Консольная плата для консоли управления робототехникой.
+  components:
+  - type: ComputerBoard
+    prototype: ComputerTypanRoboticsControl
+
+- type: entity
+  parent: BaseComputerCircuitboardTypan
+  id: ShuttleConsoleCircuitboardTypan
+  name: консоль управления шаттлом (консольная плата)
+  description: Консольная плата для консоли управления шаттлом.
+  components:
+  - type: ComputerBoard
+    prototype: MiniComputerShuttleCargo
+
+- type: entity
+  parent: BaseComputerCircuitboardTypan
+  id: StationAiUploadCircuitboardTypan
+  name: консоль загрузки ИИ (консольная плата)
+  description: Консольная плата для консоли загрузки ИИ.
+  components:
+  - type: ComputerBoard
+    prototype: MiniStationAiUploadComputer

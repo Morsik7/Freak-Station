@@ -1,0 +1,14 @@
+# Jumpsuit
+- type: loadout
+  id: TypanPatrolJumpsuit
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitTypanPatrol
+# Loadout Groups
+- type: loadoutGroup
+  id: TypanPatrolUniform
+  name: loadout-group-typan-patrol-uniform
+  hidden: true
+  minLimit: 1
+  loadouts:
+  - TypanPatrolJumpsuit
+

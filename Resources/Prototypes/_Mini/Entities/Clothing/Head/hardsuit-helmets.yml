@@ -1,0 +1,177 @@
+- type: entity
+  parent: ClothingHeadHelmetHardsuitEngineering
+  id: ClothingHeadHelmetHardsuitTypanAtmosphericsEngineer
+  name: шлем скафандра атмосферного инженера
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _Mini/Clothing/Head/Hardsuits/typan_atmospherics.rsi
+    layers:
+    - state: icon
+    - state: icon-unshaded
+      shader: unshaded
+  - type: Clothing
+    sprite: _Mini/Clothing/Head/Hardsuits/typan_atmospherics.rsi
+    clothingVisuals:
+      head:
+      - state: equipped-head
+      - state: equipped-head-unshaded
+        shader: unshaded
+      head-vox:
+      - state: equipped-head-vox
+      - state: equipped-head-unshaded-vox
+        shader: unshaded
+  - type: PointLight
+    color: "#adffe6"
+  - type: PressureProtection
+    highPressureMultiplier: 0.08
+    lowPressureMultiplier: 1000
+  - type: TemperatureProtection
+    heatingCoefficient: 0.005
+    coolingCoefficient: 0.005
+  - type: FireProtection
+    reduction: 0.2
+  - type: Tag
+    tags: [] # ignore "WhitelistChameleon" tag
+
+- type: entity
+  parent: ClothingHeadHelmetHardsuitSalvage
+  id: ClothingHeadHelmetHardsuitTypanCargotech
+  name: шлем скафандра карготехника
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _Mini/Clothing/Head/Hardsuits/typan_cargotech.rsi
+    layers:
+    - state: icon
+    - state: icon-unshaded
+      shader: unshaded
+  - type: Clothing
+    sprite: _Mini/Clothing/Head/Hardsuits/typan_cargotech.rsi
+    clothingVisuals:
+      head:
+      - state: equipped-head
+      - state: equipped-head-unshaded
+        shader: unshaded
+      head-vox:
+      - state: equipped-head-vox
+      - state: equipped-head-unshaded-vox
+        shader: unshaded
+  - type: PointLight
+    color: "#a033ff"
+    radius: 7
+    energy: 3
+  - type: Tag
+    tags: [] # ignore "WhitelistChameleon" tag
+
+- type: entity
+  parent: ClothingHeadHelmetHardsuitEngineering
+  id: ClothingHeadHelmetHardsuitTypanTechnician
+  name: шлем скафандра ремонтника
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _Mini/Clothing/Head/Hardsuits/typan_technician.rsi
+    layers:
+    - state: icon
+    - state: icon-unshaded
+      shader: unshaded
+  - type: Clothing
+    sprite: _Mini/Clothing/Head/Hardsuits/typan_technician.rsi
+    clothingVisuals:
+      head:
+      - state: equipped-head
+      - state: equipped-head-unshaded
+        shader: unshaded
+      head-vox:
+      - state: equipped-head-vox
+      - state: equipped-head-unshaded-vox
+        shader: unshaded
+  - type: PointLight
+    color: "#ffdbad"
+  - type: Tag
+    tags: [] # ignore "WhitelistChameleon" tag
+
+- type: entity
+  parent: ClothingHeadHelmetHardsuitBrigmedic
+  id: ClothingHeadHelmetHardsuitTypanParamedic
+  name: шлем скафандра парамедика
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _Mini/Clothing/Head/Hardsuits/typan_medical.rsi
+    layers:
+    - state: icon
+    - state: icon-unshaded
+      shader: unshaded
+  - type: Clothing
+    sprite: _Mini/Clothing/Head/Hardsuits/typan_medical.rsi
+    clothingVisuals:
+      head:
+      - state: equipped-head
+      - state: equipped-head-unshaded
+        shader: unshaded
+      head-vox:
+      - state: equipped-head-vox
+      - state: equipped-head-unshaded-vox
+        shader: unshaded
+  - type: PointLight
+    color: "#00FFFF"
+  - type: Tag
+    tags: [] # ignore "WhitelistChameleon" tag
+
+- type: entity
+  parent: ClothingHeadHelmetHardsuitSecurity
+  id: ClothingHeadHelmetHardsuitTypanPatrol
+  name: шлем скафандра рекрута
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _Mini/Clothing/Head/Hardsuits/typan_patrol.rsi
+    layers:
+    - state: icon
+    - state: icon-unshaded
+      shader: unshaded
+  - type: Clothing
+    sprite: _Mini/Clothing/Head/Hardsuits/typan_patrol.rsi
+    clothingVisuals:
+      head:
+      - state: equipped-head
+      - state: equipped-head-unshaded
+        shader: unshaded
+      head-vox:
+      - state: equipped-head-vox
+      - state: equipped-head-unshaded-vox
+        shader: unshaded
+  - type: PointLight
+    color: "#ffeead"
+  - type: Tag
+    tags: [] # ignore "WhitelistChameleon" tag
+
+- type: entity
+  parent: ClothingHeadHelmetHardsuitSecurityRed
+  id: ClothingHeadHelmetHardsuitTypanCO
+  name: шлем скафандра офицера телекоммуникаций
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _Mini/Clothing/Head/Hardsuits/typan_co.rsi
+    layers:
+    - state: icon
+    - state: icon-unshaded
+      shader: unshaded
+  - type: Clothing
+    sprite: _Mini/Clothing/Head/Hardsuits/typan_co.rsi
+    clothingVisuals:
+      head:
+      - state: equipped-head
+      - state: equipped-head-unshaded
+        shader: unshaded
+      head-vox:
+      - state: equipped-head-vox
+      - state: equipped-head-unshaded-vox
+        shader: unshaded
+  - type: PointLight
+    color: "#ffeead"
+  - type: Tag
+    tags: [] # ignore "WhitelistChameleon" tag

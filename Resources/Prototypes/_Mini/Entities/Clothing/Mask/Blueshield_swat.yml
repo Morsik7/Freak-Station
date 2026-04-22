@@ -1,0 +1,25 @@
+- type: entity
+  parent: [ ClothingMaskGas, BaseSecurityContraband ]
+  id: ClothingMaskGasBlueshield
+  name: Противогаз Синего Щита
+  description: Элитный противогаз членов корпуса "Синий Щит".
+  components:
+  - type: Sprite
+    sprite: _Mini/Clothing/Mask/blueshield_swat.rsi
+  - type: Clothing
+    sprite: _Mini/Clothing/Mask/blueshield_swat.rsi
+  - type: Tag
+    tags:
+    - WhitelistChameleon
+  - type: HideLayerClothing
+    slots:
+    - Hair
+    - Snout
+    hideOnToggle: true
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.90
+        Slash: 0.90
+        Piercing: 0.90
+        Heat: 0.90

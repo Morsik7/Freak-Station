@@ -123,11 +123,11 @@ public sealed class EscapeUIController : UIController, IOnStateEntered<GameplayS
         _escapeWindow.OnClose += DeactivateButton;
         _escapeWindow.OnOpen += ActivateButton;
 
-        _escapeWindow.ChangelogButton.OnPressed += _ =>
-        {
-            CloseEscapeWindow();
-            _changelog.ToggleWindow();
-        };
+        // _escapeWindow.ChangelogButton.OnPressed += _ =>
+        // {
+        //     CloseEscapeWindow();
+        //     _changelog.ToggleWindow();
+        // };
 
         /* CorvaxGoob-Coins-start
         _escapeWindow.PatronPerksButton.Visible = _linkAccount.CanViewPatronPerks(); // RMC - Patreon

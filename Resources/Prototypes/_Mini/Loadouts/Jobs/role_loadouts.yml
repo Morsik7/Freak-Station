@@ -1,0 +1,157 @@
+- type: roleLoadout
+  id: JobTypanAtmosTech
+  groups:
+  - Inventory # Corvax-Loadouts
+  - GroupTankHarness
+  - SyndicateBackpack
+  - Glasses
+  - Survival
+  - Trinkets
+  - GroupSpeciesBreathTool
+  - TypanAtmosphericsEngineerUniform
+
+- type: roleLoadout
+  id: JobTypanBotanist
+  groups:
+  - Inventory # Corvax-Loadouts
+  - GroupTankHarness
+  - SyndicateBackpack
+  - Glasses
+  - Survival
+  - Trinkets
+  - GroupSpeciesBreathTool
+  - TypanBotanistUniform
+
+- type: roleLoadout
+  id: JobTypanCargotech
+  groups:
+  - Inventory # Corvax-Loadouts
+  - GroupTankHarness
+  - SyndicateBackpack
+  - Glasses
+  - Survival
+  - Trinkets
+  - GroupSpeciesBreathTool
+  - TypanCargotechUniform
+
+- type: roleLoadout
+  id: JobTypanChef
+  groups:
+  - Inventory # Corvax-Loadouts
+  - GroupTankHarness
+  - SyndicateBackpack
+  - Glasses
+  - Survival
+  - Trinkets
+  - GroupSpeciesBreathTool
+  - TypanChefUniform
+
+- type: roleLoadout
+  id: JobTypanMedic
+  groups:
+  - Inventory # Corvax-Loadouts
+  - GroupTankHarness
+  - SyndicateBackpack
+  - Glasses
+  - Survival
+  - Trinkets
+  - GroupSpeciesBreathTool
+  - TypanMedicUniform
+
+- type: roleLoadout
+  id: JobTypanResearchDirector
+  groups:
+  - Inventory # Corvax-Loadouts
+  - GroupTankHarness
+  - SyndicateBackpack
+  - Glasses
+  - Survival
+  - Trinkets
+  - GroupSpeciesBreathTool
+  - TypanResearchDirectorUniform
+
+- type: roleLoadout
+  id: JobTypanScience
+  groups:
+  - Inventory # Corvax-Loadouts
+  - GroupTankHarness
+  - SyndicateBackpack
+  - Glasses
+  - Survival
+  - Trinkets
+  - GroupSpeciesBreathTool
+  - TypanResearcherUniform
+
+- type: roleLoadout
+  id: JobTypanCommander
+  groups:
+  - Inventory # Corvax-Loadouts
+  - GroupTankHarness
+  - SyndicateBackpack
+  - Glasses
+  - Survival
+  - Trinkets
+  - GroupSpeciesBreathTool
+  - TypanCommunicationsOfficerUniform
+
+- type: roleLoadout
+  id: JobTypanPatrol
+  groups:
+  - Inventory # Corvax-Loadouts
+  - GroupTankHarness
+  - SyndicateBackpack
+  - Glasses
+  - Survival
+  - Trinkets
+  - GroupSpeciesBreathTool
+  - TypanPatrolUniform
+
+- type: roleLoadout
+  id: JobTypanBorg
+  nameDataset: NamesBorg
+  canCustomizeName: true
+
+- type: chameleonOutfit
+  id: TypanAtmosTechChameleonOutfit
+  job: TypanAtmosTech
+  startingGear: TypanAtmosTech
+
+- type: chameleonOutfit
+  id: TypanBotanistChameleonOutfit
+  job: TypanBotanist
+  startingGear: SyndicateBotanist
+
+- type: chameleonOutfit
+  id: TypanCargotechChameleonOutfit
+  job: TypanCargotech
+  startingGear: TypanCargotech
+
+- type: chameleonOutfit
+  id: TypanChefChameleonOutfit
+  job: TypanChef
+  startingGear: TypanChef
+
+- type: chameleonOutfit
+  id: TypanMedicChameleonOutfit
+  job: TypanMedic
+  startingGear: TypanMedic
+
+- type: chameleonOutfit
+  id: TypanResearchDirectorChameleonOutfit
+  job: TypanResearchDirector
+  startingGear: TypanResearchDirector
+
+- type: chameleonOutfit
+  id: TypanScienceChameleonOutfit
+  job: TypanScience
+  startingGear: TypanScience
+
+- type: chameleonOutfit
+  id: TypanCommanderChameleonOutfit
+  job: TypanCommander
+  startingGear: TypanCommander
+
+- type: chameleonOutfit
+  id: TypanPatrolChameleonOutfit
+  job: TypanPatrol
+  startingGear: TypanPatrol

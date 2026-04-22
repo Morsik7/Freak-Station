@@ -1,0 +1,14 @@
+<Document>
+  <ColorBox Color="#392a3aff" OutlineColor="#5a4a59ff" OutlineThickness="2" Margin="0">
+    <Box Orientation="Vertical">
+      <Box Orientation="Horizontal" HorizontalAlignment="Center">
+        8.2. Высказывания
+        </Box>
+        <Box Orientation="Vertical" Margin="10">
+        Запрещены IC и OOC/LOOC высказывания эротического или                   развратного характера.
+
+        Запрещены шутки «ниже пояса» в любом виде.
+     </Box>
+    </Box>
+  </ColorBox>
+</Document>

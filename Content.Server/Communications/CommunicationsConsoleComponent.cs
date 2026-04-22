@@ -34,6 +34,7 @@
 
 using Content.Shared.Communications;
 using Robust.Shared.Audio;
+using Content.Shared.Containers.ItemSlots;
 
 namespace Content.Server.Communications
 {
@@ -53,6 +54,10 @@ namespace Content.Server.Communications
         [DataField]
         public float BroadcastCooldownRemaining;
 
+        [ViewVariables]
+        [DataField]
+        public float CallERTCooldownRemaining;
+
         /// <summary>
         /// Fluent ID for the announcement title
         /// If a Fluent ID isn't found, just uses the raw string
@@ -64,7 +69,7 @@ namespace Content.Server.Communications
         /// <summary>
         /// Announcement color
         /// </summary>
-        [ViewVariables]
+        [ViewVariables(VVAccess.ReadWrite)]
         [DataField]
         public Color Color = Color.Gold;
 
@@ -73,7 +78,8 @@ namespace Content.Server.Communications
         /// </summary>
         [ViewVariables]
         [DataField]
-        public int Delay = 90;
+        public int DelayBetweenAnnouncements = 60;
+
 
         /// <summary>
         /// Time in seconds of announcement cooldown when a new console is created on a per-console basis
@@ -87,7 +93,18 @@ namespace Content.Server.Communications
         /// </summary>
         [ViewVariables]
         [DataField]
-        public bool CanShuttle = true;
+        public bool CanCallShuttle = true;
+
+        /// <summary>
+        /// Can recall the shuttle after it has already been called.
+        /// </summary>
+        [ViewVariables]
+        [DataField]
+        public bool CanRecallShuttle = true;
+
+        /// <summary>
+        /// Can call or recall the ERT
+        /// </summary>
 
         /// <summary>
         /// Announce on all grids (for nukies)
@@ -107,6 +124,7 @@ namespace Content.Server.Communications
         /// </summary>
         [DataField]
         public bool AnnounceSentBy = true;
+        public SoundSpecifier AnnouncementSound = new SoundPathSpecifier("/Audio/_Mini/Announcements/announce.ogg");
 
         /// <summary>
         /// Goobstation

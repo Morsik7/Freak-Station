@@ -114,4 +114,5 @@ public sealed partial class TraitPrototype : IPrototype
     [DataField]
     public List<string>? RemoveLanguagesUnderstood { get; private set; } = default!;
     // Einstein Engines - Language end
+    [DataField] public bool SponsorOnly = false; //Sponsor think
 }

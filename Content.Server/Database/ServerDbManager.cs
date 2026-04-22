@@ -1,5 +1,6 @@
+// SPDX-FileCopyrightText: 2026 Casha
 // SPDX-FileCopyrightText: 2021 Acruid <shatter66@gmail.com>
-// SPDX-FileCopyrightText: 2021 Javier Guardia Fernández <DrSmugleaf@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2021 Javier Guardia FernГЎndez <DrSmugleaf@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2021 Leo <lzimann@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2022 Julian Giebel <j.giebel@netrocks.info>
 // SPDX-FileCopyrightText: 2022 Kevin Zheng <kevinz5000@gmail.com>
@@ -106,7 +107,7 @@ using MSLogLevel = Microsoft.Extensions.Logging.LogLevel;
 
 namespace Content.Server.Database
 {
-    public interface IServerDbManager
+    public partial interface IServerDbManager
     {
         void Init();
 
@@ -225,6 +226,15 @@ namespace Content.Server.Database
         /// </summary>
         /// <param name="updates">The list of all updates to apply to the database.</param>
         Task UpdatePlayTimes(IReadOnlyCollection<PlayTimeUpdate> updates);
+        Task<DailyRewardProgress?> GetDailyRewardProgress(Guid playerId, CancellationToken cancel = default);
+        Task UpsertDailyRewardProgress(DailyRewardProgress progress);
+        Task<List<PlayerAntagToken>> GetPlayerAntagTokens(Guid playerId, CancellationToken cancel = default);
+        Task<PlayerAntagTokenSelection?> GetPlayerAntagTokenSelection(Guid playerId, CancellationToken cancel = default);
+        Task SetPlayerAntagTokenAmount(Guid playerId, string tokenId, int amount);
+        Task SetPlayerAntagTokenSelection(Guid playerId, string tokenId, string antagId);
+        Task<PlayerGhostRoleTickets?> GetPlayerGhostRoleTickets(Guid playerId, CancellationToken cancel = default);
+        Task UpsertPlayerGhostRoleTickets(PlayerGhostRoleTickets tickets);
+        Task ClearPlayerAntagTokenSelection(Guid playerId);
 
         #endregion
 
@@ -448,7 +458,7 @@ namespace Content.Server.Database
         public string? Payload { get; set; }
     }
 
-    public sealed class ServerDbManager : IServerDbManager
+    public sealed partial class ServerDbManager : IServerDbManager
     {
         public static readonly Counter DbReadOpsMetric = Metrics.CreateCounter(
             "db_read_ops",
@@ -645,6 +655,60 @@ namespace Content.Server.Database
         {
             DbWriteOpsMetric.Inc();
             return RunDbCommand(() => _db.UpdatePlayTimes(updates));
+        }
+
+        public Task<DailyRewardProgress?> GetDailyRewardProgress(Guid playerId, CancellationToken cancel = default)
+        {
+            DbReadOpsMetric.Inc();
+            return RunDbCommand(() => _db.GetDailyRewardProgress(playerId, cancel));
+        }
+
+        public Task UpsertDailyRewardProgress(DailyRewardProgress progress)
+        {
+            DbWriteOpsMetric.Inc();
+            return RunDbCommand(() => _db.UpsertDailyRewardProgress(progress));
+        }
+
+        public Task<List<PlayerAntagToken>> GetPlayerAntagTokens(Guid playerId, CancellationToken cancel = default)
+        {
+            DbReadOpsMetric.Inc();
+            return RunDbCommand(() => _db.GetPlayerAntagTokens(playerId, cancel));
+        }
+
+        public Task<PlayerAntagTokenSelection?> GetPlayerAntagTokenSelection(Guid playerId, CancellationToken cancel = default)
+        {
+            DbReadOpsMetric.Inc();
+            return RunDbCommand(() => _db.GetPlayerAntagTokenSelection(playerId, cancel));
+        }
+
+        public Task SetPlayerAntagTokenAmount(Guid playerId, string tokenId, int amount)
+        {
+            DbWriteOpsMetric.Inc();
+            return RunDbCommand(() => _db.SetPlayerAntagTokenAmount(playerId, tokenId, amount));
+        }
+
+        public Task SetPlayerAntagTokenSelection(Guid playerId, string tokenId, string antagId)
+        {
+            DbWriteOpsMetric.Inc();
+            return RunDbCommand(() => _db.SetPlayerAntagTokenSelection(playerId, tokenId, antagId));
+        }
+
+        public Task<PlayerGhostRoleTickets?> GetPlayerGhostRoleTickets(Guid playerId, CancellationToken cancel = default)
+        {
+            DbReadOpsMetric.Inc();
+            return RunDbCommand(() => _db.GetPlayerGhostRoleTickets(playerId, cancel));
+        }
+
+        public Task UpsertPlayerGhostRoleTickets(PlayerGhostRoleTickets tickets)
+        {
+            DbWriteOpsMetric.Inc();
+            return RunDbCommand(() => _db.UpsertPlayerGhostRoleTickets(tickets));
+        }
+
+        public Task ClearPlayerAntagTokenSelection(Guid playerId)
+        {
+            DbWriteOpsMetric.Inc();
+            return RunDbCommand(() => _db.ClearPlayerAntagTokenSelection(playerId));
         }
 
         #endregion
@@ -1393,3 +1457,4 @@ namespace Content.Server.Database
         }
     }
 }
+

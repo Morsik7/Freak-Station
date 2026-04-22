@@ -360,8 +360,8 @@ uplink-bloodred-cassette-desc = Provided by the most egotistical fashion designe
 uplink-syndiedrobe-name = Syndiedrobe
 uplink-syndiedrobe-desc = A vending machine stocked with Syndicate-branded clothing. Simple, sharp, and unmistakably red-and-black, it offers operatives a way to dress with Syndicate style.
 
-uplink-customboard-name = Custom Syndicate Lawboard
-uplink-customboard-desc = A modified lawboard that allows the user to change the laws to anything they want. Comes with Antimov pre-installed.
+uplink-customboard-name = Модифицированный набор законов
+uplink-customboard-desc = Модифицированный набор законов, который позволяет пользователю изменять законы на любые, какие он захочет. Поставляется с уже установленным протоколом Антимова.
 
 uplink-cddisksyndicate-name = Syndicate Advertisement CD
 uplink-cddisksyndicate-desc = 102.9 Syndicate radio

@@ -1,0 +1,48 @@
+- type: job
+  id: TypanResearchDirector
+  name: job-name-typan-rd
+  playTimeTracker: JobTypanResearchDirector
+  description: job-description-typan-rd
+  startingGear: TypanResearchDirector
+  icon: "JobIconSyndicateRD"
+  supervisors: job-supervisors-typan-syndicate
+  canBeAntag: false
+  requirements:
+    - !type:DepartmentTimeRequirement
+      department: Typan
+      time: 36000
+    - !type:AgeRequirement
+      requiredAge: 24
+  access:
+  - TypanResearchDirector
+  - TypanScience
+  - SyndicateAgent
+  - TypanCommand
+  - TypanVault
+  - TypanExternal
+  - TypanEngineering
+  - TypanMaint
+  - TypanCargo
+  skills: # CorvaxGoob-Skills
+    - Shooting
+    - Butchering
+    - Surgery
+    - MedicalEquipment
+    - AdvancedBuilding
+  special:
+  - !type:AddComponentSpecial
+    components:
+      - type: AntagImmune
+      - type: NpcFactionMember
+        factions:
+        - Typan
+
+- type: startingGear
+  id: TypanResearchDirector
+  equipment:
+    eyes: ClothingEyesHudTypanResearch
+    ears: ClothingHeadsetAltSyndicate
+    shoes: ClothingShoesBootsCombat
+    gloves: ClothingHandsRDTypan
+    id: SyndiPDARD
+    outerClothing: ClothingOuterTypanCoatLabResearchDirector

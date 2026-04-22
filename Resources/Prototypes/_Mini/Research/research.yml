@@ -1,0 +1,197 @@
+# Tier 1
+
+- type: technology
+  id: TypanBasicRobotics
+  name: research-technology-basic-robotics
+  icon:
+    sprite: _Mini/Structures/Machines/Typan/exosuit_fabricator.rsi
+    state: fab-idle
+  discipline: TypanResearch
+  tier: 1
+  cost: 7500
+  recipeUnlocks:
+  - ProximitySensor
+  position: 0,0
+
+- type: technology
+  id: TypanBasicAnomalousResearch
+  name: research-technology-basic-anomalous-research
+  icon:
+    sprite: Objects/Specific/Research/anomalyscanner.rsi
+    state: icon
+  discipline: TypanResearch
+  tier: 1
+  cost: 7500
+  recipeUnlocks:
+  - AnomalyScanner
+  - AnomalyLocator
+  - AnomalyLocatorWide
+  - APECircuitboard
+  - AnomalyVesselCircuitboardTypan
+  position: 40,0
+
+- type: technology
+  id: TypanBasicXenoArcheology
+  name: research-technology-basic-xenoarcheology
+  icon:
+    sprite: Structures/Machines/artifact_analyzer.rsi
+    state: display
+  discipline: TypanResearch
+  tier: 1
+  cost: 7500
+  recipeUnlocks:
+  - NodeScanner
+  - AnalysisComputerCircuitboardTypan
+  - ArtifactAnalyzerMachineCircuitboard
+  position: 41,0
+
+- type: technology
+  id: TypanMagnetsTech
+  name: research-technology-magnets-tech
+  icon:
+    sprite: Clothing/Shoes/Boots/magboots-syndicate.rsi
+    state: icon
+  discipline: TypanResearch
+  tier: 1
+  cost: 7500
+  recipeUnlocks:
+  - ClothingShoesBootsMagSyndie
+  - ClothingShoesBootsMoon
+  position: 42,0
+
+- type: technology
+  id: TypanEnergyDaggers
+  name: research-technology-energy-daggers
+  icon:
+    sprite: Objects/Weapons/Melee/e_dagger.rsi
+    state: icon
+  discipline: TypanResearch
+  tier: 1
+  cost: 7500
+  recipeUnlocks:
+  - EnergyDagger
+  position: 43,0
+
+# Tier 2
+
+- type: technology
+  id: TypanAdvancedAnomalyResearch
+  name: research-technology-advanced-anomaly-research
+  icon:
+    sprite: Structures/Machines/anomaly_sync.rsi
+    state: base
+  discipline: TypanResearch
+  tier: 2
+  cost: 15000
+  recipeUnlocks:
+  - WeaponPistolCHIMP
+  - WeaponPistolCHIMPUpgradeKit
+  - AnomalySynchronizerCircuitboard
+  - AnomalyVesselExperimentalCircuitboardTypan
+  - WeaponGauntletGorilla
+  position: 40,1
+  technologyPrerequisites:
+  - TypanBasicAnomalousResearch
+
+- type: technology
+  id: TypanAbnormalArtifactManipulation
+  name: research-technology-abnormal-artifact-manipulation
+  icon:
+    sprite: Structures/Machines/artifact_crusher.rsi
+    state: icon
+  discipline: TypanResearch
+  tier: 2
+  cost: 15000
+  recipeUnlocks:
+  - ArtifactCrusherMachineCircuitboard
+  position: 41,1
+  technologyPrerequisites:
+  - TypanBasicXenoArcheology
+
+- type: technology
+  id: TypanDeterrenceTechnologies
+  name: research-technology-deterrence
+  icon:
+    sprite: Objects/Weapons/Guns/Battery/particle_decelerator.rsi
+    state: base
+  discipline: TypanResearch
+  tier: 2
+  cost: 15000
+  recipeUnlocks:
+  - WeaponParticleDecelerator
+  - HoloprojectorField
+  position: 42,1
+
+- type: technology
+  id: TypanEnergyWeapons
+  name: research-technology-energy-weapons
+  icon:
+    sprite: Objects/Weapons/Melee/e_sword.rsi
+    state: icon
+  discipline: TypanResearch
+  tier: 2
+  cost: 15000
+  recipeUnlocks:
+  - EnergySword
+  - EnergyShield
+  position: 43,1
+  technologyPrerequisites:
+  - TypanEnergyDaggers
+
+- type: technology
+  id: TypanChameleonProjector
+  name: research-technology-chameleon-projector
+  icon:
+    sprite: Objects/Devices/chameleon_projector.rsi
+    state: icon
+  discipline: TypanResearch
+  tier: 2
+  cost: 15000
+  recipeUnlocks:
+  - ChameleonProjector
+  position: 44,1
+
+# Tier 3
+
+- type: technology
+  id: TypanEmag
+  name: research-technology-emag
+  icon:
+    sprite: Objects/Tools/emag.rsi
+    state: icon
+  discipline: TypanResearch
+  tier: 3
+  cost: 30000
+  recipeUnlocks:
+  - EmagTypanLimited
+  position: 40,2
+
+- type: technology
+  id: TypanAdvancedMagnetsTech
+  name: research-technology-advanced-magnets-tech
+  icon:
+    sprite: _Mini/Clothing/Shoes/Boots/advanced.rsi
+    state: icon
+  discipline: TypanResearch
+  tier: 3
+  cost: 30000
+  recipeUnlocks:
+  - ClothingShoesBootsMagAdvSynd
+  position: 41,2
+  technologyPrerequisites:
+  - TypanMagnetsTech
+
+- type: technology
+  id: TypanEliteEnergyWeapons
+  name: research-technology-elite-energy-weapons
+  icon:
+    sprite: Objects/Weapons/Melee/e_sword_double.rsi
+    state: icon
+  discipline: TypanResearch
+  tier: 3
+  cost: 30000
+  recipeUnlocks:
+  - EnergySwordDouble
+  position: 42,2
+  technologyPrerequisites:
+  - TypanEnergyWeapons

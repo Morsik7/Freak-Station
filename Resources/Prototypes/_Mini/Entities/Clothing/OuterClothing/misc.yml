@@ -1,0 +1,13 @@
+- type: entity
+  parent: ClothingOuterStorageBase
+  id: ClothingOuterApronTypanBotanist
+  name: фартук
+  description: Фартук из прочной ткани, предназначенный для  работы с особо опасными растениями.
+  suffix: Тайпан
+  components:
+  - type: Sprite
+    sprite: _Mini/Clothing/OuterClothing/Misc/apron_botanist.rsi
+  - type: Clothing
+    sprite: _Mini/Clothing/OuterClothing/Misc/apron_botanist.rsi
+  - type: Tag
+    tags: [] # ignore "WhitelistChameleon" tag

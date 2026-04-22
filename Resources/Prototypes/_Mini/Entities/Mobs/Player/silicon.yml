@@ -1,0 +1,165 @@
+- type: entity
+  id: PlayerBorgSyndicateMedicalBattery
+  name: медицинский киборг синдиката
+  description: Бывший военврач, добровольно (или не совсем) превращённый в высокотехнологичную машину для спасения (или утилизации) личного состава Синдиката. Оснащён передовыми (и крайне болезненными) медицинскими модулями, способными как вернуть бойца в строй за секунды, так и превратить его в подопытный образец, если того потребует миссия.
+  parent: BorgChassisSyndicateMedical
+  suffix: Battery, Module, Operative
+  components:
+  - type: NukeOperative
+  - type: ContainerFill
+    containers:
+      borg_brain:
+      - PositronicBrain
+      borg_module:
+      - BorgModuleTool
+      - BorgModuleRescue
+      - BorgModuleSyndicateWeapon
+      - BorgModuleAdvancedChemical
+      - BorgModuleAdvancedSurgery
+  - type: ItemSlots
+    slots:
+      cell_slot:
+        name: power-cell-slot-component-slot-name-default
+        startingItem: PowerCellHyper
+  - type: StartingMindRole
+    mindRole: "MindRoleSiliconBrainTypan"
+    silent: true
+  - type: Access
+    tags:
+      - TypanArmory
+      - TypanAtmospherics
+      - TypanCargo
+      - TypanCommand
+      - TypanCommunicationsOfficer
+      - TypanEngineering
+      - TypanMaint
+      - TypanMedical
+      - TypanProtection
+      - TypanResearchDirector
+      - TypanScience
+      - TypanService
+      - TypanVault
+      - TypanExternal
+      - SyndicateAgent
+
+- type: entity
+  id: PlayerBorgTypanBattery
+  parent: BorgChassisTypanSelectable
+  suffix: Battery
+  components:
+  - type: ContainerFill
+    containers:
+      borg_brain:
+      - PositronicBrain
+  - type: ItemSlots
+    slots:
+      cell_slot:
+        name: power-cell-slot-component-slot-name-default
+        startingItem: PowerCellHyper
+  - type: StartingMindRole
+    mindRole: "MindRoleSiliconBrainTypan"
+    silent: true
+
+- type: entity
+  id: PlayerBorgTypanGeneric
+  parent: BorgChassisTypanGeneric
+  suffix: Батарея, Модуль
+  components:
+  - type: ItemSlots
+    slots:
+      cell_slot:
+        name: power-cell-slot-component-slot-name-default
+        startingItem: PowerCellHyper
+  - type: StartingMindRole
+    mindRole: "MindRoleSiliconBrainTypan"
+    silent: true
+
+- type: entity
+  id: PlayerBorgTypanEngineer
+  parent: BorgChassisTypanEngineer
+  suffix: Батарея, Модуль
+  components:
+  - type: ItemSlots
+    slots:
+      cell_slot:
+        name: power-cell-slot-component-slot-name-default
+        startingItem: PowerCellHyper
+  - type: StartingMindRole
+    mindRole: "MindRoleSiliconBrainTypan"
+    silent: true
+
+- type: entity
+  id: PlayerBorgTypanMining
+  parent: BorgChassisTypanMining
+  suffix: Батарея, Модуль
+  components:
+  - type: ItemSlots
+    slots:
+      cell_slot:
+        name: power-cell-slot-component-slot-name-default
+        startingItem: PowerCellHyper
+  - type: StartingMindRole
+    mindRole: "MindRoleSiliconBrainTypan"
+    silent: true
+
+- type: entity
+  id: PlayerBorgTypanJanitor
+  parent: BorgChassisTypanJanitor
+  suffix: Батарея, Модуль
+  components:
+  - type: ItemSlots
+    slots:
+      cell_slot:
+        name: power-cell-slot-component-slot-name-default
+        startingItem: PowerCellHyper
+  - type: StartingMindRole
+    mindRole: "MindRoleSiliconBrainTypan"
+    silent: true
+
+- type: entity
+  id: PlayerBorgTypanMedical
+  parent: BorgChassisTypanMedical
+  suffix: Батарея, Модуль
+  components:
+  - type: ItemSlots
+    slots:
+      cell_slot:
+        name: power-cell-slot-component-slot-name-default
+        startingItem: PowerCellHyper
+  - type: StartingMindRole
+    mindRole: "MindRoleSiliconBrainTypan"
+    silent: true
+
+# - type: entity
+#   id: PlayerBorgTypanService
+#   parent: BorgChassisTypanService
+#   suffix: Батарея, Модуль
+#   components:
+#   - type: ItemSlots
+#     slots:
+#       cell_slot:
+#         name: power-cell-slot-component-slot-name-default
+#         startingItem: PowerCellHyper
+
+- type: entity
+  id: PlayerBorgTypanSecurity
+  parent: BorgChassisTypanSecurity
+  suffix: Батарея, Модуль
+  components:
+  - type: ItemSlots
+    slots:
+      cell_slot:
+        name: power-cell-slot-component-slot-name-default
+        startingItem: PowerCellHyper
+  - type: StartingMindRole
+    mindRole: "MindRoleSiliconBrainTypan"
+    silent: true
+
+- type: entity
+  parent: BaseMindRole
+  id: MindRoleSiliconBrainTypan
+  name: Borg Brain Role Typan
+  components:
+  - type: MindRole
+    roleType: Silicon
+  - type: SiliconBrainRole

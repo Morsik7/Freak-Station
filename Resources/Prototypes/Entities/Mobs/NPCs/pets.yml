@@ -244,7 +244,7 @@
       proper: true
       gender: female
   - type: TTS # CorvaxGoob-TTS
-    voice: Dryad
+    voice: Vika
   - type: Inventory
     speciesId: dog
     templateId: petAdvanced
@@ -811,8 +811,8 @@
     spawned:
     - id: FoodMeat
       amount: 3
-    - id: Telecrystal25 # Goobstation - Telecrystal rework
-      amount: 1
+    - id: Telecrystal1
+      amount: 5
   - type: Grammar
     attributes:
       proper: true

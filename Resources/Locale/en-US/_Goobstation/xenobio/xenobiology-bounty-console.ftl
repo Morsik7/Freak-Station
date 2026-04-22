@@ -1,7 +1,7 @@
-xenobiology-console-menu-title = Xenobiological bounty console
-xenobiology-console-fulfill-button-text = Fulfill
-xenobiology-console-reward-label = Reward: [color=purple]{$reward} Points[/color]
-xenobiology-console-refresh-label = {"   "}Next Global Refresh: [color=orange]{$time}[/color]
+xenobiology-console-menu-title = Консоль заказов ксенобиологии
+xenobiology-console-fulfill-button-text = Выполнить
+xenobiology-console-reward-label = Награда: [color=purple]{$reward} Очков[/color]
+xenobiology-console-refresh-label = {"   "}Следующее обновление: [color=orange]{$time}[/color]
 
-xenobiology-console-flavor-left = A slime a day keeps the doctors at bay.
+xenobiology-console-flavor-left = По слизню в день — и доктора не маячат.
 xenobiology-console-flavor-right = v6.5

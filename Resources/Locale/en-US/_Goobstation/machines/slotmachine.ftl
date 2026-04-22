@@ -1,23 +1,26 @@
-slotmachine-verb = Spin
-slotmachine-message = Pull the lever and test your luck on the slot machine!
+slotmachine-verb = Крутить
+slotmachine-message = Дёрни за рычаг и испытай удачу на игровом автомате!
 
-slotmachine-no-money = Not enough money!
+slotmachine-no-money = Недостаточно денег!
 
-slotmachine-win-normal = Congrats, you have won {$amount} spesos!
-slotmachine-win-jackpot = CONGRATULATIONS, YOU HIT THE JACKPOT!!
-slotmachine-win-godpot = ERROR INTERGER OVERFLOW, DISPENSING "GODPOT"
+slotmachine-win-normal = Поздравляем, вы выиграли {$amount} кредитов!
+slotmachine-win-jackpot = ПОЗДРАВЛЯЕМ, ВЫ СОРВАЛИ ДЖЕКПОТ!!
+slotmachine-win-godpot = ОШИБКА: ПЕРЕПОЛНЕНИЕ СЧЁТЧИКА, ВЫДАЁМ "БОЖЕСТВЕННЫЙ ДЖЕКПОТ"
 
-wires-board-name-slot-machine = Slot Machine
+wires-board-name-slot-machine = Игровой автомат
 
-advertisement-slotmachine-1 = You can only lose so much!
-advertisement-slotmachine-2 = Gambling is a disease, but it's the only disease where you can win a bunch of money!
-advertisement-slotmachine-3 = ONE MORE SPIN!!
-advertisement-slotmachine-4 = Ignore rehab, they just don't want you to see you succeed!
-advertisement-slotmachine-5 = One more game, then you can quit!
-advertisement-slotmachine-6 = Step right up and give me a spin!
+advertisement-slotmachine-1 = Проиграть можно только определённую сумму!
+advertisement-slotmachine-2 = Азартные игры — это болезнь, но единственная болезнь, от которой можно разбогатеть!
+advertisement-slotmachine-3 = ЕЩЁ ОДИН РАЗОК!!
+advertisement-slotmachine-4 = Забей на реабилитацию — они просто не хотят твоего успеха!
+advertisement-slotmachine-5 = Ещё одну игру, и можно завязывать!
+advertisement-slotmachine-6 = Подходи и сделай ставку!
 
-coinflipper-win = Winner! You won {$amount} spesos!
+coinflipper-win = Выигрыш! Вы получаете {$amount} кредитов!
 
-clawmachine-fail-self = You mess up and drop the plushie!
-clawmachine-fail-other = {$user} messes up and drops the plushie!
-clawmachine-fail-generic = The plushie falls out of the claw, how disappointing...
+clawmachine-fail-self = Ты промахиваешься и роняешь плюшевую игрушку!
+clawmachine-fail-other = {$user} промахивается и роняет плюшевую игрушку!
+clawmachine-fail-generic = Плюшевая игрушка выпала из клешни. Как жаль...
+
+blob-title = Блоб
+xenomorph-title = Ксеноморфы

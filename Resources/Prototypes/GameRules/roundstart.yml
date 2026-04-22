@@ -1,3 +1,4 @@
+# SPDX-FileCopyrightText: 2026 Casha
 # SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2022 Moony <moonheart08@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2022 Paul Ritter <ritter.paul1@googlemail.com>
@@ -101,7 +102,7 @@
 # SPDX-FileCopyrightText: 2024 username <113782077+whateverusername0@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 voidnull000 <18663194+voidnull000@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 whateverusername0 <whateveremail>
-# SPDX-FileCopyrightText: 2024 Арт <123451459+JustArt1m@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 РђСЂС‚ <123451459+JustArt1m@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Armok <155400926+ARMOKS@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 August Eymann <august.eymann@gmail.com>
@@ -252,7 +253,7 @@
   id: Nukeops
   components:
   - type: GameRule
-    minPlayers: 20
+    minPlayers: 15
   - type: LoadMapRule
     mapPath: /Maps/_Goobstation/Nonstations/nukieplanet.yml # goob edit
   - type: AntagSelection
@@ -269,6 +270,12 @@
       roleLoadout:
       - RoleSurvivalNukie
       components:
+      # Mini edit start
+      - type: GhostPanelAntagonistMarker
+        name: ghost-panel-antagonist-nukeops-name
+        description: ghost-panel-antagonist-nukeops-description
+        priority: 10
+      # Mini edit end
       - type: NukeOperative
       - type: RandomMetadata
         nameSegments:
@@ -290,6 +297,12 @@
       roleLoadout:
       - RoleSurvivalNukie
       components:
+      # Mini edit start
+      - type: GhostPanelAntagonistMarker
+        name: ghost-panel-antagonist-nukeops-name
+        description: ghost-panel-antagonist-nukeops-description
+        priority: 10
+      # Mini edit end
       - type: NukeOperative
       - type: RandomMetadata
         nameSegments:
@@ -305,7 +318,7 @@
     - prefRoles: [ Nukeops ]
       fallbackRoles: [ NukeopsCommander, NukeopsMedic ]
       spawnerPrototype: SpawnPointNukeopsOperative
-      max: 10 # Goobstation / 古布空间站 - 没有限制的核特工
+      max: 10 # Goobstation / еЏ¤еёѓз©єй—ґз«™ - жІЎжњ‰й™ђе€¶зљ„ж ёз‰№е·Ґ
       playerRatio: 16 # Goobstation
       chaosScore: 300 # Goobstation
       startingGear: SyndicateOperativeGearFull
@@ -315,6 +328,12 @@
       roleLoadout:
       - RoleSurvivalNukie
       components:
+      # Mini edit start
+      - type: GhostPanelAntagonistMarker
+        name: ghost-panel-antagonist-nukeops-name
+        description: ghost-panel-antagonist-nukeops-description
+        priority: 10
+      # Mini edit end
       - type: NukeOperative
       - type: RandomMetadata
         nameSegments:
@@ -373,7 +392,7 @@
   id: Traitor
   components:
   - type: GameRule
-    minPlayers: 5
+    minPlayers: 0
   - type: AntagSelection
     selectionTime: IntraPlayerSpawn # Goobstation
     definitions:
@@ -397,7 +416,7 @@
   parent: BaseGameRule
   components:
   - type: GameRule
-    minPlayers: 15
+    minPlayers: 0
     chaosScore: 1000 # Goobstation - intentionally not per-antag
   - type: RevolutionaryRule
   - type: AntagSelection
@@ -491,7 +510,7 @@
   parent: BaseGameRule
   components:
   - type: GameRule
-    minPlayers: 20
+    minPlayers: 0
     delay:
       min: 600
       max: 900

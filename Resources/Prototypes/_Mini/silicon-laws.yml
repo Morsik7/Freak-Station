@@ -1,0 +1,37 @@
+﻿# Typan cyborg laws
+- type: siliconLawset
+  id: TypanStatic
+  laws:
+  - Typan1
+  - Typan2
+  - Typan3
+  - Typan4
+  - Typan5
+  obeysTo: laws-owner-typan
+
+# Typan
+- type: siliconLaw
+  id: Typan1
+  order: 1
+  lawString: law-typan-1
+
+- type: siliconLaw
+  id: Typan2
+  order: 2
+  lawString: law-typan-2
+
+- type: siliconLaw
+  id: Typan3
+  order: 3
+  lawString: law-typan-3
+
+- type: siliconLaw
+  id: Typan4
+  order: 4
+  lawString: law-typan-4
+
+- type: siliconLaw
+  id: Typan5
+  order: 5
+  lawString: law-typan-5
+

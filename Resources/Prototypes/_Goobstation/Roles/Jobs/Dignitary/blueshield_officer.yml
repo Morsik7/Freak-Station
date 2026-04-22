@@ -89,6 +89,7 @@
   - Service
   - Hydroponics
   - Cargo
+  - Armory
   special:
   - !type:AddImplantSpecial
     implants: [ MindShieldImplant, BluespaceLifelineImplant ] 
@@ -101,11 +102,11 @@
 - type: startingGear
   id: BlueshieldOfficerGear
   equipment:
-    eyes: ClothingEyesGlassesBSO
+    #eyes: ClothingEyesGlassesBSO
     #gloves: ClothingHandsGlovesCombat - Goobstation, moved to loadouts
-    id: BlueshieldPDA
+    #id: BlueshieldPDA
     ears: ClothingHeadsetAltBlueshield
-    belt: ClothingBeltAssaultFilled
+    #belt: ClothingBeltAssaultFilled - Goobstation, moved to loadouts
     pocket1: UniqueBlueshieldOfficerLockerTeleporter
   storage:
     back:

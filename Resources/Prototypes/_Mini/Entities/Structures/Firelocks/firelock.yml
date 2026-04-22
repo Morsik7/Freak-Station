@@ -1,0 +1,63 @@
+- type: entity
+  id: FirelockTypanFrame
+  parent: FirelockFrame
+  name: каркас пожарного шлюза
+  description: Это каркас пожарного шлюза.
+  suffix: Тайпан
+  components:
+  - type: Sprite
+    sprite: _Mini/Structures/Doors/Airlocks/Standard/typan_firelock.rsi
+#  - type: Construction
+#    graph: Firelock
+#    node: frame1
+
+- type: entity
+  id: FirelockTypan
+  parent: Firelock
+  name: пожарный шлюз
+  description: Примените лом.
+  suffix: Тайпан
+  components:
+  - type: Sprite
+    sprite: _Mini/Structures/Doors/Airlocks/Standard/typan_firelock.rsi
+  #  - type: Construction
+  #    graph: Firelock
+  #    node: Firelock
+  #    containers:
+  #    - board
+  #  - type: ContainerFill
+  #    containers:
+  #      board: [ FirelockElectronics ]
+  - type: AccessReader
+    access: [ [ "TypanEngineering" ] ]
+
+- type: entity
+  id: FirelockTypanGlass
+  parent: FirelockGlass
+  name: стеклянный пожарный шлюз
+  description: Примените лом.
+  suffix: Тайпан
+  components:
+  - type: Sprite
+    sprite: _Mini/Structures/Doors/Airlocks/Glass/typan_glass_firelock.rsi
+  #    - type: Construction
+  #      node: FirelockGlass
+  #  - type: ContainerFill
+  #    containers:
+  #      board: [ FirelockElectronics ]
+  - type: AccessReader
+    access: [ [ "TypanEngineering" ] ]
+
+- type: entity
+  id: FirelockTypanEdge
+  parent: FirelockEdge
+  suffix: Тайпан
+  components:
+    - type: Sprite
+      sprite: _Mini/Structures/Doors/typan_edge_door_hazard.rsi
+      snapCardinals: false
+#    - type: Construction
+#      graph: Firelock
+#      node: FirelockEdge
+    - type: AccessReader
+      access: [ [ "TypanEngineering" ] ]

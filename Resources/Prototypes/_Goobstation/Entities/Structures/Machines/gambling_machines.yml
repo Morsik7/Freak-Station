@@ -1,9 +1,9 @@
 - type: entity
   id: BaseSlotMachine
   parent: BaseMachinePowered
-  name: slot machine
+  name: слот-машина
   abstract: true
-  description: Gambling for the antisocial.
+  description: Чтобы начать игру, игроку необходимо вставить деньги в автомат, один спин - 250 кредитов.
   components:
   - type: StationAiWhitelist
   - type: AmbientOnPowered
@@ -93,8 +93,8 @@
 - type: entity
   id: SlotMachine
   parent: BaseSlotMachine
-  name: slot machine
-  description: Gambling for the antisocial.
+  name: слот-машина
+  description:  Чтобы начать игру, игроку необходимо вставить деньги в автомат, один спин - 250 кредитов.
   components:
   - type: Sprite
     sprite: _Goobstation/Structures/Machines/slotmachines/slotmachine.rsi
@@ -125,8 +125,8 @@
 - type: entity
   id: SlotMachineHighRoller
   parent: BaseSlotMachine
-  name: the QM's personal slot machine
-  description: A high roller version of the slot machine, takes a whopping 100k per spin, but you can win 1 MILLION from it!
+  name: слот-машина для высоких ставок
+  description: Версия игрового автомата для высоких ставок — целых 100 тысяч за вращение, но можно выиграть 1 МИЛЛИОН!
   components:
   - type: Sprite
     sprite: _Goobstation/Structures/Machines/slotmachines/slotmachinehighroller.rsi
@@ -169,8 +169,8 @@
 - type: entity
   id: CoinFlipper
   parent: BaseMachinePowered
-  name: coin flipper
-  description: Coinflipping for the antisocial.
+  name: орёл-решка 2.0
+  description: Максимально простая и жесткая игра. Сделайте ставку — и подбросьте виртуальную монету. Орёл — ваша ставка удваивается. Решка — вы теряете всё. Никаких сложных комбинаций, только чистая азартная математика. Решайтесь!
   components:
   - type: Sprite
     sprite: _Goobstation/Structures/Machines/slotmachines/coinflipper.rsi
@@ -276,8 +276,8 @@
 - type: entity
   id: ClawMachine
   parent: BaseMachinePowered
-  name: claw machine
-  description: Sure we got our health insurance benefits cut, and yeah we don't get any overtime on holidays, but hey - free to play claw machines!
+  name: автомат с клешнёй
+  description: Да, нашу медстраховку урезали, и работать в праздники без сверхурочных — норма. Зато у нас есть бесплатные автоматы с клешнёй!
   components:
   - type: Sprite
     sprite: _Goobstation/Structures/Machines/slotmachines/claw_machine.rsi

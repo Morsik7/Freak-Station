@@ -6,50 +6,41 @@
   shuttleCallSound:
     collection: InternShuttleCall
   shuttleDockedSound:
-    path: /Audio/_CorvaxGoob/Announcements/Announcers/Intern/shattledocked.ogg
+    collection: InternCommandReport
   centcomAnnouncementSound:
     collection: InternCommandReport
 
 - type: soundCollection
   id: InternCommandReport
   files:
-  - /Audio/_CorvaxGoob/Announcements/Announcers/Intern/commandreport.ogg
-  - /Audio/_CorvaxGoob/Announcements/Announcers/Intern/commandreport_2.ogg
-  - /Audio/_CorvaxGoob/Announcements/Announcers/Intern/commandreport_3.ogg
+  - /Audio/Announcements/power_on.ogg
 
 - type: soundCollection
   id: InternShuttleCall
   files:
-  - /Audio/_CorvaxGoob/Announcements/Announcers/Intern/shattlecalled.ogg
-  - /Audio/_CorvaxGoob/Announcements/Announcers/Intern/shattlecalled_2.ogg
-  - /Audio/_CorvaxGoob/Announcements/Announcers/Intern/shattlecalled_3.ogg
+  - /Audio/Announcements/power_on.ogg
 
 - type: soundCollection
   id: InternShuttleRecall
   files:
-  - /Audio/_CorvaxGoob/Announcements/Announcers/Intern/shuttlerecalled.ogg
-  - /Audio/_CorvaxGoob/Announcements/Announcers/Intern/shuttlerecalled_2.ogg
+  - /Audio/Announcements/power_on.ogg
 
 - type: soundCollection
   id: InternEventPowerOff
   files:
-  - /Audio/_CorvaxGoob/Announcements/Announcers/Intern/poweroff.ogg
-  - /Audio/_CorvaxGoob/Announcements/Announcers/Intern/poweroff_2.ogg
+  - /Audio/Announcements/RoundEnd/disappointed.ogg
 
 - type: soundCollection
   id: InternAlertBlue
   files:
-  - /Audio/_CorvaxGoob/Announcements/Announcers/Intern/blue.ogg
-  - /Audio/_CorvaxGoob/Announcements/Announcers/Intern/blue_2.ogg
+  - /Audio/Announcements/RoundEnd/notevenpaidforthis.ogg
 
 - type: soundCollection
   id: InternAlertRed
   files:
-  - /Audio/_CorvaxGoob/Announcements/Announcers/Intern/red.ogg
-  - /Audio/_CorvaxGoob/Announcements/Announcers/Intern/red_2.ogg
+  - /Audio/Announcements/RoundEnd/stalemate.ogg
 
 - type: soundCollection
   id: InternEventMeteor
   files:
-  - /Audio/_CorvaxGoob/Announcements/Announcers/Intern/meteor.ogg
-  - /Audio/_CorvaxGoob/Announcements/Announcers/Intern/meteor_2.ogg
+  - /Audio/Announcements/RoundEnd/apc_destroyed.ogg

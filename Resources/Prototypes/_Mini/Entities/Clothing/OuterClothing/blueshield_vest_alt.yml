@@ -1,0 +1,8 @@
+- type: entity
+  parent: ClothingBlueshieldArmourVest
+  id: ClothingOuterArmorBlueShieldAlt
+  components:
+  - type: Sprite
+    sprite: _Mini/Clothing/OuterClothing/blueshield_vest_alt.rsi
+  - type: Clothing
+    sprite: _Mini/Clothing/OuterClothing/blueshield_vest_alt.rsi

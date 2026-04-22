@@ -240,7 +240,7 @@
     rootTask:
       task: SimpleHostileCompound
   - type: TTS # CorvaxGoob-TTS
-    voice: Chen
+    voice: Goga
 
 - type: entity
   name: blue slime
@@ -270,6 +270,12 @@
       - MindRoleGhostRoleTeamAntagonist
       raffle:
         settings: short
+# Mini-start
+    - type: GhostPanelAntagonistMarker
+      name: ghost-panel-antagonist-slime-name
+      description: ghost-panel-antagonist-slime-description
+      priority: 80
+# Mini-end
 
 - type: entity
   name: green slime
@@ -310,6 +316,12 @@
       - MindRoleGhostRoleTeamAntagonist
       raffle:
         settings: short
+# Mini-start
+    - type: GhostPanelAntagonistMarker
+      name: ghost-panel-antagonist-slime-name
+      description: ghost-panel-antagonist-slime-description
+      priority: 80
+# Mini-end
 
 - type: entity
   name: yellow slime
@@ -349,3 +361,9 @@
       - MindRoleGhostRoleTeamAntagonist
       raffle:
         settings: short
+# Mini-start
+    - type: GhostPanelAntagonistMarker
+      name: ghost-panel-antagonist-slime-name
+      description: ghost-panel-antagonist-slime-description
+      priority: 80
+# Mini-end

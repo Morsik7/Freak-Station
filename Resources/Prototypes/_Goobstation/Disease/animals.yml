@@ -1,5 +1,6 @@
 - type: entity
   parent: MobMouse
+  name: mouse
   id: MobMousePlague
   suffix: Plague
   components:

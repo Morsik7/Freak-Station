@@ -1,0 +1,74 @@
+- type: entity
+  parent: ClothingBackpackDuffelNanotrasen
+  id: ClothingBackpackDuffelNanotrasenAnnieBundle
+  components:
+  - type: StorageFill
+    contents:
+      - id: WeaponRifleAnnie
+      - id: MagazineLightRifle
+      - id: MagazineLightRifle
+      - id: MagazineLightRifle
+
+- type: entity
+  parent: ClothingBackpackDuffelNanotrasen
+  id: ClothingBackpackDuffelNanotrasenLecterBundle
+  components:
+  - type: StorageFill
+    contents:
+      - id: WeaponRifleLecter
+      - id: MagazineRifle
+      - id: MagazineRifle
+      - id: MagazineRifle
+
+- type: entity
+  parent: ClothingBackpackDuffelNanotrasen
+  id: ClothingBackpackDuffelNanotrasenМ-90Bundle
+  components:
+  - type: StorageFill
+    contents:
+      - id: WeaponRifleM90GrenadeLauncher
+      - id: MagazineRifle
+      - id: MagazineRifle
+      - id: MagazineRifle
+
+- type: entity
+  parent: ClothingBackpackDuffelNanotrasen
+  id: ClothingBackpackDuffelNanotrasenFmg9Bundle
+  components:
+  - type: StorageFill
+    contents:
+      - id: WeaponSubMachineGunFmg9
+      - id: MagazinePistolSubMachineGun
+      - id: MagazinePistolSubMachineGun
+      - id: MagazinePistolSubMachineGun
+
+- type: entity
+  parent: ClothingBackpackDuffelNanotrasen
+  id: ClothingBackpackDuffelNanotrasenAntelopeBundle
+  components:
+  - type: StorageFill
+    contents:
+      - id: WeaponShotgunAntelope
+      - id: MagazineShotgun
+      - id: MagazineShotgun
+      - id: MagazineShotgun
+
+- type: entity
+  parent: ClothingBackpackDuffelNanotrasen
+  id: ClothingBackpackDuffelNanotrasenKammererBundle
+  components:
+  - type: StorageFill
+    contents:
+      - id: WeaponShotgunKammerer
+      - id: BoxLethalshot
+      - id: BoxShotgunIncendiary
+
+- type: entity
+  parent: ClothingBackpackDuffelNanotrasen
+  id: ClothingBackpackDuffelNanotrasenEnforcerBundle
+  components:
+  - type: StorageFill
+    contents:
+      - id: WeaponShotgunEnforcer
+      - id: BoxLethalshot
+      - id: BoxShotgunIncendiary

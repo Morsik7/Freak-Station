@@ -255,8 +255,8 @@
 - type: entity
   parent: ChemBag
   id: ClothingBeltChemBagXenobiology
-  name: xenobiology pouch
-  description: A slime-resistant pouch intended for use by Xenobiologists. Smells of.. plasma?
+  name: ксенобиологическая сумка
+  description:  Сумка, устойчивая к слизням, предназначенная для использования ксенобиологами. Пахнет... плазмой?
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Belt/xenobag.rsi

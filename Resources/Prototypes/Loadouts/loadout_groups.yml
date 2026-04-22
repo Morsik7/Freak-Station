@@ -170,6 +170,7 @@
   minLimit: 0
   maxLimit: 3
   loadouts:
+  - KlePstKit
   - FlowerWreath
   - Hairflower
   - Headphones
@@ -1729,6 +1730,12 @@
   - BlueBoxingGloves
   - GreenBoxingGloves
   - YellowBoxingGloves
+
+- type: loadoutGroup
+  id: SyndicateCoat
+  name: loadout-group-syndicate-coat-outer
+  loadouts:
+  - SyndiWintercoat
 
 # Other
 - type: loadoutGroup

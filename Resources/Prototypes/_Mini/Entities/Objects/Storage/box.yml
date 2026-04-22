@@ -1,0 +1,25 @@
+- type: entity
+  id: BoxBrigmedic
+  name: box of mini syringes
+  description: Oh yes! Inject the assistants with poison!
+  parent: BoxCardboard
+  components:
+    - type: StorageFill
+      contents:
+        - id: Syringe
+          amount: 15
+    - type: Item
+      size: Small
+      shape:
+        - 0,0,0,0
+    - type: Storage
+      maxItemSize: Small
+      grid:
+        - 0,0,3,3
+      whitelist:
+        tags:
+          - Syringe
+    - type: Sprite
+      layers:
+        - state: box_medical # Corvax-Resprite
+        - state: syringe

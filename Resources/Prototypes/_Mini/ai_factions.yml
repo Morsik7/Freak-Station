@@ -1,0 +1,25 @@
+- type: npcFaction
+  id: CentralCommand
+  hostile:
+  - SimpleHostile
+  - Xeno
+  - Zombie
+  - Revolutionary
+  - Dragon
+  - AllHostile
+  - Wizard
+  - Xenoborg
+  - Blob
+
+- type: npcFaction
+  id: Typan
+  hostile:
+  - Revolutionary
+  - NanoTrasen
+  - SimpleHostile
+  - Xeno
+  - PetsNT
+  - Zombie
+  - AllHostile
+  - Wizard
+  - Blob

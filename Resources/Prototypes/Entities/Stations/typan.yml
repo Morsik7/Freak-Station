@@ -1,0 +1,58 @@
+- type: entity
+  id: StandardTypanStation
+  parent:
+    - BaseStation
+    - BaseStationCargo
+    - BaseStationJobsSpawning
+    - BaseStationRecords
+    - BaseStationGateway
+    - TypanStationShuttles
+    - BaseTypanStationAlertLevels
+    - BaseStationMagnet
+    - BaseStationExpeditions
+    # - BaseStationAllEventsEligible
+    - BaseStationSiliconTypanStatic
+  categories: [ HideSpawnMenu ]
+  components:
+    - type: Transform
+    - type: TTStationHandleJob
+      jobs:
+      - TypanAtmosTech
+      - TypanBotanist
+      - TypanCargotech
+      - TypanChef
+      - TypanMedic
+      - TypanResearchDirector
+      - TypanScience
+      - TypanPatrol
+      - TypanBorg
+      - TypanCommander
+
+- type: entity
+  id: TypanStationShuttles
+  abstract: true
+  components:
+    - type: StationCargoShuttle
+      path: /Maps/Shuttles/typan_cargo_shuttle.yml
+    - type: GridSpawn
+      groups:
+        trade: !type:GridSpawnGroup
+          addComponents:
+            - type: ProtectedGrid
+            - type: TradeStation
+          paths:
+            - /Maps/Shuttles/typan_trade_station.yml
+
+- type: entity
+  id: BaseStationSiliconTypanStatic
+  abstract: true
+  components:
+  - type: SiliconLawProvider
+    laws: TypanStatic
+
+- type: entity
+  id: BaseTypanStationAlertLevels
+  abstract: true
+  components:
+    - type: AlertLevel
+      alertLevelPrototype: typanStationAlerts

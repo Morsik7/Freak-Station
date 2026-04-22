@@ -1,0 +1,21 @@
+# Jumpsuit
+- type: loadout
+  id: TypanResearchDirectorJumpsuit
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitTypanResearchDirector
+
+- type: loadout
+  id: TypanResearchDirectorJumpskirt
+
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtTypanResearchDirector
+
+# Loadout Groups
+- type: loadoutGroup
+  id: TypanResearchDirectorUniform
+  name: loadout-group-typan-research-director-uniform
+  hidden: true
+  minLimit: 1
+  loadouts:
+  - TypanResearchDirectorJumpsuit
+  - TypanResearchDirectorJumpskirt

@@ -23,14 +23,38 @@
       "name": "light_overlay"
     },
     {
-      "name": "pda-blueshield"
+      "name": "pda-blueshield",
+      "delays": [
+        [
+          0.3,
+          0.3,
+          0.3,
+          0.3
+        ]
+      ]
     },
-	{
-	  "name": "pda-deathsquad"
-	},
-	{
-	  "name": "pda-highcommand"
-	},
+        {
+      "name": "pda-highcommand",
+      "delays": [
+        [
+          0.3,
+          0.3,
+          0.3,
+          0.3
+        ]
+      ]
+    },
+    {
+      "name": "pda-deathsquad",
+      "delays": [
+        [
+          0.3,
+          0.3,
+          0.3,
+          0.3
+        ]
+      ]
+    },
     {
       "name": "pda-outcom"
     },

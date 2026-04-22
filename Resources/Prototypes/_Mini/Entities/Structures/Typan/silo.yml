@@ -1,0 +1,18 @@
+- type: entity
+  id: MachineMaterialSiloTypan
+  parent: MaterialSilo
+  name: хранилище материалов
+  description: Продвинутая машина, способная использовать редспейс технологию для передачи материалов ближайшим машинам.
+  suffix: Тайпан
+  components:
+  - type: Sprite
+    sprite: _Mini/Structures/Machines/Typan/silo.rsi
+  - type: Silo
+  - type: MaterialStorage
+    whitelist:
+      tags:
+      - Sheet
+      - RawMaterial
+      - Ingot
+  - type: Machine
+    board: MaterialSiloMachineCircuitboardTypan

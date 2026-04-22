@@ -1,8 +1,8 @@
 - type: entity
   id: ComputerScienceXenobiologyBounty
   parent: BaseComputerAiAccess
-  name: xenobiologicial bounty console
-  description: Used to manage currently active bounties for xenobiological goods.
+  name: консоль ксенобиологии
+  description:  Используется для управления текущими активными заказами на ксенобиологические товары.
   components:
   - type: Sprite
     layers:

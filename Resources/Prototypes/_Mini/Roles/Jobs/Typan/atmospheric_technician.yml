@@ -1,0 +1,38 @@
+- type: job
+  id: TypanAtmosTech
+  name: job-name-typan-atmos-tech
+  playTimeTracker: JobTypanAtmosTech
+  description: job-description-typan-atmos-tech
+  startingGear: TypanAtmosTech
+  icon: "JobIconSyndicateAtmos"
+  supervisors: job-supervisors-typan-telecommunications-officer
+  canBeAntag: false
+  requirements:
+    - !type:DepartmentTimeRequirement
+      department: Engineering
+      time: 18000
+  access:
+  - TypanEngineering
+  - TypanAtmospherics
+  - TypanMaint
+  - SyndicateAgent
+  - TypanExternal
+  skills: # CorvaxGoob-Skills
+    - ShuttleControl
+    - AdvancedBuilding
+  special:
+  - !type:AddComponentSpecial
+    components:
+      - type: AntagImmune
+      - type: NpcFactionMember
+        factions:
+        - Typan
+
+- type: startingGear
+  id: TypanAtmosTech
+  equipment:
+    eyes: ClothingEyesHudTypanDiagnostic
+    ears: ClothingHeadsetAltSyndicate
+    shoes: ClothingShoesBootsTypan
+    id: SyndiPDAEng
+    outerClothing: ClothingOuterCoatAtmosWorking

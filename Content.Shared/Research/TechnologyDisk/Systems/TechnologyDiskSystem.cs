@@ -1,46 +1,19 @@
-// SPDX-FileCopyrightText: 2024 Aiden <aiden@djkraz.com>
-// SPDX-FileCopyrightText: 2024 Alice "Arimah" Heurlin <30327355+arimah@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Chief-Engineer <119664036+Chief-Engineer@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 DrSmugleaf <10968691+DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Ed <96445749+TheShuEd@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Errant <35878406+Errant-4@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Flareguy <78941145+Flareguy@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 HS <81934438+HolySSSS@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 IProduceWidgets <107586145+IProduceWidgets@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Mr. 27 <45323883+Dutch-VanDerLinde@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 PJBot <pieterjan.briers+bot@gmail.com>
-// SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2024 Plykiya <58439124+Plykiya@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Rouge2t7 <81053047+Sarahon@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Tayrtahn <tayrtahn@gmail.com>
-// SPDX-FileCopyrightText: 2024 Truoizys <153248924+Truoizys@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 TsjipTsjip <19798667+TsjipTsjip@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Ubaser <134914314+UbaserB@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Vasilis <vasilis@pikachu.systems>
-// SPDX-FileCopyrightText: 2024 beck-thompson <107373427+beck-thompson@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 deltanedas <39013340+deltanedas@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 deltanedas <@deltanedas:kde.org>
-// SPDX-FileCopyrightText: 2024 lzk <124214523+lzk228@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 osjarw <62134478+osjarw@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 plykiya <plykiya@protonmail.com>
-// SPDX-FileCopyrightText: 2024 Арт <123451459+JustArt1m@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-//
-// SPDX-License-Identifier: AGPL-3.0-or-later
-
+using Content.Shared.Access.Components;
+using Content.Shared.Access.Systems;
 using Content.Shared.Examine;
 using Content.Shared.Interaction;
 using Content.Shared.Lathe;
-using Content.Shared.NameModifier.EntitySystems;
+using Content.Shared._Mini.Converter;
 using Content.Shared.Popups;
 using Content.Shared.Random.Helpers;
 using Content.Shared.Research.Components;
 using Content.Shared.Research.Prototypes;
 using Content.Shared.Research.Systems;
 using Content.Shared.Research.TechnologyDisk.Components;
+using Content.Shared.Power.EntitySystems;
+using Content.Shared.Stacks;
+using Robust.Shared.Audio;
+using Robust.Shared.Audio.Systems;
 using Robust.Shared.Network;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
@@ -49,12 +22,16 @@ namespace Content.Shared.Research.TechnologyDisk.Systems;
 
 public sealed class TechnologyDiskSystem : EntitySystem
 {
+    [Dependency] private readonly AccessReaderSystem _accessReader = default!;
+    [Dependency] private readonly INetManager _net = default!;
     [Dependency] private readonly IPrototypeManager _protoMan = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
+    [Dependency] private readonly SharedPowerReceiverSystem _powerReceiver = default!;
     [Dependency] private readonly SharedResearchSystem _research = default!;
     [Dependency] private readonly SharedLatheSystem _lathe = default!;
-    [Dependency] private readonly NameModifierSystem _nameModifier = default!;
+    [Dependency] private readonly SharedStackSystem _stack = default!;
+    [Dependency] private readonly SharedAudioSystem _audio = default!;
 
     public override void Initialize()
     {
@@ -63,7 +40,6 @@ public sealed class TechnologyDiskSystem : EntitySystem
         SubscribeLocalEvent<TechnologyDiskComponent, MapInitEvent>(OnMapInit);
         SubscribeLocalEvent<TechnologyDiskComponent, AfterInteractEvent>(OnAfterInteract);
         SubscribeLocalEvent<TechnologyDiskComponent, ExaminedEvent>(OnExamine);
-        SubscribeLocalEvent<TechnologyDiskComponent, RefreshNameModifiersEvent>(OnRefreshNameModifiers);
     }
 
     private void OnMapInit(Entity<TechnologyDiskComponent> ent, ref MapInitEvent args)
@@ -74,7 +50,6 @@ public sealed class TechnologyDiskSystem : EntitySystem
         var weightedRandom = _protoMan.Index(ent.Comp.TierWeightPrototype);
         var tier = int.Parse(weightedRandom.Pick(_random));
 
-        //get a list of every distinct recipe in all the technologies.
         var techs = new HashSet<ProtoId<LatheRecipePrototype>>();
         foreach (var tech in _protoMan.EnumeratePrototypes<TechnologyPrototype>())
         {
@@ -87,11 +62,9 @@ public sealed class TechnologyDiskSystem : EntitySystem
         if (techs.Count == 0)
             return;
 
-        //pick one
-        ent.Comp.Recipes = [];
+        ent.Comp.Recipes = new();
         ent.Comp.Recipes.Add(_random.Pick(techs));
         Dirty(ent);
-        _nameModifier.RefreshNameModifiers(ent.Owner);
     }
 
     private void OnAfterInteract(Entity<TechnologyDiskComponent> ent, ref AfterInteractEvent args)
@@ -99,7 +72,77 @@ public sealed class TechnologyDiskSystem : EntitySystem
         if (args.Handled || !args.CanReach || args.Target is not { } target)
             return;
 
-        if (!HasComp<ResearchServerComponent>(target) || !TryComp<TechnologyDatabaseComponent>(target, out var database))
+        if (TryComp<ConverterComponent>(target, out var converter))
+        {
+            if (!_net.IsServer)
+                return;
+
+            if (converter.PointsPerTelecrystal <= 0)
+            {
+                _popup.PopupClient(Loc.GetString("mini-converter-examine-disabled"), target, args.User);
+                return;
+            }
+
+            if (!_powerReceiver.IsPowered(target))
+            {
+                _popup.PopupClient(Loc.GetString("tech-disk-converter-no-power-popup"), target, args.User);
+                return;
+            }
+
+            if (TryComp<AccessReaderComponent>(target, out var reader) &&
+                !_accessReader.IsAllowed(args.User, target, reader))
+            {
+                _popup.PopupClient(Loc.GetString("tech-disk-converter-no-access-popup"), target, args.User);
+                return;
+            }
+
+            var value = ent.Comp.TierWeightPrototype == "RareTechDiskTierWeights"
+                ? converter.RareTechnologyDiskPoints
+                : converter.TechnologyDiskPoints;
+
+            if (value < 0)
+                value = 0;
+
+            converter.StoredPoints += value;
+
+            var payout = 0;
+            if (converter.PointsPerTelecrystal > 0)
+            {
+                payout = converter.StoredPoints / converter.PointsPerTelecrystal;
+                converter.StoredPoints %= converter.PointsPerTelecrystal;
+            }
+
+            if (payout > 0)
+            {
+                var telecrystalStack = Spawn("Telecrystal1", Transform(target).Coordinates);
+                _stack.SetCount(telecrystalStack, payout);
+                _stack.TryMergeToContacts(telecrystalStack);
+
+                _popup.PopupClient(Loc.GetString("tech-disk-exchanged-yield",
+                        ("amount", payout),
+                        ("progress", converter.StoredPoints),
+                        ("needed", converter.PointsPerTelecrystal)),
+                    target,
+                    args.User);
+            }
+            else
+            {
+                _popup.PopupClient(Loc.GetString("tech-disk-exchanged",
+                        ("value", value),
+                        ("progress", converter.StoredPoints),
+                        ("needed", converter.PointsPerTelecrystal)),
+                    target,
+                    args.User);
+            }
+
+            _audio.PlayPvs(new SoundPathSpecifier("/Audio/_Mini/Misc/convert.ogg"), target, AudioParams.Default.WithVolume(-11f));
+            QueueDel(ent);
+            args.Handled = true;
+            return;
+        }
+
+        if (!HasComp<ResearchServerComponent>(target) ||
+            !TryComp<TechnologyDatabaseComponent>(target, out var database))
             return;
 
         if (ent.Comp.Recipes != null)
@@ -110,7 +153,10 @@ public sealed class TechnologyDiskSystem : EntitySystem
             }
         }
         _popup.PopupClient(Loc.GetString("tech-disk-inserted"), target, args.User);
-        PredictedQueueDel(ent.Owner);
+
+        if (_net.IsServer)
+            QueueDel(ent);
+
         args.Handled = true;
     }
 
@@ -122,21 +168,9 @@ public sealed class TechnologyDiskSystem : EntitySystem
             var prototype = _protoMan.Index(ent.Comp.Recipes[0]);
             message = Loc.GetString("tech-disk-examine", ("result", _lathe.GetRecipeName(prototype)));
 
-            if (ent.Comp.Recipes.Count > 1) //idk how to do this well. sue me.
+            if (ent.Comp.Recipes.Count > 1)
                 message += " " + Loc.GetString("tech-disk-examine-more");
         }
         args.PushMarkup(message);
-    }
-
-    private void OnRefreshNameModifiers(Entity<TechnologyDiskComponent> entity, ref RefreshNameModifiersEvent args)
-    {
-        if (entity.Comp.Recipes != null)
-        {
-            foreach (var recipe in entity.Comp.Recipes)
-            {
-                var proto = _protoMan.Index(recipe);
-                args.AddModifier("tech-disk-name-format", extraArgs: ("technology", _lathe.GetRecipeName(proto)));
-            }
-        }
     }
 }

@@ -22,6 +22,7 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 ghost-gui-return-to-body-button = Return to body
+ghost-gui-return-to-round-button = Respawn
 ghost-gui-ghost-warp-button = Ghost Warp
 ghost-gui-ghost-roles-button = Ghost Roles ({$count})
 ghost-gui-toggle-ghost-visibility-popup-on = Enabled visibility of ghosts.

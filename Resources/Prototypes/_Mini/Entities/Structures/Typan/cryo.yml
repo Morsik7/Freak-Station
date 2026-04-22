@@ -1,0 +1,39 @@
+- type: entity
+  parent: CryogenicSleepUnit
+  id: CryogenicSleepUnitTypan
+  name: капсула криогенного сна Синдиката
+  description: Сверхохлаждаемый контейнер, обеспечивающий сохранность членов экипажа во время космических путешествий.
+  components:
+  - type: Sprite
+    noRot: true
+    sprite: _Mini/Structures/Machines/Typan/cryostorage.rsi
+    layers:
+    - state: sleeper_0
+      map: ["base"]
+  - type: AccessReader
+    breakOnAccessBreaker: false
+    access: [["TypanMedical"]]
+  - type: PointLight
+    color: Red
+    radius: 1.5
+    energy: 0.5
+    castShadows: false
+
+# This one handles all spawns, latejoin and roundstart.
+- type: entity
+  parent: CryogenicSleepUnitTypan
+  id: CryogenicSleepUnitSpawnerTypan
+  suffix: Спавнер, Раундстарт
+  components:
+  - type: ContainerSpawnPoint
+    containerId: storage
+
+# This one only handles latejoin spawns.
+- type: entity
+  parent: CryogenicSleepUnitTypan
+  id: CryogenicSleepUnitSpawnerLateJoinTypan
+  suffix: Спавнер, Позднее присоединение
+  components:
+    - type: ContainerSpawnPoint
+      containerId: storage
+      spawnType: LateJoin

@@ -1,0 +1,41 @@
+# - type: job
+#   id: TypanTechnician
+#   name: job-name-typan-technician
+#   description: job-description-typan-technician
+#   playTimeTracker: JobTypanTechnician
+#   setPreference: false
+#   overrideConsoleVisibility: true
+#   isTypan: true
+#   startingGear: TypanTechnicianGear
+#   icon: "JobIconTypanTechnician"
+#   supervisors: job-supervisors-typan-technical-supervisor
+#   canBeAntag: false
+#   requirements:
+#   - !type:DepartmentTimeRequirement
+#     department: Engineering
+#     time: 36000 #10 hrs
+#   access:
+#   - TypanEngineering
+#   - TypanMaint
+#   - TypanExternal
+#   special:
+#   - !type:AddImplantSpecial
+#     implants: [ DeathRattleImplantTypan ]
+
+# - type: startingGear
+#   id: TypanTechnicianGear
+#   equipment:
+#     ears: ClothingHeadsetTypan
+#     shoes: ClothingShoesTypanBootsWork
+#     id: TypanTechnicianPDA
+#     belt: ClothingBeltUtilityEngineering
+#     back: ClothingBackpackSyndicate
+#     socks: ClothingUnderwearSocksTypanTechnician
+
+# - type: chameleonOutfit
+#   id: TypanTechnicianChameleonOutfit
+#   job: TypanTechnician
+#   startingGear: TypanTechnicianGear
+#   equipment:
+#     id: PassengerPDA
+#     neck: ClothingNeckGoldmedal

@@ -1,13 +1,14 @@
 - type: entity
   parent: BaseItem
   id: SlimeScannerXenobio
-  name: slime scanner
-  description: Applying on a slime and it's produces will grant you all the info you'll ever need. A must for any slime rancher!
+  name: сканер слизней
+  description: Применение на слизне и его продуктах предоставит вам всю необходимую информацию. Обязателен для любого ксенобиолога!
   components:
   - type: SlimeScanner
   - type: Sprite
     noRot: true
     sprite: _Goobstation/Xenobiology/Specific/Xenobiology/slime_scanner.rsi
+    drawdepth: HighFloorObjects
     layers:
     - state: icon
     - state: analyzer

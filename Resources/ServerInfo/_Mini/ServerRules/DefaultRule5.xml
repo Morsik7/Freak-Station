@@ -1,0 +1,19 @@
+<Document>
+
+  <ColorBox Color="#3a2a2a" OutlineColor="#5a4a4a" OutlineThickness="2" Margin="5">
+    <Box Orientation="Vertical">
+      <Box Orientation="Horizontal" HorizontalAlignment="Center">
+        Правило 5: Ответственная игра за антагониста
+      </Box>
+      <Box Orientation="Vertical" Margin="10">
+        Цель антагониста — сделать раунд интересным, захватывающим и             опасным, но в разумных пределах.
+        <Box Orientation="Vertical" Margin="10">
+        Обязательно ознакомьтесь с разделом "Правила антагонистов" на вики — незнание не освобождает от ответственности.
+      </Box>
+    - [textlink="5.1 Цель Умереть Славной Смертью" link="DefaultRule51"]
+    - [textlink="5.2 Взрывчатка" link="DefaultRule52"]
+    - [textlink="5.3 Отказ от роли" link="DefaultRule53"]
+     </Box>
+    </Box>
+  </ColorBox>
+</Document>

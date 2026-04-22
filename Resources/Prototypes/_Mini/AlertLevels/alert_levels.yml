@@ -1,0 +1,45 @@
+- type: alertLevels
+  id: typanStationAlerts
+  defaultLevel: green
+  levels:
+    green:
+      announcement: alert-level-green-announcement
+      sound: /Audio/_Mini/AlertLevels/green.ogg # Mini alert sound
+      color: Green
+      emergencyLightColor: LawnGreen
+      shuttleTime: 600
+    yellow:
+      announcement: alert-level-yellow-announcement
+      sound: /Audio/_Mini/AlertLevels/yellow.ogg # Mini alert sound
+      color: Yellow
+      emergencyLightColor: Goldenrod
+      forceEnableEmergencyLights: true
+      shuttleTime: 600
+    white:
+      announcement: alert-level-white-announcement
+      selectable: true
+      sound: /Audio/_Mini/AlertLevels/Typan/white.ogg # Mini alert sound
+      color: White
+      emergencyLightColor: White
+      shuttleTime: 600
+    zeta:
+      announcement: alert-level-zeta-announcement
+      selectable: true
+      sound: /Audio/_Mini/AlertLevels/Typan/zeta.ogg # Mini alert sound
+      color: PowderBlue
+      emergencyLightColor: PowderBlue
+      forceEnableEmergencyLights: true
+    omega:
+      announcement: alert-level-omega-announcement
+      selectable: false
+      sound: /Audio/_Mini/AlertLevels/Typan/omega.ogg # Mini alert sound
+      color: Red
+      emergencyLightColor: Red
+      forceEnableEmergencyLights: true
+    audit:
+      announcement: alert-level-audit-announcement
+      selectable: false
+      sound: /Audio/_Mini/AlertLevels/Typan/audit.ogg # Mini alert sound
+      color: MidnightBlue
+      emergencyLightColor: Pink
+      shuttleTime: 600

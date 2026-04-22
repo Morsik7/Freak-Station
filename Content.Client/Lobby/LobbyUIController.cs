@@ -89,6 +89,7 @@ using Content.Client.Inventory;
 using Content.Client.Lobby.UI;
 using Content.Client.Players.PlayTimeTracking;
 using Content.Client.Station;
+using Content.Corvax.Interfaces.Shared;
 using Content.Shared.CCVar;
 using Content.Shared.Clothing;
 using Content.Shared.GameTicking;
@@ -99,6 +100,7 @@ using Content.Shared.Preferences;
 using Content.Shared.Preferences.Loadouts;
 using Content.Shared.Roles;
 using Content.Shared.Traits;
+using Content.SponsorImplementations.Client;
 using Robust.Client.Player;
 using Robust.Client.ResourceManagement;
 using Robust.Client.State;
@@ -130,6 +132,7 @@ public sealed class LobbyUIController : UIController, IOnStateEntered<LobbyState
     private CharacterSetupGui? _characterSetup;
     private HumanoidProfileEditor? _profileEditor;
     private CharacterSetupGuiSavePanel? _savePanel;
+    private ISharedSponsorsManager? _sponsors; // Sponsor think
 
     /// <summary>
     /// This is the characher preview panel in the chat. This should only update if their character updates.
@@ -146,9 +149,14 @@ public sealed class LobbyUIController : UIController, IOnStateEntered<LobbyState
     public override void Initialize()
     {
         base.Initialize();
+        IoCManager.Instance!.TryResolveType(out _sponsors);
+
         _prototypeManager.PrototypesReloaded += OnProtoReload;
         _preferencesManager.OnServerDataLoaded += PreferencesDataLoaded;
         _requirements.Updated += OnRequirementsUpdated;
+
+        if (_sponsors is ISponsorUpdateInvoker sponsorUpdateInvoker)
+            sponsorUpdateInvoker.OnSponsorInfoUpdated += OnSponsorInfoUpdated;
 
         _configurationManager.OnValueChanged(CCVars.FlavorText, args =>
         {
@@ -168,6 +176,28 @@ public sealed class LobbyUIController : UIController, IOnStateEntered<LobbyState
         }
 
         return null;
+    }
+
+    // SponsorThink edit
+    private void OnSponsorInfoUpdated(List<string> proto)
+    {
+        if (EditedProfile != null)
+        {
+            SaveProfile();
+        }
+        else
+        {
+            if(_preferencesManager.Preferences is null)
+                return;
+
+            _preferencesManager.Preferences.SelectedCharacter.EnsureValid(
+                _playerManager.LocalSession!,
+                IoCManager.Instance!,
+                proto.ToArray()
+                );
+
+            RefreshLobbyPreview();
+        }
     }
 
     private void OnRequirementsUpdated()
@@ -357,7 +387,8 @@ public sealed class LobbyUIController : UIController, IOnStateEntered<LobbyState
             _prototypeManager,
             _resourceCache,
             _requirements,
-            _markings);
+            _markings,
+            _sponsors); //Sponsor think
 
         _profileEditor.OnOpenGuidebook += _guide.OpenHelp;
 

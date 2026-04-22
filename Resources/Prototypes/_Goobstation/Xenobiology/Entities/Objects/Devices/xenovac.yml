@@ -1,8 +1,8 @@
 - type: entity
   parent: [Clothing, ClothingSlotBase]
   id: ClothingBackpackXenoBioTank
-  name: xenovac containment tank
-  description: Holds xenofauna. Also contains a vacuum nozzle on it's side. It's just like slime rancher.
+  name: ксенобиологический контейнер
+  description: Содержит ксеножизнь. Также имеет вакуумное сопло на боку. Прямо как в Slime Rancher.
   components:
   - type: XenoVacuumTank
   - type: Appearance
@@ -73,8 +73,8 @@
 - type: entity
   id: WeaponXenoVacNozzle
   parent: BaseItem
-  name: xenovac nozzle
-  description: A high-powered vacuum nozzle used in conjunction with a backpack-mounted storage tank to store slimes.
+  name: сопло
+  description: Высокомощное вакуумное сопло, используемое вместе с наплечным накопительным баллоном для хранения слизней.
   components:
   - type: Sprite
     sprite: _Goobstation/Xenobiology/Specific/Xenobiology/slime_nozzle.rsi

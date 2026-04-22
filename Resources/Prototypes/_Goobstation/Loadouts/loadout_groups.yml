@@ -980,6 +980,7 @@
   loadouts:
   - BlueshieldOfficerHeadSwatHelmet
   - BlueshieldOfficerBeret
+  - BlueshieldOfficerBeretAlt
   - BlueshieldOfficerHeadCowboy
   - BlueshieldOfficerGoidaHelmet
 
@@ -1001,10 +1002,18 @@
   - BlueshieldOfficerInnerBlueshieldShirt
 
 - type: loadoutGroup
+  id: BlueshieldOfficerBelt
+  name: loadout-group-bso-belt
+  loadouts:
+  - BeltAssault
+  - MilitaryWebbingBlueShield
+
+- type: loadoutGroup
   id: BlueshieldOfficerOuter
   name: loadout-group-bso-outer
   loadouts:
   - BlueshieldOfficerOuterBlueshieldArmorVest
+  - BlueshieldOfficerOuterBlueshieldArmorVestAlt
   - BlueshieldOfficerOuterBlueshieldArmoredJacket
   - BlueshieldOfficerOuterBlueshieldCowboyVest
   - BlueshieldOfficerOuterWinterBlueshield
@@ -1015,6 +1024,9 @@
   minLimit: 0
   loadouts:
   - BlueshieldOfficerOuterBlueshieldMantle
+  - BlueshieldOfficerOuterBlueshieldMantleAlt
+  - BlueshieldOfficerOuterBlueshieldScarf
+  - BlueshieldOfficerOuterBlueshieldPoncho
   - BlueshieldOfficerEnsemble
 
 - type: loadoutGroup
@@ -1023,7 +1035,9 @@
   minLimit: 0
   loadouts:
   - BlueshieldOfficerMaskLollypop
-  - BlueShieldMaskGasSWAT # CorvaxGoob-loadouts
+  - BlueshieldOfficerMaskGaiter
+  - BlueshieldOfficerMaskSwat
+  # - BlueShieldMaskGasSWAT # CorvaxGoob-loadouts
 
 - type: loadoutGroup
   id: BlueshieldOfficerShoes
@@ -1065,6 +1079,23 @@
   maxLimit: 1
   loadouts:
   - CombatGloves
+
+- type: loadoutGroup
+  id: BlueshieldOfficerEyes
+  name: loadout-group-bso-eyes
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - BlueshieldOfficerOuterBlueshieldGlasses
+  - BlueshieldOfficerOuterBlueshieldLenses
+
+- type: loadoutGroup
+  id: BlueshieldOfficerPDA
+  name: loadout-group-bso-pda
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - BlueshieldOfficerPDA
 
 # Career Trainer
 

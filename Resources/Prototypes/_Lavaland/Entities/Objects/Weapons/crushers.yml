@@ -156,8 +156,8 @@
 - type: entity
   parent: [ BaseWeaponCrusher, BaseSalvageContraband ]
   id: WeaponCrusher
-  name: crusher axe
-  description: An early design of the proto-kinetic accelerator.
+  name: протокинетический топор
+  description: Ранний прототип протокинетического ускорителя, который наносит урон на близком расстоянии и может эффективно разрушать слабые объекты.
   components:
   - type: Sprite
     sprite: _Lavaland/Objects/Weapons/Crushers/crusher.rsi
@@ -181,8 +181,8 @@
 - type: entity
   parent: [ BaseWeaponCrusher, BaseSalvageContraband ]
   id: WeaponCrusherGlaive
-  name: crusher glaive
-  description: An early design of the proto-kinetic accelerator, in glaive form. Provides better healing in exchange for less charged damage.
+  name: протокинеческая глифа
+  description: Ранний прототип протокинетического ускорителя, который наносит урон на расстоянии, но менее мощный, чем молот или алебарда.
   components:
   - type: Sprite
     sprite: _Lavaland/Objects/Weapons/Crushers/crusher_glaive.rsi
@@ -215,8 +215,8 @@
 - type: entity
   parent: [ BaseWeaponCrusher, BaseSalvageContraband ]
   id: WeaponCrusherHammer
-  name: crusher hammer
-  description: A beefy, two-handed weapon that inflicts knockback and heavier damage than a crusher.
+  name: протокинетический молот
+  description: Мощное двуручное оружие, наносящее отбрасывающий удар и более тяжёлый урон, чем дробитель.
   components:
   - type: Sprite
     sprite: _Lavaland/Objects/Weapons/Crushers/crusher_hammer.rsi
@@ -244,8 +244,8 @@
 - type: entity
   parent: [ BaseWeaponCrusher, BaseSalvageContraband ]
   id: WeaponCrusherHalberd
-  name: crusher halberd
-  description: A universal weapon that combines the power of a crusher and the range of a spear.
+  name: протокинеческая алебарда
+  description: Универсальное оружие, сочетающее в себе функции топора и молота, что позволяет наносить как рубящий, так и дробящий урон, а также эффективно разрушать объекты на расстоянии.
   components:
   - type: Sprite
     sprite: _Lavaland/Objects/Weapons/Crushers/crusher_halberd.rsi

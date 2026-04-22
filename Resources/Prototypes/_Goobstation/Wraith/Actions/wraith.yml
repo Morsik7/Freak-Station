@@ -357,7 +357,7 @@
   - type: ActionWraithPoints
     wpConsume: 1000
 
-# Plaguebringer Actions
+# Plaguebinger Actions
 
 - type: entity
   id: BaseCurseAction

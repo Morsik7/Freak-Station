@@ -1,5 +1,5 @@
-clothing-coating-success = {$target} has been coated with {$source}!
-clothing-coating-inspect = It has been coated with {$coatings}.
+clothing-coating-success = {$target} был покрыт {$source}!
+clothing-coating-inspect = Он был покрыт {$coatings}.
 
-clothing-coating-xenobio-volatile = [color=#ff3333]volatile red slime jelly[/color]
-clothing-coating-invisible = light-bending coating
+clothing-coating-xenobio-volatile = [color=#ff3333]нестабильное красное желе слизня[/color]
+clothing-coating-invisible = светопреломляющее покрытие

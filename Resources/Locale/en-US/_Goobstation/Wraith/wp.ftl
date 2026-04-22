@@ -1,2 +1,2 @@
-alerts-wraith-wp-name = WP
-alerts-wraith-wp-desc = Wraith abilities work off the creatively named Wraith Points, or WP, a resource that passively increases over time. The rate of regeneration can be permanently increased by absorbing corpses, or temporarily increased by using Haunt near a crowd or possessing a Revenant.
+alerts-wraith-wp-name = Очки ФАнтома
+alerts-wraith-wp-desc = Способности Фантома работают на творчески названных Очках Фантома — ресурсе, который пассивно увеличивается со временем. Скорость восстановления можно увеличить навсегда, поглощая трупы, или временно — используя Вселение рядом с толпой или управляя Оборотнем.

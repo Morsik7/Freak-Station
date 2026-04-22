@@ -191,6 +191,9 @@
     - id: Dropper
     - id: HandLabeler
     - id: ClothingUniformOveralls
+    - id: ADTBotanicalSeedDNAManipulatorCircuitboard
+      prob: 0.5
+    - id: PlantAnalyzer
     - id: ClothingHeadHatTrucker
       prob: 0.1
 
@@ -222,7 +225,6 @@
   id: ClosetJanitorBombFilled
   parent: ClosetJanitorBomb
   suffix: DO NOT MAP, Filled
-  categories: [ DoNotMap ]
   components:
   - type: EntityTableContainerFill
     containers:

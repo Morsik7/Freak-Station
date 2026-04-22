@@ -56,6 +56,11 @@ namespace Content.Shared.Mind.Components;
 [RegisterComponent, Access(typeof(SharedMindSystem)), NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class MindContainerComponent : Component
 {
+    // Mini edit start - для гостпанельки. Сохраняет последний разум, который был в теле
+    [Access(Other = AccessPermissions.ReadWriteExecute)]
+    public EntityUid? LastMindStored;
+    // Mini edit end
+
     /// <summary>
     ///     The mind controlling this mob. Can be null.
     /// </summary>
@@ -103,6 +108,9 @@ public sealed class MindRemovedMessage : MindEvent
     public MindRemovedMessage(Entity<MindComponent> mind, Entity<MindContainerComponent> container)
         : base(mind, container)
     {
+        // Mini edit start - для гостпанельки, чтобы сохранить то, что в теле кто-то был
+        container.Comp.LastMindStored = mind; // Holy shit это самый курсед кодинг, который я делал намеренно
+        // Mini edit end
     }
 }
 

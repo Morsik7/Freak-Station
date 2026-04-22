@@ -106,7 +106,7 @@
       coefficients:
         Blunt: 0.6
         Slash: 0.6
-        Piercing: 0.65
+        Piercing: 0.4
         Heat: 0.65
         Radiation: 0.6
         Caustic: 0.6
@@ -132,6 +132,7 @@
   name: cybersun stealth hardsuit
   description: A hardsuit with photo-reactive plating for sneaky operations, the shielding doesn't work while you're moving though! Needs the helmet on to finish the stealth field.
   components:
+  - type: DNALocker
   - type: Sprite
     sprite: _Goobstation/Clothing/OuterClothing/Hardsuits/cybersunstealth.rsi
   - type: Item
@@ -188,6 +189,7 @@
   name: Cybersun dreadnought suit
   description: The Syndicate places its glory on your shoulders, do not disappoint.
   components:
+  - type: DNALocker
   - type: Sprite
     sprite: _Goobstation/Clothing/OuterClothing/Hardsuits/dreadnought.rsi
   - type: Item

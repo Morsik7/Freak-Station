@@ -278,6 +278,8 @@ public sealed class ThunderdomeRuleSystem : EntitySystem
         _stationSpawning.EquipStartingGear(mob, rule.Gear);
         SpawnLoadoutItems(mob, weaponIdx, rule);
 
+        EnsureComp<IgnoreSkillsComponent>(mob);
+
         var tdPlayer = EnsureComp<ThunderdomePlayerComponent>(mob);
         tdPlayer.RuleEntity = ruleEntity;
         tdPlayer.WeaponSelection = weaponIdx;

@@ -128,6 +128,7 @@ using Content.Client.Fullscreen;
 using Content.Client.GameTicking.Managers;
 using Content.Client.GhostKick;
 using Content.Client.Guidebook;
+using Content.Client._Mini.CharacterBlock;
 using Content.Client.Input;
 using Content.Client.IoC;
 using Content.Client.Launcher;
@@ -198,6 +199,7 @@ namespace Content.Client.Entry
         [Dependency] private readonly TitleWindowManager _titleWindowManager = default!;
         [Dependency] private readonly IEntitySystemManager _entitySystemManager = default!;
         [Dependency] private readonly ClientsidePlaytimeTrackingManager _clientsidePlaytimeManager = default!;
+        [Dependency] private readonly CharacterBlockManager _characterBlock = default!; //  edit1
 
         public override void Init()
         {
@@ -226,12 +228,14 @@ namespace Content.Client.Entry
             _prototypeManager.RegisterIgnore("accent");
             _prototypeManager.RegisterIgnore("gasReaction");
             _prototypeManager.RegisterIgnore("seed"); // Seeds prototypes are server-only.
+            _prototypeManager.RegisterIgnore("additionalMap"); // AdditionalMap это сервер-сайд онли, схуяли оно пытается загрузиться на клиенте
             _prototypeManager.RegisterIgnore("objective");
             _prototypeManager.RegisterIgnore("holiday");
             _prototypeManager.RegisterIgnore("htnCompound");
             _prototypeManager.RegisterIgnore("htnPrimitive");
             _prototypeManager.RegisterIgnore("gameMap");
             _prototypeManager.RegisterIgnore("gameMapPool");
+            _prototypeManager.RegisterIgnore("additionalMap"); // server-only typan map attachments
             //_prototypeManager.RegisterIgnore("lobbyBackground");
             _prototypeManager.RegisterIgnore("gamePreset");
             _prototypeManager.RegisterIgnore("noiseChannel");
@@ -253,7 +257,11 @@ namespace Content.Client.Entry
             _prototypeManager.RegisterIgnore("codewordFaction");
             _prototypeManager.RegisterIgnore("story"); // Goobstation
             _prototypeManager.RegisterIgnore("storyBeat"); // Goobstation
+            _prototypeManager.RegisterIgnore("sponsorGroup"); // Sponsor think
 
+            _prototypeManager.RegisterIgnore("sponsorGroup"); // Sponsor think
+            _prototypeManager.RegisterIgnore("ertTeams"); // mini ERT Teams
+            _prototypeManager.RegisterIgnore("ertShuttle"); // mini ERT Shuttles
             _componentFactory.GenerateNetIds();
             _adminManager.Initialize();
             _screenshotHook.Initialize();
@@ -302,6 +310,7 @@ namespace Content.Client.Entry
             _userInterfaceManager.SetActiveTheme(_configManager.GetCVar(CVars.InterfaceTheme));
             _documentParsingManager.Initialize();
             _titleWindowManager.Initialize();
+            _characterBlock.Initialize(); //  edit
 
             _baseClient.RunLevelChanged += (_, args) =>
             {

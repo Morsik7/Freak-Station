@@ -1,5 +1,27 @@
-discord-round-notifications-new = Новый раунд начинается!
-discord-round-notifications-started = Раунд #{ $id } на карте "{ $map }" начался.
-discord-round-notifications-end = Раунд #{ $id } закончился. Он длился { $hours } ч., { $minutes } мин., и { $seconds } сек.
-discord-round-notifications-end-ping = <@&{ $roleId }>, сервер скоро перезагрузится!
-discord-round-notifications-unknown-map = Неизвестно
+discord-round-notifications-new =
+    >>> <@&{ $roleId }>
+    🆕 **Новый раунд начнётся через 3 минуты!**
+    `{ $playerCount }` игроков сейчас играет
+discord-round-notifications-started =
+    >>> Раунд #{ $id } начался!
+    Карта: { $map }
+    Режим: { $gamemode }
+    Игроков `{ $playerCount }`
+discord-round-notifications-end =
+    >>> Раунд #{ $id } завершён
+    Длительность: { $hours }ч { $minutes }м { $seconds }с
+    Игроков `{ $playerCount }`
+    Режим: { $gamemode }
+    ```
+    { $manifest }
+    ```
+discord-round-notifications-end-no-manifest =
+    >>> Раунд #{ $id } завершён
+    Длительность: { $hours }ч { $minutes }м { $seconds }с
+    Игроков `{ $playerCount }`
+    Режим: { $gamemode }
+discord-round-notifications-end-ping =
+    >>> **Раунд перезапускается!**
+    `{ $playerCount }` игроков сейчас играет
+    Новый раунд начнётся через 3 минуты!
+discord-round-notifications-unknown-map = *Неизвестная карта*

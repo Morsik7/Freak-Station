@@ -90,8 +90,8 @@
   - ClothingShoesBootsJump
   # Goobstation R&D Console rework start
   position: 0,-4
-  technologyPrerequisites:
-  - SpaceScanning
+  # technologyPrerequisites:
+  # - SpaceScanning
   # Goobstation R&D Console rework end
 
 - type: technology
@@ -144,8 +144,8 @@
   - FlatpackerMachineCircuitboard
   # Goobstation R&D Console rework start
   position: 1,-4
-  technologyPrerequisites:
-  - SpaceScanning
+  # technologyPrerequisites:
+  # - SpaceScanning
   # Goobstation R&D Console rework end
 
 - type: technology
@@ -213,8 +213,8 @@
   - GasRecyclerMachineCircuitboard
   # Goobstation R&D Console rework start
   position: -2,-4
-  technologyPrerequisites:
-  - SpaceScanning
+  # technologyPrerequisites:
+  # - SpaceScanning
   # Goobstation R&D Console rework end
 
 - type: technology

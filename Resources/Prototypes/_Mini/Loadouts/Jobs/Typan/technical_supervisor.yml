@@ -1,0 +1,28 @@
+# Jumpsuit
+- type: loadout
+  id: TypanTechnicalOperationsSupervisorJumpsuit
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitTypanTechnicalOperationsSupervisor
+
+- type: loadout
+  id: TypanTechnicalOperationsSupervisorJumpskirt
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtTypanTechnicalOperationsSupervisor
+
+# Loadout Groups
+- type: loadoutGroup
+  id: TypanTechnicalOperationsSupervisorUniform
+  name: loadout-group-typan-technical-supervisor-uniform
+  hidden: true
+  minLimit: 1
+  loadouts:
+  - TypanTechnicalOperationsSupervisorJumpsuit
+  - TypanTechnicalOperationsSupervisorJumpskirt
+
+# Role Loadout
+- type: roleLoadout
+  id: JobTypanTechnicalOperationsSupervisor
+  groups:
+  - TypanTechnicalOperationsSupervisorUniform
+  - GroupSpeciesBreathTool
+  - GroupTankHarness

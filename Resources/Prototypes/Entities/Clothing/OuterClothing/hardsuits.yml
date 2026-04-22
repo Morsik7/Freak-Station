@@ -260,8 +260,8 @@
         Heat: 0.8
         Radiation: 0.15
   - type: ClothingSpeedModifier
-    walkModifier: 0.7
-    sprintModifier: 0.7
+    walkModifier: 0.8
+    sprintModifier: 0.8
   - type: HeldSpeedModifier
   - type: ToggleableClothing # Goobstation - Modsuits change
     clothingPrototypes:
@@ -552,8 +552,8 @@
   - type: Armor
     modifiers:
       coefficients:
-        Blunt: 0.85
-        Slash: 0.85
+        Blunt: 0.7
+        Slash: 0.7
         Piercing: 0.7
         Heat: 0.85
         Radiation: 0.4
@@ -639,9 +639,9 @@
       NerveDamage: 0
     modifiers:
       coefficients:
-        Blunt: 0.85 #Goob - Modsuit Rebalance start
-        Slash: 0.85
-        Piercing: 0.7
+        Blunt: 0.6 #Goob - Modsuit Rebalance start
+        Slash: 0.6
+        Piercing: 0.6
         Heat: 0.6 #Goob - Modsuit Rebalance end
         Radiation: 0.15
         Caustic: 0.6
@@ -685,13 +685,13 @@
       coefficients:
         Blunt: 0.8
         Slash: 0.8
-        Piercing: 0.8
+        Piercing: 0.7
         Heat: 0.4
         Radiation: 0.0
         Caustic: 0.7
   - type: ClothingSpeedModifier
-    walkModifier: 0.8
-    sprintModifier: 0.8
+    walkModifier: 0.85
+    sprintModifier: 0.85
   - type: HeldSpeedModifier
   - type: ToggleableClothing # Goobstation - Modsuits change
     clothingPrototypes:
@@ -896,6 +896,7 @@
     sprite: Clothing/OuterClothing/Hardsuits/syndicate.rsi
   - type: Item
     size: Huge
+  - type: DNALocker
   - type: Clothing
     sprite: Clothing/OuterClothing/Hardsuits/syndicate.rsi
   - type: PressureProtection
@@ -914,9 +915,9 @@
       NerveDamage: 0
     modifiers:
       coefficients:
-        Blunt: 0.45
-        Slash: 0.45
-        Piercing: 0.45
+        Blunt: 0.5
+        Slash: 0.5
+        Piercing: 0.4
         Heat: 0.45
         Radiation: 0.45
         Caustic: 0.45
@@ -954,6 +955,7 @@
   - type: ToggleableClothing # Goobstation - Modsuits change
     clothingPrototypes:
       head: ClothingHeadHelmetHardsuitSyndieMedic
+  - type: DNALocker
   - type: Tag
     tags:
     - Hardsuit
@@ -978,6 +980,7 @@
   - type: PressureProtection
     highPressureMultiplier: 0.02
     lowPressureMultiplier: 1000
+  - type: DNALocker
   - type: TemperatureProtection
     heatingCoefficient: 0.001
     coolingCoefficient: 0.001
@@ -996,9 +999,9 @@
       NerveDamage: 0
     modifiers:
       coefficients:
-        Blunt: 0.55
-        Slash: 0.55
-        Piercing: 0.55
+        Blunt: 0.6
+        Slash: 0.6
+        Piercing: 0.5
         Heat: 0.2
         Radiation: 0.01
         Caustic: 0.4
@@ -1043,12 +1046,13 @@
       NerveDamage: 0
     modifiers:
       coefficients:
-        Blunt: 0.35
-        Slash: 0.35
+        Blunt: 0.4
+        Slash: 0.4
         Piercing: 0.3
         Heat: 0.45
         Radiation: 0.2
         Caustic: 0.4
+  - type: DNALocker
   - type: ClothingSpeedModifier
     walkModifier: 0.9
     sprintModifier: 0.9
@@ -1083,6 +1087,7 @@
     damageCoefficient: 0.3
   - type: StaminaResistance # Goobstation uncommented
     damageCoefficient: 0.8
+  - type: DNALocker
   - type: Armor
     traumaDeductions: # prevents traumas at all (kinda)
       Dismemberment: 1
@@ -1138,9 +1143,9 @@
       NerveDamage: 1
     modifiers:
       coefficients:
-        Blunt: 0.35
-        Slash: 0.35
-        Piercing: 0.35
+        Blunt: 0.4
+        Slash: 0.4
+        Piercing: 0.4
         Heat: 0.35
         Radiation: 0.05
         Caustic: 0.1
@@ -1224,8 +1229,8 @@
         Heat: 0.4
         Caustic: 0.75
   - type: ClothingSpeedModifier
-    walkModifier: 0.6
-    sprintModifier: 0.6
+    walkModifier: 0.7
+    sprintModifier: 0.7
   - type: HeldSpeedModifier
   - type: ToggleableClothing # Goobstation - Modsuits change
     clothingPrototypes:
@@ -1302,6 +1307,24 @@
   name: ERT chaplain's hardsuit # Goob edit
   description: A protective hardsuit worn by the chaplains of an Emergency Response Team. # Goob edit
   components:
+  - type: Armor
+    traumaDeductions: # prevents traumas at all (kinda)
+      Dismemberment: 1
+      OrganDamage: 1
+      BoneDamage: 1
+      VeinsDamage: 1
+      NerveDamage: 1
+    modifiers:
+      coefficients:
+        Blunt: 0.3
+        Slash: 0.3
+        Piercing: 0.3
+        Heat: 0.3
+        Radiation: 0.3
+        Caustic: 0.3
+  - type: ClothingSpeedModifier
+    walkModifier: 0.75
+    sprintModifier: 0.75
   - type: Sprite
     sprite: Clothing/OuterClothing/Hardsuits/ERTSuits/ertchaplain.rsi #if you change this, please update the humanoid.yml with a better markers sprite.
   - type: Clothing
@@ -1368,6 +1391,7 @@
   name: ERT janitor's hardsuit # Goob edit
   description: A protective hardsuit worn by the janitors of an emergency response team. # Goob edit
   components:
+  - type: DNALocker
   - type: Sprite
     sprite: Clothing/OuterClothing/Hardsuits/ERTSuits/ertjanitor.rsi
   - type: Clothing
@@ -1383,6 +1407,7 @@
   name: PI-52 "Lucifer" hardsuit # Goob edit
   description: A famous hardsuit used by Central Command's death-squadrons, often shown in movies by Nanotrasen intended to increase recruitment. # Goob edit
   components:
+  - type: DNALocker
   - type: Sprite
     sprite: Clothing/OuterClothing/Hardsuits/deathsquad.rsi
   - type: Clothing
@@ -1441,6 +1466,7 @@
   name: CBURN exosuit
   description: A lightweight yet strong exosuit used for special cleanup operations.
   components:
+  - type: DNALocker
   - type: Sprite
     sprite: Clothing/OuterClothing/Hardsuits/cburn.rsi
   - type: Clothing

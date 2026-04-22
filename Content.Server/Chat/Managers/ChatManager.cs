@@ -444,6 +444,29 @@ internal sealed partial class ChatManager : IChatManager
             colorOverride = prefs.AdminOOCColor;
         }
 
+        /*mini-station donate color
+        if (SponsorInfoComponent.listOfSponsors.Any(d => d.Uid == player.UserId.ToString()))
+        {
+            int miniDonateLevel = SponsorManager.GetDonateLevel(player.UserId.ToString());
+            string miniDonateColor = SponsorColor.GetColorForNickname(miniDonateLevel);
+            wrappedMessage = Loc.GetString("chat-manager-send-ooc-patron-wrap-message", ("patronColor", miniDonateColor), ("playerName", player.Name), ("message", FormattedMessage.EscapeText(message)));
+            //colorOverride = Color.TryFromHex(SponsorColor.GetColorForNickname(miniDonateLevel));
+        }*/
+        //mini-ststion alt sonate color
+        var sponsorSys = EntitySystem.Get<SponsorSystem>();
+        var sponsorData = sponsorSys.Sponsors.FirstOrDefault(d => d.Uid == player.UserId.ToString());
+
+        if (sponsorData.Uid != null) // Если нашли спонсора (Uid не пустой)
+        {
+            string miniDonateColor = SponsorColor.GetColorForNickname(sponsorData.Level);
+
+            wrappedMessage = Loc.GetString("chat-manager-send-ooc-patron-wrap-message",
+                ("patronColor", miniDonateColor),
+                ("playerName", player.Name),
+                ("message", FormattedMessage.EscapeText(message)));
+
+            // Если нужно: colorOverride = Color.TryFromHex(miniDonateColor);
+        }
         /* CorvaxGoob-Revert : DB conflicts
         // RMC - Heavily modified for patreon.
         if (_netConfigManager.GetClientCVar(player.Channel, CCVars.ShowOocPatronColor) &&

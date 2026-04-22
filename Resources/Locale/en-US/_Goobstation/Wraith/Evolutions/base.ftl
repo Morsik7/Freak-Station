@@ -1,15 +1,15 @@
-wraith-haunt-show = You show yourself.
+wraith-haunt-show = Ты проявляешь себя.
 
-wraith-decay-human-alert = You feel really tired all of a sudden!
-wraith-decay-object1 = The energy of {THE($target)} gets decayed!
-wraith-decay-nothing = There is nothing to decay here!
+wraith-decay-human-alert = Ты внезапно чувствуешь сильную усталость!
+wraith-decay-object1 = Энергия {THE($target)} подверглась разложению!
+wraith-decay-nothing = Здесь нечего разлагать!
 
-wraith-absorb-living = The living consciousness controlling this body shields it from being absorbed.
-wraith-absorb-too-decomposed = That corpse is already too decomposed.
-wraith-absorb-tainted = This vessel is tainted with an... unpleasant substance... It is now removed...But you are wounded.
-wraith-absorb-rotbonus = This corpse is extremely rotten and bloated. It satisfies us greatly.
-wraith-absorb-smoke1 = Black smoke rises from the corpse! Freaky!
-wraith-absorb-fresh = This body is too fresh. It needs to be poisoned or rotten before we consume it.
-wraith-absorb-already = This corpse has already been absorbed!
+wraith-absorb-living = Живое сознание, управляющее этим телом, защищает его от поглощения.
+wraith-absorb-too-decomposed = Этот труп уже слишком разложился.
+wraith-absorb-tainted = Эта оболочка осквернена... неприятной субстанцией... Она удалена... Но ты ранен.
+wraith-absorb-rotbonus = Этот труп чрезвычайно гнилой и раздутый. Это очень нас удовлетворяет.
+wraith-absorb-smoke1 = Из трупа поднимается чёрный дым! Жуть!
+wraith-absorb-fresh = Это тело слишком свежее. Его нужно отравить или дать ему сгнить, прежде чем мы его потребим.
+wraith-absorb-already = Этот труп уже поглощён!
 
-wraith-evolve-not-enough = You need at least {$corpseCount} corpses to evolve!
+wraith-evolve-not-enough = Для эволюции нужно хотя бы {$corpseCount} трупов!

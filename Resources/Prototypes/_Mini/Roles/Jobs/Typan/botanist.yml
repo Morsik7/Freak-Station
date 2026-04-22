@@ -1,0 +1,36 @@
+- type: job
+  id: TypanBotanist
+  name: job-name-typan-botanist
+  playTimeTracker: JobTypanBotanist
+  description: job-description-typan-botanist
+  startingGear: SyndicateBotanist
+  icon: "JobIconTypanBotanist"
+  supervisors: job-supervisors-typan-telecommunications-officer
+  canBeAntag: false
+  requirements:
+    - !type:DepartmentTimeRequirement
+      department: Civilian
+      time: 7200
+  access:
+  - TypanService
+  - TypanMaint
+  - SyndicateAgent
+  skills: # CorvaxGoob-Skills
+    - Shooting
+  special:
+  - !type:AddComponentSpecial
+    components:
+      - type: AntagImmune
+      - type: NpcFactionMember
+        factions:
+        - Typan
+
+- type: startingGear
+  id: SyndicateBotanist
+  equipment:
+    ears: ClothingHeadsetAltSyndicate
+    jumpsuit: ClothingUniformJumpsuitTypanBotanist
+    shoes: ClothingShoesColorBlack
+    id: SyndiPDABotan
+    outerClothing: ClothingOuterApronTypanBotanist
+    belt: TypanPlantBag

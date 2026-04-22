@@ -1,0 +1,56 @@
+- type: job
+  id: TypanCommander
+  name: job-name-typan-command
+  playTimeTracker: JobTypanCommander
+  description: job-description-typan-command
+  startingGear: TypanCommander
+  icon: "JobIconSyndicateFormal"
+  supervisors: job-supervisors-typan-syndicate
+  canBeAntag: false
+  skills: # CorvaxGoob-Skills
+  - All
+  requirements:
+    - !type:DepartmentTimeRequirement
+      department: Typan
+      time: 72000 # 20 hours
+  access:
+  - TypanArmory
+  - TypanAtmospherics
+  - TypanCargo
+  - TypanCommand
+  - TypanCommunicationsOfficer
+  - TypanEngineering
+  - TypanMaint
+  - TypanMedical
+  - TypanProtection
+  - TypanResearchDirector
+  - TypanScience
+  - TypanService
+  - TypanVault
+  - TypanExternal
+  - SyndicateAgent
+  - NuclearOperative
+  special:
+  - !type:AddComponentSpecial
+    components:
+      - type: AntagImmune
+      - type: NpcFactionMember
+        factions:
+        - Typan
+
+- type: startingGear
+  id: TypanCommander
+  equipment:
+    ears: ClothingHeadsetAltSyndicate
+    shoes: ClothingShoesBootsCombat
+    gloves: ClothingHandsGlovesCombat
+    id: SyndiPDACom
+    pocket1: SyndicateWhistle
+    pocket2: ClothingMaskGasSyndicate
+    eyes: ClothingEyesHudTypanAdvanced
+    head: ClothingHeadHatSyndieMAA
+    neck: ClothingNeckCloakSyndicateAdmiral
+    outerClothing: ClothingOuterTrenchTypanCommunicationsOfficer
+  storage:
+    back:
+    - AccessConfiguratorTypan

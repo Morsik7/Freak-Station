@@ -6,6 +6,8 @@
 - type: entity
   id: LockerScienceFilledXenobiology # Make this a unique locker in the future
   suffix: Filled, Xenobiology
+  name: шкаф учёного
+  description: Хранилище вещей учёного.
   parent: LockerScientist
   components:
   - type: StorageFill

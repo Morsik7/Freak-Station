@@ -193,6 +193,7 @@
   table: !type:AllSelector
     children:
     - id: CaptainIDCard
+    - id: TelephoneCaptain
     - id: CigarGoldCase
       prob: 0.25
     - id: ClothingBeltSheathFilled
@@ -293,7 +294,7 @@
     - id: HoPIDCard
     - id: IDComputerCircuitboard
     #- id: ComputerFundingAllocationFlatpack # Goobstation #CorvaxGoob-QuarterMaster-finance
-    - id: ComputerCargoRequestServiceFlatpack # Goobstation 
+    - id: ComputerCargoRequestServiceFlatpack # Goobstation
     - id: PrinterDocFlatpack #CorvaxGoob-Docprinter
     - id: RubberStampApproved
     - id: RubberStampDenied
@@ -532,6 +533,7 @@
     - id: CigarGoldCase
       prob: 0.50
     - id: ClothingBeltSecurityFilled
+    - id: WeaponEnergyShotgun # Goobstation
     - id: ClothingEyesGlassesSecurity
     - id: ClothingHeadsetAltSecurity
     - id: ClothingMaskNeckGaiter
@@ -540,6 +542,7 @@
     - id: DoorRemoteSecurity
     #- id: HoloprojectorSecurity Goob, you have one in the belt
     - id: RubberStampHos
+    - id: TelephoneHeadOfSecurity
     - id: SecurityTechFabCircuitboard
     #- id: WeaponDisabler # Goobstation (Disablers in belts)
     - id: ComputerCargoRequestSecurityFlatpack # Goobstation

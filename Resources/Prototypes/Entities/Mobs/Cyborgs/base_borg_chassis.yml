@@ -203,7 +203,7 @@
         layer:
         - MobLayer
   - type: TTS # CorvaxGoob-TTS
-    voice: TrainingRobot
+    voice: Robot
   - type: MovementSpeedModifier
     baseWalkSpeed : 2.5
     baseSprintSpeed : 4.5
@@ -219,8 +219,8 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      100: Critical
-      200: Dead
+      125: Critical
+      225: Dead
     stateAlertDict:
       Alive: BorgHealth
       Critical: BorgCrit

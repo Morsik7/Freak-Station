@@ -1,0 +1,21 @@
+# Jumpsuit
+- type: loadout
+  id: TypanMedicJumpsuit
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitTypanMedic
+
+- type: loadout
+  id: TypanMedicJumpskirt
+
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtTypanMedic
+
+# Loadout Groups
+- type: loadoutGroup
+  id: TypanMedicUniform
+  name: loadout-group-typan-medic-uniform
+  hidden: true
+  minLimit: 1
+  loadouts:
+  - TypanMedicJumpsuit
+  - TypanMedicJumpskirt

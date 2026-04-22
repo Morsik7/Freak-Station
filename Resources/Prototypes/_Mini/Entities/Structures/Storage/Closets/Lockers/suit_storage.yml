@@ -1,0 +1,112 @@
+# Атмосферный инженер
+- type: entity
+  id: SuitStorageTypanAtmosphericsFilled
+  parent: SuitStorageTypanBase
+  suffix: Тайпан, Атмосферный инженер
+  components:
+  - type: StorageFill
+    contents:
+    - id: NitrogenTankFilled
+    - id: OxygenTankFilled
+    - id: ClothingOuterHardsuitTypanAtmosphericsEngineer
+    - id: ClothingMaskGasSyndicate
+  - type: AccessReader
+    access: [["TypanAtmospherics"]]
+
+# Карготехник
+- type: entity
+  id: SuitStorageTypanCargotechFilled
+  parent: SuitStorageTypanBase
+  suffix: Тайпан, Карготехник
+  components:
+  - type: StorageFill
+    contents:
+    - id: NitrogenTankFilled
+    - id: OxygenTankFilled
+    - id: ClothingOuterHardsuitTypanCargotech
+  - type: AccessReader
+    access: [["TypanCargo"]]
+
+# Ремонтник
+- type: entity
+  id: SuitStorageTypanTechnicianFilled
+  parent: SuitStorageTypanBase
+  suffix: Тайпан, Инженер
+  components:
+  - type: StorageFill
+    contents:
+    - id: NitrogenTankFilled
+    - id: OxygenTankFilled
+    - id: ClothingOuterHardsuitTypanTechnician
+  - type: AccessReader
+    access: [["TypanEngineering"]]
+
+# Парамедик
+- type: entity
+  id: SuitStorageTypanParamedicFilled
+  parent: SuitStorageTypanBase
+  suffix: Тайпан, Медик
+  components:
+  - type: StorageFill
+    contents:
+    - id: NitrogenTankFilled
+    - id: OxygenTankFilled
+    - id: ClothingOuterHardsuitTypanParamedic
+  - type: AccessReader
+    access: [["TypanMedical"]]
+
+# Рекрут
+- type: entity
+  id: SuitStorageTypanPatrolFilled
+  parent: SuitStorageTypanBase
+  suffix: Тайпан, Патрульный
+  components:
+  - type: StorageFill
+    contents:
+    - id: NitrogenTankFilled
+    - id: OxygenTankFilled
+    - id: ClothingOuterHardsuitTypanPatrol
+  - type: AccessReader
+    access: [["TypanCommand"]]
+
+# Офицер телекоммуникаций
+- type: entity
+  id: SuitStorageTypanCOFilled
+  parent: SuitStorageTypanBase
+  suffix: Тайпан, Командир
+  components:
+  - type: StorageFill
+    contents:
+    - id: NitrogenTankFilled
+    - id: OxygenTankFilled
+    - id: ClothingOuterHardsuitSyndieElite
+  - type: AccessReader
+    access: [["TypanCommand"]]
+
+# Директор исследований
+- type: entity
+  id: SuitStorageTypanResearchDirectorFilled
+  parent: SuitStorageTypanBase
+  suffix: Тайпан, Директор исследований
+  components:
+  - type: StorageFill
+    contents:
+    - id: NitrogenTankFilled
+    - id: OxygenTankFilled
+    - id: ClothingOuterHardsuitRDSindi
+  - type: AccessReader
+    access: [["TypanResearchDirector"]]
+
+# Рекрут
+- type: entity
+  id: SuitStorageTypanStelsFilled
+  parent: SuitStorageTypanBase
+  suffix: Тайпан, Стелс
+  components:
+  - type: StorageFill
+    contents:
+    - id: NitrogenTankFilled
+    - id: OxygenTankFilled
+    - id: ClothingOuterHardsuitCybersunStealth
+  - type: AccessReader
+    access: [["TypanCommand"]]

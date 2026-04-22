@@ -8,14 +8,14 @@ public abstract partial class SharedJobSystem
 {
 
     // Goobstation Change: Returns the amount of Goobcoins a player will receive when they finish a round as this job.
-    public int GetJobGoobcoins(ICommonSession player)
-    {
-        if (_playerSystem.ContentData(player) is not { Mind: { } mindId }
-            || !MindTryGetJob(mindId, out var prototype))
-            return 1;
+    // public int GetJobGoobcoins(ICommonSession player)
+    // {
+    //     if (_playerSystem.ContentData(player) is not { Mind: { } mindId }
+    //         || !MindTryGetJob(mindId, out var prototype))
+    //         return 1;
 
-        return prototype.Goobcoins;
-    }
+    //     return prototype.Goobcoins;
+    // }
 
     // GabyStation
     public bool TryFindJobFromIcon(JobIconPrototype jobIcon, [NotNullWhen(true)] out JobPrototype? job)

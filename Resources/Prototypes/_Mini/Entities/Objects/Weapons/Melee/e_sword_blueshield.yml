@@ -1,0 +1,32 @@
+
+
+- type: entity
+  name: энергетический меч Синего Щита
+  parent: [BaseMeleeWeaponEnergy, BaseSyndicateContraband]
+  id: EnergySwordBlueshield
+  description: "Передовая технология, выданная в эксперементальном порядке лучшим оперативникам Синего Щита."
+  components:
+  - type: Sprite
+    sprite: _Mini/Objects/Weapons/Melee/e_sword.rsi
+    layers:
+    - state: e_sword
+    - state: e_sword_blade
+      color: "#FFFFFF"
+      visible: false
+      shader: unshaded
+      map: [ "blade" ]
+  - type: Item
+    sprite: Objects/Weapons/Melee/e_sword-inhands.rsi
+  - type: Tag # WD EDIT
+    tags:
+    - EnergySword
+  - type: ThrowableBlocker # Goobstation
+    blockSound:
+      path: /Audio/Weapons/eblade1.ogg
+      params:
+        variation: 0.250
+        volume: -2
+  - type: StaticPrice
+    price: 2500
+
+

@@ -1,0 +1,520 @@
+# Tier 1
+
+- type: technology
+  id: TypanSalvageWeapons
+  name: research-technology-salvage-weapons
+  icon:
+    sprite: Objects/Weapons/Guns/Basic/kinetic_accelerator.rsi
+    state: icon
+  discipline: TypanWeaponry
+  tier: 1
+  cost: 7500
+  recipeUnlocks:
+  - WeaponProtoKineticAccelerator
+  - ShuttleGunKineticCircuitboard
+   # Goobstation R&D Console rework start
+  position: 70,0
+  # technologyPrerequisites:
+  # - TypanMagnetsTech
+  # Goobstation R&D Console rework end
+
+- type: technology
+  id: TypanDraconicMunitions
+  name: research-technology-draconic-munitions
+  icon:
+    sprite: Objects/Weapons/Guns/Ammunition/Boxes/pistol.rsi
+    state: incendiarydisplay
+  discipline: TypanWeaponry
+  tier: 1
+  cost: 7500
+  recipeUnlocks:
+  - BoxShotgunIncendiary
+  - MagazineRifleIncendiary
+  - MagazinePistolIncendiary
+  - MagazinePistolSubMachineGunIncendiary
+  - MagazineLightRifleIncendiary
+  - SpeedLoaderMagnumIncendiary
+  - MagazineShotgunIncendiary
+  - MagazineBoxPistolIncendiary
+  - MagazineBoxMagnumIncendiary
+  - MagazineBoxLightRifleIncendiary
+  - MagazineBoxRifleIncendiary
+   # Goobstation R&D Console rework start
+  position: 71,0
+  # technologyPrerequisites:
+  # - TypanMagnetsTech
+  # Goobstation R&D Console rework end
+
+- type: technology
+  id: TypanNonlethalAmmunition
+  name: research-technology-nonlethal-ammunition
+  icon:
+    sprite: Objects/Weapons/Guns/Ammunition/Casings/shotgun_shell.rsi
+    state: beanbag
+  discipline: TypanWeaponry
+  tier: 1
+  cost: 7500
+  recipeUnlocks:
+  - MagazineShotgunBeanbag
+  - BoxShellTranquilizer
+  - BoxBeanbag
+  - WeaponDisabler
+   # Goobstation R&D Console rework start
+  position: 72,0
+  # technologyPrerequisites:
+  # - TypanMagnetsTech
+  # Goobstation R&D Console rework end
+
+- type: technology
+  id: TypanUraniumMunitions
+  name: research-technology-uranium-munitions
+  icon:
+    sprite: Objects/Materials/Sheets/other.rsi
+    state: uranium
+  discipline: TypanWeaponry
+  tier: 1
+  cost: 7500
+  recipeUnlocks:
+  - MagazineRifleUranium
+  - MagazinePistolUranium
+  - MagazinePistolSubMachineGunUranium
+  - MagazineLightRifleUranium
+  - SpeedLoaderMagnumUranium
+  - MagazineBoxPistolUranium
+  - MagazineBoxMagnumUranium
+  - MagazineBoxLightRifleUranium
+  - MagazineBoxRifleUranium
+  - BoxShotgunUranium
+     # Goobstation R&D Console rework start
+  position: 73,0
+  # technologyPrerequisites:
+  # - TypanMagnetsTech
+  # Goobstation R&D Console rework end
+
+- type: technology
+  id: TypanAdvancedRiotControl
+  name: research-technology-advanced-riot-control
+  icon:
+    sprite: Objects/Weapons/Melee/truncheon.rsi
+    state: icon
+  discipline: TypanWeaponry
+  tier: 1
+  cost: 7500
+  recipeUnlocks:
+  - Truncheon
+  - TelescopicShield
+  - HoloprojectorSecurity
+  - WeaponDisablerSMG
+     # Goobstation R&D Console rework start
+  position: 74,0
+  # technologyPrerequisites:
+  # - TypanMagnetsTech
+  # Goobstation R&D Console rework end
+
+- type: technology
+  id: TypanExplosiveTechnology
+  name: research-technology-explosive-technology
+  icon:
+    sprite: Objects/Devices/payload.rsi
+    state: payload-explosive-armed
+  discipline: TypanWeaponry
+  tier: 1
+  cost: 7500
+  recipeUnlocks:
+  - SignallerAdvanced
+  - SignalTrigger
+  - VoiceTrigger
+  - TimerTrigger
+  - FlashPayload
+  - ExplosivePayload
+  - ChemicalPayload
+     # Goobstation R&D Console rework start
+  position: 75,0
+  # technologyPrerequisites:
+  # - TypanMagnetsTech
+  # Goobstation R&D Console rework end
+
+- type: technology
+  id: TypanSpecialMeans
+  name: research-technology-special-means
+  icon:
+    sprite: Clothing/Back/Backpacks/electropack.rsi
+    state: icon
+  discipline: TypanWeaponry
+  tier: 1
+  cost: 7500
+  recipeUnlocks:
+  - ClothingBackpackElectropack
+     # Goobstation R&D Console rework start
+  position: 76,0
+  # technologyPrerequisites:
+  # - TypanMagnetsTech
+  # Goobstation R&D Console rework end
+
+- type: technology
+  id: TypanBasicPistols
+  name: research-technology-basic-pistols
+  icon:
+    sprite: Objects/Weapons/Guns/Pistols/viper.rsi
+    state: icon
+  discipline: TypanWeaponry
+  tier: 1
+  cost: 7500
+  recipeUnlocks:
+  - WeaponPistolViper
+  - WeaponRevolverPython
+     # Goobstation R&D Console rework start
+  position: 77,0
+  # technologyPrerequisites:
+  # - TypanMagnetsTech
+  # Goobstation R&D Console rework end
+
+- type: technology
+  id: TypanEdgedWeapons
+  name: research-technology-edged-weapons
+  icon:
+    sprite: _Goobstation/Clothing/Hands/Gloves/knuckleduster.rsi
+    state: syndicateknuckleduster
+  discipline: TypanWeaponry
+  tier: 1
+  cost: 7500
+  recipeUnlocks:
+  - ClothingHandsKnuckleDustersSyndicate
+  - ThrowingKnife
+     # Goobstation R&D Console rework start
+  position: 78,0
+  # technologyPrerequisites:
+  # - TypanMagnetsTech
+  # Goobstation R&D Console rework end
+
+- type: technology
+  id: TypanCombatGloves
+  name: research-technology-combat-gloves
+  icon:
+    sprite: Clothing/Hands/Gloves/northstar.rsi
+    state: icon
+  discipline: TypanWeaponry
+  tier: 1
+  cost: 7500
+  recipeUnlocks:
+  - ClothingHandsGlovesNorthStar
+  - ClothingHandsGlovesBoxingRigged
+     # Goobstation R&D Console rework start
+  position: 79,0
+  # technologyPrerequisites:
+  # - TypanMagnetsTech
+  # Goobstation R&D Console rework end
+
+- type: technology
+  id: TypanBasicRifles
+  name: research-technology-basic-rifles
+  icon:
+    sprite: Objects/Weapons/Guns/Snipers/bolt_gun_wood.rsi
+    state: base
+  discipline: TypanWeaponry
+  tier: 1
+  cost: 7500
+  recipeUnlocks:
+  - WeaponSniperMosin
+     # Goobstation R&D Console rework start
+  position: 80,0
+  technologyPrerequisites:
+  - TypanMagnetsTech
+  # Goobstation R&D Console rework end
+
+- type: technology
+  id: TypanBorgModulesT1
+  name: research-technology-typan-borg-modules-t1
+  icon:
+    entity: BorgModuleSyndicateWeapon
+  discipline: TypanWeaponry
+  tier: 1
+  cost: 7500
+  recipeUnlocks:
+  - BorgModuleSyndicateWeapon
+  - BorgModuleOperative
+  position: 81,0
+
+- type: technology
+  id: TypanSecurityBorgModuleT1
+  name: research-technology-typan-security-borg-module-t1
+  icon:
+    entity: BorgModuleSecurityStandard
+  discipline: TypanWeaponry
+  tier: 1
+  cost: 7500
+  recipeUnlocks:
+  - BorgModuleSecurityStandard
+  position: 82,0
+
+# Tier 2
+
+- type: technology
+  id: TypanBasicShuttleArmament
+  name: research-technology-shuttle-weapon
+  icon:
+    sprite: Objects/Weapons/Guns/Ammunition/Magazine/Grenade/grenade_cartridge.rsi
+    state: base
+  discipline: TypanWeaponry
+  tier: 2
+  cost: 15000
+  recipeUnlocks:
+  - PowerCageRechargerCircuitboard
+  - PowerCageSmall
+  - PowerCageMedium
+  - PowerCageHigh
+  - MagazineGrenadeEmpty
+  - GrenadeFlash
+  - GrenadeBlast
+  - GrenadeEMP
+  - ShuttleGunSvalinnMachineGunCircuitboard
+  - ShuttleGunPerforatorCircuitboard
+  - ShuttleGunFriendshipCircuitboard
+  - ShuttleGunDusterCircuitboard
+  # Goobstation R&D Console rework start
+  position: 70,1
+  technologyPrerequisites:
+  - TypanSalvageWeapons
+  - TypanExplosiveTechnology
+  # Goobstation R&D Console rework end
+
+- type: technology
+  id: TypanNightVisionTechnology
+  name: research-technology-typan-night-vision
+  icon:
+    sprite: _White/Clothing/Eyes/Goggles/snightvision.rsi
+    state: icon
+  discipline: TypanWeaponry
+  tier: 2
+  cost: 15000
+  recipeUnlocks:
+  - ClothingEyesNightVisionGogglesSyndie
+     # Goobstation R&D Console rework start
+  position: 71,1
+  technologyPrerequisites:
+  - TypanMagnetsTech
+  # Goobstation R&D Console rework end
+
+- type: technology
+  id: TypanAdvancedPistols
+  name: research-technology-advanced-pistols
+  icon:
+    sprite: Objects/Weapons/Guns/Pistols/cobra.rsi
+    state: icon
+  discipline: TypanWeaponry
+  tier: 2
+  cost: 15000
+  recipeUnlocks:
+  - WeaponPistolCobra
+     # Goobstation R&D Console rework start
+  position: 72,1
+  technologyPrerequisites:
+  - TypanBasicPistols
+  # Goobstation R&D Console rework end
+
+- type: technology
+  id: TypanGrenades
+  name: research-technology-grenades
+  icon:
+    sprite: Objects/Weapons/Grenades/shrapnelgrenade.rsi
+    state: icon
+  discipline: TypanWeaponry
+  tier: 2
+  cost: 15000
+  recipeUnlocks:
+  - GrenadeShrapnel
+  - ExGrenade
+  - GrenadeFlashBang
+  - SmokeGrenade
+  - GrenadeIncendiary
+  - ClusterGrenade
+  - EmpGrenade
+     # Goobstation R&D Console rework start
+  position: 73,1
+  technologyPrerequisites:
+  - TypanExplosiveTechnology
+  # Goobstation R&D Console rework end
+
+- type: technology
+  id: TypanSniperRifles
+  name: research-technology-sniper-rifles
+  icon:
+    sprite: Objects/Weapons/Guns/Snipers/heavy_sniper.rsi
+    state: base
+  discipline: TypanWeaponry
+  tier: 2
+  cost: 15000
+  recipeUnlocks:
+  - WeaponSniperHristov
+     # Goobstation R&D Console rework start
+  position: 74,1
+  technologyPrerequisites:
+  - TypanBasicRifles
+  # Goobstation R&D Console rework end
+
+- type: technology
+  id: TypanSMGs
+  name: research-technology-smgs
+  icon:
+    sprite: Objects/Weapons/Guns/SMGs/c20r.rsi
+    state: icon
+  discipline: TypanWeaponry
+  tier: 2
+  cost: 15000
+  recipeUnlocks:
+  - WeaponSubMachineGunC20r
+     # Goobstation R&D Console rework start
+  position: 75,1
+  technologyPrerequisites:
+  - TypanBasicRifles
+  # Goobstation R&D Console rework end
+
+- type: technology
+  id: TypanAssaultRifles
+  name: research-technology-assault-rifles
+  icon:
+    sprite: Objects/Weapons/Guns/Rifles/ak.rsi
+    state: icon
+  discipline: TypanWeaponry
+  tier: 2
+  cost: 15000
+  recipeUnlocks:
+  - WeaponRifleAk
+     # Goobstation R&D Console rework start
+  position: 76,1
+  technologyPrerequisites:
+  - TypanBasicRifles
+  # Goobstation R&D Console rework end
+
+- type: technology
+  id: TypanShotguns
+  name: research-technology-shotguns
+  icon:
+    sprite: Objects/Weapons/Guns/Shotguns/bulldog.rsi
+    state: icon
+  discipline: TypanWeaponry
+  tier: 2
+  cost: 15000
+  recipeUnlocks:
+  - WeaponShotgunBulldog
+     # Goobstation R&D Console rework start
+  position: 77,1
+  technologyPrerequisites:
+  - TypanBasicRifles
+  # Goobstation R&D Console rework end
+
+- type: technology
+  id: TypanBorgModulesT2
+  name: research-technology-typan-borg-modules-t2
+  icon:
+    entity: BorgModuleSyndicateWeaponAdvanced
+  discipline: TypanWeaponry
+  tier: 2
+  cost: 15000
+  recipeUnlocks:
+  - BorgModuleSyndicateWeaponAdvanced
+  - BorgModuleMartyr
+  position: 78,1
+  technologyPrerequisites:
+  - TypanBorgModulesT1
+
+- type: technology
+  id: TypanSecurityBorgModuleT2
+  name: research-technology-typan-security-borg-module-t2
+  icon:
+    entity: BorgModuleSecurityAdvanced
+  discipline: TypanWeaponry
+  tier: 2
+  cost: 15000
+  recipeUnlocks:
+  - BorgModuleSecurityAdvanced
+  position: 79,1
+  technologyPrerequisites:
+  - TypanSecurityBorgModuleT1
+
+# Tier 3
+
+- type: technology
+  id: TypanExperimentalGrenades
+  name: research-technology-experimental-grenades
+  icon:
+    sprite: Objects/Weapons/Grenades/holyhandgrenade.rsi
+    state: icon
+  discipline: TypanWeaponry
+  tier: 3
+  cost: 30000
+  recipeUnlocks:
+  - HolyHandGrenade
+  - WhiteholeGrenade
+  # Goobstation R&D Console rework start
+  position: 70,2
+  technologyPrerequisites:
+  - TypanGrenades
+  - TypanBasicShuttleArmament
+  # Goobstation R&D Console rework end
+
+- type: technology
+  id: TypanHeavyWeapons
+  name: research-technology-heavy-weapons
+  icon:
+    sprite: Objects/Weapons/Guns/LMGs/l6.rsi
+    state: icon
+  discipline: TypanWeaponry
+  tier: 3
+  cost: 30000
+  recipeUnlocks:
+  - WeaponLightMachineGunL6
+  # Goobstation R&D Console rework start
+  position: 71,2
+  technologyPrerequisites:
+  - TypanAssaultRifles
+  # Goobstation R&D Console rework end
+
+- type: technology
+  id: TypanGrenadeLaunchers
+  name: research-technology-grenade-launchers
+  icon:
+    sprite: Objects/Weapons/Guns/Launchers/china_lake.rsi
+    state: icon
+  discipline: TypanWeaponry
+  tier: 3
+  cost: 30000
+  recipeUnlocks:
+  - WeaponLauncherChinaLake
+  # Goobstation R&D Console rework start
+  position: 72,2
+  # technologyPrerequisites:
+  # - TypanGrenades
+  # Goobstation R&D Console rework end
+
+- type: technology
+  id: TypanSpecialWeapons
+  name: research-technology-special-weapons
+  icon:
+    sprite: _Goobstation/Objects/Weapons/Guns/Battery/miniature_ebow.rsi
+    state: icon
+  discipline: TypanWeaponry
+  tier: 3
+  cost: 30000
+  recipeUnlocks:
+  - WeaponEnergyCrossbow
+  # Goobstation R&D Console rework start
+  position: 73,2
+  # technologyPrerequisites:
+  # - TypanGrenades
+  # Goobstation R&D Console rework end
+
+- type: technology
+  id: TypanBorgModulesT3
+  name: research-technology-typan-borg-modules-t3
+  icon:
+    entity: BorgModuleL6C
+  discipline: TypanWeaponry
+  tier: 3
+  cost: 30000
+  recipeUnlocks:
+  - BorgModuleEsword
+  - BorgModuleL6C
+  position: 74,2
+  technologyPrerequisites:
+  - TypanBorgModulesT2

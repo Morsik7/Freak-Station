@@ -1,0 +1,20 @@
+# Jumpsuit
+- type: loadout
+  id: TypanCargotechJumpsuit
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitTypanCargotech
+
+- type: loadout
+  id: TypanCargotechJumpskirt
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtTypanCargotech
+
+# Loadout Groups
+- type: loadoutGroup
+  id: TypanCargotechUniform
+  name: loadout-group-typan-cargotech-uniform
+  hidden: true
+  minLimit: 1
+  loadouts:
+  - TypanCargotechJumpsuit
+  - TypanCargotechJumpskirt

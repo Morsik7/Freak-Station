@@ -143,6 +143,7 @@ public sealed partial class EmergencyShuttleSystem : EntitySystem
     private const float ShuttleSpawnBuffer = 1f;
 
     private bool _emergencyShuttleEnabled;
+    // public float Multiplier { get; private set; } = 1f;
 
     private static readonly ProtoId<TagPrototype> DockTag = "DockEmergency";
 
@@ -541,6 +542,7 @@ public sealed partial class EmergencyShuttleSystem : EntitySystem
             _ => 1,
         };
 
+        // Multiplier = multiplier;
         ConsoleAccumulator *= multiplier;
 
         foreach (var shuttleDockResult in dockResults)

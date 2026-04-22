@@ -64,6 +64,7 @@ namespace Content.Server.Voting.Managers
         private VotingSystem? _votingSystem;
         private RoleSystem? _roleSystem;
         private GameTicker? _gameTicker;
+        private string _lastPickedPreset = ""; //режимы, которые уже были выбраны в прошлых голосованиях
 
         private static readonly Dictionary<StandardVoteType, CVarDef<bool>> VoteTypesToEnableCVars = new()
         {
@@ -287,6 +288,7 @@ namespace Content.Server.Voting.Managers
                     _chatManager.DispatchServerAnnouncement(
                         Loc.GetString("ui-vote-gamemode-win", ("winner", Loc.GetString(presets[picked]))));
                 }
+                _lastPickedPreset = picked;
                 _adminLogger.Add(LogType.Vote, LogImpact.Medium, $"Preset vote finished: {picked}");
                 var ticker = _entityManager.EntitySysManager.GetEntitySystem<GameTicker>();
                 ticker.SetGamePreset(picked);
@@ -632,7 +634,34 @@ namespace Content.Server.Voting.Managers
 
                 if(_playerManager.PlayerCount > (preset.MaxPlayers ?? int.MaxValue))
                     continue;
-
+                if(preset.ModeTitle == "traitor-title" && _playerManager.PlayerCount<10)
+                    continue;
+                if(preset.ModeTitle == "nukeops-title" && _playerManager.PlayerCount<25)
+                    continue;
+                if(preset.ModeTitle == "cosmiccult-title" && _playerManager.PlayerCount<25)
+                    continue;
+                if(preset.ModeTitle == "survivalplus-title" && _playerManager.PlayerCount<25)
+                    continue;
+                if(preset.ModeTitle == "secretplus-mid-title" && _playerManager.PlayerCount<25)
+                    continue;
+                if(preset.ModeTitle == "rev-title" && _playerManager.PlayerCount<30)
+                    continue;
+                if(preset.ModeTitle == "zombie-title" && _playerManager.PlayerCount<30)
+                    continue;
+                if(preset.ModeTitle == "shadowling-title" && _playerManager.PlayerCount<30)
+                    continue;
+                if(preset.ModeTitle == "blob-title" && _playerManager.PlayerCount<30)
+                    continue;
+                if(preset.ModeTitle == "xenomorph-title" && _playerManager.PlayerCount<35)
+                    continue;
+                if(preset.ModeTitle == "guide-title" && _playerManager.PlayerCount<25)
+                    continue;
+                if(preset.ModeTitle == "sleeper-title" && _playerManager.PlayerCount<25)
+                    continue;
+                if(preset.ModeTitle == "changeling-gamemode-title" && _playerManager.PlayerCount<30)
+                    continue;
+                if(preset.ID == _lastPickedPreset)
+                    continue;
                 presets[preset.ID] = preset.ModeTitle;
             }
             return presets;

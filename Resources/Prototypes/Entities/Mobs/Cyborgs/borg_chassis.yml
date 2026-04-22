@@ -47,7 +47,7 @@
   parent: BaseBorgChassisNT
   components:
   - type: TTS # CorvaxGoob-TTS
-    voice: TrainingRobot
+    voice: Robot
   - type: Sprite
     layers:
     - state: robot
@@ -143,6 +143,16 @@
     borgSubtype: default_service
 
 - type: entity
+  id: BorgChassisSecurity
+  parent: BorgChassisSelectable
+  name: security cyborg
+  components:
+  - type: BorgSwitchableType
+    selectedBorgType: security
+  - type: BorgSwitchableSubtype # Goobstation
+    borgSubtype: security_default
+
+- type: entity
   id: BorgChassisSyndicateAssault
   parent: BaseBorgChassisSyndicate
   name: syndicate assault cyborg
@@ -192,7 +202,7 @@
           map: ["light"]
           visible: false
     - type: BorgChassis
-      maxModules: 3
+      maxModules: 5
       moduleWhitelist:
         tags:
           - BorgModuleGeneric
@@ -249,6 +259,9 @@
       interactFailureString: petting-failure-syndicate-cyborg
       interactSuccessSound:
         path: /Audio/Ambience/Objects/periodic_beep.ogg
+    # - type: Mimicry
+    - type: PointLight
+      color: "#FFFFFFFF"
 
 - type: entity
   id: BorgChassisDerelict

@@ -1,0 +1,20 @@
+# Jumpsuit
+- type: loadout
+  id: TypanChefJumpsuit
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitTypanChef
+
+- type: loadout
+  id: TypanChefJumpskirt
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtTypanChef
+
+# Loadout Groups
+- type: loadoutGroup
+  id: TypanChefUniform
+  name: loadout-group-typan-chef-uniform
+  hidden: true
+  minLimit: 1
+  loadouts:
+  - TypanChefJumpsuit
+  - TypanChefJumpskirt

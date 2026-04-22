@@ -1,0 +1,18 @@
+<Document>
+  <ColorBox Color="#3a2a2a" OutlineColor="#5a4a4a" OutlineThickness="2" Margin="1">
+    <Box Orientation="Vertical">
+      <Box Orientation="Horizontal" HorizontalAlignment="Center">
+        5.1. Цель "Умереть Славной Смертью"
+        </Box>
+        <Box Orientation="Vertical" Margin="10">
+         Допускается унести с собой в могилу несколько человек моментальным    действием (например, взрыв ГСБ).
+
+         Не допускается:
+
+         Начинать расстрел всего персонала, пока вас не убьёт ОБР.
+
+         Выпускать теслу или сингулярность ради убийств.
+       </Box>
+      </Box>
+  </ColorBox>
+</Document>

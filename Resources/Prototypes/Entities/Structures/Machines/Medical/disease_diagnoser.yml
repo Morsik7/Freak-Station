@@ -18,6 +18,9 @@
   placement:
     mode: SnapgridCenter
   components:
+  - type: GuideHelp
+    guides:
+    - Virology
   - type: Sprite
     sprite: Structures/Machines/diagnoser.rsi
     layers:

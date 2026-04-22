@@ -285,8 +285,8 @@
 - type: entity
   parent: BaseMedicalPDA
   id: VirologistPDA
-  name: virology PDA
-  description: You're not sure if touching it is safe.
+  name: КПК вирусолога
+  description: Блестящий и вероятно заразный.
   components:
   - type: Pda
     id: VirologistIDCard
@@ -350,8 +350,8 @@
 - type: entity
   parent: BasePDA
   id: RadioHostPDA
-  name: radio host PDA
-  description: You're listening to the smooth sounds of 145.9 FM.
+  name: КПК радио ведущего
+  description: Вы слушаете лучшие хиты на этой стороне галактики!
   components:
   - type: Pda
     id: RadioHostIDCard

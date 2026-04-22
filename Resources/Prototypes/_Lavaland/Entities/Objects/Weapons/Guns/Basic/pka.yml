@@ -23,7 +23,7 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  name: proto-kinetic shotgun
+  name: протокинетический дробовик
   id: WeaponProtoKineticShotgun
   parent: [ BaseGunWieldable, WeaponProtoKineticAcceleratorBase, BaseCargoContraband ]
   description: Fires a spread of low-damage kinetic bolts that are half as effective for mining.
@@ -91,7 +91,7 @@
           - PKAUpgrade
 
 - type: entity
-  name: proto-kinetic repeater
+  name: протокинетический повторитель
   id: WeaponProtoKineticRepeater
   parent: [ WeaponProtoKineticAcceleratorBase, BaseCargoContraband ]
   description: Fires a barrage of medium-damage kinetic bolts at a short range.
@@ -120,7 +120,7 @@
     - 0,0,2,1
 
 - type: entity
-  name: proto-kinetic pistol
+  name: протокинетический пистолет
   id: WeaponProtoKineticPistol
   parent: [ WeaponProtoKineticAcceleratorBase, BaseCargoContraband ]
   description: Fires low-damage kinetic bolts, has a higher mod capacity.

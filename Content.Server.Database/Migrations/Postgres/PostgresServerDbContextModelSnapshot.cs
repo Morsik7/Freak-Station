@@ -21,7 +21,7 @@ namespace Content.Server.Database.Migrations.Postgres
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "10.0.0")
+                .HasAnnotation("ProductVersion", "9.0.1")
                 .HasAnnotation("Relational:MaxIdentifierLength", 63);
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
@@ -849,6 +849,44 @@ namespace Content.Server.Database.Migrations.Postgres
                         });
                 });
 
+            modelBuilder.Entity("Content.Server.Database.DailyRewardProgress", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer")
+                        .HasColumnName("daily_reward_progress_id");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("CurrentStreak")
+                        .HasColumnType("integer")
+                        .HasColumnName("current_streak");
+
+                    b.Property<DateTime?>("LastClaimTime")
+                        .HasColumnType("timestamp with time zone")
+                        .HasColumnName("last_claim_time");
+
+                    b.Property<DateTime?>("PendingActiveDate")
+                        .HasColumnType("timestamp with time zone")
+                        .HasColumnName("pending_active_date");
+
+                    b.Property<TimeSpan>("PendingActiveTime")
+                        .HasColumnType("interval")
+                        .HasColumnName("pending_active_time");
+
+                    b.Property<Guid>("PlayerId")
+                        .HasColumnType("uuid")
+                        .HasColumnName("player_id");
+
+                    b.HasKey("Id")
+                        .HasName("PK_daily_reward_progress");
+
+                    b.HasIndex("PlayerId")
+                        .IsUnique();
+
+                    b.ToTable("daily_reward_progress", (string)null);
+                });
+
             modelBuilder.Entity("Content.Server.Database.IPIntelCache", b =>
                 {
                     b.Property<int>("Id")
@@ -997,6 +1035,121 @@ namespace Content.Server.Database.Migrations.Postgres
                         });
                 });
 
+            modelBuilder.Entity("Content.Server.Database.PlayerAntagToken", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer")
+                        .HasColumnName("player_antag_token_id");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("Amount")
+                        .HasColumnType("integer")
+                        .HasColumnName("amount");
+
+                    b.Property<Guid>("PlayerId")
+                        .HasColumnType("uuid")
+                        .HasColumnName("player_id");
+
+                    b.Property<string>("TokenId")
+                        .IsRequired()
+                        .HasColumnType("text")
+                        .HasColumnName("token_id");
+
+                    b.HasKey("Id")
+                        .HasName("PK_player_antag_token");
+
+                    b.HasIndex("PlayerId", "TokenId")
+                        .IsUnique();
+
+                    b.ToTable("player_antag_token", (string)null);
+                });
+
+            modelBuilder.Entity("Content.Server.Database.PlayerAntagTokenSelection", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer")
+                        .HasColumnName("player_antag_token_selection_id");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("AntagId")
+                        .IsRequired()
+                        .HasColumnType("text")
+                        .HasColumnName("antag_id");
+
+                    b.Property<Guid>("PlayerId")
+                        .HasColumnType("uuid")
+                        .HasColumnName("player_id");
+
+                    b.Property<DateTime>("SelectedAt")
+                        .HasColumnType("timestamp with time zone")
+                        .HasColumnName("selected_at");
+
+                    b.Property<string>("TokenId")
+                        .IsRequired()
+                        .HasColumnType("text")
+                        .HasColumnName("token_id");
+
+                    b.HasKey("Id")
+                        .HasName("PK_player_antag_token_selection");
+
+                    b.HasIndex("PlayerId")
+                        .IsUnique();
+
+                    b.ToTable("player_antag_token_selection", (string)null);
+                });
+
+            modelBuilder.Entity("Content.Server.Database.PlayerGhostRoleTickets", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer")
+                        .HasColumnName("player_ghost_role_tickets_id");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("timestamp with time zone")
+                        .HasColumnName("created_at");
+
+                    b.Property<DateTime?>("LastGrantTime")
+                        .HasColumnType("timestamp with time zone")
+                        .HasColumnName("last_grant_time");
+
+                    b.Property<Guid>("PlayerId")
+                        .HasColumnType("uuid")
+                        .HasColumnName("player_id");
+
+                    b.Property<List<int>>("StreakMilestones")
+                        .IsRequired()
+                        .HasColumnType("jsonb")
+                        .HasColumnName("streak_milestones");
+
+                    b.Property<List<TimeSpan>>("TicketMilestones")
+                        .IsRequired()
+                        .HasColumnType("jsonb")
+                        .HasColumnName("ticket_milestones");
+
+                    b.Property<int>("Tickets")
+                        .HasColumnType("integer")
+                        .HasColumnName("tickets");
+
+                    b.Property<DateTime>("UpdatedAt")
+                        .HasColumnType("timestamp with time zone")
+                        .HasColumnName("updated_at");
+
+                    b.HasKey("Id")
+                        .HasName("PK_player_ghost_role_tickets");
+
+                    b.HasIndex("PlayerId")
+                        .IsUnique();
+
+                    b.ToTable("player_ghost_role_tickets", (string)null);
+                });
+
             modelBuilder.Entity("Content.Server.Database.Preference", b =>
                 {
                     b.Property<int>("Id")
@@ -1121,12 +1274,10 @@ namespace Content.Server.Database.Migrations.Postgres
                         .HasColumnType("text")
                         .HasColumnName("species");
 
-                    // Corvax-TTS-Start
                     b.Property<string>("Voice")
                         .IsRequired()
                         .HasColumnType("text")
                         .HasColumnName("voice");
-                    // Corvax-TTS-End
 
                     b.HasKey("Id")
                         .HasName("PK_profile");
@@ -1334,6 +1485,58 @@ namespace Content.Server.Database.Migrations.Postgres
                         .HasDatabaseName("IX_server_ban_hit_connection_id");
 
                     b.ToTable("server_ban_hit", (string)null);
+                });
+
+            modelBuilder.Entity("Content.Server.Database.ServerDbContext+SponsorDataRaw", b =>
+                {
+                    b.Property<Guid>("PlayerUserId")
+                        .HasColumnType("uuid")
+                        .HasColumnName("player_user_id");
+
+                    b.Property<string>("Color")
+                        .HasMaxLength(10)
+                        .HasColumnType("character varying(10)")
+                        .HasColumnName("color");
+
+                    b.Property<int>("ExtraCharSlots")
+                        .HasColumnType("integer")
+                        .HasColumnName("extra_char_slots");
+
+                    b.Property<bool>("ServerPriorityJoin")
+                        .HasColumnType("boolean")
+                        .HasColumnName("server_priority_join");
+
+                    b.HasKey("PlayerUserId")
+                        .HasName("PK_sponsors_list");
+
+                    b.ToTable("sponsors_list", (string)null);
+                });
+
+            modelBuilder.Entity("Content.Server.Database.ServerDbContext+SponsorPrototypeData", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer")
+                        .HasColumnName("sponsors_prototypes_id");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<Guid>("PlayerUserId")
+                        .HasColumnType("uuid")
+                        .HasColumnName("player_user_id");
+
+                    b.Property<string>("Prototype")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("character varying(50)")
+                        .HasColumnName("prototype");
+
+                    b.HasKey("Id")
+                        .HasName("PK_sponsors_prototypes");
+
+                    b.HasIndex("PlayerUserId");
+
+                    b.ToTable("sponsors_prototypes", (string)null);
                 });
 
             modelBuilder.Entity("Content.Server.Database.Trait", b =>
@@ -1971,6 +2174,32 @@ namespace Content.Server.Database.Migrations.Postgres
                     b.Navigation("Connection");
                 });
 
+            modelBuilder.Entity("Content.Server.Database.ServerDbContext+SponsorDataRaw", b =>
+                {
+                    b.HasOne("Content.Server.Database.Player", "Player")
+                        .WithOne("SponsorData")
+                        .HasForeignKey("Content.Server.Database.ServerDbContext+SponsorDataRaw", "PlayerUserId")
+                        .HasPrincipalKey("Content.Server.Database.Player", "UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired()
+                        .HasConstraintName("FK_sponsors_list_player_player_user_id");
+
+                    b.Navigation("Player");
+                });
+
+            modelBuilder.Entity("Content.Server.Database.ServerDbContext+SponsorPrototypeData", b =>
+                {
+                    b.HasOne("Content.Server.Database.Player", "Player")
+                        .WithMany("Prototypes")
+                        .HasForeignKey("PlayerUserId")
+                        .HasPrincipalKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired()
+                        .HasConstraintName("FK_sponsors_prototypes_player_player_id");
+
+                    b.Navigation("Player");
+                });
+
             modelBuilder.Entity("Content.Server.Database.Trait", b =>
                 {
                     b.HasOne("Content.Server.Database.Profile", "Profile")
@@ -2084,6 +2313,10 @@ namespace Content.Server.Database.Migrations.Postgres
                     b.Navigation("AdminWatchlistsReceived");
 
                     b.Navigation("JobWhitelists");
+
+                    b.Navigation("Prototypes");
+
+                    b.Navigation("SponsorData");
                 });
 
             modelBuilder.Entity("Content.Server.Database.Preference", b =>

@@ -1,0 +1,88 @@
+- type: gameMap
+  id: MiniSilly
+  mapName: "Silly"
+  mapPath: /Maps/_Mini/silly.yml
+  maxRandomOffset: 0
+  randomRotation: false
+  minPlayers: 0
+  maxPlayers: 24
+  stations:
+    MiniSilly:
+      stationProto: StandardNanotrasenStation
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: "{0} Силли {1}"
+          nameGenerator: !type:NanotrasenNameGenerator
+            prefixCreator: "ABK"
+        - type: StationEmergencyShuttle
+          emergencyShuttlePath: /Maps/_CorvaxGoob/Stations/Silly/Shuttles/corvax_emergency_silly.yml
+        - type: StationJobs
+          availableJobs:
+            Captain: [1, 1]
+            NanotrasenRepresentative: [1, 1]
+            BlueshieldOfficer: [1, 1]
+            HeadOfPersonnel: [1, 1]
+            Bartender: [2, 2]
+            Botanist: [3, 3]
+            Chef: [2, 2]
+            Janitor: [2, 2]
+            Chaplain: [1, 1]
+            Reporter: [1, 1]
+            RadioHost: [1, 1]
+            ServiceWorker: [2, 2]
+            #engineering
+            ChiefEngineer: [1, 1]
+            AtmosphericTechnician: [3, 3]
+            StationEngineer: [5, 5]
+            TechnicalAssistant: [4, 4]
+            #medical
+            ChiefMedicalOfficer: [1, 1]
+            Chemist: [2, 2]
+            MedicalDoctor: [4, 4]
+            Paramedic: [1, 1]
+            MedicalIntern: [4, 4]
+            Psychologist: [1, 1]
+            Virologist: [2, 3]
+            #science
+            ResearchDirector: [1, 1]
+            Scientist: [5, 5]
+            ResearchAssistant: [4, 4]
+            #security
+            HeadOfSecurity: [1, 1]
+            Warden: [1, 1]
+            SecurityOfficer: [5, 5]
+            Detective: [1, 1]
+            SecurityCadet: [4, 4]
+            Lawyer: [2, 2]
+            Brigmedic: [1, 1]
+            #supply
+            Quartermaster: [1, 1]
+            SalvageSpecialist: [2, 2]
+            #civilian
+            Passenger: [1, 1]
+            Clown: [1, 1]
+            Mime: [1, 1]
+            Musician: [1, 1]
+            #silicon
+            StationAi: [1, 1]
+            Borg: [2, 3]
+        - type: StationGoal
+          goals:
+            - Singularity
+            - SolarPanels
+            - Artifacts
+            - Bank
+            - Zoo
+            - MiningOutpost
+            - Tesla
+            - SecurityTraining
+            - Theatre
+            - Botany
+            - Bunker
+            - BluespaceHarvest
+        # Corvax-next blob-config-start LOW
+        - type: StationBlobConfig
+          stageBegin: 10
+          stageCritical: 300
+          stageTheEnd: 600
+        # Corvax-next blob-config-end

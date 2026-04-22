@@ -7,8 +7,16 @@
     "y": 32
   },
   "states": [
-	  {
-      "name": "pda-shaftminer"
+    {
+      "name": "pda-shaftminer",
+      "delays": [
+        [
+          0.3,
+          0.3,
+          0.3,
+          0.3
+        ]
+      ]
     },
 	  {
       "name": "id_overlay"

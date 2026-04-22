@@ -168,11 +168,14 @@ public static class ClientPackaging
 
         var modules = FindAllModules(contentDir);
 
+        var assemblies = new List<string>(modules);
+        assemblies.AddRange(new[] { "Content.SponsorImplementations.Shared", "Content.SponsorImplementations.Client" });
+
         await RobustSharedPackaging.WriteContentAssemblies(
             inputPass,
             contentDir,
             "Content.Client",
-            modules.ToArray(),
+            assemblies.ToArray(),
             cancel: cancel);
 
         await WriteClientResources(contentDir, inputPass, cancel);

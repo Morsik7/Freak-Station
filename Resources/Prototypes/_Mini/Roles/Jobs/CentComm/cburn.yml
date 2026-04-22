@@ -1,0 +1,130 @@
+#CBURN GEAR
+
+# Leader
+## CBURN
+- type: job
+  id: CBURNLeader
+  name: job-name-cburn-leader
+  description: job-description-cburnleader
+  skills: # CorvaxGoob-Skills
+  - All
+  playTimeTracker: JobCBURNLeader
+  setPreference: false
+  startingGear: CBURNLeaderGear
+  icon: "JobIconERTLeader"
+  supervisors: job-supervisors-centcom
+  canBeAntag: false
+  requirements:
+  - !type:DepartmentTimeRequirement
+    department: Medical
+    time: 36000
+  - !type:DepartmentTimeRequirement
+    department: Security
+    time: 72000
+  - !type:DepartmentTimeRequirement
+    department: Command
+    time: 36000
+  accessGroups:
+  - AllAccess
+  access:
+  - CentralCommand
+  - ErtTeamLeader
+  special:
+  - !type:AddImplantSpecial
+    implants: [ MindShieldImplant, TrackingImplant ]
+
+- type: startingGear
+  id: CBURNLeaderGear
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitColorBrown
+    mask: ClothingMaskGasExplorer
+    eyes: ClothingEyesGlassesSecurity
+    ears: ClothingHeadsetCentCom
+    neck: ClothingNeckMantleCBURNLeaderShoulder
+    gloves: ClothingHandsGlovesCombat
+    outerClothing: ClothingOuterHardsuitCBURNLeader
+    shoes: ClothingShoesBootsCombatFilled
+    id: CBURNPDA
+    pocket1: DoubleEmergencyOxygenTankFilled
+    pocket2: DoorRemoteAll
+
+
+# Agent
+
+## CBURN
+- type: job
+  id: CBURNAgent
+  name: job-name-cburn-agent
+  description: job-description-cburnagent
+  playTimeTracker: JobCBURNAgent
+  setPreference: false
+  startingGear: CBURNAgentGear
+  icon: "JobIconERT"
+  skills: # CorvaxGoob-Skills
+  - All
+  supervisors: job-supervisors-centcom
+  canBeAntag: false
+  requirements:
+  - !type:DepartmentTimeRequirement
+    department: Medical
+    time: 14400
+  - !type:DepartmentTimeRequirement
+    department: Security
+    time: 50400
+  accessGroups:
+  - AllAccess
+  access:
+  - CentralCommand
+  special:
+  - !type:AddImplantSpecial
+    implants: [ MindShieldImplant, TrackingImplant ]
+
+- type: startingGear
+  id: CBURNAgentGear
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitColorBrown
+    back: ClothingBackpackDuffelCBURN
+    mask: ClothingMaskGasERT
+    neck: ExecutiveIDCard # Executive Access!
+    eyes: ClothingEyesGlassesMedSec # Better glasses
+    ears: ClothingHeadsetAltCentCom
+    gloves: ClothingHandsGlovesCombat
+    outerClothing: ClothingOuterHardsuitCBURN
+    shoes: ClothingShoesBootsMagEmergencyResponseTeam # Goobstation
+    id: CBURNPDA # Todo - Replace it.
+    pocket1: InfectionScannerCburn # Goob
+    pocket2: WeaponPulsePistol
+    belt: ClothingBeltSecurityFilled # No shotgun, no bandolier.
+  storage:
+    back:
+    # - WeaponPulseCarbine # CBURN desperately needs a good fucking gun, not that dogshit. - Also, this gun is literally never used.
+    - AmbuzolPlusMedipen # Injectors are cooler.
+    - BaseUplinkCBRUN
+    - AmbuzolMedipen # Injectors are cooler.
+    - AmbuzolMedipen # Injectors are cooler.
+    - MedkitCombatFilled # Ah yes, let's send them in with ZERO meds. Good luck!
+    - CburnSpear # SPEAAR
+
+# Other
+- type: entity
+  parent: ClothingNeckMantleHOS
+  id: ClothingNeckMantleCBURNLeaderShoulder
+  name: наплечная мантия командира РХБЗЗ
+  description: Мантия отличающая командира РХБЗЗ от его подчинённых.
+  components:
+  - type: Sprite
+    sprite: Clothing/Neck/mantles/hosmantle.rsi
+  - type: Clothing
+    sprite: Clothing/Neck/mantles/hosmantle.rsi
+
+- type: entity
+  parent: PillCanister
+  id: PillCanisterCBURN
+  name: баночка для таблеток
+  description: Содержит пять таблеток амбузола. Часть стандартного снаряжения члена РХБЗЗ.
+  suffix: Амбузол, РХБЗЗ
+  components:
+  - type: StorageFill
+    contents:
+    - id: PillAmbuzol
+      amount: 5

@@ -16,6 +16,10 @@ namespace Content.Client.Lobby.UI.Roles;
 public sealed partial class TraitPreferenceSelector : Control
 {
     public int Cost;
+    // SPONSOR THINK START
+    public bool SponsorOnly;
+    public string Id;
+    // SPONSOR THINK END
 
     public bool Preference
     {
@@ -32,6 +36,10 @@ public sealed partial class TraitPreferenceSelector : Control
         var text = trait.Cost != 0 ? $"[{trait.Cost}] " : "";
         text += Loc.GetString(trait.Name);
 
+        // SPONSOR THINK START
+        SponsorOnly = trait.SponsorOnly;
+        Id = trait.ID;
+        // SPONSOR THINK END
         Cost = trait.Cost;
         Checkbox.Text = text;
         Checkbox.OnToggled += OnCheckBoxToggled;

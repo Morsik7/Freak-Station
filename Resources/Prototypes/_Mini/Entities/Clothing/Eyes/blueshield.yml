@@ -1,0 +1,10 @@
+- type: entity
+  parent: ClothingEyesGlassesBSO
+  name: линзы Синего Щита
+  description: Линзы, разработанные для корпуса "Синий Щит". Имеют тот же функционал, что и очки.
+  id: ClothingEyesLensesBlueshield
+  components:
+  - type: Sprite
+    sprite: _Mini/Clothing/Eyes/blueshield_lenses.rsi
+  - type: Clothing
+    sprite: _Mini/Clothing/Eyes/blueshield_lenses.rsi

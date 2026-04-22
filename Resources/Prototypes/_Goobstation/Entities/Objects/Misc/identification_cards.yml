@@ -347,7 +347,7 @@
 - type: entity
   parent: IDCardStandard
   id: RadioHostIDCard
-  name: radio host ID card
+  name: ID карточка радио ведущего
   components:
   - type: Sprite
     layers:

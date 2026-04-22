@@ -4,7 +4,7 @@
   description: uplink-syndicate-capture-device-scd-desc
   productEntity: WeaponGrapplingGunHunterSyndicate
   cost:
-    Telecrystal: 40
+    Telecrystal: 6
   categories:
   - UplinkWeaponry
   conditions:
@@ -19,7 +19,7 @@
   description: uplink-cat-maid-bundle-desc
   productEntity: ClothingBackpackDuffelSyndicateCatMaidBundle
   cost:
-    Telecrystal: 135
+    Telecrystal: 27
   categories:
   - UplinkPointless
 

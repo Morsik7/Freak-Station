@@ -1,0 +1,40 @@
+- type: job
+  id: TypanCargotech
+  name: job-name-typan-cargotech
+  playTimeTracker: JobTypanCargotech
+  description: job-description-typan-cargotech
+  startingGear: TypanCargotech
+  icon: "JobIconTypanCargotech"
+  supervisors: job-supervisors-typan-telecommunications-officer
+  canBeAntag: false
+  requirements:
+    - !type:DepartmentTimeRequirement
+      department: Cargo
+      time: 18000
+  access:
+  - TypanCargo
+  - TypanMaint
+  - SyndicateAgent
+  - TypanExternal
+  skills: # CorvaxGoob-Skills
+    - Shooting
+    - ShuttleControl
+    - Butchering
+  special:
+  - !type:AddComponentSpecial
+    components:
+      - type: AntagImmune
+      - type: NpcFactionMember
+        factions:
+        - Typan
+
+- type: startingGear
+  id: TypanCargotech
+  equipment:
+    eyes: ClothingEyesHudTypanDiagnostic
+    ears: ClothingHeadsetAltSyndicate
+    jumpsuit: ClothingUniformJumpsuitTypanCargotech
+    shoes: ClothingShoesBootsCombatSyndie
+    id: SyndiPDACargo
+    outerClothing: ClothingOuterCoatLetterman
+

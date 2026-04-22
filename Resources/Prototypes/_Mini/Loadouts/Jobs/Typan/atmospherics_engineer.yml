@@ -1,0 +1,21 @@
+# Jumpsuit
+- type: loadout
+  id: TypanAtmosphericsEngineerJumpsuit
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitTypanAtmosphericsEngineer
+
+- type: loadout
+  id: TypanAtmosphericsEngineerJumpskirt
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtTypanAtmosphericsEngineer
+
+# Loadout Groups
+- type: loadoutGroup
+  id: TypanAtmosphericsEngineerUniform
+  name: loadout-group-typan-atmospherics-engineer-uniform
+  hidden: true
+  minLimit: 1
+  loadouts:
+  - TypanAtmosphericsEngineerJumpsuit
+  - TypanAtmosphericsEngineerJumpskirt
+

@@ -1,0 +1,110 @@
+﻿- type: entity
+  id: MachineAnomalyGeneratorTypan
+  parent: MachineAnomalyGenerator
+  name: генератор аномалий
+  description: Вершина псевдонаучных технологий.
+  suffix: Тайпан
+  placement:
+    mode: AlignTileAny
+  components:
+  - type: Sprite
+    sprite: _Mini/Structures/Machines/Typan/anomaly_generator.rsi
+    offset: 0,1
+    drawdepth: Mobs
+    layers:
+    - state: base
+    - state: panel
+      map: ["enum.WiresVisualLayers.MaintenancePanel"]
+      visible: false
+    - state: unshaded
+      shader: unshaded
+      map: ["enum.PowerDeviceVisualLayers.Powered"]
+    - state: inserting
+      visible: false
+      map: ["enum.MaterialStorageVisualLayers.Inserting"]
+    - state: generating
+      visible: false
+      shader: unshaded
+      map: ["enum.AnomalyGeneratorVisualLayers.Base"]
+  - type: AnomalyGenerator
+    spawnerPrototype: RandomAnomalySpawner
+  - type: ActiveRadio
+    channels:
+    - Syndicate
+  - type: AccessReader
+    access: [["TypanScience"]]
+
+- type: entity
+  id: ResearchAndDevelopmentServerTypan
+  parent: ResearchAndDevelopmentServer
+  name: сервер РнД
+  description: Содержит коллективные знания ученых синдиката. Уничтожив его, они вернулись бы в каменный век. Вы же этого не хотите, не так ли?
+  suffix: Тайпан
+  components:
+  - type: Sprite
+    sprite: _Mini/Structures/Machines/Typan/server.rsi
+    layers:
+      - state: server
+      - state: variant-research
+      - state: server_o
+        map: ["enum.WiresVisualLayers.MaintenancePanel"]
+  - type: ResearchServer
+#   isTypan: true
+  - type: TechnologyDatabase
+    supportedDisciplines:
+    - TypanMechworks
+    - TypanWeaponry
+    - TypanResearch
+    - TypanLifeSupport
+  - type: Machine
+    board: ResearchAndDevelopmentServerMachineCircuitboardTypan
+
+- type: entity
+  parent: MachineAnomalyVessel
+  id: MachineAnomalyVesselTypan
+  name: сосуд аномалии
+  description: Контейнер, способный проводить сканирование аномалии и превращать её в очки исследований.
+  suffix: Тайпан
+  components:
+  - type: Sprite
+    noRot: true
+    sprite: _Mini/Structures/Machines/Typan/anomaly_vessel.rsi
+    layers:
+    - state: base
+    - state: powered-1
+      shader: unshaded
+      map: [ "enum.PowerDeviceVisualLayers.Powered" ]
+    - state: anomaly-1
+      visible: false
+      shader: unshaded
+      map: [ "enum.AnomalyVesselVisualLayers.Base" ]
+    - state: panel
+      map: [ "enum.WiresVisualLayers.MaintenancePanel" ]
+  - type: ResearchClient
+#   isTypan: true
+  - type: Machine
+    board: AnomalyVesselCircuitboardTypan
+  - type: PointLight
+    radius: 1.2
+    energy: 2
+    color: "#8B0000"
+
+- type: entity
+  parent: MachineAnomalyVesselExperimental
+  id: MachineAnomalyVesselExperimentalTypan
+  name: экспериментальный сосуд аномалии
+  description: Усовершенствованный сосуд аномалии, обладающий большим исследовательским потенциалом за счёт повышенной летучести и низкоуровневого радиоактивного распада в окружающую среду.
+  suffix: Тайпан
+  components:
+  - type: Sprite
+    sprite: _Mini/Structures/Machines/Typan/adv_anomaly_vessel.rsi
+    offset: 0,0.5
+    drawdepth: Mobs
+  - type: ResearchClient
+#   isTypan: true
+  - type: Machine
+    board: AnomalyVesselExperimentalCircuitboardTypan
+  - type: PointLight
+    radius: 1.2
+    energy: 2
+    color: "#8B0000"

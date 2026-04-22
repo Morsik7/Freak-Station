@@ -148,7 +148,7 @@
 
 - type: entity
   name: ????
-  parent: SimpleSpaceMobBase 
+  parent: SimpleSpaceMobBase
   id: MobHasturClone
   suffix: DO NOT MAP
   description: He who must not be named...

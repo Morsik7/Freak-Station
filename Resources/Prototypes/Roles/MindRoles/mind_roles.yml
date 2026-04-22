@@ -26,6 +26,7 @@
   id: BaseMindRoleAntag
   abstract: true
   components:
+  - type: IgnoreSkills
   - type: MindRole
     antag: true
     antagPrototype: GenericAntagonist
@@ -207,7 +208,7 @@
 - type: entity
   parent: MindRoleNukeops
   id: MindRoleNukeopsCommander
-  name: Nukeops Commander Role
+  name: Nukeops Commander role
   components:
   - type: MindRole
     antagPrototype: NukeopsCommander

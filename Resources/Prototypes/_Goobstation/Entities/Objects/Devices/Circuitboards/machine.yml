@@ -49,7 +49,7 @@
   parent: BaseMachineCircuitboard
   id: StorageBinCircuitboard
   name: storage bin machine board
-  description: A machine printed circuit board for a storage bin.
+  description: A machine printed circuit board for a storage bin fuck.
   components:
   - type: MachineBoard
     prototype: StorageBin

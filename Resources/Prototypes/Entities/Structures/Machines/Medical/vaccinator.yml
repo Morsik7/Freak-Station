@@ -81,3 +81,6 @@
           True: { visible: true }
           False: { visible: false }
   # </Goobstation>
+  - type: GuideHelp
+    guides:
+    - Virology

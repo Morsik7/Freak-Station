@@ -33,7 +33,7 @@ rev-briefing = Помогите главам революции избавить
 
 ## General
 
-rev-title = Революционеры
+rev-title = Революция
 rev-description = Революционеры среди нас.
 rev-not-enough-ready-players = Недостаточно игроков готовы к игре! { $readyPlayersCount } игроков из необходимых { $minimumPlayers } готовы. Нельзя запустить пресет Революционеры.
 rev-no-one-ready = Нет готовых игроков! Нельзя запустить пресет Революционеры.
@@ -60,6 +60,6 @@ rev-reverse-stalemate = Главы революции и командный со
 rev-deconverted-title = Разконвертированы!
 rev-deconverted-text =
     Со смертью последнего главы революции, революция оканчивается.
-    
+
     Вы больше не революционер, так что ведите себя хорошо.
 rev-deconverted-confirm = Подтвердить

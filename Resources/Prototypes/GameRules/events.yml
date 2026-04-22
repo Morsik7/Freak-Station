@@ -190,7 +190,7 @@
     - id: KingRatMigration
     - id: NinjaSpawn
     - id: ParadoxCloneSpawn
-    #- id: RevenantSpawn  # GoobStation - removed till rework
+    - id: RevenantSpawn  # GoobStation - removed till rework
     - id: SleeperAgents
     - id: ZombieOutbreak
     - id: LoneOpsSpawn
@@ -470,6 +470,12 @@
         color: Green
         sound: /Audio/Misc/ninja_greeting.ogg
       components:
+      # Mini edit start
+      - type: GhostPanelAntagonistMarker
+        name: ghost-panel-antagonist-ninja-name
+        description: ghost-panel-antagonist-ninja-description
+        priority: 40
+      # Mini edit end
       - type: SpaceNinja
       - type: NpcFactionMember
         factions:
@@ -533,27 +539,27 @@
       mindRoles:
       - MindRoleParadoxClone
 
-#- type: entity   Goobstaion start - disabled until rework
-#  parent: BaseGameRule
-#  id: RevenantSpawn
-#  components:
-#  - type: StationEvent
-#    weight: 3.5
-#    duration: 1
-#    earliestStart: 30
-#    minimumPlayers: 20
-#    chaos: # Goobstation
-#      Hostile: 20
-#      Friend: 20
-#      Combat: 40
-#      Death: 100
-#      Medical: 100
-#    eventType: HostilesSpawn # Goobstation
-#  # Goobstation
-#  - type: GameRule
-#    chaosScore: 450
-#  - type: RandomSpawnRule
-#    prototype: MobRevenant      goobstation end
+- type: entity
+  parent: BaseGameRule
+  id: RevenantSpawn
+  components:
+  - type: StationEvent
+    weight: 3.5
+    duration: 1
+    earliestStart: 30
+    minimumPlayers: 20
+    chaos: # Goobstation
+      Hostile: 20
+      Friend: 20
+      Combat: 40
+      Death: 100
+      Medical: 100
+    eventType: HostilesSpawn # Goobstation
+  # Goobstation
+  - type: GameRule
+    chaosScore: 450
+  - type: RandomSpawnRule
+    prototype: MobRevenant
 
 # Goob - wiz of our own
 #- type: entity
@@ -923,6 +929,12 @@
       roleLoadout:
       - RoleSurvivalNukie
       components:
+      # Mini edit start
+      - type: GhostPanelAntagonistMarker
+        name: ghost-panel-antagonist-loneops-name
+        description: ghost-panel-antagonist-loneops-description
+        priority: 20
+      # Mini edit end
       - type: NukeOperative
       - type: RandomMetadata
         nameSegments:
