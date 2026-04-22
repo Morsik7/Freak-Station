@@ -7,7 +7,7 @@
     - type: StorageFill
       contents:
         - id: Syringe
-          amount: 15
+          amount: 15  # 15 шприца, если коробка 16 на 16
     - type: Item
       size: Small
       shape:
@@ -16,10 +16,7 @@
       maxItemSize: Small
       grid:
         - 0,0,3,3
-      whitelist:
-        tags:
-          - Syringe
     - type: Sprite
       layers:
-        - state: box_medical # Corvax-Resprite
-        - state: syringe
+      - state: box_medical # Corvax-Resprite
+      - state: syringe

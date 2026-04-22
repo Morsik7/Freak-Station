@@ -25,116 +25,71 @@
     factions:
     - Typan
 
-- type: entity
-  parent: WeaponEnergyTurretStationBase
-  id: WeaponEnergyTurretTypanAI
-  name: охранная турель
-  description: Высокотехнологичная автономная система вооружения, предназначенная для предотвращения проникновений посторонних лиц в важные зоны.
-  suffix: Тайпан, ИИ, Борги
-  components:
-  - type: Sprite
-    sprite: _Mini/Objects/Weapons/Guns/Turrets/turrets.rsi
-    layers:
-      - state: stand
-      - state: typan
-        map: [ "enum.DeployableTurretVisuals.Weapon" ]
-        visible: false
-      - state: typan
-        map: [ "enum.PowerDeviceVisualLayers.Powered" ]
-        visible: false
-      - state: stand
-        map: [ "enum.DeployableTurretVisuals.Turret" ]
-  - type: DeployableTurret
-    deployedState: full
-    retractedState: stand
-    deployingState: full
-    retractingState: stand
-  - type: AccessReader
-    access: [["StationAi"], ["TypanResearchDirector"]]
-  - type: StationAiTurret
-  - type: TurretTargetSettings
-    exemptAccessLevels:
-    - Borg
-    - BasicSilicon
-  - type: Machine
-    board: WeaponEnergyTurretTypanAIMachineCircuitboard
-  - type: DeviceNetwork
-    receiveFrequencyId: TurretControlAI
-    transmitFrequencyId: TurretAI
+# - type: entity
+#   parent: WeaponEnergyTurretStationBase
+#   id: WeaponEnergyTurretTypanAI
+#   name: охранная турель
+#   description: Высокотехнологичная автономная система вооружения, предназначенная для предотвращения проникновений посторонних лиц в важные зоны.
+#   suffix: Тайпан, ИИ, Борги
+#   components:
+#   - type: Sprite
+#     sprite: _Mini/Objects/Weapons/Guns/Turrets/sentry_turret.rsi
+#   - type: AccessReader
+#     access: [["StationAi"], ["TypanResearchDirector"]]
+#   - type: StationAiTurret
+#   - type: TurretTargetSettings
+#     exemptAccessLevels:
+#     - Borg
+#     - BasicSilicon
+#   - type: Machine
+#     board: WeaponEnergyTurretTypanAIMachineCircuitboard
+#   - type: DeviceNetwork
+#     receiveFrequencyId: TurretControlAI
+#     transmitFrequencyId: TurretAI
 
-- type: entity
-  parent: WeaponEnergyTurretStationBase
-  id: WeaponEnergyTurretTypanProtection
-  name: охранная турель
-  description: Высокотехнологичная автономная система вооружения, предназначенная для предотвращения проникновений посторонних лиц в важные зоны.
-  suffix: Тайпан, Охрана
-  components:
-  - type: Sprite
-    sprite: _Mini/Objects/Weapons/Guns/Turrets/turrets.rsi
-    layers:
-      - state: stand
-      - state: typan
-        map: [ "enum.DeployableTurretVisuals.Weapon" ]
-        visible: false
-      - state: typan
-        map: [ "enum.PowerDeviceVisualLayers.Powered" ]
-        visible: false
-      - state: stand
-        map: [ "enum.DeployableTurretVisuals.Turret" ]
-  - type: DeployableTurret
-    deployedState: full
-    retractedState: stand
-    deployingState: full
-    retractingState: stand
-  - type: AccessReader
-    access: [["StationAi"], ["TypanProtection"]]
-  - type: TurretTargetSettings
-    exemptAccessLevels:
-    - TypanProtection
-    - Borg
-    - BasicSilicon
-  - type: Machine
-    board: WeaponEnergyTurretTypanProtectionMachineCircuitboard
-  - type: DeviceNetwork
-    receiveFrequencyId: TurretControl
-    transmitFrequencyId: Turret
+# - type: entity
+#   parent: WeaponEnergyTurretStationBase
+#   id: WeaponEnergyTurretTypanProtection
+#   name: охранная турель
+#   description: Высокотехнологичная автономная система вооружения, предназначенная для предотвращения проникновений посторонних лиц в важные зоны.
+#   suffix: Тайпан, Охрана
+#   components:
+#   - type: Sprite
+#     sprite: _Mini/Objects/Weapons/Guns/Turrets/sentry_turret.rsi
+#   - type: AccessReader
+#     access: [["StationAi"], ["TypanProtection"]]
+#   - type: TurretTargetSettings
+#     exemptAccessLevels:
+#     - TypanProtection
+#     - Borg
+#     - BasicSilicon
+#   - type: Machine
+#     board: WeaponEnergyTurretTypanProtectionMachineCircuitboard
+#   - type: DeviceNetwork
+#     receiveFrequencyId: TurretControl
+#     transmitFrequencyId: Turret
 
-- type: entity
-  parent: WeaponEnergyTurretStationBase
-  id: WeaponEnergyTurretTypanCommand
-  name: охранная турель
-  description: Высокотехнологичная автономная система вооружения, предназначенная для предотвращения проникновений посторонних лиц в важные зоны.
-  suffix: Тайпан, Командование
-  components:
-  - type: Sprite
-    sprite: _Mini/Objects/Weapons/Guns/Turrets/turrets.rsi
-    layers:
-      - state: stand
-      - state: typan
-        map: [ "enum.DeployableTurretVisuals.Weapon" ]
-        visible: false
-      - state: typan
-        map: [ "enum.PowerDeviceVisualLayers.Powered" ]
-        visible: false
-      - state: stand
-        map: [ "enum.DeployableTurretVisuals.Turret" ]
-  - type: DeployableTurret
-    deployedState: full
-    retractedState: stand
-    deployingState: full
-    retractingState: stand
-  - type: AccessReader
-    access: [["StationAi"], ["TypanCommand"]]
-  - type: TurretTargetSettings
-    exemptAccessLevels:
-    - TypanCommand
-    - Borg
-    - BasicSilicon
-  - type: Machine
-    board: WeaponEnergyTurretTypanCommandMachineCircuitboard
-  - type: DeviceNetwork
-    receiveFrequencyId: TurretControl
-    transmitFrequencyId: Turret
+# - type: entity
+#   parent: WeaponEnergyTurretStationBase
+#   id: WeaponEnergyTurretTypanCommand
+#   name: охранная турель
+#   description: Высокотехнологичная автономная система вооружения, предназначенная для предотвращения проникновений посторонних лиц в важные зоны.
+#   suffix: Тайпан, Командование
+#   components:
+#   - type: Sprite
+#     sprite: _Mini/Objects/Weapons/Guns/Turrets/sentry_turret.rsi
+#   - type: AccessReader
+#     access: [["StationAi"], ["TypanCommand"]]
+#   - type: TurretTargetSettings
+#     exemptAccessLevels:
+#     - TypanCommand
+#     - Borg
+#     - BasicSilicon
+#   - type: Machine
+#     board: WeaponEnergyTurretTypanCommandMachineCircuitboard
+#   - type: DeviceNetwork
+#     receiveFrequencyId: TurretControl
+#     transmitFrequencyId: Turret
 
 - type: entity
   parent: BaseStructure

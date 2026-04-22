@@ -30,7 +30,7 @@
     spawnerPrototype: RandomAnomalySpawner
   - type: ActiveRadio
     channels:
-    - Syndicate
+    - Typan
   - type: AccessReader
     access: [["TypanScience"]]
 

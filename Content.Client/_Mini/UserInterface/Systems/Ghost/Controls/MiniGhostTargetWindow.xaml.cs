@@ -87,7 +87,7 @@ public sealed partial class MiniGhostTargetWindow : DefaultWindow
         // AddPlayerButtons(_deadPlayers, "ghost-teleport-menu-dead-label");
 
         // Призраки
-        AddPlayerButtons(_ghostPlayers, "ghost-teleport-menu-ghosts-label");
+        // AddPlayerButtons(_ghostPlayers, "ghost-teleport-menu-ghosts-label");
 
         // Остальные
         // AddPlayerButtons(_leftPlayers, "ghost-teleport-menu-left-label");
@@ -102,7 +102,7 @@ public sealed partial class MiniGhostTargetWindow : DefaultWindow
         _alivePlayers.Clear();
         // _deadPlayers.Clear();
         // _leftPlayers.Clear();
-        _ghostPlayers.Clear();
+        // _ghostPlayers.Clear();
 
         foreach (var warp in _playerWarps)
         {
@@ -110,9 +110,9 @@ public sealed partial class MiniGhostTargetWindow : DefaultWindow
             //     _deadPlayers.Add(warp);
             // else if (warp.IsLeft) // Ливнувшие
             //     _leftPlayers.Add(warp);
-            if (warp.IsGhost) // Призраки
-                _ghostPlayers.Add(warp);
-            else if (!warp.IsDead) // Живые/доступные тела, даже если игрок сейчас в призраке
+            // else if (warp.IsGhost) // Призраки
+            //     _ghostPlayers.Add(warp);
+            if (!warp.IsDead) // Живые. Как в крите, так и полноценное живые
                 _alivePlayers.Add(warp);
         }
     }

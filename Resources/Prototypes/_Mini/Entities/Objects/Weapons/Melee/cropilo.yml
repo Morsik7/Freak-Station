@@ -8,6 +8,7 @@
     state: produce
   - type: Produce
   - type: PotencyVisuals
+  - type: Appearance
   - type: Extractable
     grindableSolutionName: food
 
@@ -31,7 +32,7 @@
         Blunt: 0
         Holy: 25
     soundHit:
-      collection: AlienClaw
+        path: /Audio/Weapons/Xeno/alien_claw_flesh3.ogg
   - type: MeleeChemicalInjector
     transferAmount: 5
     solution: food

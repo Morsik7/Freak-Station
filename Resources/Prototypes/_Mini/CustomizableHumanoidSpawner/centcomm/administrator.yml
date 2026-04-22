@@ -10,12 +10,9 @@
     - sprite: Markers/jobs.rsi
       state: centcom
   - type: CustomizableHumanoidSpawner
-    jobPrototype: CentralCommandAdministrator
+    jobPrototype: CentralCommandOfficial
     allowedSpecies:
     - Human
-    - Vulpkanin
-    - Tajaran
-
 - type: roleLoadout
   id: JobCentralCommandAdministrator
   groups:

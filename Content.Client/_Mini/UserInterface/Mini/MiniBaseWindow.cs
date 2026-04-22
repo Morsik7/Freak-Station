@@ -1,5 +1,3 @@
-
-
 using System.Numerics;
 using Robust.Client.Graphics;
 using Robust.Client.UserInterface;
@@ -71,13 +69,9 @@ public abstract class MiniBaseWindow : Control
     }
 
     public void OpenCentered() => OpenCenteredAt(new Vector2(0.5f, 0.5f));
-
     public void OpenToLeft() => OpenCenteredAt(new Vector2(0, 0.5f));
-
     public void OpenCenteredLeft() => OpenCenteredAt(new Vector2(0.25f, 0.5f));
-
     public void OpenToRight() => OpenCenteredAt(new Vector2(1, 0.5f));
-
     public void OpenCenteredRight() => OpenCenteredAt(new Vector2(0.75f, 0.5f));
 
     public void OpenCenteredAt(Vector2 relativePosition)
@@ -92,7 +86,7 @@ public abstract class MiniBaseWindow : Control
         if (Parent == null)
             return;
 
-        var corner = Parent!.Size * Vector2.Clamp(relativePosition, Vector2.Zero, Vector2.One) - DesiredSize / 2;
+        var corner = Parent.Size * Vector2.Clamp(relativePosition, Vector2.Zero, Vector2.One) - DesiredSize / 2;
         var pos = Vector2.Clamp(corner, Vector2.Zero, Parent.Size - DesiredSize);
         LayoutContainer.SetPosition(this, pos);
     }
@@ -176,13 +170,9 @@ public abstract class MiniBaseWindow : Control
             return;
 
         if (_currentDrag == DragMode.None)
-        {
             UpdateResizeCursor(args.RelativePosition);
-        }
         else
-        {
             PerformResize(args);
-        }
     }
 
     protected override void MouseExited()
@@ -204,12 +194,10 @@ public abstract class MiniBaseWindow : Control
             case DragMode.Bottom:
                 cursor = CursorShape.VResize;
                 break;
-
             case DragMode.Left:
             case DragMode.Right:
                 cursor = CursorShape.HResize;
                 break;
-
             case DragMode.Bottom | DragMode.Left:
             case DragMode.Top | DragMode.Right:
             case DragMode.Bottom | DragMode.Right:

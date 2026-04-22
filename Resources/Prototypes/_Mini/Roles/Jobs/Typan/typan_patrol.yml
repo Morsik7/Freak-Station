@@ -1,7 +1,7 @@
 - type: job
   id: TypanPatrol
   name: job-name-typan-patrol
-  playTimeTracker: JobTypanPatrol
+  playTimeTracker: TypanPatrol
   description: job-description-typan-patrol
   startingGear: TypanPatrol
   icon: "JobIconSyndicateOfficer"
@@ -40,7 +40,7 @@
 - type: startingGear
   id: TypanPatrol
   equipment:
-    ears: ClothingHeadsetAltSyndicate
+    ears: ClothingHeadsetAltTypan
     shoes: ClothingShoesBootsCombat
     gloves: ClothingHandsGlovesCombat
     id: SyndiPDAOff

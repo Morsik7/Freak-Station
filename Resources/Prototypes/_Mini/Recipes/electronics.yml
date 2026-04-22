@@ -49,10 +49,10 @@
   id: UniformPrinterMachineCircuitboardTypan
   result: UniformPrinterMachineCircuitboardTypan
 
-- type: latheRecipe
-  parent: BaseCircuitboardRecipe
-  id: CargoTelepadMachineCircuitboardTypan
-  result: CargoTelepadMachineCircuitboardTypan
+# - type: latheRecipe
+#   parent: BaseCircuitboardRecipe
+#   id: CargoTelepadMachineCircuitboardTypan
+#   result: CargoTelepadMachineCircuitboardTypan
 
 - type: latheRecipe
   parent: BaseCircuitboardRecipe

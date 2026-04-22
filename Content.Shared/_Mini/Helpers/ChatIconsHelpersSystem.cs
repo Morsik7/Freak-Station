@@ -1,4 +1,4 @@
-﻿using Content.Shared.Roles;
+using Content.Shared.Roles;
 using JetBrains.Annotations;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
@@ -10,25 +10,18 @@ public sealed class ChatIconsHelpersSystem : EntitySystem
     [Dependency] private readonly IPrototypeManager _prototype = default!;
 
     public const string NoIdIconRsiPath = "/Textures/Interface/Misc/job_icons.rsi";
+    public const string JobIconsRsiPath = NoIdIconRsiPath;
     public const string NoIdIconState = "NoId";
 
-    /// <summary>
-    /// Собирает и возвращает иконку для переданной работы
-    /// </summary>
     [PublicAPI]
     public string GetJobIcon(ProtoId<JobPrototype>? job, int scale = 1)
     {
         if (!_prototype.TryIndex(job, out var jobPrototype))
-        {
             return BuildIconMarkup(GetFallbackJobIconSpecifier(), scale);
-        }
 
         return BuildIconMarkup(GetJobIconSpecifier(jobPrototype), scale);
     }
 
-    /// <summary>
-    /// Возвращает спецификатор иконки работы, используя переданный прототип работы
-    /// </summary>
     [PublicAPI]
     public SpriteSpecifier GetJobIconSpecifier(JobPrototype job)
     {

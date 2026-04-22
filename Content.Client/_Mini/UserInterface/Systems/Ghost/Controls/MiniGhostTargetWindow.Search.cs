@@ -1,5 +1,5 @@
-﻿using System.Numerics;
-using Content.Client._Mini.UserInterface.Controls;
+using System.Numerics;
+
 using Robust.Client.UserInterface.Controls;
 
 namespace Content.Client._Mini.UserInterface.Systems.Ghost.Controls;
@@ -58,7 +58,7 @@ public sealed partial class MiniGhostTargetWindow
 
         foreach (var child in departmentGrid.Children)
         {
-            if (child is not RichTextButton button)
+            if (child is not Button button)
                 continue;
 
             var isVisible = ButtonIsVisible(button);
@@ -76,7 +76,7 @@ public sealed partial class MiniGhostTargetWindow
     /// </summary>
     /// <param name="button">Кнопка для проверки</param>
     /// <returns>Содержит ли кнопка введенный текст. Если нет -> кнопка не должна быть видна</returns>
-    private bool ButtonIsVisible(RichTextButton button)
+    private bool ButtonIsVisible(Button button)
     {
         return string.IsNullOrEmpty(_searchText)
                || button.ToolTip == null

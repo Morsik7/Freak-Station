@@ -5,14 +5,14 @@
   parent: BaseBullet
   components:
   - type: StaminaDamageOnCollide
-    damage: 8
+    damage: 11
   - type: Sprite
     sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
     state: saintbullet
   - type: Projectile
     damage:
       types:
-        Holy: 5
+        Holy: 20
   - type: SolutionContainerManager
     solutions:
       ammo:

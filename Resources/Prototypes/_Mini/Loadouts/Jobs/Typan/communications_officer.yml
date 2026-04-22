@@ -20,9 +20,3 @@
   - TypanCommunicationsOfficerJumpsuit
   - TypanCommunicationsOfficerJumpskirt
 
-- type: loadoutGroup
-  id: TypanCommunicationsOfficerUnderwear
-  name: loadout-group-typan-communications-officer-underwear
-  hidden: true
-  minLimit: 0
-  loadouts: []

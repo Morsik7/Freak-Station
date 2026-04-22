@@ -310,14 +310,12 @@
   id: ClothingOuterVestWeb
   result: ClothingOuterVestWeb
   materials:
-    Cloth: 300
-    Durathread: 200
-    Steel: 400
+    Cloth: 1000
+    Durathread: 1000
 
 - type: latheRecipe
   id: ClothingOuterVestWebElite
   result: ClothingOuterVestWebElite
   materials:
-    Cloth: 300
-    Durathread: 400
-    Steel: 200
+    Cloth: 1500
+    Durathread: 1000

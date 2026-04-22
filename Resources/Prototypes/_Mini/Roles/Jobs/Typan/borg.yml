@@ -5,11 +5,11 @@
   playTimeTracker: JobBorgTypan
   requirements:
     - !type:OverallPlaytimeRequirement
-      time: 36000 # 10 hrs
+      time: 144000 # 40 hrs
   canBeAntag: false
   icon: JobIconTypanBorg
   supervisors: job-supervisors-typan-syndicate
-  jobEntity: PlayerBorgTypanBattery
+  jobEntity: PlayerBorgSyndicateSaboteurBattery
   applyTraits: false
   access:
   - TypanArmory
@@ -24,6 +24,7 @@
   - TypanResearchDirector
   - TypanScience
   - TypanService
+  - TypanTechnicalOperationsSupervisor
   - TypanVault
   - TypanExternal
   - SyndicateAgent
@@ -35,40 +36,40 @@
         factions:
         - Typan
 
-# - type: job
-#   id: TypanBorgMedic
-#   name: медкиборг синдиката
-#   description: job-description-borg
-#   playTimeTracker: JobBorgTypanMedic
-#   requirements:
-#     - !type:OverallPlaytimeRequirement
-#       time: 144000 # 40 hrs
-#   canBeAntag: false
-#   icon: JobIconTypanBorg
-#   supervisors: job-supervisors-typan-syndicate
-#   jobEntity: PlayerBorgSyndicateMedicalBattery
-#   applyTraits: false
-#   access:
-#   - TypanArmory
-#   - TypanAtmospherics
-#   - TypanCargo
-#   - TypanCommand
-#   - TypanCommunicationsOfficer
-#   - TypanEngineering
-#   - TypanMaint
-#   - TypanMedical
-#   - TypanProtection
-#   - TypanResearchDirector
-#   - TypanScience
-#   - TypanService
-#   - TypanTechnicalOperationsSupervisor
-#   - TypanVault
-#   - TypanExternal
-#   - SyndicateAgent
-#   special:
-#   - !type:AddComponentSpecial
-#     components:
-#       - type: AntagImmune
-#       - type: NpcFactionMember
-#         factions:
-#         - Typan
+- type: job
+  id: TypanBorgMedic
+  name: медкиборг синдиката
+  description: job-description-borg
+  playTimeTracker: JobBorgTypanMedic
+  requirements:
+    - !type:OverallPlaytimeRequirement
+      time: 144000 # 40 hrs
+  canBeAntag: false
+  icon: JobIconTypanBorg
+  supervisors: job-supervisors-typan-syndicate
+  jobEntity: PlayerBorgSyndicateMedicalBattery
+  applyTraits: false
+  access:
+  - TypanArmory
+  - TypanAtmospherics
+  - TypanCargo
+  - TypanCommand
+  - TypanCommunicationsOfficer
+  - TypanEngineering
+  - TypanMaint
+  - TypanMedical
+  - TypanProtection
+  - TypanResearchDirector
+  - TypanScience
+  - TypanService
+  - TypanTechnicalOperationsSupervisor
+  - TypanVault
+  - TypanExternal
+  - SyndicateAgent
+  special:
+  - !type:AddComponentSpecial
+    components:
+      - type: AntagImmune
+      - type: NpcFactionMember
+        factions:
+        - Typan

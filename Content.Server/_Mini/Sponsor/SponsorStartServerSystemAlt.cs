@@ -69,7 +69,7 @@ public sealed class SponsorSystem : EntitySystem
         }
         catch (Exception ex)
         {
-            Log.Warning($"Ошибка БД спонсоров: {ex}");
+            Log.Error($"Ошибка БД спонсоров: {ex}");
         }
     }
 

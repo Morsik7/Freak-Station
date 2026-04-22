@@ -235,7 +235,7 @@ public sealed class MiniCCVars
         CVarDef.Create("lobby.lobby_opacity", 0.90f, CVar.CLIENTONLY | CVar.ARCHIVE);
 
     public static readonly CVarDef<string> ServerName =
-        CVarDef.Create("lobby.server_name", "Mini Station", CVar.SERVER | CVar.REPLICATED);
+        CVarDef.Create("lobby.server_name", "Freaky Station", CVar.SERVER | CVar.REPLICATED);
 
     /*
      * Planet Prison

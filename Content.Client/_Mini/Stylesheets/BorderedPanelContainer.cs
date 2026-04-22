@@ -1,71 +1,71 @@
-using System.Numerics;
-using Robust.Client.Graphics;
-using Robust.Client.UserInterface.Controls;
-using Robust.Shared.Prototypes;
+// using System.Numerics;
+// using Robust.Client.Graphics;
+// using Robust.Client.UserInterface.Controls;
+// using Robust.Shared.Prototypes;
 
-namespace Content.Client._Mini.Roadmap.UI;
-
-
-[Virtual]
-public class BorderedPanelContainer : PanelContainer
-{
-    [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
+// namespace Content.Client._Mini.Roadmap.UI;
 
 
-    private float _borderRadius = 0f;
-    private Color _backgroundColor = Color.FromHex("#25252A");
-    private Vector2 _artifactScaleProtection = new Vector2(1.0f);
+// [Virtual]
+// public class BorderedPanelContainer : PanelContainer
+// {
+//     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
 
 
-    protected ShaderInstance BorderShader;
+//     private float _borderRadius = 0f;
+//     private Color _backgroundColor = Color.FromHex("#25252A");
+//     private Vector2 _artifactScaleProtection = new Vector2(1.0f);
 
 
-    [ViewVariables(VVAccess.ReadWrite)]
-    public Color BackgroundPanelColor
-    {
-        get => _backgroundColor;
-        set => _backgroundColor = value;
-    }
+//     protected ShaderInstance BorderShader;
 
-    [ViewVariables(VVAccess.ReadWrite)]
-    public float BorderRadius
-    {
-        get => _borderRadius * 100;
-        set
-        {
-            _borderRadius = value / 100;
-            BorderShader.SetParameter("borderRadius", value / 100);
-        }
-    }
 
-    [ViewVariables(VVAccess.ReadWrite)]
-    public Vector2 ArtifactScaleProtection
-    {
-        get => _artifactScaleProtection;
-        set
-        {
-            _artifactScaleProtection = value;
-            BorderShader.SetParameter("artifactScaleProtection", value);
-        }
-    }
+//     [ViewVariables(VVAccess.ReadWrite)]
+//     public Color BackgroundPanelColor
+//     {
+//         get => _backgroundColor;
+//         set => _backgroundColor = value;
+//     }
 
-    public BorderedPanelContainer()
-    {
-        IoCManager.InjectDependencies(this);
+//     [ViewVariables(VVAccess.ReadWrite)]
+//     public float BorderRadius
+//     {
+//         get => _borderRadius * 100;
+//         set
+//         {
+//             _borderRadius = value / 100;
+//             BorderShader.SetParameter("borderRadius", value / 100);
+//         }
+//     }
 
-        BorderShader = _prototypeManager.Index<ShaderPrototype>("BorderRadius").InstanceUnique();
+//     [ViewVariables(VVAccess.ReadWrite)]
+//     public Vector2 ArtifactScaleProtection
+//     {
+//         get => _artifactScaleProtection;
+//         set
+//         {
+//             _artifactScaleProtection = value;
+//             BorderShader.SetParameter("artifactScaleProtection", value);
+//         }
+//     }
 
-        BorderShader.SetParameter("artifactScaleProtection", _artifactScaleProtection);
-    }
+//     public BorderedPanelContainer()
+//     {
+//         IoCManager.InjectDependencies(this);
 
-    protected override void Draw(DrawingHandleScreen handle)
-    {
-        BorderShader.SetParameter("elementSize", PixelSize);
+//         BorderShader = _prototypeManager.Index<ShaderPrototype>("BorderRadius").InstanceUnique();
 
-        handle.UseShader(BorderShader);
+//         BorderShader.SetParameter("artifactScaleProtection", _artifactScaleProtection);
+//     }
 
-        handle.DrawRect(PixelSizeBox, BackgroundPanelColor);
+//     protected override void Draw(DrawingHandleScreen handle)
+//     {
+//         BorderShader.SetParameter("elementSize", PixelSize);
 
-        handle.UseShader(null);
-    }
-}
+//         handle.UseShader(BorderShader);
+
+//         handle.DrawRect(PixelSizeBox, BackgroundPanelColor);
+
+//         handle.UseShader(null);
+//     }
+// }

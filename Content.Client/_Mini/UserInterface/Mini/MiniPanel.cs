@@ -1,33 +1,33 @@
-using Robust.Client.Graphics;
-using Robust.Client.UserInterface;
+// using Robust.Client.Graphics;
+// using Robust.Client.UserInterface;
 
-namespace Content.Client._Donate.Mini;
+// namespace Content.Client._Donate.Mini;
 
-[Virtual]
-public class MiniPanel : Control
-{
-    private readonly Color _bgColor = Color.FromHex("#2e200f");
-    private readonly Color _borderColor = Color.FromHex("#6a5f3a");
+// [Virtual]
+// public class MiniPanel : Control
+// {
+//     private readonly Color _bgColor = Color.FromHex("#2e200f");
+//     private readonly Color _borderColor = Color.FromHex("#6a5f3a");
 
-    public MiniPanel()
-    {
-        MouseFilter = MouseFilterMode.Stop;
-    }
+//     public MiniPanel()
+//     {
+//         MouseFilter = MouseFilterMode.Stop;
+//     }
 
-    protected override void Draw(DrawingHandleScreen handle)
-    {
-        var rect = new UIBox2(0, 0, PixelSize.X, PixelSize.Y);
+//     protected override void Draw(DrawingHandleScreen handle)
+//     {
+//         var rect = new UIBox2(0, 0, PixelSize.X, PixelSize.Y);
 
-        handle.DrawRect(rect, _bgColor.WithAlpha(0.9f));
+//         handle.DrawRect(rect, _bgColor.WithAlpha(0.9f));
 
-        DrawBorder(handle, rect);
-    }
+//         DrawBorder(handle, rect);
+//     }
 
-    private void DrawBorder(DrawingHandleScreen handle, UIBox2 rect)
-    {
-        handle.DrawLine(rect.TopLeft, rect.TopRight, _borderColor);
-        handle.DrawLine(rect.TopRight, rect.BottomRight, _borderColor);
-        handle.DrawLine(rect.BottomRight, rect.BottomLeft, _borderColor);
-        handle.DrawLine(rect.BottomLeft, rect.TopLeft, _borderColor);
-    }
-}
+//     private void DrawBorder(DrawingHandleScreen handle, UIBox2 rect)
+//     {
+//         handle.DrawLine(rect.TopLeft, rect.TopRight, _borderColor);
+//         handle.DrawLine(rect.TopRight, rect.BottomRight, _borderColor);
+//         handle.DrawLine(rect.BottomRight, rect.BottomLeft, _borderColor);
+//         handle.DrawLine(rect.BottomLeft, rect.TopLeft, _borderColor);
+//     }
+// }

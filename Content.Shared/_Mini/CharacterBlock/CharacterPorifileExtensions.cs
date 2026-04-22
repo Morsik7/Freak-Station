@@ -1,11 +1,11 @@
-﻿using Content.Shared.Preferences;
+﻿// using Content.Shared.Preferences;
 
-namespace Content.Shared._Mini.CharacterBlock;
+// namespace Content.Shared._Mini.CharacterBlock;
 
-public static class CharacterPorifileExtensions
-{
-    public static string BuildId(this HumanoidCharacterProfile profile)
-    {
-        return profile.Name + profile.Sex + profile.Species;
-    }
-}
+// public static class CharacterPorifileExtensions
+// {
+//     public static string BuildId(this HumanoidCharacterProfile profile)
+//     {
+//         return profile.Name + profile.Sex + profile.Species;
+//     }
+// }

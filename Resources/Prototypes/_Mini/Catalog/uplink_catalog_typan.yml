@@ -1,4 +1,4 @@
-# TODO: make more categories
+﻿# TODO: make more categories
 # Guns
 
 - type: listing
@@ -479,7 +479,7 @@
   name: uplink-encryption-key-name
   description: uplink-encryption-key-desc
   icon: { sprite: /Textures/Objects/Devices/encryption_keys.rsi, state: synd_label }
-  productEntity: BoxEncryptionKeySyndie # Two for the price of one
+  productEntity: BoxEncryptionKeyTypan # Two for the price of one
   cost:
     Telecrystal: 6
   categories:
@@ -685,15 +685,18 @@
         components:
           - SurplusBundle
 
-- type: listing
-  id: TypanUplinkAntimovCircuitBoard
-  name: uplink-antimov-law-name
-  description: uplink-antimov-law-desc
-  productEntity: AntimovCircuitBoard
-  cost:
-    Telecrystal: 15
-  categories:
-  - TypanUplinkDisruption
+# - type: listing
+#   id: TypanUplinkAntimovCircuitBoard
+#   name: uplink-antimov-law-name
+#   description: uplink-antimov-law-desc
+#   productEntity: AntimovCircuitBoard
+#   discountCategory: usualDiscounts
+#   discountDownTo:
+#     Telecrystal: 10
+#   cost:
+#     Telecrystal: 15
+#   categories:
+#   - TypanUplinkDisruption
 
 - type: listing
   id: TypanUplinkNukieAntimovCircuitBoard
@@ -720,20 +723,20 @@
 #       components:
 #       - SurplusBundle
 
-# - type: listing
-#   id: TypanUplinkSuperSurplusBundle
-#   name: uplink-super-surplus-bundle-name
-#   description: uplink-super-surplus-bundle-desc
-#   productEntity: CrateSyndicateSuperSurplusBundle
-#   cost:
-#     Telecrystal: 65
-#   categories:
-#   - TypanUplinkDisruption
-#   conditions:
-#   - !type:BuyerWhitelistCondition
-#     blacklist:
-#       components:
-#       - SurplusBundle
+- type: listing
+  id: TypanUplinkSuperSurplusBundle
+  name: uplink-super-surplus-bundle-name
+  description: uplink-super-surplus-bundle-desc
+  productEntity: CrateSyndicateSuperSurplusBundle
+  cost:
+    Telecrystal: 100
+  categories:
+  - TypanUplinkDisruption
+  conditions:
+  - !type:BuyerWhitelistCondition
+    blacklist:
+      components:
+      - SurplusBundle
 
 - type: listing
   id: TypanUplinkSingarityBeacon
@@ -1561,16 +1564,6 @@
     Telecrystal: 4
   categories:
   - TypanUplinkMaterials
-
-# - type: listing
-#   id: UplinkRifleAK
-#   name: АКМС
-#   description: Культовое оружие всех войн. Использует патроны калибра .30 винтовочный
-#   productEntity: WeaponRifleAK
-#   cost:
-#     Telecrystal: 12
-#   categories:
-#   - UplinkWeaponry
 
 - type: listing
   id: TypanUplinkMagazineRifleAK

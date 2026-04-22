@@ -8,4 +8,4 @@
     whitelist:
       components:
       - Monument
-    targetName: pinpointer-cult-monument-target
+    targetName: монумент культистов

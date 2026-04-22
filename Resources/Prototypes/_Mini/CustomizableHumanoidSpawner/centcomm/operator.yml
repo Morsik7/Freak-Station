@@ -10,7 +10,7 @@
     - sprite: Markers/jobs.rsi
       state: centcom
   - type: CustomizableHumanoidSpawner
-    jobPrototype: CentralCommandOperator
+    jobPrototype: CentralCommandOfficial
     allowedSpecies:
     - Human
     - Vulpkanin

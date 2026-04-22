@@ -22,6 +22,9 @@
   - Survival
   - GroupSpeciesBreathTool
 
+- type: playTimeTracker
+  id: JobCentralCommandSpecialOperationsOfficer
+
 - type: loadoutGroup
   id: CentralCommandSpecialOperationsOfficerLoadout
   name: spawner-loadout-centcomm-soo

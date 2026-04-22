@@ -226,7 +226,7 @@
   - type: Sprite
     state: green
   - type: SpawnPoint
-    job_id: TypanBorg
+    job_id: TypanBorgMedic
     spawn_type: Job
 
 - type: entity
@@ -237,5 +237,5 @@
   - type: Sprite
     state: green
   - type: SpawnPoint
-    job_id: TypanBorg
+    job_id: TypanBorgMedic
     spawn_type: LateJoin

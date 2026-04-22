@@ -181,17 +181,17 @@
     stackRequirements:
       Plasma: 5
 
-- type: entity
-  id: CargoTelepadMachineCircuitboardTypan
-  parent: BaseMachineCircuitboardTypan
-  name: грузовой телепад (машинная плата)
-  description: Печатная плата грузового телепада.
-  components:
-  - type: MachineBoard
-    prototype: CargoTelepadTypan
-    stackRequirements:
-      Manipulator: 2
-      Steel: 5
+# - type: entity
+#   id: CargoTelepadMachineCircuitboardTypan
+#   parent: BaseMachineCircuitboardTypan
+#   name: грузовой телепад (машинная плата)
+#   description: Печатная плата грузового телепада.
+#   components:
+#   - type: MachineBoard
+#     prototype: CargoTelepadTypan
+#     stackRequirements:
+#       Manipulator: 2
+#       Steel: 5
 
 - type: entity
   id: BiofabricatorMachineCircuitboardTypan
@@ -286,19 +286,6 @@
 
 - type: entity
   parent: WeaponEnergyTurretStationMachineCircuitboardBase
-  id: WeaponEnergyTurretCentralCommandMachineCircuitboard
-  name: охранная турель (машинная плата)
-  description: Печатная плата для охранной турели.
-  suffix: CentComm
-  components:
-  - type: Sprite
-    sprite: Objects/Misc/module.rsi
-    state: command
-  - type: MachineBoard
-    prototype: WeaponEnergyTurretCentralCommand
-
-- type: entity
-  parent: WeaponEnergyTurretStationMachineCircuitboardBase
   id: WeaponEnergyTurretTypanAIMachineCircuitboard
   name: охранная турель (машинная плата)
   description: Печатная плата для охранной турели.
@@ -335,6 +322,19 @@
     state: syndicate
   - type: MachineBoard
     prototype: WeaponEnergyTurretTypanCommand
+
+- type: entity
+  parent: WeaponEnergyTurretStationMachineCircuitboardBase
+  id: WeaponEnergyTurretCentralCommandMachineCircuitboard
+  name: turret machine board
+  description: A machine printed circuit board for a security turret.
+  suffix: Central Command
+  components:
+  - type: Sprite
+    sprite: _Mini/Objects/Misc/module.rsi
+    state: syndicate
+  - type: MachineBoard
+    prototype: WeaponEnergyTurretCentralCommand
 
 - type: entity
   id: MaterialSiloMachineCircuitboardTypan

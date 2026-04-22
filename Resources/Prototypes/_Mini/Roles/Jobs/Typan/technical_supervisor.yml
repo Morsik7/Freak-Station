@@ -20,7 +20,7 @@
   - TypanEngineering
   - TypanMaint
   - TypanMedical
-  - TypanResearch
+  - TypanScience
   - TypanService
   - TypanTechnicalOperationsSupervisor
   - TypanExternal
@@ -31,11 +31,14 @@
 - type: startingGear
   id: TypanTechnicalOperationsSupervisorGear
   equipment:
-    ears: ClothingHeadsetAltSyndicate
+    ears: ClothingHeadsetAltTypan
     shoes: ClothingShoesBootsLaceup
-    id: SyndiPDAEng
+    id: TypanTechnicalOperationsSupervisorPDA
 
 - type: chameleonOutfit
   id: TypanTechnicalOperationsSupervisorChameleonOutfit
   job: TypanTechnicalOperationsSupervisor
   startingGear: TypanTechnicalOperationsSupervisorGear
+  equipment:
+    id: PassengerPDA
+    neck: ClothingNeckGoldmedal

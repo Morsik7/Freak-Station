@@ -195,8 +195,10 @@
     contents:
     - id: ClothingHandsGlovesLeather
     - id: ClothingOuterApronTypanBotanist
+    - id: ClothingMaskBandBotany
     - id: ChemistryBottleRobustHarvest
       prob: 0.3
+    - id: ClothingBeltPlant
     - id: TypanPlantBag
     - id: BoxMouthSwab
     - id: Dropper
@@ -241,6 +243,9 @@
   components:
   - type: StorageFill
     contents:
+    - id: CargoBountyComputerCircuitboardTypan
+    - id: CargoRequestComputerCircuitboardTypan
+    - id: CargoSaleComputerCircuitboardTypan
     - id: SalvageMagnetMachineCircuitboard
     - id: TypanDoorRemote
     - id: MailTeleporterMachineCircuitboard

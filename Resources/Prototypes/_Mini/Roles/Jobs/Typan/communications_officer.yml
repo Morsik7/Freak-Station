@@ -8,11 +8,13 @@
   supervisors: job-supervisors-typan-syndicate
   canBeAntag: false
   skills: # CorvaxGoob-Skills
-  - All
+    - All
   requirements:
     - !type:DepartmentTimeRequirement
       department: Typan
-      time: 72000 # 20 hours
+      time: 180000 # 50 hours
+    - !type:AgeRequirement
+      requiredAge: 26
   access:
   - TypanArmory
   - TypanAtmospherics
@@ -26,6 +28,7 @@
   - TypanResearchDirector
   - TypanScience
   - TypanService
+  - TypanTechnicalOperationsSupervisor
   - TypanVault
   - TypanExternal
   - SyndicateAgent
@@ -41,7 +44,7 @@
 - type: startingGear
   id: TypanCommander
   equipment:
-    ears: ClothingHeadsetAltSyndicate
+    ears: ClothingHeadsetAltTypanCommander
     shoes: ClothingShoesBootsCombat
     gloves: ClothingHandsGlovesCombat
     id: SyndiPDACom

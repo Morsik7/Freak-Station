@@ -1,7 +1,6 @@
 using System;
 using System.Collections.Generic;
 using System.Collections.Immutable;
-using System.Threading;
 using System.Threading.Tasks;
 using Content.Shared.GameTicking;
 using Npgsql;
@@ -9,24 +8,14 @@ using Robust.Shared.Configuration;
 using Robust.Shared.GameObjects;
 using Robust.Shared.IoC;
 using Robust.Shared.Log;
-using Robust.Shared.Timing;
 
 namespace Content.Server.Sponsors;
 
 public sealed class SponsorSystem : EntitySystem
 {
     [Dependency] private readonly IConfigurationManager _cfg = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
 
-    private float _updateTimer;
-    private const float UpdateInterval = 30f;
-    private static readonly TimeSpan RetryStep = TimeSpan.FromSeconds(30);
-    private static readonly TimeSpan RetryMax = TimeSpan.FromMinutes(10);
-    private TimeSpan _retryDelay = TimeSpan.Zero;
-    private TimeSpan _nextRetryAt = TimeSpan.Zero;
-    private int _loadInProgress;
-    private bool _dbUnavailable;
-
+    // Структура данных и список
     public record struct SponsorInfo(string Uid, int Level);
     public ImmutableList<SponsorInfo> Sponsors { get; private set; } = ImmutableList<SponsorInfo>.Empty;
 
@@ -34,61 +23,31 @@ public sealed class SponsorSystem : EntitySystem
     {
         base.Initialize();
 
+        // Подписываемся на окончание раунда для обновления данных
         SubscribeLocalEvent<RoundEndMessageEvent>(OnRoundEnd);
 
-        // Первичная загрузка при старте
-        TryScheduleLoad("первичной загрузки", logSuccess: false);
+        // Загружаем данные сразу при старте сервера
+        _ = LoadSponsors();
     }
 
     private void OnRoundEnd(RoundEndMessageEvent ev)
     {
-        // Внеочередное обновление после раунда
-        TryScheduleLoad("обновления после раунда", logSuccess: true);
-    }
-
-    public override void Update(float frameTime)
-    {
-        base.Update(frameTime);
-
-        // Пропускаем обновление, если игра приостановлена
-        if (!_timing.IsFirstTimePredicted)
-            return;
-
-        _updateTimer += frameTime;
-
-        if (_updateTimer < UpdateInterval)
-            return;
-
-        _updateTimer -= UpdateInterval;
-
-        // Запускаем асинхронную загрузку, не блокируя игровой цикл
-        TryScheduleLoad("периодического обновления", logSuccess: true);
-    }
-
-    private void TryScheduleLoad(string source, bool logSuccess)
-    {
-        if (_timing.CurTime < _nextRetryAt)
-            return;
-
-        if (Interlocked.CompareExchange(ref _loadInProgress, 1, 0) != 0)
-            return;
-
+        // Обновляем список асинхронно, чтобы не задерживать показ статистики раунда
         _ = Task.Run(async () =>
         {
             try
             {
-                var loaded = await LoadSponsors();
-                if (loaded && logSuccess)
-                    Log.Debug($"[Sponsors] Данные обновлены после {source}.");
+                await LoadSponsors();
+                Log.Info("[Sponsors] Данные успешно обновлены после раунда.");
             }
-            finally
+            catch (Exception e)
             {
-                Interlocked.Exchange(ref _loadInProgress, 0);
+                Log.Error($"[Sponsors] Ошибка при фоновом обновлении: {e}");
             }
         });
     }
 
-    public async Task<bool> LoadSponsors()
+    public async Task LoadSponsors()
     {
         var builder = new NpgsqlConnectionStringBuilder
         {
@@ -102,6 +61,7 @@ public sealed class SponsorSystem : EntitySystem
         if (IsPostgresUnconfigured(builder))
         {
             Log.Warning("[Sponsors] PostgreSQL is not configured, skipping sponsor sync.");
+            return;
         }
 
         try
@@ -125,27 +85,11 @@ public sealed class SponsorSystem : EntitySystem
             }
 
             Sponsors = tempList.ToImmutableList();
-            if (_dbUnavailable)
-                Log.Info("[Sponsors] Подключение к БД восстановлено.");
-
-            _dbUnavailable = false;
-            _retryDelay = TimeSpan.Zero;
-            _nextRetryAt = TimeSpan.Zero;
             Log.Info($"[Sponsors] Загружено {Sponsors.Count} спонсоров из БД.");
-            return true;
         }
         catch (Exception ex)
         {
-            _dbUnavailable = true;
-            _retryDelay = _retryDelay == TimeSpan.Zero ? RetryStep : TimeSpan.FromSeconds(Math.Min(RetryMax.TotalSeconds, _retryDelay.TotalSeconds + RetryStep.TotalSeconds));
-            _nextRetryAt = _timing.CurTime + _retryDelay;
-
-            if (_retryDelay == RetryStep)
-                Log.Warning($"[Sponsors] Критическая ошибка БД: {ex}");
-            else
-                Log.Warning($"[Sponsors] БД недоступна, следующая попытка через {_retryDelay.TotalSeconds:0} сек.");
-
-            return false;
+            Log.Error($"[Sponsors] Критическая ошибка БД: {ex}");
         }
     }
 
