@@ -1199,10 +1199,23 @@ namespace Content.Server.Database.Migrations.Postgres
                         .HasColumnType("integer")
                         .HasColumnName("age");
 
+                    b.Property<float?>("BarkPitch")
+                        .HasColumnType("real")
+                        .HasColumnName("bark_pitch");
+
+                    b.Property<string>("BarkProto")
+                        .HasColumnType("text")
+                        .HasColumnName("bark_proto");
+
                     b.Property<string>("CharacterName")
                         .IsRequired()
                         .HasColumnType("text")
                         .HasColumnName("char_name");
+
+                    b.Property<string>("ERPConsent")
+                        .IsRequired()
+                        .HasColumnType("text")
+                        .HasColumnName("erp_consent");
 
                     b.Property<string>("EyeColor")
                         .IsRequired()
@@ -1239,9 +1252,31 @@ namespace Content.Server.Database.Migrations.Postgres
                         .HasColumnType("text")
                         .HasColumnName("hair_name");
 
+                    b.Property<string>("HeadshotUrl")
+                        .IsRequired()
+                        .HasColumnType("text")
+                        .HasColumnName("headshot_url");
+
+                    b.Property<float?>("HighBarkVar")
+                        .HasColumnType("real")
+                        .HasColumnName("high_bark_var");
+
+                    b.Property<float?>("LowBarkVar")
+                        .HasColumnType("real")
+                        .HasColumnName("low_bark_var");
+
                     b.Property<JsonDocument>("Markings")
                         .HasColumnType("jsonb")
                         .HasColumnName("markings");
+
+                    b.Property<bool>("NonCon")
+                        .HasColumnType("boolean")
+                        .HasColumnName("non_con");
+
+                    b.Property<string>("OOCNotes")
+                        .IsRequired()
+                        .HasColumnType("text")
+                        .HasColumnName("ooc_notes");
 
                     b.Property<int>("PreferenceId")
                         .HasColumnType("integer")

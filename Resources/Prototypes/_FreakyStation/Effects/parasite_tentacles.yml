@@ -62,11 +62,6 @@
     lifetime: 1
   - type: SpawnOnDespawn
     prototype: EffectParasiteTentacleRetract
-  - type: TriggerOnCollide
-  - type: DamageOtherOnCollide
-    damage:
-      types:
-        Slash: 15
-  - type: StunOnCollide
+  - type: StunOnContact
     stunAmount: 2
     knockdownAmount: 2
