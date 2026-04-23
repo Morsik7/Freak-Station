@@ -13,6 +13,7 @@ public partial interface IServerDbManager
     public Task<SponsorData?> GetSponsorData(NetUserId netUserId, CancellationToken cancel = default);
     public Task<List<SponsorData>> GetSponsorData(CancellationToken cancel = default);
     public Task SetSponsordata(NetUserId netUserId, ISponsorData? sponsorData, CancellationToken cancel = default);
+    public Task<Player?> GetPlayerRecordByEmail(string email, CancellationToken cancel = default);
 }
 
 public partial class ServerDbManager
@@ -33,6 +34,12 @@ public partial class ServerDbManager
     {
         DbWriteOpsMetric.Inc();
         return RunDbCommand(() => _db.SetSponsorData(netUserId, sponsorData, cancel));
+    }
+
+    public Task<Player?> GetPlayerRecordByEmail(string email, CancellationToken cancel = default)
+    {
+        DbReadOpsMetric.Inc();
+        return RunDbCommand(() => _db.GetPlayerRecordByEmail(email, cancel));
     }
 }
 
@@ -118,6 +125,13 @@ public partial class ServerDbBase
         }));
 
         await db.DbContext.SaveChangesAsync(cancel);
+    }
+
+    public async Task<Player?> GetPlayerRecordByEmail(string email, CancellationToken cancel = default)
+    {
+        await using var db = await GetDb(cancel);
+        return await db.DbContext.Player
+            .FirstOrDefaultAsync(p => p.Email != null && p.Email.ToLower() == email.ToLower(), cancel);
     }
 }
 
