@@ -1,4 +1,4 @@
-<p align="center"> <img alt="Freak Station" width="880" height="300" src="Resources/Textures/Logo/logo.png" /></p>
+<p align="center"> <img alt="Freak Station" width="960" height="540" src="Resources/Textures/Logo/logo.png" /></p>
 
 Мини-станция - это активно модифицируемый и основывающийся форк от всем изестного репозитория Goob Station, направленный на его перевод и создание собственного контента.
 
