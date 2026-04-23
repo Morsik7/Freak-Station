@@ -1,4 +1,5 @@
 // SPDX-FileCopyrightText: 2026 Casha
+// Мини-станция/Freaky-station, Licensed under custom terms with restrictions on public hosting and commercial use, full text: https://raw.githubusercontent.com/ministation/mini-station-goob/master/LICENSE.TXT
 using System;
 using Content.Server.Administration;
 using Content.Server._Mini.AntagTokens;
@@ -9,6 +10,33 @@ using Robust.Shared.Console;
 using Robust.Shared.GameObjects;
 
 namespace Content.Server._Mini.Administration.Commands;
+
+[AdminCommand(AdminFlags.Admin)]
+public sealed class AntagTokenDatabaseSyncCommand : IConsoleCommand
+{
+    [Dependency] private readonly IPlayerManager _playerManager = default!;
+    [Dependency] private readonly IEntityManager _entities = default!;
+
+    public string Command => "antagtokendbsync";
+    public string Description => "Reloads antagonist token state from the database for an online player (external Discord/DB changes).";
+    public string Help => "Usage: antagtokendbsync [username]";
+
+    public void Execute(IConsoleShell shell, string argStr, string[] args)
+    {
+        if (args.Length > 1)
+        {
+            shell.WriteLine(Help);
+            return;
+        }
+
+        if (!DailyRewardCommandHelpers.TryResolveSession(shell, args, _playerManager, out var session))
+            return;
+
+        var system = _entities.System<AntagTokenSystem>();
+        system.RequestAntagTokenDatabaseSync(session);
+        shell.WriteLine($"Requested database sync for {session.Name}.");
+    }
+}
 
 [AdminCommand(AdminFlags.Admin)]
 public sealed class AntagTokenStatusCommand : IConsoleCommand
@@ -48,7 +76,7 @@ public sealed class AntagTokenStatusCommand : IConsoleCommand
     }
 }
 
-[AdminCommand(AdminFlags.Admin)]
+[AdminCommand(AdminFlags.Host)]
 public sealed class AntagTokenAddCommand : IConsoleCommand
 {
     [Dependency] private readonly IPlayerManager _playerManager = default!;
@@ -148,7 +176,7 @@ public sealed class AntagTokenBuyCommand : IConsoleCommand
             return;
 
         var roleId = args[consumedArgs];
-        if (!AntagTokenCatalog.TryGetRole(roleId, out _))
+        if (!_entities.System<AntagTokenListingSystem>().TryGetListing(roleId, out _))
         {
             shell.WriteError("Unknown role id.");
             return;
@@ -306,5 +334,45 @@ public sealed class AntagTokenSetMonthlyEarnedCommand : IConsoleCommand
         }
 
         shell.WriteLine($"Set monthly earned for {session.Name} to {earned}.");
+    }
+}
+
+[AdminCommand(AdminFlags.Admin)]
+public sealed class AntagTokenMenuCommand : IConsoleCommand
+{
+    [Dependency] private readonly IEntityManager _entities = default!;
+
+    public string Command => "antagtokenmenu";
+    public string Description => "Enables or disables the antagonist token menu and role выдача.";
+    public string Help => "Usage: antagtokenmenu <on|off|status>";
+
+    public void Execute(IConsoleShell shell, string argStr, string[] args)
+    {
+        if (args.Length != 1)
+        {
+            shell.WriteLine(Help);
+            return;
+        }
+
+        var system = _entities.System<AntagTokenSystem>();
+        switch (args[0].ToLowerInvariant())
+        {
+            case "on":
+                system.SetStoreEnabled(true);
+                shell.WriteLine("Antagonist token menu enabled.");
+                break;
+            case "off":
+                system.SetStoreEnabled(false);
+                shell.WriteLine("Antagonist token menu disabled. UI opening and antagonist issuance are blocked.");
+                break;
+            case "status":
+                shell.WriteLine(system.IsStoreEnabled()
+                    ? "Antagonist token menu is enabled."
+                    : "Antagonist token menu is disabled.");
+                break;
+            default:
+                shell.WriteLine(Help);
+                break;
+        }
     }
 }
