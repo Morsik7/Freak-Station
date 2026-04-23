@@ -1,4 +1,5 @@
 // SPDX-FileCopyrightText: 2026 Casha
+// Мини-станция/Freaky-station, Licensed under custom terms with restrictions on public hosting and commercial use, full text: https://raw.githubusercontent.com/ministation/mini-station-goob/master/LICENSE.TXT
 using System;
 using System.Collections.Generic;
 using Robust.Shared.Serialization;
@@ -22,7 +23,9 @@ public sealed class DailyRewardUpdateMessage(
     TimeSpan timeUntilNextClaim,
     TimeSpan currentActiveTime,
     TimeSpan requiredActiveTime,
-    List<DailyRewardEntry> rewards) : BoundUserInterfaceState
+    List<DailyRewardEntry> rewards,
+    TimeSpan onlineElapsed,
+    List<TimeSpan> onlineGrantedThresholds) : BoundUserInterfaceState
 {
     public int CurrentStreak { get; } = currentStreak;
     public int NextRewardDay { get; } = nextRewardDay;
@@ -34,6 +37,8 @@ public sealed class DailyRewardUpdateMessage(
     public TimeSpan CurrentActiveTime { get; } = currentActiveTime;
     public TimeSpan RequiredActiveTime { get; } = requiredActiveTime;
     public List<DailyRewardEntry> Rewards { get; } = rewards;
+    public TimeSpan OnlineElapsed { get; } = onlineElapsed;
+    public List<TimeSpan> OnlineGrantedThresholds { get; } = onlineGrantedThresholds;
 }
 
 [Serializable, NetSerializable]
@@ -60,15 +65,15 @@ public sealed class DailyRewardStateEvent(DailyRewardUpdateMessage state) : Enti
 [Serializable, NetSerializable]
 public sealed class DailyRewardEntry(
     int day,
-    string? tokenName,
-    bool grantsToken,
+    string? rewardName,
+    bool hasReward,
     string iconPath,
     bool isClaimed,
     bool isCurrent)
 {
     public int Day { get; } = day;
-    public string? TokenName { get; } = tokenName;
-    public bool GrantsToken { get; } = grantsToken;
+    public string? RewardName { get; } = rewardName;
+    public bool HasReward { get; } = hasReward;
     public string IconPath { get; } = iconPath;
     public bool IsClaimed { get; } = isClaimed;
     public bool IsCurrent { get; } = isCurrent;
